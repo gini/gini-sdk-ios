@@ -16,6 +16,8 @@
 		23D53C0C1934BC85001A957E /* libGiniSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53BF41934BC85001A957E /* libGiniSDK.a */; };
 		23D53C121934BC85001A957E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23D53C101934BC85001A957E /* InfoPlist.strings */; };
 		23D53C141934BC85001A957E /* GiniSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D53C131934BC85001A957E /* GiniSDKTests.m */; };
+		BD6A38638C7D43B286FB91D5 /* libPods-GiniSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 774D0A01081B4E5AA6522EA1 /* libPods-GiniSDK.a */; };
+		E4F91D5C77374847A49B7556 /* libPods-GiniSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A4B8B009A3439A8B77B1FA /* libPods-GiniSDKTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18A4B8B009A3439A8B77B1FA /* libPods-GiniSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GiniSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D53BF41934BC85001A957E /* libGiniSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGiniSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D53BF71934BC85001A957E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23D53BFB1934BC85001A957E /* GiniSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GiniSDK-Prefix.pch"; sourceTree = "<group>"; };
@@ -53,6 +56,9 @@
 		23D53C0F1934BC85001A957E /* GiniSDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GiniSDKTests-Info.plist"; sourceTree = "<group>"; };
 		23D53C111934BC85001A957E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23D53C131934BC85001A957E /* GiniSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiniSDKTests.m; sourceTree = "<group>"; };
+		3D897502339F4D418E95EC06 /* Pods-GiniSDKTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniSDKTests.xcconfig"; path = "Pods/Pods-GiniSDKTests.xcconfig"; sourceTree = "<group>"; };
+		774D0A01081B4E5AA6522EA1 /* libPods-GiniSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GiniSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4595AFEFE0645659CEF2F3D /* Pods-GiniSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniSDK.xcconfig"; path = "Pods/Pods-GiniSDK.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23D53BF81934BC85001A957E /* Foundation.framework in Frameworks */,
+				BD6A38638C7D43B286FB91D5 /* libPods-GiniSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +79,7 @@
 				23D53C091934BC85001A957E /* UIKit.framework in Frameworks */,
 				23D53C071934BC85001A957E /* Foundation.framework in Frameworks */,
 				23D53C0C1934BC85001A957E /* libGiniSDK.a in Frameworks */,
+				E4F91D5C77374847A49B7556 /* libPods-GiniSDKTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +93,8 @@
 				23D53C0D1934BC85001A957E /* GiniSDKTests */,
 				23D53BF61934BC85001A957E /* Frameworks */,
 				23D53BF51934BC85001A957E /* Products */,
+				D4595AFEFE0645659CEF2F3D /* Pods-GiniSDK.xcconfig */,
+				3D897502339F4D418E95EC06 /* Pods-GiniSDKTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +113,8 @@
 				23D53BF71934BC85001A957E /* Foundation.framework */,
 				23D53C051934BC85001A957E /* XCTest.framework */,
 				23D53C081934BC85001A957E /* UIKit.framework */,
+				774D0A01081B4E5AA6522EA1 /* libPods-GiniSDK.a */,
+				18A4B8B009A3439A8B77B1FA /* libPods-GiniSDKTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23D53C171934BC85001A957E /* Build configuration list for PBXNativeTarget "GiniSDK" */;
 			buildPhases = (
+				1EAD0DC3BD80495389E703A6 /* Check Pods Manifest.lock */,
 				23D53BF01934BC85001A957E /* Sources */,
 				23D53BF11934BC85001A957E /* Frameworks */,
 				23D53BF21934BC85001A957E /* CopyFiles */,
+				97F7B0A80C644828A886485E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23D53C1A1934BC85001A957E /* Build configuration list for PBXNativeTarget "GiniSDKTests" */;
 			buildPhases = (
+				765B73F1427F4E21B950773D /* Check Pods Manifest.lock */,
 				23D53C001934BC85001A957E /* Sources */,
 				23D53C011934BC85001A957E /* Frameworks */,
 				23D53C021934BC85001A957E /* Resources */,
+				9FCE6A51D6974C6AB1541A9F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,6 +234,69 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EAD0DC3BD80495389E703A6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		765B73F1427F4E21B950773D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		97F7B0A80C644828A886485E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-GiniSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FCE6A51D6974C6AB1541A9F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-GiniSDKTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23D53BF01934BC85001A957E /* Sources */ = {
@@ -328,11 +407,11 @@
 		};
 		23D53C181934BC85001A957E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4595AFEFE0645659CEF2F3D /* Pods-GiniSDK.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/GiniSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GiniSDK/GiniSDK-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -340,11 +419,11 @@
 		};
 		23D53C191934BC85001A957E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4595AFEFE0645659CEF2F3D /* Pods-GiniSDK.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/GiniSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GiniSDK/GiniSDK-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -352,6 +431,7 @@
 		};
 		23D53C1B1934BC85001A957E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D897502339F4D418E95EC06 /* Pods-GiniSDKTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -372,6 +452,7 @@
 		};
 		23D53C1C1934BC85001A957E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D897502339F4D418E95EC06 /* Pods-GiniSDKTests.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -405,6 +486,7 @@
 				23D53C191934BC85001A957E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		23D53C1A1934BC85001A957E /* Build configuration list for PBXNativeTarget "GiniSDKTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +495,7 @@
 				23D53C1C1934BC85001A957E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
