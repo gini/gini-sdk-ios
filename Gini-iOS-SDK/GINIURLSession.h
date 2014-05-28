@@ -60,6 +60,6 @@
  *
  * @param urlSession An instance of Apple's `NSURLSession` class that is used to do the HTTP requests.
  */
-- (instancetype)initWithNSURLsession:(NSURLSession *)urlSession;
+- (instancetype)initWithNSURLSession:(NSURLSession *)urlSession;
 
 @end

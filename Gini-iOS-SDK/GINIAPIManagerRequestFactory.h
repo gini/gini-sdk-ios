@@ -3,10 +3,8 @@
  *  All rights reserved.
  */
 
-#import <Foundation/Foundation.h>
-
 @class BFTask;
-@protocol GINISessionManager;
+@class GINISessionManager;
 
 /**
  * The GINIAPIManagerRequestFactory creates NSURLRequests, usually for the GINIAPIManager. It is guaranteed that the
@@ -20,6 +18,7 @@
 @protocol GINIAPIManagerRequestFactory <NSObject>
 
 @required
+
 /**
  * Returns a NSMutableURLRequest that is guaranteed to have the correct headers set (including session headers) to do
  * a request to the Gini API.
@@ -42,6 +41,6 @@
 
 @interface GINIAPIManagerRequestFactory : NSObject <GINIAPIManagerRequestFactory>
 
-- (instancetype)initWithSessionManager:(id <GINISessionManager>)sessionManager;
+- (instancetype)initWithSessionManager:(GINISessionManager*)sessionManager;
 
 @end

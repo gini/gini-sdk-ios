@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "23D53BF31934BC85001A957E"
-               BuildableName = "libGiniSDK.a"
-               BlueprintName = "GiniSDK"
-               ReferencedContainer = "container:GiniSDK.xcodeproj">
+               BuildableName = "libGini-iOS-SDK.a"
+               BlueprintName = "Gini-iOS-SDK"
+               ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "23D53C031934BC85001A957E"
-               BuildableName = "GiniSDKTests.xctest"
-               BlueprintName = "GiniSDKTests"
-               ReferencedContainer = "container:GiniSDK.xcodeproj">
+               BuildableName = "Gini-iOS-SDKTests.xctest"
+               BlueprintName = "Gini-iOS-SDKTests"
+               ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
