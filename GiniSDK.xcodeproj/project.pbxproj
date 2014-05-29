@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23032E0E1935D9630078C802 /* GINIAPIManagerRequestFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 23032E0A1935D9630078C802 /* GINIAPIManagerRequestFactorySpec.m */; };
+		23032E0F1935D9630078C802 /* GINISessionManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 23032E0D1935D9630078C802 /* GINISessionManagerMock.m */; };
+		23032E151935D9840078C802 /* GINIAPIManagerRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 23032E111935D9840078C802 /* GINIAPIManagerRequestFactory.m */; };
+		23032E171935D9840078C802 /* GINISession.m in Sources */ = {isa = PBXBuildFile; fileRef = 23032E131935D9840078C802 /* GINISession.m */; };
 		23D53BF81934BC85001A957E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53BF71934BC85001A957E /* Foundation.framework */; };
 		23D53BFD1934BC85001A957E /* GiniSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23D53BFC1934BC85001A957E /* GiniSDK.h */; };
 		23D53BFF1934BC85001A957E /* GiniSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D53BFE1934BC85001A957E /* GiniSDK.m */; };
@@ -45,6 +49,14 @@
 
 /* Begin PBXFileReference section */
 		18A4B8B009A3439A8B77B1FA /* libPods-GiniSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GiniSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23032E0A1935D9630078C802 /* GINIAPIManagerRequestFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManagerRequestFactorySpec.m; sourceTree = "<group>"; };
+		23032E0C1935D9630078C802 /* GINISessionManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINISessionManagerMock.h; sourceTree = "<group>"; };
+		23032E0D1935D9630078C802 /* GINISessionManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISessionManagerMock.m; sourceTree = "<group>"; };
+		23032E101935D9840078C802 /* GINIAPIManagerRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIAPIManagerRequestFactory.h; sourceTree = "<group>"; };
+		23032E111935D9840078C802 /* GINIAPIManagerRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManagerRequestFactory.m; sourceTree = "<group>"; };
+		23032E121935D9840078C802 /* GINISession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINISession.h; sourceTree = "<group>"; };
+		23032E131935D9840078C802 /* GINISession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISession.m; sourceTree = "<group>"; };
+		23032E141935D9840078C802 /* GINISessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINISessionManager.h; sourceTree = "<group>"; };
 		23D53BF41934BC85001A957E /* libGiniSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGiniSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D53BF71934BC85001A957E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23D53BFB1934BC85001A957E /* GiniSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GiniSDK-Prefix.pch"; sourceTree = "<group>"; };
@@ -86,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23032E0B1935D9630078C802 /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				23032E0C1935D9630078C802 /* GINISessionManagerMock.h */,
+				23032E0D1935D9630078C802 /* GINISessionManagerMock.m */,
+			);
+			path = HelperClasses;
+			sourceTree = "<group>";
+		};
 		23D53BEB1934BC85001A957E = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +143,11 @@
 		23D53BF91934BC85001A957E /* GiniSDK */ = {
 			isa = PBXGroup;
 			children = (
+				23032E101935D9840078C802 /* GINIAPIManagerRequestFactory.h */,
+				23032E111935D9840078C802 /* GINIAPIManagerRequestFactory.m */,
+				23032E121935D9840078C802 /* GINISession.h */,
+				23032E131935D9840078C802 /* GINISession.m */,
+				23032E141935D9840078C802 /* GINISessionManager.h */,
 				23D53BFC1934BC85001A957E /* GiniSDK.h */,
 				23D53BFE1934BC85001A957E /* GiniSDK.m */,
 				23D53BFA1934BC85001A957E /* Supporting Files */,
@@ -140,6 +166,8 @@
 		23D53C0D1934BC85001A957E /* GiniSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				23032E0A1935D9630078C802 /* GINIAPIManagerRequestFactorySpec.m */,
+				23032E0B1935D9630078C802 /* HelperClasses */,
 				23D53C131934BC85001A957E /* GiniSDKTests.m */,
 				23D53C0E1934BC85001A957E /* Supporting Files */,
 			);
@@ -303,7 +331,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23032E151935D9840078C802 /* GINIAPIManagerRequestFactory.m in Sources */,
 				23D53BFF1934BC85001A957E /* GiniSDK.m in Sources */,
+				23032E171935D9840078C802 /* GINISession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +341,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23032E0F1935D9630078C802 /* GINISessionManagerMock.m in Sources */,
 				23D53C141934BC85001A957E /* GiniSDKTests.m in Sources */,
+				23032E0E1935D9630078C802 /* GINIAPIManagerRequestFactorySpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
