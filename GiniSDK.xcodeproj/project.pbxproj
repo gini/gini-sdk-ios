@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		04BC9B171938ACE0005707AD /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 04BC9B181938ACE0005707AD /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				04BC9B1B1938ACF0005707AD /* Create Documentation */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		23032E0E1935D9630078C802 /* GINIAPIManagerRequestFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 23032E0A1935D9630078C802 /* GINIAPIManagerRequestFactorySpec.m */; };
 		23032E0F1935D9630078C802 /* GINISessionManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 23032E0D1935D9630078C802 /* GINISessionManagerMock.m */; };
@@ -248,6 +262,7 @@
 			targets = (
 				23D53BF31934BC85001A957E /* GiniSDK */,
 				23D53C031934BC85001A957E /* GiniSDKTests */,
+				04BC9B171938ACE0005707AD /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +279,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04BC9B1B1938ACF0005707AD /* Create Documentation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create Documentation";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$TRAVIS\" = true ]; then\n  echo \"running on Travis\"\n  if [ ! -d $TRAVIS_BUILD_DIR/docs ]; then\n    mkdir $TRAVIS_BUILD_DIR/docs\n  fi\n  `which appledoc` --project-name \"$PROJECT_NAME\" --project-company \"Gini GmbH\" --company-id \"net.gini\" --output \"$TRAVIS_BUILD_DIR/docs\" --ignore \"*.m\" --exit-threshold 2 --create-html --no-create-docset \"$PROJECT_DIR/$PROJECT_NAME\"\nelse\n  echo \"running on workstation\"\n  PATH=$PATH:/usr/local/bin\n\n  if hash appledoc 2>/dev/null; then\n    echo \"appledoc is installed\"\n    if [ ! -d \"$BUILD_DIR/docs\" ]; then\n      mkdir \"$BUILD_DIR/docs\"\n  fi\n    `which appledoc` --project-name \"$PROJECT_NAME\" --project-company \"Gini GmbH\" --company-id \"net.gini\" --output \"$BUILD_DIR/docs\" --ignore \"*.m\" --exit-threshold 2 --finalize-docset \"$PROJECT_DIR/$PROJECT_NAME\"\n  else\n    echo \"appledoc is not installed. No API documentation generated.\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		1EAD0DC3BD80495389E703A6 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,6 +399,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		04BC9B191938ACE0005707AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		04BC9B1A1938ACE0005707AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		23D53C151934BC85001A957E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,6 +424,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -417,6 +462,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -502,6 +548,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04BC9B181938ACE0005707AD /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BC9B191938ACE0005707AD /* Debug */,
+				04BC9B1A1938ACE0005707AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		23D53BEF1934BC85001A957E /* Build configuration list for PBXProject "GiniSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
