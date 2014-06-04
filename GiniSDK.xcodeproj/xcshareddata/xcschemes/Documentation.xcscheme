@@ -7,13 +7,16 @@
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
+            buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForTesting = "YES">
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23D53C031934BC85001A957E"
-               BuildableName = "GiniSDKTests.xctest"
-               BlueprintName = "GiniSDKTests"
+               BlueprintIdentifier = "04BC9B171938ACE0005707AD"
+               BuildableName = "Documentation"
+               BlueprintName = "Documentation"
                ReferencedContainer = "container:GiniSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -25,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23D53C031934BC85001A957E"
-               BuildableName = "GiniSDKTests.xctest"
-               BlueprintName = "GiniSDKTests"
-               ReferencedContainer = "container:GiniSDK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
