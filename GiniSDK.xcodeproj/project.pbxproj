@@ -35,6 +35,15 @@
 		23D53C121934BC85001A957E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23D53C101934BC85001A957E /* InfoPlist.strings */; };
 		23D53C141934BC85001A957E /* GiniSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D53C131934BC85001A957E /* GiniSDKTests.m */; };
 		BD6A38638C7D43B286FB91D5 /* libPods-GiniSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 774D0A01081B4E5AA6522EA1 /* libPods-GiniSDK.a */; };
+		C753E05FA1E5C474EC0561C4 /* GINIAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EFA6AF77B4C395AF8706 /* GINIAPIManager.m */; };
+		C753E340C87E3A07414E231C /* GINIAPIManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EF6E103B1704D3ED3839 /* GINIAPIManagerSpec.m */; };
+		C753E3B33C3A7DE4BCFA3785 /* GINIURLResponseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EBFF11A13F124EDD07C9 /* GINIURLResponseSpec.m */; };
+		C753E42A81FC985D6F306F7F /* GINIURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EDCEF784047DDEBD7D51 /* GINIURLSession.m */; };
+		C753E4A18E73185DF87E24FE /* GINIURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E972BB3AB00D537F7A53 /* GINIURLResponse.m */; };
+		C753E66CE2A2D88767DB57D5 /* document.json in Resources */ = {isa = PBXBuildFile; fileRef = C753EDDA1AA42BAF712CC736 /* document.json */; };
+		C753E71BC89B4790E0D4E990 /* GINIURLSessionMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EE2553A9F48095522953 /* GINIURLSessionMock.m */; };
+		C753EAA3849975F98E667FBA /* GINIURLSessionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EBFC096D93D4B8054CB2 /* GINIURLSessionSpec.m */; };
+		C753EE95B922564D5FE9D3C6 /* yoda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C753EBB903451C7100992F95 /* yoda.jpg */; };
 		E4F91D5C77374847A49B7556 /* libPods-GiniSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A4B8B009A3439A8B77B1FA /* libPods-GiniSDKTests.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +93,19 @@
 		23D53C131934BC85001A957E /* GiniSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiniSDKTests.m; sourceTree = "<group>"; };
 		3D897502339F4D418E95EC06 /* Pods-GiniSDKTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniSDKTests.xcconfig"; path = "Pods/Pods-GiniSDKTests.xcconfig"; sourceTree = "<group>"; };
 		774D0A01081B4E5AA6522EA1 /* libPods-GiniSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GiniSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C753E47A8FEF884012FBD66B /* GINIURLSessionMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIURLSessionMock.h; sourceTree = "<group>"; };
+		C753E972BB3AB00D537F7A53 /* GINIURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLResponse.m; sourceTree = "<group>"; };
+		C753EAE8571902DD5F6C46A2 /* GINIURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIURLSession.h; sourceTree = "<group>"; };
+		C753EB1E4D674A392233ABDB /* GINIURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIURLResponse.h; sourceTree = "<group>"; };
+		C753EBB903451C7100992F95 /* yoda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yoda.jpg; sourceTree = "<group>"; };
+		C753EBFC096D93D4B8054CB2 /* GINIURLSessionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLSessionSpec.m; sourceTree = "<group>"; };
+		C753EBFF11A13F124EDD07C9 /* GINIURLResponseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLResponseSpec.m; sourceTree = "<group>"; };
+		C753EDCEF784047DDEBD7D51 /* GINIURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLSession.m; sourceTree = "<group>"; };
+		C753EDDA1AA42BAF712CC736 /* document.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = document.json; sourceTree = "<group>"; };
+		C753EE2553A9F48095522953 /* GINIURLSessionMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLSessionMock.m; sourceTree = "<group>"; };
+		C753EF6E103B1704D3ED3839 /* GINIAPIManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManagerSpec.m; sourceTree = "<group>"; };
+		C753EF86DC82EEB2AA7D4000 /* GINIAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIAPIManager.h; sourceTree = "<group>"; };
+		C753EFA6AF77B4C395AF8706 /* GINIAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManager.m; sourceTree = "<group>"; };
 		D4595AFEFE0645659CEF2F3D /* Pods-GiniSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniSDK.xcconfig"; path = "Pods/Pods-GiniSDK.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +139,8 @@
 			children = (
 				23032E0C1935D9630078C802 /* GINISessionManagerMock.h */,
 				23032E0D1935D9630078C802 /* GINISessionManagerMock.m */,
+				C753EE2553A9F48095522953 /* GINIURLSessionMock.m */,
+				C753E47A8FEF884012FBD66B /* GINIURLSessionMock.h */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -165,6 +189,12 @@
 				23D53BFC1934BC85001A957E /* GiniSDK.h */,
 				23D53BFE1934BC85001A957E /* GiniSDK.m */,
 				23D53BFA1934BC85001A957E /* Supporting Files */,
+				C753EFA6AF77B4C395AF8706 /* GINIAPIManager.m */,
+				C753EF86DC82EEB2AA7D4000 /* GINIAPIManager.h */,
+				C753EDCEF784047DDEBD7D51 /* GINIURLSession.m */,
+				C753EAE8571902DD5F6C46A2 /* GINIURLSession.h */,
+				C753E972BB3AB00D537F7A53 /* GINIURLResponse.m */,
+				C753EB1E4D674A392233ABDB /* GINIURLResponse.h */,
 			);
 			path = GiniSDK;
 			sourceTree = "<group>";
@@ -184,6 +214,10 @@
 				23032E0B1935D9630078C802 /* HelperClasses */,
 				23D53C131934BC85001A957E /* GiniSDKTests.m */,
 				23D53C0E1934BC85001A957E /* Supporting Files */,
+				C753EF6E103B1704D3ED3839 /* GINIAPIManagerSpec.m */,
+				C753EBFC096D93D4B8054CB2 /* GINIURLSessionSpec.m */,
+				C753E7F919178ADF7B7E5C58 /* Resources */,
+				C753EBFF11A13F124EDD07C9 /* GINIURLResponseSpec.m */,
 			);
 			path = GiniSDKTests;
 			sourceTree = "<group>";
@@ -195,6 +229,15 @@
 				23D53C101934BC85001A957E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C753E7F919178ADF7B7E5C58 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C753EDDA1AA42BAF712CC736 /* document.json */,
+				C753EBB903451C7100992F95 /* yoda.jpg */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				23D53C121934BC85001A957E /* InfoPlist.strings in Resources */,
+				C753E66CE2A2D88767DB57D5 /* document.json in Resources */,
+				C753EE95B922564D5FE9D3C6 /* yoda.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +409,9 @@
 				23032E151935D9840078C802 /* GINIAPIManagerRequestFactory.m in Sources */,
 				23D53BFF1934BC85001A957E /* GiniSDK.m in Sources */,
 				23032E171935D9840078C802 /* GINISession.m in Sources */,
+				C753E05FA1E5C474EC0561C4 /* GINIAPIManager.m in Sources */,
+				C753E42A81FC985D6F306F7F /* GINIURLSession.m in Sources */,
+				C753E4A18E73185DF87E24FE /* GINIURLResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +422,10 @@
 				23032E0F1935D9630078C802 /* GINISessionManagerMock.m in Sources */,
 				23D53C141934BC85001A957E /* GiniSDKTests.m in Sources */,
 				23032E0E1935D9630078C802 /* GINIAPIManagerRequestFactorySpec.m in Sources */,
+				C753E340C87E3A07414E231C /* GINIAPIManagerSpec.m in Sources */,
+				C753E71BC89B4790E0D4E990 /* GINIURLSessionMock.m in Sources */,
+				C753EAA3849975F98E667FBA /* GINIURLSessionSpec.m in Sources */,
+				C753E3B33C3A7DE4BCFA3785 /* GINIURLResponseSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
