@@ -3,8 +3,8 @@
  *  All rights reserved.
  */
 
-#import <Foundation/Foundation.h>
+#import "GINIFactoryDescription.h"
 
 
-@interface GiniSDK : NSObject
+@implementation GINIFactoryDescription
 @end

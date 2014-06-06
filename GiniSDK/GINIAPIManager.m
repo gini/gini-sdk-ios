@@ -53,6 +53,10 @@ NSString* GINIpreviewSizeString(GiniApiPreviewSize previewSize) __attribute__((c
 }
 
 #pragma mark - Public methods
++ (instancetype)apiManagerWithURLSession:(id <GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory baseURL:(NSURL *)baseURL {
+    return [[GINIAPIManager alloc] initWithURLSession:urlSession requestFactory:requestFactory baseURL:baseURL];
+}
+
 - (BFTask *)getDocument:(NSString *)documentId{
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
 

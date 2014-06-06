@@ -6,12 +6,18 @@
 //  Copyright (c) 2014 Gini GmbH. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+#import <Kiwi/Kiwi.h>
+#import "GiniSDK.h"
 
-@interface GiniSDKTests : XCTestCase
 
-@end
+SPEC_BEGIN(GINISDKSpec)
 
-@implementation GiniSDKTests
+describe(@"The GiniSDK", ^{
+    __block GiniSDK *giniSDK;
 
-@end
+    beforeEach(^{
+        giniSDK = [GiniSDK new];
+    });
+});
+
+SPEC_END

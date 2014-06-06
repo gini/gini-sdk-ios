@@ -22,6 +22,9 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
 @interface GINIAPIManager : NSObject
 
 
++ (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory baseURL:(NSURL *)baseURL;
+
+
 /**
  * Gets the document with the given ID.
  *
