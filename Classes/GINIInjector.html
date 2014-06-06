@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINIURLResponse Class Reference</title>
+		<title>GINIInjector Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINIURLResponse Class Reference</h1>
+				<h1 class="hideInXcode">GINIInjector Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -37,15 +37,19 @@
 	
 	
 	
-	<option value="properties">Properties</option>
-	
-	<option value="//api/name/data">&nbsp;&nbsp;&nbsp;&nbsp;data</option>
-	
-	<option value="//api/name/response">&nbsp;&nbsp;&nbsp;&nbsp;response</option>
 	
 	
 	
 	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/factoryForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- factoryForKey:</option>
+	
+	<option value="//api/name/getInstanceOf:withDependencies:">&nbsp;&nbsp;&nbsp;&nbsp;- getInstanceOf:withDependencies:</option>
+	
+	<option value="//api/name/setFactory:on:forKey:withDependencies:">&nbsp;&nbsp;&nbsp;&nbsp;- setFactory:on:forKey:withDependencies:</option>
+	
+	<option value="//api/name/setObject:forKey:">&nbsp;&nbsp;&nbsp;&nbsp;- setObject:forKey:</option>
 	
 	
 	
@@ -69,24 +73,28 @@
 
 
 
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/data">data</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/factoryForKey:">factoryForKey:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/response">response</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getInstanceOf:withDependencies:">getInstanceOf:withDependencies:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setFactory:on:forKey:withDependencies:">setFactory:on:forKey:withDependencies:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setObject:forKey:">setObject:forKey:</a></span></li>
 	
 </ul></li>
-
-
-
-
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINIURLResponse Class Reference" name="top"></a>
+				<a title="GINIInjector Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -95,7 +103,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINIURLResponse Class Reference</h1>
+						<h1 class="title title-header">GINIInjector Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -106,7 +114,7 @@
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINIURLResponse.h</td>
+	<td class="specification-value">GINIInjector.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -116,7 +124,11 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The <code>GINIURLResponse</code> is a value object for the result of an HTTP request.</p>
+						<p>The GINIInjector.</p>
+
+<h1>key</h1>
+
+<p>The dependencies are identified by a key. A key can be any arbitrary object, even protocols.</p>
 					</div>
 					
 					
@@ -134,15 +146,27 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/data">&nbsp;&nbsp;data</a></code>
+		<code><a href="#//api/name/setFactory:on:forKey:withDependencies:">&ndash;&nbsp;setFactory:on:forKey:withDependencies:</a></code>
 	</span>
-	<span class="task-item-suffix">property</span>
+	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/response">&nbsp;&nbsp;response</a></code>
+		<code><a href="#//api/name/factoryForKey:">&ndash;&nbsp;factoryForKey:</a></code>
 	</span>
-	<span class="task-item-suffix">property</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setObject:forKey:">&ndash;&nbsp;setObject:forKey:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getInstanceOf:withDependencies:">&ndash;&nbsp;getInstanceOf:withDependencies:</a></code>
+	</span>
+	
 	
 </li>
 						</ul>
@@ -153,24 +177,28 @@
 					
 					
 					
+					
+					
+					
+					
 					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/data" title="data"></a>
-	<h3 class="subsubtitle method-title">data</h3>
+	<a name="//api/name/factoryForKey:" title="factoryForKey:"></a>
+	<h3 class="subsubtitle method-title">factoryForKey:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. @see <a href="../Classes/GINIURLSession.html">GINIURLSession</a> for more detailed information
-about the of the content-type deserialization of the data.</p>
+		<p>Returns either the factory description for the factory which has been registered for the given key or the object that
+has been registered as the value for the given key.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property id data</code></div>
+	<div class="method-subsection method-declaration"><code>- (id)factoryForKey:(id)<em>key</em></code></div>
 
     
 	
@@ -182,8 +210,10 @@ about the of the content-type deserialization of the data.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. @see <a href="../Classes/GINIURLSession.html">GINIURLSession</a> for more detailed information
-about the of the content-type deserialization of the data.</p>
+		<p>Returns either the factory description for the factory which has been registered for the given key or the object that
+has been registered as the value for the given key.</p>
+
+<p>Returns nil if there isn&rsquo;t any factory or value registered for the key.</p>
 	</div>
 	
 	
@@ -194,26 +224,25 @@ about the of the content-type deserialization of the data.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINIInjector.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/response" title="response"></a>
-	<h3 class="subsubtitle method-title">response</h3>
+	<a name="//api/name/getInstanceOf:withDependencies:" title="getInstanceOf:withDependencies:"></a>
+	<h3 class="subsubtitle method-title">getInstanceOf:withDependencies:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>TODO
-Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
+		<p>Gets an instance of the implementation for the given key.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property NSHTTPURLResponse *response</code></div>
+	<div class="method-subsection method-declaration"><code>- (id)getInstanceOf:(id)<em>key</em> withDependencies:(NSDictionary *)<em>givenDependencies</em></code></div>
 
     
 	
@@ -225,8 +254,9 @@ Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>TODO
-Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
+		<p>Gets an instance of the implementation for the given key.</p>
+
+<p>Please notice that singletons will not get initialized a second time, even if the arguments differ.</p>
 	</div>
 	
 	
@@ -237,17 +267,112 @@ Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINIInjector.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setFactory:on:forKey:withDependencies:" title="setFactory:on:forKey:withDependencies:"></a>
+	<h3 class="subsubtitle method-title">setFactory:on:forKey:withDependencies:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set the given method of the given class or object as the factory for the given key. There can only be one factory for
+a key, so this method overwrites any previously registered factory with the same key.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (GINIFactoryDescription *)setFactory:(SEL)<em>method</em> on:(id)<em>classOrObject</em> forKey:(id)<em>key</em> withDependencies:(id)<em>firstDependency</em>, <em>...</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>method</em></dt>
+			<dd><p>A callable (either a block or c function) that returns an object. It gets called by the injector with
+the needed dependencies if an instance of the object with the registered key is wanted.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set the given method of the given class or object as the factory for the given key. There can only be one factory for
+a key, so this method overwrites any previously registered factory with the same key.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIInjector.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setObject:forKey:" title="setObject:forKey:"></a>
+	<h3 class="subsubtitle method-title">setObject:forKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Set the given object as the value for the given key. This is a shortcut for values that do not really need a factory,
+e.g. configuration strings. Instead of calling a factory, the injector always returns the given object when an
+instance for the given key is requested.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)setObject:(id)<em>value</em> forKey:(id)<em>key</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Set the given object as the value for the given key. This is a shortcut for values that do not really need a factory,
+e.g. configuration strings. Instead of calling a factory, the injector always returns the given object when an
+instance for the given key is requested.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIInjector.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 					</div>
-					
-					
-					
-					
 					
 					
                     

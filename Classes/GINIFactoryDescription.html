@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINISessionManager Protocol Reference</title>
+		<title>GINIFactoryDescription Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINISessionManager Protocol Reference</h1>
+				<h1 class="hideInXcode">GINIFactoryDescription Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -37,13 +37,19 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/dependencies">&nbsp;&nbsp;&nbsp;&nbsp;dependencies</option>
+	
+	<option value="//api/name/factoryMethod">&nbsp;&nbsp;&nbsp;&nbsp;factoryMethod</option>
+	
+	<option value="//api/name/isSingleton">&nbsp;&nbsp;&nbsp;&nbsp;isSingleton</option>
+	
+	<option value="//api/name/object">&nbsp;&nbsp;&nbsp;&nbsp;object</option>
 	
 	
 	
 	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/getSession">&nbsp;&nbsp;&nbsp;&nbsp;- getSession</option>
 	
 	
 	
@@ -67,22 +73,28 @@
 
 
 
-
-
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getSession">getSession</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dependencies">dependencies</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/factoryMethod">factoryMethod</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isSingleton">isSingleton</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/object">object</a></span></li>
 	
 </ul></li>
+
+
+
+
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINISessionManager Protocol Reference" name="top"></a>
+				<a title="GINIFactoryDescription Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -91,18 +103,18 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINISessionManager Protocol Reference</h1>
+						<h1 class="title title-header">GINIFactoryDescription Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Conforms to</td>
+	<td class="specification-title">Inherits from</td>
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINISessionManager.h</td>
+	<td class="specification-value">GINIInjector.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -112,7 +124,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The GINISessionManager handles all communication and tasks related to the user authentication and authorization.</p>
+						<p>A value <a href="#//api/name/object">object</a> for storing the information of a factory.</p>
 					</div>
 					
 					
@@ -130,10 +142,28 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/getSession">&ndash;&nbsp;getSession</a></code>
+		<code><a href="#//api/name/isSingleton">&nbsp;&nbsp;isSingleton</a></code>
 	</span>
+	<span class="task-item-suffix">property</span>
 	
-	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/factoryMethod">&nbsp;&nbsp;factoryMethod</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/object">&nbsp;&nbsp;object</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dependencies">&nbsp;&nbsp;dependencies</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
 </li>
 						</ul>
 						
@@ -143,28 +173,24 @@
 					
 					
 					
-					
-					
-					
-					
 					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/getSession" title="getSession"></a>
-	<h3 class="subsubtitle method-title">getSession</h3>
+	<a name="//api/name/dependencies" title="dependencies"></a>
+	<h3 class="subsubtitle method-title">dependencies</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Method to get a valid session of the currently active user. Returns a BFTask* that will resolve to a <a href="../Classes/GINISession.html">GINISession</a>
-model with the active session.</p>
+		<p>An array containing dependency keys. Instances of the <a href="#//api/name/object">object</a> for the given key are given as arguments to the factory
+in the order they are appearing in this array.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BFTask *)getSession</code></div>
+	<div class="method-subsection method-declaration"><code>@property NSArray *dependencies</code></div>
 
     
 	
@@ -176,8 +202,8 @@ model with the active session.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Method to get a valid session of the currently active user. Returns a BFTask* that will resolve to a <a href="../Classes/GINISession.html">GINISession</a>
-model with the active session.</p>
+		<p>An array containing dependency keys. Instances of the <a href="#//api/name/object">object</a> for the given key are given as arguments to the factory
+in the order they are appearing in this array.</p>
 	</div>
 	
 	
@@ -188,13 +214,142 @@ model with the active session.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINISessionManager.h</code><br />
+		<code class="declared-in-ref">GINIInjector.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/factoryMethod" title="factoryMethod"></a>
+	<h3 class="subsubtitle method-title">factoryMethod</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The method of the <a href="#//api/name/object">object</a> that will get called to create the instance.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property SEL factoryMethod</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The method of the <a href="#//api/name/object">object</a> that will get called to create the instance.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIInjector.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/isSingleton" title="isSingleton"></a>
+	<h3 class="subsubtitle method-title">isSingleton</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Whether or not the created instance is thought as a singleton. Please notice that a singleton is a singleton per
+injector, not per application.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property BOOL isSingleton</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Whether or not the created instance is thought as a singleton. Please notice that a singleton is a singleton per
+injector, not per application.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIInjector.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/object" title="object"></a>
+	<h3 class="subsubtitle method-title">object</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The object that has the factory method.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property id object</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The object that has the factory method.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIInjector.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 					</div>
+					
+					
+					
+					
 					
 					
                     
