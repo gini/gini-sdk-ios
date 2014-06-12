@@ -4,10 +4,12 @@
  */
 
 #import "GINISessionManagerClientFlow.h"
-#import <Bolts/Bolts.h>
-#import "GINISessionManager_Private.h"
+
 #import "GINISession.h"
+#import "GINISessionManager_Private.h"
 #import "GINISessionParser.h"
+#import "GINIURLSession.h"
+#import <Bolts/Bolts.h>
 
 @interface GINISessionManagerClientFlow () {
 }
@@ -15,67 +17,62 @@
 
 @implementation GINISessionManagerClientFlow
 
-- (instancetype)initWithClientID:(NSString *)clientID baseURL:(NSURL *)baseURL URLSession:(GINIURLSession *)URLSession {
-    
-    self = [super initWithBaseURL:baseURL URLSession:URLSession];
-    if (self) {
-        // TODO: Use GINIException when available
-        if (!clientID) {
-            [NSException raise:@"Invalid parameter value" format:@"'clientID' must be non-nil"];
-        }
+NSString *const GINIClientFlowResponseType = @"token";
 
-        if (!baseURL) {
-            [NSException raise:@"Invalid parameter value" format:@"'baseURL' must be non-nil"];
-        }
-        
-        _clientID = clientID;
+- (instancetype)initWithClientID:(NSString *)clientID baseURL:(NSURL *)baseURL URLSession:(id <GINIURLSession>)URLSession appURLScheme:(NSString *)appURLScheme {
+
+    self = [super initWithClientID:clientID baseURL:baseURL URLSession:URLSession appURLScheme:appURLScheme];
+    if (self) {
+
     }
     return self;
 }
 
-- (BFTask*)getSession {
-    
+- (BFTask *)getSession {
+
     if (_activeSession && ![_activeSession hasAlreadyExpired]) {
         return [BFTask taskWithResult:_activeSession];
     }
-    
+
     NSError *credentialsNeededError = [NSError errorWithDomain:GINIErrorDomain code:1 userInfo:nil];
     return [BFTask taskWithError:credentialsNeededError];
 }
 
 - (BFTask *)logIn {
-    
-    // Remove all previous logIn tasks. Usually only one is removed.
-    [[_authorizeTasks allValues] makeObjectsPerformSelector:@selector(cancel)];
-    [_authorizeTasks removeAllObjects];
-    
-    NSString *state = [GINISessionManager generateRandomState];
-    NSURL *redirectURL = [GINISessionManager authorizationRedirectURL];
 
-    return [[self openAuthorizationPageWithState:state redirectURL:redirectURL responseType:@"token"] continueWithSuccessBlock:^id(BFTask *task) {
-        BFTaskCompletionSource *loginTask = [BFTaskCompletionSource taskCompletionSource];
-        _authorizeTasks[state] = loginTask;
-        return loginTask.task;
+    // Remove the previous authorize task.
+    if (_activeLogInTask) {
+        [_activeLogInTask cancel];
+        _activeLogInState = nil;
+    }
+
+    NSString *state = [GINISessionManager generateRandomState];
+    NSURL *redirectURL = [self authorizationRedirectURL];
+
+    return [[self openAuthorizationPageWithState:state redirectURL:redirectURL responseType:GINIClientFlowResponseType] continueWithSuccessBlock:^id(BFTask *task) {
+        BFTaskCompletionSource *logInTask = [BFTaskCompletionSource taskCompletionSource];
+        _activeLogInTask = logInTask;
+        _activeLogInState = state;
+        return logInTask.task;
     }];
 }
 
 
-#pragma mark - GINIIncomingURLResponder
+#pragma mark - GINIIncomingURLDelegate
 
 - (BOOL)handleURL:(NSURL *)URL {
-    
-    if ([URL.scheme isEqualToString:GINIAuthorizationURLScheme] && [URL.host isEqualToString:GINIAuthorizationURLHost]) {
-        
-        NSDictionary *params = [GINISessionManager fragmentParametersForURL:URL];
-        
-        NSString *state = params[@"state"];
-        BFTaskCompletionSource *loginTask = _authorizeTasks[state];
-        
-        if (loginTask) {
-            GINISession *session = [GINISessionParser sessionWithFragmentParametersDictionary:params];
+
+    if ([URL.scheme isEqualToString:_appScheme] && [URL.host isEqualToString:GINIAuthorizationURLHost]) {
+
+        NSDictionary *fragmentParams = [URL.fragment GINIQueryStringParameterDictionary];
+        NSString *state = fragmentParams[@"state"];
+
+        if ([_activeLogInState isEqualToString:state]) {
+            GINISession *session = [GINISessionParser sessionWithJSONDictionary:fragmentParams];
             _activeSession = session;
-            [loginTask setResult:session];
-            [_authorizeTasks removeObjectForKey:state];
+            [_activeLogInTask setResult:session];
+            _activeLogInTask = nil;
+            _activeLogInState = nil;
             return YES;
         }
     }

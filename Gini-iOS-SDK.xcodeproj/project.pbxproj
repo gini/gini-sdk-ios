@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		E2B18418195464FC0080FF40 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E2B1841B195464FC0080FF40 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				E2B1841C195465030080FF40 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		23D53BF81934BC85001A957E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53BF71934BC85001A957E /* Foundation.framework */; };
 		23D53BFD1934BC85001A957E /* GiniSDK.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 23D53BFC1934BC85001A957E /* GiniSDK.h */; };
@@ -15,20 +29,25 @@
 		23D53C121934BC85001A957E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23D53C101934BC85001A957E /* InfoPlist.strings */; };
 		3D1C5F28DBBC44B597F5770B /* libPods-Gini-iOS-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439411C6E91498D8E5A31B2 /* libPods-Gini-iOS-SDK.a */; };
 		81EE4016DD5977EA419AAB82 /* GINISessionManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE48376DD3F8CEA4908F4D /* GINISessionManagerMock.m */; };
-		81EE40838BA4C191D7CD22FB /* GINIURLResponseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4E6A486CD98E99B37CF5 /* GINIURLResponseSpec.m */; };
+		81EE40E5B0692EC02D52532A /* GINICredentialsStoreMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE46B2FC973F21033FBA16 /* GINICredentialsStoreMock.m */; };
+		81EE40F50CF5B93E99221405 /* GINIURLSession.h in Copy Files */ = {isa = PBXBuildFile; fileRef = E2CAFE841940DC7F0059E228 /* GINIURLSession.h */; };
 		81EE43C2A85297C952E80592 /* yoda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81EE468AFDEFC8942E20F31F /* yoda.jpg */; };
 		81EE43DFB1FB962DB0EAF76D /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4B6D62767279BA5CCBB4 /* KeychainItemWrapper.m */; };
 		81EE44133FBD4D2243E5D77D /* GINIURLSessionMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE44A91F8A4C73596596E6 /* GINIURLSessionMock.m */; };
-		81EE446FE7352B57AEA2248A /* GINISessionSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE45EE20E83A7006B48985 /* GINISessionSpecs.m */; };
+		81EE45A4EF18AB0E62828A78 /* NSString+GINIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4B1918AA3A3DEFC1D8BF /* NSString+GINIAdditions.m */; };
 		81EE45DC3D42483D285716B5 /* document.json in Resources */ = {isa = PBXBuildFile; fileRef = 81EE4FC272A3BC02720C26F5 /* document.json */; };
-		81EE4720DD5F55677D9A8AEC /* GINIAPIManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE41360403FDC922D327D7 /* GINIAPIManagerSpec.m */; };
 		81EE47E44806AFACE4B84DA0 /* GINIAPIManagerRequestFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE48FAEEE3DF8B1A6B936C /* GINIAPIManagerRequestFactorySpec.m */; };
 		81EE49A53AA4C5E431CE0942 /* GINISession.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4E20884B3E4BB789E91D /* GINISession.m */; };
-		81EE4A7CFB72A4DB4E2D2261 /* GINIURLSessionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4902E3655232B3640C9E /* GINIURLSessionSpec.m */; };
 		81EE4B90C0B56487757C438B /* GINISessionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE44FC2082BE41529D9483 /* GINISessionParser.m */; };
+		81EE4EA88FD761DB89CC3337 /* session.json in Resources */ = {isa = PBXBuildFile; fileRef = 81EE409560F238177896AAE6 /* session.json */; };
+		81EE4F7C1974ACC44C8E2228 /* GINIUIApplicationMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4DF2F8B989F20875FBDE /* GINIUIApplicationMock.m */; };
 		8C4988B6B8B1418A968B8474 /* libPods-Gini-iOS-SDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2056985987664BD8B2381A5A /* libPods-Gini-iOS-SDKTests.a */; };
 		E20CA213193CD4D500BC301D /* libGini-iOS-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53BF41934BC85001A957E /* libGini-iOS-SDK.a */; };
-		E22C41611935FB8E00A0CAFA /* GINISessionManagerSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C41601935FB8E00A0CAFA /* GINISessionManagerSpecs.m */; };
+		E2529A431947598E00FE8527 /* GINIAPIManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE41360403FDC922D327D7 /* GINIAPIManagerSpec.m */; };
+		E2529A441947599100FE8527 /* GINIURLSessionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4902E3655232B3640C9E /* GINIURLSessionSpec.m */; };
+		E2529A451947599500FE8527 /* GINIURLResponseSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4E6A486CD98E99B37CF5 /* GINIURLResponseSpec.m */; };
+		E2529A461947599800FE8527 /* GINISessionSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE45EE20E83A7006B48985 /* GINISessionSpecs.m */; };
+		E2529A471947599A00FE8527 /* GINISessionManagerSpecs.m in Sources */ = {isa = PBXBuildFile; fileRef = E22C41601935FB8E00A0CAFA /* GINISessionManagerSpecs.m */; };
 		E27D88051933504500CB122F /* GINISessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A26A32192DEDF800F88621 /* GINISessionManager.m */; };
 		E27D881C19348E7200CB122F /* GINIKeychainCredentialsStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E27D881A19348E7200CB122F /* GINIKeychainCredentialsStore.m */; };
 		E2AB8577193C9755002CB0EC /* GINISessionManagerClientFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AB8576193C9755002CB0EC /* GINISessionManagerClientFlow.m */; };
@@ -67,6 +86,7 @@
 				E2AB85C6193CC86D002CB0EC /* GINIKeychainCredentialsStore.h in Copy Files */,
 				E2AB85C8193CC873002CB0EC /* GINISessionParser.h in Copy Files */,
 				E2AB85C7193CC870002CB0EC /* GINISession.h in Copy Files */,
+				81EE40F50CF5B93E99221405 /* GINIURLSession.h in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,19 +106,26 @@
 		23D53C0F1934BC85001A957E /* Gini-iOS-SDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gini-iOS-SDKTests-Info.plist"; sourceTree = "<group>"; };
 		23D53C111934BC85001A957E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3BE557B4E7EF4995B164009C /* Pods-Gini-iOS-SDKTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDKTests.xcconfig"; path = "Pods/Pods-Gini-iOS-SDKTests.xcconfig"; sourceTree = "<group>"; };
+		81EE409560F238177896AAE6 /* session.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = session.json; sourceTree = "<group>"; };
 		81EE41360403FDC922D327D7 /* GINIAPIManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManagerSpec.m; sourceTree = "<group>"; };
+		81EE418798C94FE64EDC0977 /* GINICredentialsStoreMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINICredentialsStoreMock.h; sourceTree = "<group>"; };
 		81EE4204EAF80358253525DC /* GINISessionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINISessionParser.h; sourceTree = "<group>"; };
 		81EE43040DFEDCFC5E071B1E /* GINISessionManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINISessionManagerMock.h; sourceTree = "<group>"; };
 		81EE44A91F8A4C73596596E6 /* GINIURLSessionMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLSessionMock.m; sourceTree = "<group>"; };
 		81EE44FC2082BE41529D9483 /* GINISessionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISessionParser.m; sourceTree = "<group>"; };
 		81EE45EE20E83A7006B48985 /* GINISessionSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISessionSpecs.m; sourceTree = "<group>"; };
 		81EE468AFDEFC8942E20F31F /* yoda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yoda.jpg; sourceTree = "<group>"; };
+		81EE46B2FC973F21033FBA16 /* GINICredentialsStoreMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINICredentialsStoreMock.m; sourceTree = "<group>"; };
 		81EE48376DD3F8CEA4908F4D /* GINISessionManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISessionManagerMock.m; sourceTree = "<group>"; };
+		81EE486A612A19E3ED63F3DF /* GINIUIApplicationMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIUIApplicationMock.h; sourceTree = "<group>"; };
 		81EE48FAEEE3DF8B1A6B936C /* GINIAPIManagerRequestFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManagerRequestFactorySpec.m; sourceTree = "<group>"; };
 		81EE4902E3655232B3640C9E /* GINIURLSessionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLSessionSpec.m; sourceTree = "<group>"; };
 		81EE497F10D58DDC3ECF5840 /* GINISession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINISession.h; sourceTree = "<group>"; };
 		81EE49DE7AC6AC636600CB39 /* GINIURLSessionMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIURLSessionMock.h; sourceTree = "<group>"; };
+		81EE4AB29B03712932652CA5 /* NSString+GINIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GINIAdditions.h"; sourceTree = "<group>"; };
+		81EE4B1918AA3A3DEFC1D8BF /* NSString+GINIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GINIAdditions.m"; sourceTree = "<group>"; };
 		81EE4B6D62767279BA5CCBB4 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		81EE4DF2F8B989F20875FBDE /* GINIUIApplicationMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIUIApplicationMock.m; sourceTree = "<group>"; };
 		81EE4E20884B3E4BB789E91D /* GINISession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISession.m; sourceTree = "<group>"; };
 		81EE4E6A486CD98E99B37CF5 /* GINIURLResponseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLResponseSpec.m; sourceTree = "<group>"; };
 		81EE4F2F44229F40CA054CF2 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -106,6 +133,7 @@
 		B7CCF32889824032B0CDD0C8 /* Pods-Gini-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDK.xcconfig"; path = "Pods/Pods-Gini-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
 		E2088DC71940652400B2742E /* GINIIncomingURLDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIIncomingURLDelegate.h; sourceTree = "<group>"; };
 		E22C41601935FB8E00A0CAFA /* GINISessionManagerSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISessionManagerSpecs.m; sourceTree = "<group>"; };
+		E2529A4F194763C900FE8527 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E27D8818193483F700CB122F /* GINICredentialsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINICredentialsStore.h; sourceTree = "<group>"; };
 		E27D881919348E7200CB122F /* GINIKeychainCredentialsStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIKeychainCredentialsStore.h; sourceTree = "<group>"; };
 		E27D881A19348E7200CB122F /* GINIKeychainCredentialsStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIKeychainCredentialsStore.m; sourceTree = "<group>"; };
@@ -179,6 +207,7 @@
 				23D53C051934BC85001A957E /* XCTest.framework */,
 				0439411C6E91498D8E5A31B2 /* libPods-Gini-iOS-SDK.a */,
 				2056985987664BD8B2381A5A /* libPods-Gini-iOS-SDKTests.a */,
+				E2529A4F194763C900FE8527 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,6 +242,8 @@
 				81EE4E20884B3E4BB789E91D /* GINISession.m */,
 				81EE4204EAF80358253525DC /* GINISessionParser.h */,
 				81EE44FC2082BE41529D9483 /* GINISessionParser.m */,
+				81EE4B1918AA3A3DEFC1D8BF /* NSString+GINIAdditions.m */,
+				81EE4AB29B03712932652CA5 /* NSString+GINIAdditions.h */,
 			);
 			path = "Gini-iOS-SDK";
 			sourceTree = "<group>";
@@ -230,10 +261,10 @@
 			isa = PBXGroup;
 			children = (
 				23D53C0E1934BC85001A957E /* Supporting Files */,
-				E22C41601935FB8E00A0CAFA /* GINISessionManagerSpecs.m */,
-				81EE45EE20E83A7006B48985 /* GINISessionSpecs.m */,
 				81EE48D4FA2DC0E36318D8E2 /* Resources */,
 				81EE4592F87A8832554A84AD /* HelperClasses */,
+				E22C41601935FB8E00A0CAFA /* GINISessionManagerSpecs.m */,
+				81EE45EE20E83A7006B48985 /* GINISessionSpecs.m */,
 				81EE41360403FDC922D327D7 /* GINIAPIManagerSpec.m */,
 				81EE4902E3655232B3640C9E /* GINIURLSessionSpec.m */,
 				81EE48FAEEE3DF8B1A6B936C /* GINIAPIManagerRequestFactorySpec.m */,
@@ -258,6 +289,10 @@
 				81EE44A91F8A4C73596596E6 /* GINIURLSessionMock.m */,
 				81EE43040DFEDCFC5E071B1E /* GINISessionManagerMock.h */,
 				81EE48376DD3F8CEA4908F4D /* GINISessionManagerMock.m */,
+				81EE4DF2F8B989F20875FBDE /* GINIUIApplicationMock.m */,
+				81EE486A612A19E3ED63F3DF /* GINIUIApplicationMock.h */,
+				81EE418798C94FE64EDC0977 /* GINICredentialsStoreMock.h */,
+				81EE46B2FC973F21033FBA16 /* GINICredentialsStoreMock.m */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -267,6 +302,7 @@
 			children = (
 				81EE468AFDEFC8942E20F31F /* yoda.jpg */,
 				81EE4FC272A3BC02720C26F5 /* document.json */,
+				81EE409560F238177896AAE6 /* session.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -345,6 +381,7 @@
 			targets = (
 				23D53BF31934BC85001A957E /* Gini-iOS-SDK */,
 				23D53C031934BC85001A957E /* Gini-iOS-SDKTests */,
+				E2B18418195464FC0080FF40 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -357,6 +394,7 @@
 				23D53C121934BC85001A957E /* InfoPlist.strings in Resources */,
 				81EE43C2A85297C952E80592 /* yoda.jpg in Resources */,
 				81EE45DC3D42483D285716B5 /* document.json in Resources */,
+				81EE4EA88FD761DB89CC3337 /* session.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +461,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-Gini-iOS-SDKTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E2B1841C195465030080FF40 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$TRAVIS\" = true ]; then\necho \"running on Travis\"\nif [ ! -d $TRAVIS_BUILD_DIR/docs ]; then\nmkdir $TRAVIS_BUILD_DIR/docs\nfi\n`which appledoc` --project-name \"$PROJECT_NAME\" --project-company \"Gini GmbH\" --company-id \"net.gini\" --output \"$TRAVIS_BUILD_DIR/docs\" --ignore \"*.m\" --exit-threshold 2 --create-html --no-create-docset \"$PROJECT_DIR/$PROJECT_NAME\"\nelse\necho \"running on workstation\"\nPATH=$PATH:/usr/local/bin\n\nif hash appledoc 2>/dev/null; then\necho \"appledoc is installed\"\nif [ ! -d \"$BUILD_DIR/docs\" ]; then\nmkdir \"$BUILD_DIR/docs\"\nfi\n`which appledoc` --project-name \"$PROJECT_NAME\" --project-company \"Gini GmbH\" --company-id \"net.gini\" --output \"$BUILD_DIR/docs\" --ignore \"*.m\" --exit-threshold 2 --finalize-docset \"$PROJECT_DIR/$PROJECT_NAME\"\nelse\necho \"appledoc is not installed. No API documentation generated.\"\nfi\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -442,6 +493,7 @@
 				81EE4B90C0B56487757C438B /* GINISessionParser.m in Sources */,
 				E2CAFE811940DC610059E228 /* GINIAPIManagerRequestFactory.m in Sources */,
 				81EE43DFB1FB962DB0EAF76D /* KeychainItemWrapper.m in Sources */,
+				81EE45A4EF18AB0E62828A78 /* NSString+GINIAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,14 +501,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E22C41611935FB8E00A0CAFA /* GINISessionManagerSpecs.m in Sources */,
-				81EE446FE7352B57AEA2248A /* GINISessionSpecs.m in Sources */,
+				E2529A471947599A00FE8527 /* GINISessionManagerSpecs.m in Sources */,
 				81EE44133FBD4D2243E5D77D /* GINIURLSessionMock.m in Sources */,
 				81EE4016DD5977EA419AAB82 /* GINISessionManagerMock.m in Sources */,
-				81EE4720DD5F55677D9A8AEC /* GINIAPIManagerSpec.m in Sources */,
-				81EE4A7CFB72A4DB4E2D2261 /* GINIURLSessionSpec.m in Sources */,
+				E2529A451947599500FE8527 /* GINIURLResponseSpec.m in Sources */,
+				E2529A431947598E00FE8527 /* GINIAPIManagerSpec.m in Sources */,
+				E2529A441947599100FE8527 /* GINIURLSessionSpec.m in Sources */,
+				E2529A461947599800FE8527 /* GINISessionSpecs.m in Sources */,
 				81EE47E44806AFACE4B84DA0 /* GINIAPIManagerRequestFactorySpec.m in Sources */,
-				81EE40838BA4C191D7CD22FB /* GINIURLResponseSpec.m in Sources */,
+				81EE4F7C1974ACC44C8E2228 /* GINIUIApplicationMock.m in Sources */,
+				81EE40E5B0692EC02D52532A /* GINICredentialsStoreMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +670,20 @@
 			};
 			name = Release;
 		};
+		E2B18419195464FC0080FF40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E2B1841A195464FC0080FF40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -645,6 +713,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E2B1841B195464FC0080FF40 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2B18419195464FC0080FF40 /* Debug */,
+				E2B1841A195464FC0080FF40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

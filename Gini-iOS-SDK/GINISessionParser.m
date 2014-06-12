@@ -9,21 +9,16 @@
 @implementation GINISessionParser
 
 + (GINISession *)sessionWithJSONDictionary:(NSDictionary *)dictionary {
+
     NSString *accessToken = dictionary[@"access_token"];
     NSString *refreshToken = dictionary[@"refresh_token"];
+
+    // Seconds until the session expires.
     NSNumber *expirationTimeNumber = dictionary[@"expires_in"];
+
     NSTimeInterval expirationTime = [expirationTimeNumber doubleValue];
     NSDate *expirationDate = [NSDate dateWithTimeIntervalSinceNow:expirationTime];
-    return [[GINISession alloc] initWithAccessToken:accessToken refreshToken:refreshToken expirartionDate:expirationDate];
-}
-
-+ (GINISession *)sessionWithFragmentParametersDictionary:(NSDictionary *)dictionary {
-    NSString *accessToken = dictionary[@"access_token"];
-    NSString *refreshToken = dictionary[@"refresh_token"];
-    NSString *expiresIn = dictionary[@"expires_in"];
-    NSTimeInterval expirationTime = [expiresIn doubleValue];
-    NSDate *expirationDate = [NSDate dateWithTimeIntervalSinceNow:expirationTime];
-    return [[GINISession alloc] initWithAccessToken:accessToken refreshToken:refreshToken expirartionDate:expirationDate];
+    return [[GINISession alloc] initWithAccessToken:accessToken refreshToken:refreshToken expirationDate:expirationDate];
 }
 
 @end

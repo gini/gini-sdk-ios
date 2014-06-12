@@ -1,5 +1,9 @@
-#import "GINIURLResponse.h"
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
 
+#import "GINIURLResponse.h"
 
 @implementation GINIURLResponse
 

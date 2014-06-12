@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
+
 #import <Kiwi/Kiwi.h>
 #import <Bolts/Bolts.h>
 #import "GINIAPIManagerRequestFactory.h"
@@ -18,12 +23,17 @@ describe(@"The GINIAPIManagerRequestFactory", ^{
         // Many tests require a valid NSURL. This is handy so you don't have to create a new NSURL in every test.
         url = [NSURL URLWithString:@"foobar"];
     });
-
+    
     it(@"should throw an exception if it is initialized with an invalid session manager", ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-value"
         [[theBlock(^{
             [[GINIAPIManagerRequestFactory alloc] initWithSessionManager:nil];
         }) should] raise];
+#pragma clang diagnostic pop
     });
+    
+    
 
     context(@"synchronous method to get the session", ^{
         it(@"should set the correct access token", ^{

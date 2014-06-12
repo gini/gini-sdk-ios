@@ -4,34 +4,26 @@
  */
 
 #import "GINISessionManagerServerFlow.h"
-#import <Bolts/Bolts.h>
-#import "GINISessionManager_Private.h"
+
 #import "GINICredentialsStore.h"
-#import "GINIURLSession.h"
 #import "GINISession.h"
+#import "GINISessionManager_Private.h"
 #import "GINISessionParser.h"
+#import "GINIURLSession.h"
+#import <Bolts/Bolts.h>
+
 
 @implementation GINISessionManagerServerFlow
 
-- (instancetype)initWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret credentialsStore:(id <GINICredentialsStore>)credentialsStore baseURL:(NSURL *)baseURL URLSession:(GINIURLSession *)URLSession {
-    
-    self = [super initWithBaseURL:baseURL URLSession:URLSession];
-    if (self) {
-        // TODO: Use GINIException when available
-        if (!clientID) {
-            [NSException raise:@"Invalid parameter value" format:@"'clientID' must be non-nil"];
-        }
-        
-        if (!clientSecret) {
-            [NSException raise:@"Invalid parameter value" format:@"'clientSecret' must be non-nil"];
-        }
-        
-        if (![credentialsStore conformsToProtocol:@protocol(GINICredentialsStore)]) {
-            [NSException raise:@"Invalid parameter value" format:@"The credentials store object must conform GINICredentialsStore protocol"];
-        }
-        
+NSString *const GINIServerFlowResponseType = @"code";
 
-        _clientID = clientID;
+- (instancetype)initWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret credentialsStore:(id <GINICredentialsStore>)credentialsStore baseURL:(NSURL *)baseURL URLSession:(id <GINIURLSession>)URLSession appURLScheme:(NSString *)appURLScheme {
+
+    self = [super initWithClientID:clientID baseURL:baseURL URLSession:URLSession appURLScheme:appURLScheme];
+    if (self) {
+        NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
+        NSParameterAssert([credentialsStore conformsToProtocol:@protocol(GINICredentialsStore)]);
+
         _clientSecret = clientSecret;
         _credentialsStore = credentialsStore;
     }
@@ -45,26 +37,26 @@
     [_credentialsStore storeRefreshToken:session.refreshToken];
 }
 
-- (BFTask*)getSession {
-    
+- (BFTask *)getSession {
+
     if (_activeSession) {
-        
+
         if (![_activeSession hasAlreadyExpired]) {
-            
+
             return [BFTask taskWithResult:_activeSession];
         } else {
-            
+
             return [self refreshTokensWithToken:_activeSession.refreshToken];
         }
     } else {
-        
+
         NSString *storedRefreshToken = [_credentialsStore fetchRefreshToken];
-        
+
         if (storedRefreshToken) {
             return [self refreshTokensWithToken:storedRefreshToken];
         } else {
             // Unable to get session without user interaction
-            
+
             // TODO: Use GINIError when available
             NSError *error = [NSError errorWithDomain:GINIErrorDomain code:1 userInfo:nil];
             return [BFTask taskWithError:error];
@@ -73,15 +65,15 @@
 }
 
 - (BFTask *)refreshTokensWithToken:(NSString *)refreshToken {
-    
+
     NSURLRequest *request = [self requestWithMethod:@"POST"
                                           URLString:@"token"
                                          parameters:@{@"grant_type" : @"refresh_token",
-                                                      @"client_id" : _clientID,
-                                                      @"client_secret" : _clientSecret,
-                                                      @"refresh_token" : refreshToken}];
-    
-    return [[_URLTaskFactory dataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *task) {
+                                                 @"client_id" : _clientID,
+                                                 @"client_secret" : _clientSecret,
+                                                 @"refresh_token" : refreshToken}];
+
+    return [[_URLSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *dictionary = task.result;
         GINISession *session = [GINISessionParser sessionWithJSONDictionary:dictionary];
         [self setActiveSession:session];
@@ -89,7 +81,7 @@
     }];
 }
 
-- (BFTask *)getSessionWithCode:(NSString *)code redirectURL:(NSURL*)redirectURL {
+- (BFTask *)getSessionWithCode:(NSString *)code redirectURL:(NSURL *)redirectURL {
 
     NSURLRequest *request = [self requestWithMethod:@"POST"
                                           URLString:@"token"
@@ -98,25 +90,27 @@
                                                  @"client_secret" : _clientSecret,
                                                  @"code" : code,
                                                  @"redirect_uri" : redirectURL.absoluteString}];
-    return [[_URLTaskFactory dataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[_URLSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *dictionary = task.result;
-        GINISession *session = [GINISessionParser sessionWithJSONDictionary:dictionary];
-        return session;
+        return [GINISessionParser sessionWithJSONDictionary:dictionary];
     }];
 }
 
 - (BFTask *)logIn {
-    
-    // Cancel and remove all previous authorize tasks. Usually only one is present every time.
-    [[_authorizeTasks allValues] makeObjectsPerformSelector:@selector(cancel)];
-    [_authorizeTasks removeAllObjects];
-    
+
+    // Remove the previous authorize task.
+    if (_activeLogInTask) {
+        [_activeLogInTask cancel];
+        _activeLogInState = nil;
+    }
+
     NSString *state = [GINISessionManager generateRandomState];
-    NSURL *redirectURL = [GINISessionManager authorizationRedirectURL];
-    
-    return [[[[self openAuthorizationPageWithState:state redirectURL:redirectURL responseType:@"code"] continueWithSuccessBlock:^id(BFTask *task) {
+    NSURL *redirectURL = [self authorizationRedirectURL];
+
+    return [[[[self openAuthorizationPageWithState:state redirectURL:redirectURL responseType:GINIServerFlowResponseType] continueWithSuccessBlock:^id(BFTask *task) {
         BFTaskCompletionSource *getCodeTask = [BFTaskCompletionSource taskCompletionSource];
-        _authorizeTasks[state] = getCodeTask;
+        _activeLogInTask = getCodeTask;
+        _activeLogInState = state;
         return getCodeTask.task;
     }] continueWithSuccessBlock:^id(BFTask *task) {
         NSString *code = task.result;
@@ -128,23 +122,30 @@
     }];
 }
 
-#pragma mark - Workflow
+#pragma mark - GINIIncomingURLDelegate
 
 - (BOOL)handleURL:(NSURL *)URL {
-    
-    BFURL *parsedURL = [BFURL URLWithURL:URL];
-    NSDictionary *params = [parsedURL targetQueryParameters];
-    NSString *state = params[@"state"];
-    BFTaskCompletionSource *authorizationTask = _authorizeTasks[state];
-    
-    if (authorizationTask) {
-        
-        NSString *code = params[@"code"];
-        [authorizationTask setResult:code];
-        [_authorizeTasks removeObjectForKey:state];
-        return YES;
+
+    if ([URL.scheme isEqualToString:_appScheme] && [URL.host isEqualToString:GINIAuthorizationURLHost]) {
+
+        NSDictionary *fragmentParams = [URL.fragment GINIQueryStringParameterDictionary];
+        NSString *state = fragmentParams[@"state"];
+
+        if ([_activeLogInState isEqualToString:state]) {
+            NSString *code = fragmentParams[@"code"];
+            if (code) {
+                [_activeLogInTask setResult:code];
+            }
+            else {
+                // TODO: Add no code found error
+                [_activeLogInTask setError:nil];
+            }
+            _activeLogInTask = nil;
+            _activeLogInState = nil;
+            return YES;
+        }
     }
-    
+
     return NO;
 }
 

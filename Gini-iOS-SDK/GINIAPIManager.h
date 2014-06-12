@@ -1,3 +1,7 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
 
 @class BFTask;
 @protocol GINIAPIManagerRequestFactory;

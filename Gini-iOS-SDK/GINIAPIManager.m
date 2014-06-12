@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
+
 #import <Bolts/Bolts.h>
 #import <UIKit/UIKit.h>
 #import "GINIAPIManager.h"
@@ -9,7 +14,7 @@
 /**
  * Returns the string that is part of the URL of an API request for the given image preview size.
  */
-NSString* GINIpreviewSizeString(GiniApiPreviewSize previewSize) __attribute__((const)){
+NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     static NSArray *availablePreviewSizes;
     if (!availablePreviewSizes) {
         availablePreviewSizes = @[@"750x900", @"1280x1810"];
@@ -76,7 +81,7 @@ NSString* GINIpreviewSizeString(GiniApiPreviewSize previewSize) __attribute__((c
     NSParameterAssert(pageNumber > 0);
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
 
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"documents/%@/pages/%i/%@", documentId, pageNumber, GINIpreviewSizeString(size)]
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"documents/%@/pages/%lu/%@", documentId, (unsigned long)pageNumber, GINIPreviewSizeString(size)]
                         relativeToURL:_baseURL];
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;

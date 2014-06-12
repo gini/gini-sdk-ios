@@ -10,11 +10,11 @@
 
 
 @implementation GINIAPIManagerRequestFactory {
-    GINISessionManager* _sessionManager;
+    id<GINISessionManager> _sessionManager;
 }
 
-- (instancetype)initWithSessionManager:(GINISessionManager*)sessionManager {
-    NSParameterAssert([sessionManager isKindOfClass:[GINISessionManager class]]);
+- (instancetype)initWithSessionManager:(id<GINISessionManager>)sessionManager {
+    NSParameterAssert([sessionManager conformsToProtocol:@protocol(GINISessionManager)]);
     self = [super init];
     if (self) {
         _sessionManager = sessionManager;

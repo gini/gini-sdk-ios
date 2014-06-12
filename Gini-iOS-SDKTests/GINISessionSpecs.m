@@ -1,13 +1,12 @@
-//
-// Created by Roberto Miranda González on 05/06/14.
-// Copyright (c) 2014 Gini GmbH. All rights reserved.
-//
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
 
 #import <Kiwi.h>
 #import "GINISession.h"
 
 SPEC_BEGIN(GINISessionSpecs)
-
 
     describe(@"GINISession", ^{
 
@@ -19,7 +18,7 @@ SPEC_BEGIN(GINISessionSpecs)
                 [[theBlock(^{
                     session = [[GINISession alloc] initWithAccessToken:nil
                                                           refreshToken:@"mockToken"
-                                                       expirartionDate:[NSDate date]];
+                                                        expirationDate:[NSDate date]];
                 }) should] raise];
             });
 
@@ -27,18 +26,20 @@ SPEC_BEGIN(GINISessionSpecs)
                 [[theBlock(^{
                     session = [[GINISession alloc] initWithAccessToken:@"mockToken"
                                                           refreshToken:@"mockToken"
-                                                       expirartionDate:nil];
+                                                        expirationDate:nil];
                 }) should] raise];
             });
         });
 
         context(@"when not yet expired", ^{
 
-            it(@"should indicate that one session has not yet expired", ^{
+            it(@"should indicate that it has not yet expired", ^{
                 NSDate *now = [NSDate date];
-                NSDate *twoHoursInTheFuture = [now dateByAddingTimeInterval:3600*2];
+                NSDate *twoHoursFromNow = [now dateByAddingTimeInterval:3600*2];
 
-                session = [[GINISession alloc] initWithAccessToken:@"mockToken" refreshToken:@"mockToken" expirartionDate:twoHoursInTheFuture];
+                session = [[GINISession alloc] initWithAccessToken:@"mockToken"
+                                                      refreshToken:@"mockToken"
+                                                    expirationDate:twoHoursFromNow];
 
                 [[theValue([session hasAlreadyExpired]) should] beNo];
             });
@@ -46,18 +47,16 @@ SPEC_BEGIN(GINISessionSpecs)
 
         context(@"when expired", ^{
 
-            it(@"should indicate that one session has expired", ^{
+            it(@"should indicate that it has expired", ^{
                 NSDate *now = [NSDate date];
-                NSDate *twoHoursBefore = [now dateByAddingTimeInterval:-3600*2];
+                NSDate *twoHoursAgo = [now dateByAddingTimeInterval:-3600*2];
 
-                session = [[GINISession alloc] initWithAccessToken:@"mockToken" refreshToken:@"mockToken" expirartionDate:twoHoursBefore];
+                session = [[GINISession alloc] initWithAccessToken:@"mockToken"
+                                                      refreshToken:@"mockToken"
+                                                    expirationDate:twoHoursAgo];
 
                 [[theValue([session hasAlreadyExpired]) should] beYes];
             });
         });
-
-
     });
-
-
 SPEC_END

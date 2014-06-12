@@ -10,30 +10,27 @@
 
 @implementation GINISession
 
-- (instancetype)initWithAccessToken:(NSString *)accessToken refreshToken:(NSString *)refreshToken expirartionDate:(NSDate*)expirationDate {
+- (instancetype)initWithAccessToken:(NSString *)accessToken refreshToken:(NSString *)refreshToken expirationDate:(NSDate*)expirationDate {
     self = [super init];
     if (self) {
-
-        if (!accessToken) {
-            [NSException raise:@"Invalid parameter value" format:@"'accessToken' must be non-nil"];
-        }
-
-        if (!expirationDate) {
-            [NSException raise:@"Invalid parameter value" format:@"'expirationDate' must be non-nil"];
-        }
-
-        _accessToken = accessToken;
-        _refreshToken = refreshToken;
-        _expirationDate = expirationDate;
+        [self refreshWithAccessToken:accessToken refreshToken:refreshToken expirationDate:expirationDate];
     }
     return self;
 }
 
-- (void)refreshWithAccessToken:(NSString *)accessToken refreshToken:(NSString *)refreshToken expirationDate:(NSDate*)expirationTime {
+- (void)refreshWithAccessToken:(NSString *)accessToken refreshToken:(NSString *)refreshToken expirationDate:(NSDate*)expirationDate {
+
+    if (!accessToken) {
+        [NSException raise:@"Invalid parameter value" format:@"'accessToken' must be non-nil"];
+    }
+
+    if (!expirationDate) {
+        [NSException raise:@"Invalid parameter value" format:@"'expirationDate' must be non-nil"];
+    }
 
     _accessToken = accessToken;
     _refreshToken = refreshToken;
-    _expirationDate = expirationTime;
+    _expirationDate = expirationDate;
 }
 
 - (BOOL)hasAlreadyExpired {

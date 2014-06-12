@@ -4,7 +4,7 @@
  */
 
 @class BFTask;
-@class GINISessionManager;
+@protocol GINISessionManager;
 
 /**
  * The GINIAPIManagerRequestFactory creates NSURLRequests, usually for the GINIAPIManager. It is guaranteed that the
@@ -41,6 +41,6 @@
 
 @interface GINIAPIManagerRequestFactory : NSObject <GINIAPIManagerRequestFactory>
 
-- (instancetype)initWithSessionManager:(GINISessionManager*)sessionManager;
+- (instancetype)initWithSessionManager:(id<GINISessionManager>)sessionManager;
 
 @end

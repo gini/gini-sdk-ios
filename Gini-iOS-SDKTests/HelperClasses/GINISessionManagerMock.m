@@ -1,7 +1,7 @@
-//
-// Created by Lukas Stührk on 23/05/14.
-// Copyright (c) 2014 Gini GmbH. All rights reserved.
-//
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
 
 #import <Bolts/Bolts.h>
 #import "GINISessionManagerMock.h"
@@ -13,11 +13,13 @@
 }
 
 + (instancetype)sessionManagerWithAccessToken:(NSString *)accessToken{
-    GINISession *session = [[GINISession alloc] initWithAccessToken:accessToken andRefreshToken:nil expiresAt:nil];
+
+    GINISession *session = [[GINISession alloc] initWithAccessToken:accessToken refreshToken:nil expirationDate:[NSDate dateWithTimeIntervalSinceNow:3600]];
     return [[GINISessionManagerMock alloc] initWithSession:session];
 }
 
 - (instancetype)initWithSession:(GINISession *)session {
+
     self = [super init];
     if (self) {
         _session = session;
@@ -28,4 +30,9 @@
 - (BFTask *)getSession {
     return [BFTask taskWithResult:_session];
 }
+
+- (BFTask *)logIn {
+    return [BFTask taskWithResult:_session];
+}
+
 @end

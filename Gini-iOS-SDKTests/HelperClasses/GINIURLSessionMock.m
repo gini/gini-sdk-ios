@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
+
 #import "GINIURLSession.h"
 #import "GINIURLSessionMock.h"
 #import "BFTask.h"

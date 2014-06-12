@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23D53BF31934BC85001A957E"
-               BuildableName = "libGini-iOS-SDK.a"
-               BlueprintName = "Gini-iOS-SDK"
+               BlueprintIdentifier = "E2B18418195464FC0080FF40"
+               BuildableName = "Documentation"
+               BlueprintName = "Documentation"
                ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23D53C031934BC85001A957E"
-               BuildableName = "Gini-iOS-SDKTests.xctest"
-               BlueprintName = "Gini-iOS-SDKTests"
-               ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

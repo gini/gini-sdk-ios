@@ -1,6 +1,10 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
+
 #import <Kiwi/Kiwi.h>
 #import "GINIURLResponse.h"
-
 
 SPEC_BEGIN(GINIURLResponseSpec)
 

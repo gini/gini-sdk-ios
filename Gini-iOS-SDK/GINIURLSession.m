@@ -1,5 +1,10 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
+
 #import <Bolts/Bolts.h>
-#import <UIKit/UIKit.h>
+#import <UIKit/UIImage.h>
 #import "GINIURLSession.h"
 #import "GINIURLResponse.h"
 
@@ -10,7 +15,7 @@
 /**
  * Helper function that determines if a content type is a valid JSON content type.
  */
-BOOL GINIisJSONContent(NSString *contentType) {
+BOOL GINIIsJSONContent(NSString *contentType) {
     static NSSet *knownContentTypes;
     if (!knownContentTypes) {
         knownContentTypes = [NSSet setWithObjects:@"application/json", @"application/vnd.gini.v1+json", nil];
@@ -22,7 +27,7 @@ BOOL GINIisJSONContent(NSString *contentType) {
 /**
  * Helper function that determines if a content type is a valid image content type.
  */
-BOOL GINIisImageContent(NSString *contentType) {
+BOOL GINIIsImageContent(NSString *contentType) {
     NSArray *contentTypeComponents = [contentType componentsSeparatedByString:@";"];
     if ([[[contentTypeComponents firstObject] substringToIndex:6] isEqualToString:@"image/"]) {
         return YES;
@@ -33,7 +38,7 @@ BOOL GINIisImageContent(NSString *contentType) {
 /**
  * Helper function that determines if a content type is a valid text content type.
  */
-BOOL GINIisTextContent(NSString *contentType) {
+BOOL GINIIsTextContent(NSString *contentType) {
     NSArray *contentTypeComponents = [contentType componentsSeparatedByString:@";"];
     if ([[[contentTypeComponents firstObject] substringToIndex:5] isEqualToString:@"text/"]) {
         return YES;
@@ -127,20 +132,20 @@ BOOL GINICheckHTTPError(NSURLResponse *response, NSError **error) {
         NSError *error;
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
         httpResult.response = httpResponse;
-        NSString *contentType = [[httpResponse allHeaderFields] valueForKey:@"Content-Type"];
-        if (GINIisJSONContent(contentType)) {
+        NSString *contentType = [[httpResponse allHeaderFields] objectForKey:@"Content-Type"];
+        if (GINIIsJSONContent(contentType)) {
             id deserializedData = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingAllowFragments error:&error];
             if (error) {
                 return [completionSource setError:error];
             } else {
                 httpResult.data = deserializedData;
             }
-        } else if (GINIisImageContent(contentType)) {
+        } else if (GINIIsImageContent(contentType)) {
             UIImage *image = [UIImage imageWithData:rawData];
             if (image) {
                 httpResult.data = image;
             }
-        } else if (GINIisTextContent(contentType)) {
+        } else if (GINIIsTextContent(contentType)) {
             httpResult.data = [[NSString alloc] initWithData:rawData encoding:GINI_DEFAULT_ENCODING];
         }
     }

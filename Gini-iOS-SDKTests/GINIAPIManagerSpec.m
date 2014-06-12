@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
+
 #import <Kiwi/Kiwi.h>
 #import <UIKit/UIKit.h>
 #import "GINIAPIManager.h"
@@ -57,7 +62,7 @@ describe(@"The GINIAPIManager", ^{
         // Create an instance of the apiManager that can be used in every test. This instance does not use a real
         // GINIURLSession but instead uses a mock that provides some handy functionality to test the HTTP communication.
         GINISessionManagerMock *sessionManager = [GINISessionManagerMock sessionManagerWithAccessToken:@"1234"];
-        GINIAPIManagerRequestFactory *requestFactory = [[GINIAPIManagerRequestFactory alloc] initWithSessionManager:sessionManager];
+        GINIAPIManagerRequestFactory *requestFactory = [[GINIAPIManagerRequestFactory alloc] initWithSessionManager:(GINISessionManager*)sessionManager];
         urlSessionMock = [GINIURLSessionMock new];
         apiManager = [[GINIAPIManager alloc] initWithURLSession:urlSessionMock requestFactory:requestFactory baseURL:[NSURL URLWithString:@"https://api.gini.net"]];
         documentId = @"Foobar"; // TODO
@@ -65,7 +70,8 @@ describe(@"The GINIAPIManager", ^{
 
     it(@"should throw an exception when initalized with the wrong types", ^{
         NSURL *baseURL = [NSURL URLWithString:@"http://example.com"];
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-value"
         [[theBlock(^{
             [[GINIAPIManager alloc] initWithURLSession:nil requestFactory:nil baseURL:nil ];
         }) should] raise];
@@ -75,9 +81,9 @@ describe(@"The GINIAPIManager", ^{
         }) should] raise];
 
         [[theBlock(^{
-            [[GINIAPIManager alloc] initWithURLSession:nil requestFactory:@"foo" baseURL:baseURL];
+            [[GINIAPIManager alloc] initWithURLSession:nil requestFactory:(id)@"foo" baseURL:baseURL];
         }) should] raise];
-
+#pragma clang diagnostic pop
         // TODO
     });
 

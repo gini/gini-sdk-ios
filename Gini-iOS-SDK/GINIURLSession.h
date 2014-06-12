@@ -1,8 +1,11 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
+
 #import <Foundation/Foundation.h>
 
-
 @class BFTask;
-
 
 /**
  * The GINIURLSession is a small wrapper around Apple's NSURLSession. It wraps the Apple's HTTP tasks into BFTask* so

@@ -4,21 +4,24 @@
  */
 
 #import "GINISessionManager.h"
+#import "NSString+GINIAdditions.h"
 
-extern NSString * const GINIAuthorizationURLHost;
+@class GINIURLSession;
+
+extern NSString *const GINIAuthorizationURLHost;
 
 @interface GINISessionManager (Private)
 
-+ (NSDictionary *)fragmentParametersForURL:(NSURL *)url;
++ (NSString *)generateRandomState;
 
-+ (NSURL *)authorizationRedirectURL;
+- (instancetype)initWithClientID:(NSString *)clientID baseURL:(NSURL *)baseURL URLSession:(id <GINIURLSession>)urlSession appURLScheme:(NSString *)appURLScheme;
 
-+ (NSString*)generateRandomState;
-
-
-- (instancetype)initWithBaseURL:(NSURL *)baseURL URLSession:(GINIURLSession *)urlSession;
+- (NSURL *)authorizationRedirectURL;
 
 - (BFTask *)openAuthorizationPageWithState:(NSString *)state redirectURL:(NSURL *)redirectURL responseType:(NSString *)responseType;
-- (NSMutableURLRequest *)requestWithMethod:(NSString *)method URLString:(NSString*)URLString parameters:(NSDictionary *)parameters;
+
+- (NSURL *)URLWithString:(NSString *)URLString parameters:(NSDictionary *)parameters;
+
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method URLString:(NSString *)URLString parameters:(NSDictionary *)parameters;
 
 @end

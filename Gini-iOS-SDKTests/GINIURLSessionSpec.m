@@ -1,3 +1,8 @@
+/*
+ *  Copyright (c) 2014, Gini GmbH.
+ *  All rights reserved.
+ */
+
 #import <Kiwi/Kiwi.h>
 #import "GINIURLSession.h"
 #import "BFTask.h"
@@ -5,9 +10,9 @@
 
 
 // Make the helper functions visible for the tests.
-BOOL GINIisJSONContent(NSString *contentType);
-BOOL GINIisImageContent(NSString *contentType);
-BOOL GINIisTextContent(NSString *contentType);
+BOOL GINIIsJSONContent(NSString *contentType);
+BOOL GINIIsImageContent(NSString *contentType);
+BOOL GINIIsTextContent(NSString *contentType);
 
 
 #pragma mark - GININSURLSessionDataTaskMock
@@ -156,28 +161,28 @@ SPEC_BEGIN(GINIURLSessionSpec)
 
         beforeEach(^{
             nsURLSessionMock = [GININSURLSessionMock new];
-            giniURLSession = [[GINIURLSession alloc] initWithNSURLsession:(NSURLSession *)nsURLSessionMock]; // TODO (type cast)
+            giniURLSession = [[GINIURLSession alloc] initWithNSURLSession:(NSURLSession *)nsURLSessionMock]; // TODO (type cast)
             request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://api.gini.net"]];
         });
 
         context(@"Helper functions", ^{
             it(@"should correctly detect JSON content types", ^{
-                [[theValue(GINIisJSONContent(@"application/json")) should] beYes];
-                [[theValue(GINIisJSONContent(@"application/json; charset=utf8")) should] beYes];
-                [[theValue(GINIisJSONContent(@"text/html")) should] beNo];
-                [[theValue(GINIisJSONContent(@"application/customType")) should] beNo];
+                [[theValue(GINIIsJSONContent(@"application/json")) should] beYes];
+                [[theValue(GINIIsJSONContent(@"application/json; charset=utf8")) should] beYes];
+                [[theValue(GINIIsJSONContent(@"text/html")) should] beNo];
+                [[theValue(GINIIsJSONContent(@"application/customType")) should] beNo];
             });
 
             it(@"should correctly detect image content types", ^{
-                [[theValue(GINIisImageContent(@"image/jpeg")) should] beYes];
-                [[theValue(GINIisImageContent(@"image/png")) should] beYes];
-                [[theValue(GINIisImageContent(@"application/json")) should] beNo];
-                [[theValue(GINIisImageContent(@"application/json; charset=UTF-8")) should] beNo];
+                [[theValue(GINIIsImageContent(@"image/jpeg")) should] beYes];
+                [[theValue(GINIIsImageContent(@"image/png")) should] beYes];
+                [[theValue(GINIIsImageContent(@"application/json")) should] beNo];
+                [[theValue(GINIIsImageContent(@"application/json; charset=UTF-8")) should] beNo];
             });
 
             it(@"should correctly detect text content types", ^{
-                [[theValue(GINIisTextContent(@"text/html")) should] beYes];
-                [[theValue(GINIisTextContent(@"text/html;charset=UTF8")) should] beYes];
+                [[theValue(GINIIsTextContent(@"text/html")) should] beYes];
+                [[theValue(GINIIsTextContent(@"text/html;charset=UTF8")) should] beYes];
             });
         });
 
