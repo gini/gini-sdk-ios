@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINIAPIManagerRequestFactory Protocol Reference</title>
+		<title>GINISessionParser Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINIAPIManagerRequestFactory Protocol Reference</h1>
+				<h1 class="hideInXcode">GINISessionParser Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -25,8 +25,6 @@
 				<li id="jumpto_button" role="navigation">
 					<select id="jumpTo">
 	<option value="top">Jump To&#133;</option>
-	
-	<option value="overview">Overview</option>
 	
 	
 	
@@ -39,13 +37,11 @@
 	
 	
 	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/sessionWithJSONDictionary:">&nbsp;&nbsp;&nbsp;&nbsp;+ sessionWithJSONDictionary:</option>
 	
 	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/asynchronousRequestUrl:withMethod:">&nbsp;&nbsp;&nbsp;&nbsp;- asynchronousRequestUrl:withMethod:</option>
-	
-	<option value="//api/name/requestUrl:withMethod:">&nbsp;&nbsp;&nbsp;&nbsp;- requestUrl:withMethod:</option>
 	
 	
 	
@@ -56,8 +52,6 @@
 		<nav id="tocContainer" class="isShowingTOC">
 			<ul id="toc" role="tree">
 				
-<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
-
 
 
 
@@ -71,22 +65,20 @@
 
 
 
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/asynchronousRequestUrl:withMethod:">asynchronousRequestUrl:withMethod:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestUrl:withMethod:">requestUrl:withMethod:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sessionWithJSONDictionary:">sessionWithJSONDictionary:</a></span></li>
 	
 </ul></li>
+
+
 
 
 			</ul>
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINIAPIManagerRequestFactory Protocol Reference" name="top"></a>
+				<a title="GINISessionParser Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -95,37 +87,23 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINIAPIManagerRequestFactory Protocol Reference</h1>
+						<h1 class="title title-header">GINISessionParser Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Conforms to</td>
+	<td class="specification-title">Inherits from</td>
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINIAPIManagerRequestFactory.h</td>
+	<td class="specification-value">GINISessionParser.h</td>
 </tr>
 						</tbody></table></div>
 					
                     
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The GINIAPIManagerRequestFactory creates NSURLRequests, usually for the <a href="../Classes/GINIAPIManager.html">GINIAPIManager</a>. It is guaranteed that the
-created requests have the correct HTTP headers set to make requests against the Gini API based on the user&rsquo;s current
-session.</p>
-
-<p>Please notice that this request factory does not handle every detail of the request settings. It only guarantees
-that the session headers are valid. All other headers and serialization of data has to come from the consumer of the
-request.</p>
-					</div>
-					
-					
 					
 					
 					
@@ -140,16 +118,10 @@ request.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/requestUrl:withMethod:">&ndash;&nbsp;requestUrl:withMethod:</a></code>
+		<code><a href="#//api/name/sessionWithJSONDictionary:">+&nbsp;sessionWithJSONDictionary:</a></code>
 	</span>
 	
-	<span class="task-item-suffix">required method</span>
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/asynchronousRequestUrl:withMethod:">&ndash;&nbsp;asynchronousRequestUrl:withMethod:</a></code>
-	</span>
 	
-	<span class="task-item-suffix">required method</span>
 </li>
 						</ul>
 						
@@ -161,26 +133,23 @@ request.</p>
 					
 					
 					
-					
-					
 					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/asynchronousRequestUrl:withMethod:" title="asynchronousRequestUrl:withMethod:"></a>
-	<h3 class="subsubtitle method-title">asynchronousRequestUrl:withMethod:</h3>
+	<a name="//api/name/sessionWithJSONDictionary:" title="sessionWithJSONDictionary:"></a>
+	<h3 class="subsubtitle method-title">sessionWithJSONDictionary:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns a BFTask that will resolve to a NSMutableURLRequest that is guaranteed to have the correct headers set
-(including session headers) to do a request to the Gini API.</p>
+		<p>Parses a JSON dictionary into a <a href="../Classes/GINISession.html"><code>GINISession</code></a> given that the it matches the description on the API.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BFTask *)asynchronousRequestUrl:(NSURL *)<em>url</em> withMethod:(NSString *)<em>httpMethod</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (GINISession *)sessionWithJSONDictionary:(NSDictionary *)<em>dictionary</em></code></div>
 
     
 	
@@ -192,10 +161,17 @@ request.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Returns a BFTask that will resolve to a NSMutableURLRequest that is guaranteed to have the correct headers set
-(including session headers) to do a request to the Gini API.</p>
+		<p>Parses a JSON dictionary into a <a href="../Classes/GINISession.html"><code>GINISession</code></a> given that the it matches the description on the API.</p>
 
-<p>This method is the asynchronous implementation of requestUrl:withMethod:andParameters.</p>
+<p>The expected dictionary should look like the following:</p>
+
+<p>{
+&ldquo;access_token&rdquo;: &ldquo;exampleToken&rdquo;, (Necessary)
+&ldquo;refresh_token&rdquo;: &ldquo;exampleToken&rdquo;, (Optional)
+&ldquo;expires_in&rdquo;: 123 (Necessary)
+}</p>
+
+<p>If a necessary parameter is not found, nil is returned.</p>
 	</div>
 	
 	
@@ -206,59 +182,15 @@ request.</p>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIAPIManagerRequestFactory.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/requestUrl:withMethod:" title="requestUrl:withMethod:"></a>
-	<h3 class="subsubtitle method-title">requestUrl:withMethod:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns a NSMutableURLRequest that is guaranteed to have the correct headers set (including session headers) to do
-a request to the Gini API.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (NSMutableURLRequest *)requestUrl:(NSURL *)<em>url</em> withMethod:(NSString *)<em>httpMethod</em></code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Returns a NSMutableURLRequest that is guaranteed to have the correct headers set (including session headers) to do
-a request to the Gini API.</p>
-
-<p>Please notice that in some implementations, this method will block the thread in which it is executed! Because of
-that, it is usually preferred to use the asynchronous implementation asynchronousRequestUrl:withMethod:andParameters.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIAPIManagerRequestFactory.h</code><br />
+		<code class="declared-in-ref">GINISessionParser.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 					</div>
+					
+					
 					
 					
                     
