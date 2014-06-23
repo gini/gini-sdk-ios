@@ -1,9 +1,5 @@
 language: objective-c
 
-xcode_workspace: Gini-iOS-SDK.xcworkspace
-xcode_scheme: Gini-iOS-SDK
-xcode_sdk: iphonesimulator7.0
-
 before_install:
   - export LANG=en_US.UTF-8
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet 
@@ -15,14 +11,10 @@ before_script:
 env:
   - secure: "YI6U3xYnOX+Cox+RNIWMTMCabCKL/K0fvHI5i9O6HYXUfoRO2lPx9/D2kxS0IK9r3eclXoU1ExzbMVHkr5IZdjjuanQKBILR6oodKhDed+cV0JSjVlV7MKSKWajKp4Liv+LHCg6eRf81c7DtBGf+Vy/5nIfMuoavyD/pG+pmfHM="
 
-install:
-  - pod install
-
-#script:
-#  - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Gini-iOS-SDK -sdk iphonesimulator test
-#  - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Documentation -sdk iphonesimulator build
+script:
+  - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Gini-iOS-SDK -sdk iphonesimulator test
+  - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Documentation -sdk iphonesimulator build
 
 after_success:
-  - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Documentation -sdk iphonesimulator build
   - ./scripts/publish_docs.sh
 
