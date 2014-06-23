@@ -21,6 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		04A595B2195869DD00CB8E1B /* documents.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A595B1195869DD00CB8E1B /* documents.json */; };
+		04A595C019596BDA00CB8E1B /* extractions.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A595BF19596BDA00CB8E1B /* extractions.json */; };
+		04A595C219598DD300CB8E1B /* pages.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A595C119598DD300CB8E1B /* pages.json */; };
+		04A595C419599E6A00CB8E1B /* layout.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A595C319599E6A00CB8E1B /* layout.json */; };
+		04B754831959ABB600CF6072 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B754821959ABB600CF6072 /* search.json */; };
 		23D53BF81934BC85001A957E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53BF71934BC85001A957E /* Foundation.framework */; };
 		23D53BFD1934BC85001A957E /* GiniSDK.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 23D53BFC1934BC85001A957E /* GiniSDK.h */; };
 		23D53BFF1934BC85001A957E /* GiniSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D53BFE1934BC85001A957E /* GiniSDK.m */; };
@@ -95,6 +100,11 @@
 
 /* Begin PBXFileReference section */
 		0439411C6E91498D8E5A31B2 /* libPods-Gini-iOS-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gini-iOS-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A595B1195869DD00CB8E1B /* documents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = documents.json; sourceTree = "<group>"; };
+		04A595BF19596BDA00CB8E1B /* extractions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = extractions.json; path = ../../../../Documents/extractions.json; sourceTree = "<group>"; };
+		04A595C119598DD300CB8E1B /* pages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pages.json; sourceTree = "<group>"; };
+		04A595C319599E6A00CB8E1B /* layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = layout.json; sourceTree = "<group>"; };
+		04B754821959ABB600CF6072 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		2056985987664BD8B2381A5A /* libPods-Gini-iOS-SDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gini-iOS-SDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D53BF41934BC85001A957E /* libGini-iOS-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libGini-iOS-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D53BF71934BC85001A957E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -303,6 +313,11 @@
 				81EE468AFDEFC8942E20F31F /* yoda.jpg */,
 				81EE4FC272A3BC02720C26F5 /* document.json */,
 				81EE409560F238177896AAE6 /* session.json */,
+				04A595B1195869DD00CB8E1B /* documents.json */,
+				04A595BF19596BDA00CB8E1B /* extractions.json */,
+				04A595C119598DD300CB8E1B /* pages.json */,
+				04A595C319599E6A00CB8E1B /* layout.json */,
+				04B754821959ABB600CF6072 /* search.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -391,10 +406,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A595C219598DD300CB8E1B /* pages.json in Resources */,
+				04A595C419599E6A00CB8E1B /* layout.json in Resources */,
+				04A595C019596BDA00CB8E1B /* extractions.json in Resources */,
+				04B754831959ABB600CF6072 /* search.json in Resources */,
 				23D53C121934BC85001A957E /* InfoPlist.strings in Resources */,
 				81EE43C2A85297C952E80592 /* yoda.jpg in Resources */,
 				81EE45DC3D42483D285716B5 /* document.json in Resources */,
 				81EE4EA88FD761DB89CC3337 /* session.json in Resources */,
+				04A595B2195869DD00CB8E1B /* documents.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +741,7 @@
 				E2B1841A195464FC0080FF40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -95,8 +95,37 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     }];
 }
 
-- (BFTask *)uploadDocumentWithData:(NSData *)documentImage contentType:(NSString *)contentType fileName:(NSString *)fileName {
-    NSParameterAssert([documentImage isKindOfClass:[NSData class]]);
+- (BFTask *)getPagesForDocument:(NSString *)documentId {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"documents/%@/pages", documentId] relativeToURL:_baseURL];
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *pagesTask) {
+            GINIURLResponse *response = pagesTask.result;
+            return response.data;
+        }];
+    }];
+}
+
+- (BFTask *)getLayoutForDocument:(NSString *)documentId {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"documents/%@/layout", documentId] relativeToURL:_baseURL];
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *layoutTask) {
+            GINIURLResponse *response = layoutTask.result;
+            return response.data;
+        }];
+    }];
+}
+
+
+- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName {
+    NSParameterAssert([documentData isKindOfClass:[NSData class]]);
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([contentType isKindOfClass:[NSString class]]);
 
@@ -105,12 +134,110 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
         [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
-        return [[_urlSession BFUploadTaskWithRequest:requestTask.result fromData:documentImage] continueWithSuccessBlock:^id(BFTask *uploadTask) {
+        return [[_urlSession BFUploadTaskWithRequest:requestTask.result fromData:documentData] continueWithSuccessBlock:^id(BFTask *uploadTask) {
             // The HTTP response has a Location header with the URL of the document.
             GINIURLResponse *response = uploadTask.result;
             NSString *location = [[response.response allHeaderFields] valueForKey:@"Location"];
             // Get the document.
             return [self getDocumentWithURL:[NSURL URLWithString:location]];
+        }];
+    }];
+}
+
+- (BFTask *)deleteDocument:(NSString *)documentId {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"documents/%@", documentId] relativeToURL:_baseURL];
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"DELETE"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *documentTask) {
+            GINIURLResponse *response = documentTask.result;
+            return response.data;
+        }];
+    }];
+}
+
+- (BFTask *)getDocumentsWithLimit:(NSUInteger)limit offset:(NSUInteger)offset {
+    NSParameterAssert(limit > 0);
+    NSParameterAssert(offset >= 0);
+    
+    NSString *urlString = [NSString stringWithFormat:@"documents?limit=%lu&offset=%lu", (unsigned long)limit, (unsigned long)offset];
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *documentsTask) {
+            GINIURLResponse *response = documentsTask.result;
+            return response.data;
+        }];
+    }];
+}
+
+- (BFTask *)getExtractionsForDocument:(NSString *)documentId {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
+    NSString *urlString = [NSString stringWithFormat:@"documents/%@/extractions", documentId];
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *extractionsTask) {
+            GINIURLResponse *response = extractionsTask.result;
+            return response.data;
+        }];
+    }];
+}
+
+- (BFTask *)submitFeedbackForDocument:(NSString *)documentId label:(NSString *)label value:(NSString *)value boundingBox:(NSDictionary *)boundingBox {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    NSParameterAssert([label isKindOfClass:[NSString class]]);
+    NSParameterAssert([value isKindOfClass:[NSString class]]);
+    
+    NSString *urlString = [NSString stringWithFormat:@"documents/%@/extractions/%@", documentId, label];
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+    
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"PUT"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Content-Type"];
+        NSDictionary *feedbackDict = @{@"box": boundingBox, @"value": value};
+        NSData *feedbackData = [NSJSONSerialization dataWithJSONObject:feedbackDict
+                                                               options:NSJSONWritingPrettyPrinted
+                                                                 error:nil];
+        return [[_urlSession BFUploadTaskWithRequest:request fromData:feedbackData] continueWithSuccessBlock:^id(BFTask *updateTask) {
+            GINIURLResponse *response = updateTask.result;
+            return response.data;
+        }];
+    }];
+}
+
+- (BFTask *)deleteFeedbackForDocument:(NSString *)documentId label:(NSString *)label {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    NSParameterAssert([label isKindOfClass:[NSString class]]);
+    
+    NSString *urlString = [NSString stringWithFormat:@"documents/%@/extractions/%@", documentId, label];
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"DELETE"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *feedbackTask) {
+            GINIURLResponse *response = feedbackTask.result;
+            return response.data;
+        }];
+    }];
+}
+
+- (BFTask *)search:(NSString *)searchTerm limit:(NSUInteger)limit offset:(NSUInteger)offset docType:(NSString *)docType {
+    NSParameterAssert([searchTerm isKindOfClass:[NSString class]]);
+    
+    NSString *urlString = [NSString stringWithFormat:@"search?q=%@&limit=%lu&offset=%lu&docType=%@", searchTerm, (unsigned long)limit, (unsigned long)offset, docType];
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+    
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *searchTask) {
+            GINIURLResponse *response = searchTask.result;
+            return response.data;
         }];
     }];
 }

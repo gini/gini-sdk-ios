@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
 /**
  * Gets the document with the given URL.
  *
- * @param documentId The document's location.
+ * @param location The document's location.
  * @returns A BFTask* that will resolve to a NSDictionary* containing the API's response.
  */
 - (BFTask *)getDocumentWithURL:(NSURL *)location;
@@ -50,6 +50,21 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
  */
 - (BFTask *)getPreviewForPage:(NSUInteger)pageNumber ofDocument:(NSString *)documentId withSize:(GiniApiPreviewSize)size;
 
+/**
+ * Gets the list of pages for a document.
+ *
+ * @param documentId The document's id.
+ * @return A BFTask* that will resolve to an array of pages.
+ */
+- (BFTask *)getPagesForDocument:(NSString *)documentId;
+
+/**
+ * Gets the layout of a document.
+ *
+ * @param documentId The document's id.
+ * @return A BFTask that will resolve to a NSDictionary containing the document layout.
+ */
+- (BFTask *)getLayoutForDocument:(NSString *)documentId;
 
 /**
  * Creates a new document from the given NSData*.
@@ -60,7 +75,63 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
  * @param fileName The filename of the document.
  * @returns A BFTask* that will resolve to a NSString containing the created document's ID.
  */
-- (BFTask *)uploadDocumentWithData:(NSData *)documentImage contentType:(NSString *)contentType fileName:(NSString *)fileName;
+- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName;
+
+/**
+ * Deletes the document with the given ID.
+ *
+ * @param documentId The document's id.
+ * @returns A BFTask*
+ */
+- (BFTask *)deleteDocument:(NSString *)documentId;
+
+/**
+ * Gets a list of all documents.
+ *
+ * @param limit The maximum number of documents to return.
+ * @param offset The start offset.
+ * @returns A BFTask* that will resolve to an NSDictionary containing a paginated list of documents.
+ */
+- (BFTask *)getDocumentsWithLimit:(NSUInteger)limit offset:(NSUInteger)offset;
+
+/**
+ * Gets extractions for the specific document
+ *
+ * @param documentId The document's id.
+ * @returns A BFTask that will resolve to an NSDictionary containing the extractions for the document.
+ */
+- (BFTask *)getExtractionsForDocument:(NSString *)documentId;
+
+/**
+ * Submit feedback for the document on a specific label.
+ *
+ * @param documentId The document's id.
+ * @param label The extraction label to be updated.
+ * @param value The new value for the extraction.
+ * @param boundingBox The new bounding box for the updated extraction (optional).
+ * @returns A BFTask*
+ */
+- (BFTask *)submitFeedbackForDocument:(NSString *)documentId label:(NSString *)label value:(NSString *)value boundingBox:(NSDictionary *)boundingBox;
+
+/**
+ * Delete a specific feedback label for the document.
+ * 
+ * @param documentId The document's id.
+ * @param label The extraction label to be deleted.
+ * @returns A BFTask*
+ */
+- (BFTask *)deleteFeedbackForDocument:(NSString *)documentId label:(NSString *)label;
+
+/**
+ * Searches for documents containing the given words.
+ * 
+ * @param searchTerm The search term(s) separated by space.
+ * @param limit The number of results per page.
+ * @param offset The start offset.
+ * @param docType Restrict the search to a specific doctype.
+ * @returns A BFTask* that will resolve to an NSDictionary containing documents found.
+ */
+- (BFTask *)search:(NSString *)searchTerm limit:(NSUInteger)limit offset:(NSUInteger)offset docType:(NSString *)docType;
 
 /**
  * The designated initializer.
