@@ -4,9 +4,12 @@ DerivedData/
 .DS_Store
 
 Pods/
+Podfile.lock
 
 .idea/
-xcuserdata/
 
 docset-installed.txt
 
+Gini-iOS-SDK.xcworkspace
+*.xcuserdatad
+*.xccheckout
