@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINIURLSession Class Reference</title>
+		<title>GINISessionManagerServerFlow Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINIURLSession Class Reference</h1>
+				<h1 class="hideInXcode">GINISessionManagerServerFlow Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -41,7 +41,7 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithNSURLSession:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithNSURLSession:</option>
+	<option value="//api/name/initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:</option>
 	
 	
 	
@@ -69,7 +69,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithNSURLSession:">initWithNSURLSession:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:">initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:</a></span></li>
 	
 </ul></li>
 
@@ -78,7 +78,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINIURLSession Class Reference" name="top"></a>
+				<a title="GINISessionManagerServerFlow Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -87,7 +87,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINIURLSession Class Reference</h1>
+						<h1 class="title title-header">GINISessionManagerServerFlow Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -95,13 +95,10 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value">NSObject</td>
-</tr><tr>
-	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/GINIURLSession.html">GINIURLSession</a></td>
+	<td class="specification-value"><a href="../Classes/GINISessionManager.html">GINISessionManager</a> : NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINIURLSession.h</td>
+	<td class="specification-value">GINISessionManagerServerFlow.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -121,7 +118,7 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithNSURLSession:">&ndash;&nbsp;initWithNSURLSession:</a></code>
+		<code><a href="#//api/name/initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:">&ndash;&nbsp;initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:</a></code>
 	</span>
 	
 	
@@ -143,18 +140,18 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithNSURLSession:" title="initWithNSURLSession:"></a>
-	<h3 class="subsubtitle method-title">initWithNSURLSession:</h3>
+	<a name="//api/name/initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:" title="initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:"></a>
+	<h3 class="subsubtitle method-title">initWithClientID:clientSecret:credentialsStore:baseURL:URLSession:appURLScheme:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The designated initializer.</p>
+		<p>Initializes the manager to use server-side authentication flow.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithNSURLSession:(NSURLSession *)<em>urlSession</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithClientID:(NSString *)<em>clientID</em> clientSecret:(NSString *)<em>clientSecret</em> credentialsStore:(id&lt;GINICredentialsStore&gt;)<em>credentialsStore</em> baseURL:(NSURL *)<em>baseURL</em> URLSession:(id&lt;GINIURLSession&gt;)<em>URLSession</em> appURLScheme:(NSString *)<em>appURLScheme</em></code></div>
 
     
 	
@@ -162,13 +159,43 @@
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
+			<dt><em>clientID</em></dt>
+			<dd><p>The clientID you received from Gini.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clientSecret</em></dt>
+			<dd><p>The client secret you received from Gini.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>credentialsStore</em></dt>
+			<dd><p>Object that handles the storage of the tokens.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>baseURL</em></dt>
+			<dd><p>The base URL of the Gini Oauth Server.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>appURLScheme</em></dt>
+			<dd><p>The URL scheme used for redirection to the app once the login on the browser is done.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
 			<dt><em>urlSession</em></dt>
-			<dd><p>An instance of Apple&rsquo;s <code>NSURLSession</code> class that is used to do the HTTP requests.</p></dd>
+			<dd><p>The NSURLSession used for the network connections.</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The initialized instance</p>
+	</div>
 	
 	
 	
@@ -176,7 +203,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The designated initializer.</p>
+		<p>Initializes the manager to use server-side authentication flow.</p>
 	</div>
 	
 	
@@ -187,7 +214,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLSession.h</code><br />
+		<code class="declared-in-ref">GINISessionManagerServerFlow.h</code><br />
 	</div>				
 	
 	
