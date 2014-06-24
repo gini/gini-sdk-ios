@@ -33,4 +33,15 @@
 */
 @property NSArray *dependencies;
 
+/**
+ * Factory to create a new factory description :-).
+ *
+ * @param method            A selector for the method on the class or object.
+ *
+ * @param classOrObject     The class or object on which the factory method is available.
+ *
+ * @param dependencies      An array describing the method's arguments (as a collection of dependency keys, see the
+ *                          discussion on keys at the `GINIInjector` class.
+ */
++ (instancetype)factoryDescriptionForFactory:(SEL)method on:(id)classOrObject dependencies:(NSArray *)dependencies;
 @end

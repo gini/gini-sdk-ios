@@ -223,7 +223,7 @@ describe(@"The GINIInjector", ^{
             id instanceOne = [giniInjector getInstanceOf:@"foobarRaboofFoobar"];
             id instanceTwo = [giniInjector getInstanceOf:@"foobarRaboofFoobar"];
             [[instanceOne should] equal:instanceTwo];
-            [instanceOne isEqualToString:@"foobarrabooffoobar"];
+            [[instanceOne should] equal:@"foobarrabooffoobarfoobar"];
         });
     });
 });

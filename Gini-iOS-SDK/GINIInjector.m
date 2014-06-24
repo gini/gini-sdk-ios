@@ -50,25 +50,30 @@ id GINIInjectorKey(id key) {
     }
     va_end(args);
 
-    GINIFactoryDescription *factoryDescription = [GINIFactoryDescription new];
-    factoryDescription.factoryMethod = method;
-    factoryDescription.object = classOrObject;
-    factoryDescription.dependencies = dependencies;
+    GINIFactoryDescription *factoryDescription = [GINIFactoryDescription factoryDescriptionForFactory:method on:classOrObject dependencies:dependencies];
     [_factories setObject:factoryDescription forKey:GINIInjectorKey(key)];
-
     return factoryDescription;
 }
 
 - (GINIFactoryDescription *)setSingletonFactory:(SEL)method on:(id)classOrObject forKey:(id)key withDependencies:firstDependency, ...{
-    GINIFactoryDescription *factoryDescription = [self setFactory:method
-                                                               on:classOrObject
-                                                           forKey:key
-                                                 withDependencies:firstDependency, nil];
+    NSParameterAssert(method);
+    NSParameterAssert([classOrObject respondsToSelector:method]);
+    NSParameterAssert(key);
+
+    // Create the list of dependencies
+    NSMutableArray *dependencies = [NSMutableArray new];
+    va_list args;
+    va_start(args, firstDependency);
+    for (id dependency = firstDependency; dependency != nil; dependency = va_arg(args, id)) {
+        [dependencies addObject:dependency];
+    }
+    va_end(args);
+
+    GINIFactoryDescription *factoryDescription = [GINIFactoryDescription factoryDescriptionForFactory:method on:classOrObject dependencies:dependencies];
+    [_factories setObject:factoryDescription forKey:GINIInjectorKey(key)];
     factoryDescription.isSingleton = YES;
     return factoryDescription;
 }
-
-
 
 - (id)factoryForKey:(id)key {
     return [_factories objectForKey:GINIInjectorKey(key)];
