@@ -73,6 +73,14 @@ BOOL GINICheckHTTPError(NSURLResponse *response, NSError **error) {
     NSURLSession *_nsURLSession;
 }
 
++ (instancetype)urlSessionWithNSURLSession:(NSURLSession *)urlSession {
+    return [[GINIURLSession alloc] initWithNSURLSession:urlSession];
+}
+
++ (instancetype)urlSession {
+    return [GINIURLSession urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]];
+}
+
 - (instancetype)initWithNSURLSession:(NSURLSession *)urlSession {
     self = [super init];
     if (self) {

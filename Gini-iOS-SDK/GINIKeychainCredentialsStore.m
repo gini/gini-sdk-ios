@@ -13,6 +13,10 @@
 
 @implementation GINIKeychainCredentialsStore
 
++ (instancetype)credentialsStoreWithIdentifier:(NSString *)identifier accessGroup:(NSString *)accessGroup {
+    return [[GINIKeychainCredentialsStore alloc] initWithIdentifier:identifier accessGroup:accessGroup];
+}
+
 - (instancetype)initWithIdentifier:(NSString *)identifier accessGroup:(NSString *)accessGroup {
     self = [super init];
     if (self) {

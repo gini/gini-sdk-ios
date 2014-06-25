@@ -4,7 +4,7 @@
  */
 
 /**
- * The `GINICredentialsStore` defines the functions required to store and fetch the token necessary for refreshing the
+ * The `GINICredentialsStore` defines the methods required to store and fetch the token necessary for refreshing the
  * session tokens when this is required. E.g the session expired.
  */
 @protocol GINICredentialsStore <NSObject>
