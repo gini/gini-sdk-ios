@@ -43,13 +43,29 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/deleteDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteDocument:</option>
+	
+	<option value="//api/name/deleteFeedbackForDocument:label:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteFeedbackForDocument:label:</option>
+	
 	<option value="//api/name/getDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getDocument:</option>
 	
 	<option value="//api/name/getDocumentWithURL:">&nbsp;&nbsp;&nbsp;&nbsp;- getDocumentWithURL:</option>
 	
+	<option value="//api/name/getDocumentsWithLimit:offset:">&nbsp;&nbsp;&nbsp;&nbsp;- getDocumentsWithLimit:offset:</option>
+	
+	<option value="//api/name/getExtractionsForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getExtractionsForDocument:</option>
+	
+	<option value="//api/name/getLayoutForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getLayoutForDocument:</option>
+	
+	<option value="//api/name/getPagesForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getPagesForDocument:</option>
+	
 	<option value="//api/name/getPreviewForPage:ofDocument:withSize:">&nbsp;&nbsp;&nbsp;&nbsp;- getPreviewForPage:ofDocument:withSize:</option>
 	
 	<option value="//api/name/initWithURLSession:requestFactory:baseURL:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithURLSession:requestFactory:baseURL:</option>
+	
+	<option value="//api/name/search:limit:offset:docType:">&nbsp;&nbsp;&nbsp;&nbsp;- search:limit:offset:docType:</option>
+	
+	<option value="//api/name/submitFeedbackForDocument:label:value:boundingBox:">&nbsp;&nbsp;&nbsp;&nbsp;- submitFeedbackForDocument:label:value:boundingBox:</option>
 	
 	<option value="//api/name/uploadDocumentWithData:contentType:fileName:">&nbsp;&nbsp;&nbsp;&nbsp;- uploadDocumentWithData:contentType:fileName:</option>
 	
@@ -81,13 +97,29 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteDocument:">deleteDocument:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteFeedbackForDocument:label:">deleteFeedbackForDocument:label:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getDocument:">getDocument:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getDocumentWithURL:">getDocumentWithURL:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getDocumentsWithLimit:offset:">getDocumentsWithLimit:offset:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getExtractionsForDocument:">getExtractionsForDocument:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getLayoutForDocument:">getLayoutForDocument:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getPagesForDocument:">getPagesForDocument:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getPreviewForPage:ofDocument:withSize:">getPreviewForPage:ofDocument:withSize:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithURLSession:requestFactory:baseURL:">initWithURLSession:requestFactory:baseURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/search:limit:offset:docType:">search:limit:offset:docType:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/submitFeedbackForDocument:label:value:boundingBox:">submitFeedbackForDocument:label:value:boundingBox:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/uploadDocumentWithData:contentType:fileName:">uploadDocumentWithData:contentType:fileName:</a></span></li>
 	
@@ -164,7 +196,55 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/getPagesForDocument:">&ndash;&nbsp;getPagesForDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getLayoutForDocument:">&ndash;&nbsp;getLayoutForDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/uploadDocumentWithData:contentType:fileName:">&ndash;&nbsp;uploadDocumentWithData:contentType:fileName:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteDocument:">&ndash;&nbsp;deleteDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getDocumentsWithLimit:offset:">&ndash;&nbsp;getDocumentsWithLimit:offset:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getExtractionsForDocument:">&ndash;&nbsp;getExtractionsForDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/submitFeedbackForDocument:label:value:boundingBox:">&ndash;&nbsp;submitFeedbackForDocument:label:value:boundingBox:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteFeedbackForDocument:label:">&ndash;&nbsp;deleteFeedbackForDocument:label:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/search:limit:offset:docType:">&ndash;&nbsp;search:limit:offset:docType:</a></code>
 	</span>
 	
 	
@@ -190,6 +270,123 @@
 					<div class="section section-methods">
 						<a title="Instance Methods" name="instance_methods"></a>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteDocument:" title="deleteDocument:"></a>
+	<h3 class="subsubtitle method-title">deleteDocument:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deletes the document with the given ID.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)deleteDocument:(NSString *)<em>documentId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>documentId</em></dt>
+			<dd><p>The document&rsquo;s id.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask*</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Deletes the document with the given ID.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteFeedbackForDocument:label:" title="deleteFeedbackForDocument:label:"></a>
+	<h3 class="subsubtitle method-title">deleteFeedbackForDocument:label:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Delete a specific feedback label for the document.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)deleteFeedbackForDocument:(NSString *)<em>documentId</em> label:(NSString *)<em>label</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>documentId</em></dt>
+			<dd><p>The document&rsquo;s id.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>label</em></dt>
+			<dd><p>The extraction label to be deleted.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask*</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Delete a specific feedback label for the document.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/getDocument:" title="getDocument:"></a>
@@ -267,7 +464,7 @@
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>documentId</em></dt>
+			<dt><em>location</em></dt>
 			<dd><p>The document&rsquo;s location.</p></dd>
 		</dl>
 		
@@ -287,6 +484,235 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Gets the document with the given URL.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getDocumentsWithLimit:offset:" title="getDocumentsWithLimit:offset:"></a>
+	<h3 class="subsubtitle method-title">getDocumentsWithLimit:offset:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Gets a list of all documents.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)getDocumentsWithLimit:(NSUInteger)<em>limit</em> offset:(NSUInteger)<em>offset</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>limit</em></dt>
+			<dd><p>The maximum number of documents to return.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>offset</em></dt>
+			<dd><p>The start offset.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask* that will resolve to an NSDictionary containing a paginated list of documents.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Gets a list of all documents.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getExtractionsForDocument:" title="getExtractionsForDocument:"></a>
+	<h3 class="subsubtitle method-title">getExtractionsForDocument:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Gets extractions for the specific document</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)getExtractionsForDocument:(NSString *)<em>documentId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>documentId</em></dt>
+			<dd><p>The document&rsquo;s id.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask that will resolve to an NSDictionary containing the extractions for the document.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Gets extractions for the specific document</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getLayoutForDocument:" title="getLayoutForDocument:"></a>
+	<h3 class="subsubtitle method-title">getLayoutForDocument:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Gets the layout of a document.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)getLayoutForDocument:(NSString *)<em>documentId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>documentId</em></dt>
+			<dd><p>The document&rsquo;s id.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask that will resolve to a NSDictionary containing the document layout.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Gets the layout of a document.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getPagesForDocument:" title="getPagesForDocument:"></a>
+	<h3 class="subsubtitle method-title">getPagesForDocument:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Gets the list of pages for a document.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)getPagesForDocument:(NSString *)<em>documentId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>documentId</em></dt>
+			<dd><p>The document&rsquo;s id.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask* that will resolve to an array of pages.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Gets the list of pages for a document.</p>
 	</div>
 	
 	
@@ -391,8 +817,8 @@ communication.</p></dd>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>requestFactory</em></dt>
-			<dd><p>An object that implements the <a href="../Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>. Will be used to create request
-objects with valid session credentials. @see <a href="../Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a> for details.</p></dd>
+			<dd><p>An object that implements the <a href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>. Will be used to create request
+objects with valid session credentials. @see <a href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a> for details.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -429,6 +855,148 @@ to a NSURL* pointing to &lsquo;<a href="https://api.gini.net">https://api.gini.n
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/search:limit:offset:docType:" title="search:limit:offset:docType:"></a>
+	<h3 class="subsubtitle method-title">search:limit:offset:docType:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Searches for documents containing the given words.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)search:(NSString *)<em>searchTerm</em> limit:(NSUInteger)<em>limit</em> offset:(NSUInteger)<em>offset</em> docType:(NSString *)<em>docType</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>searchTerm</em></dt>
+			<dd><p>The search term(s) separated by space.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>limit</em></dt>
+			<dd><p>The number of results per page.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>offset</em></dt>
+			<dd><p>The start offset.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>docType</em></dt>
+			<dd><p>Restrict the search to a specific doctype.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask* that will resolve to an NSDictionary containing documents found.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Searches for documents containing the given words.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/submitFeedbackForDocument:label:value:boundingBox:" title="submitFeedbackForDocument:label:value:boundingBox:"></a>
+	<h3 class="subsubtitle method-title">submitFeedbackForDocument:label:value:boundingBox:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Submit feedback for the document on a specific label.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)submitFeedbackForDocument:(NSString *)<em>documentId</em> label:(NSString *)<em>label</em> value:(NSString *)<em>value</em> boundingBox:(NSDictionary *)<em>boundingBox</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>documentId</em></dt>
+			<dd><p>The document&rsquo;s id.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>label</em></dt>
+			<dd><p>The extraction label to be updated.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>value</em></dt>
+			<dd><p>The new value for the extraction.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>boundingBox</em></dt>
+			<dd><p>The new bounding box for the updated extraction (optional).</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask*</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Submit feedback for the document on a specific label.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/uploadDocumentWithData:contentType:fileName:" title="uploadDocumentWithData:contentType:fileName:"></a>
 	<h3 class="subsubtitle method-title">uploadDocumentWithData:contentType:fileName:</h3>
 	
@@ -440,12 +1008,18 @@ to a NSURL* pointing to &lsquo;<a href="https://api.gini.net">https://api.gini.n
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BFTask *)uploadDocumentWithData:(NSData *)<em>documentImage</em> contentType:(NSString *)<em>contentType</em> fileName:(NSString *)<em>fileName</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BFTask *)uploadDocumentWithData:(NSData *)<em>documentData</em> contentType:(NSString *)<em>contentType</em> fileName:(NSString *)<em>fileName</em></code></div>
 
     
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>documentData</em></dt>
+			<dd><p>Data containing the document. This should be in a format that is supported by the Gini API, see
+<a href="http://developer.gini.net/gini-api/html/documents.html?highlight=put">http://developer.gini.net/gini-api/html/documents.html?highlight=put</a>#supported-file-formats for details.</p></dd>
+		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>contentType</em></dt>
@@ -455,12 +1029,6 @@ to a NSURL* pointing to &lsquo;<a href="https://api.gini.net">https://api.gini.n
 		<dl class="argument-def parameter-def">
 			<dt><em>fileName</em></dt>
 			<dd><p>The filename of the document.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>documentData</em></dt>
-			<dd><p>Data containing the document. This should be in a format that is supported by the Gini API, see
-<a href="http://developer.gini.net/gini-api/html/documents.html?highlight=put">http://developer.gini.net/gini-api/html/documents.html?highlight=put</a>#supported-file-formats for details.</p></dd>
 		</dl>
 		
 	</div>
@@ -510,7 +1078,7 @@ to a NSURL* pointing to &lsquo;<a href="https://api.gini.net">https://api.gini.n
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-06-24)</span><br />
+						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-06-25)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
