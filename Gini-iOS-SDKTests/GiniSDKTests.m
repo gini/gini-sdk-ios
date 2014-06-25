@@ -23,6 +23,10 @@ describe(@"The Gini SDK", ^{
     it(@"should provide the session manager", ^{
         [[theValue([giniSDK.sessionManager conformsToProtocol:@ protocol(GINISessionManager)]) should] beYes];
     });
+
+    it(@"should provide the document task manager", ^{
+        [[giniSDK.documentTaskManager should] beKindOfClass:[GINIDocumentTaskManager class]];
+    });
 });
 
 SPEC_END

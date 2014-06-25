@@ -45,6 +45,12 @@ NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGro
                   forKey:@protocol(GINISessionManager)
         withDependencies:GINIClientIDKey, GINIUserBaseURLKey, @protocol(GINIURLSession), GINIURLSchemeKey, nil];
 
+    // DocumentTaskManager
+    [injector setSingletonFactory:@selector(documentTaskManagerWithAPIManager:)
+                               on:[GINIDocumentTaskManager class]
+                           forKey:[GINIDocumentTaskManager class]
+                 withDependencies:[GINIAPIManager class], nil];
+
     return injector;
 }
 
@@ -58,6 +64,7 @@ NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGro
     // Properties
     GINIAPIManager *_APIManager;
     id <GINISessionManager> _sessionManager;
+    GINIDocumentTaskManager *_documentTaskManager;
 }
 
 #pragma mark - Factories
@@ -116,5 +123,13 @@ NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGro
     }
     return _sessionManager;
 }
+
+- (GINIDocumentTaskManager *)documentTaskManager {
+    if (!_documentTaskManager) {
+        _documentTaskManager = [_injector getInstanceOf:[GINIDocumentTaskManager class]];
+    }
+    return _documentTaskManager;
+}
+
 
 @end

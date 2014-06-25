@@ -11,9 +11,8 @@
 #import "GINICredentialsStore.h"
 #import "GINIKeychainCredentialsStore.h"
 #import "GINISessionParser.h"
+#import "GINIDocumentTaskManager.h"
 
-
-@class GINISessionManager;
 
 // Keys used in the injector. See the discussion on keys at `GINIInjector` class.
 
@@ -91,7 +90,8 @@ FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
  * @warning It is not recommended to use the GINIAPIManager directly. The GINIAPIManager is a very low level manager
  *          that handles only the communication with the Gini API and directly returns the data from the server. Usually
  *          you want to have better abstractions and advanced error handling. Because of that, it is recommended that
- *          you use the higher level abstractions at the `GINIDocumentTaskManager`.
+ *          you use the higher level abstractions at the `GINIDocumentTaskManager` (see also the `documentTaskManager`
+ *          property).
  */
 @property (readonly) GINIAPIManager *APIManager;
 
@@ -99,6 +99,12 @@ FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
  * The instance of the `GINISessionManager` that is used by the SDK.
  */
 @property (readonly) id <GINISessionManager> sessionManager;
+
+/**
+ * The instance of the `GINIDocumentTaskManager` that is used by the SDK. The `GINIDocumentTaskManager` is the high
+ * level API for the Gini API and it is recommended that you use this class in your application.
+ */
+@property (readonly) GINIDocumentTaskManager *documentTaskManager;
 
 /**
  * The injector that is used by the SDK to instantiate the classes.
