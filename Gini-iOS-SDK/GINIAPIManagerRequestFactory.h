@@ -41,6 +41,18 @@
 
 @interface GINIAPIManagerRequestFactory : NSObject <GINIAPIManagerRequestFactory>
 
-- (instancetype)initWithSessionManager:(id<GINISessionManager>)sessionManager;
+/**
+ * A factory to create an instance of the GINIAPIManagerRequestFactory.
+ *
+ * @param sessionManager        The session manager that performs the HTTP requests.
+ */
++ (instancetype)requestFactoryWithSessionManager:(id<GINISessionManager>)sessionManager;
+
+/**
+ * The designated initializer.
+ *
+ * @param sessionManager        The session manager that performs the HTTP requests.
+ */
+- (instancetype)initWithSessionManager:(id <GINISessionManager>)sessionManager;
 
 @end

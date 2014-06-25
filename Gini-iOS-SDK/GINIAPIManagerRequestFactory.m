@@ -13,6 +13,10 @@
     id<GINISessionManager> _sessionManager;
 }
 
++ (instancetype)requestFactoryWithSessionManager:(id <GINISessionManager>)sessionManager {
+    return [[GINIAPIManagerRequestFactory alloc] initWithSessionManager:sessionManager];
+}
+
 - (instancetype)initWithSessionManager:(id<GINISessionManager>)sessionManager {
     NSParameterAssert([sessionManager conformsToProtocol:@protocol(GINISessionManager)]);
     self = [super init];

@@ -10,6 +10,8 @@
  */
 @interface GINIKeychainCredentialsStore : NSObject <GINICredentialsStore>
 
++ (instancetype)credentialsStoreWithIdentifier:(NSString *)identifier accessGroup:(NSString *)accessGroup;
+
 /**
  * TODO
  */
