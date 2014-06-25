@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = E2B1841B195464FC0080FF40 /* Build configuration list for PBXAggregateTarget "Documentation" */;
 			buildPhases = (
-				E2B1841C195465030080FF40 /* ShellScript */,
+				E2B1841C195465030080FF40 /* Create Documentation */,
 			);
 			dependencies = (
 			);
@@ -500,18 +500,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-Gini-iOS-SDKTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E2B1841C195465030080FF40 /* ShellScript */ = {
+		E2B1841C195465030080FF40 /* Create Documentation */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Create Documentation";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$TRAVIS\" = true ]; then\necho \"running on Travis\"\nif [ ! -d $TRAVIS_BUILD_DIR/docs ]; then\nmkdir $TRAVIS_BUILD_DIR/docs\nfi\n`which appledoc` --project-name \"$PROJECT_NAME\" --project-company \"Gini GmbH\" --company-id \"net.gini\" --output \"$TRAVIS_BUILD_DIR/docs\" --ignore \"*.m\" --exit-threshold 2 --create-html --no-create-docset \"$PROJECT_DIR/$PROJECT_NAME\"\nelse\necho \"running on workstation\"\nPATH=$PATH:/usr/local/bin\n\nif hash appledoc 2>/dev/null; then\necho \"appledoc is installed\"\nif [ ! -d \"$BUILD_DIR/docs\" ]; then\nmkdir \"$BUILD_DIR/docs\"\nfi\n`which appledoc` --project-name \"$PROJECT_NAME\" --project-company \"Gini GmbH\" --company-id \"net.gini\" --output \"$BUILD_DIR/docs\" --ignore \"*.m\" --exit-threshold 2 --finalize-docset \"$PROJECT_DIR/$PROJECT_NAME\"\nelse\necho \"appledoc is not installed. No API documentation generated.\"\nfi\nfi\n";
+			shellScript = "if [ \"$TRAVIS\" = true ]; then\necho \"running on Travis\"\nif [ ! -d $TRAVIS_BUILD_DIR/docs ]; then\nmkdir $TRAVIS_BUILD_DIR/docs\nfi\n`which appledoc` --project-name \"$PROJECT_NAME\" --project-company \"Gini GmbH\" --company-id \"net.gini\" --output \"$TRAVIS_BUILD_DIR/docs\" --index-desc $PROJECT_DIR/README.md --ignore \"*.m\" --exit-threshold 2 --create-html --no-create-docset \"$PROJECT_DIR/$PROJECT_NAME\"\nelse\necho \"running on workstation\"\nPATH=$PATH:/usr/local/bin\n\nif hash appledoc 2>/dev/null; then\necho \"appledoc is installed\"\nif [ ! -d \"$BUILD_DIR/docs\" ]; then\nmkdir \"$BUILD_DIR/docs\"\nfi\n`which appledoc` --project-name \"$PROJECT_NAME\" --project-company \"Gini GmbH\" --company-id \"net.gini\" --output \"$BUILD_DIR/docs\" --index-desc $PROJECT_DIR/README.md --ignore \"*.m\" --exit-threshold 2 --finalize-docset \"$PROJECT_DIR/$PROJECT_NAME\"\nelse\necho \"appledoc is not installed. No API documentation generated.\"\nfi\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
