@@ -1,3 +1,8 @@
+#!/bin/sh
+#
+# Copyright (c) 2014-present Gini GmbH
+#
+
 cd $TRAVIS_BUILD_DIR
 mkdir appledoc
 cd appledoc
