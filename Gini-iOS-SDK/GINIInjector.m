@@ -112,6 +112,7 @@ id GINIInjectorKey(id key) {
 
     NSMethodSignature *signature = [factoryDescription.object methodSignatureForSelector:factoryDescription.factoryMethod];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    [invocation retainArguments];
     [invocation setSelector:factoryDescription.factoryMethod];
 
     // Get the instances of the dependencies.
@@ -119,20 +120,21 @@ id GINIInjectorKey(id key) {
         id dependencyKey = factoryDescription.dependencies[i];
         id dependencyInstance = [givenDependencies objectForKey:dependencyKey];
         if (!dependencyInstance) {
-            dependencyInstance = [self getInstanceOf:dependencyKey provideDependencies:nil];
+            dependencyInstance = [self getInstanceOf:dependencyKey];
         }
         [invocation setArgument:&dependencyInstance atIndex:i + 2]; // The first two arguments are always self and _cmd
     }
 
     // And finally call the factory with all the created dependencies.
+    __autoreleasing id buffer;
     [invocation invokeWithTarget:factoryDescription.object];
-    [invocation getReturnValue:&instance];
+    [invocation getReturnValue:&buffer];
 
     if (factoryDescription.isSingleton) {
-        [self setSingletonInstance:instance forKey:key];
+        [self setSingletonInstance:buffer forKey:key];
     }
 
-    return instance;
+    return buffer;
 }
 
 #pragma mark - Private methods

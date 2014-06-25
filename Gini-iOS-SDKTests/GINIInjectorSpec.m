@@ -28,6 +28,7 @@ NSUInteger GINICreateFoobarCalled;
 + (id)createFoobar;
 + (id)createRaboofWithFoobar:(NSString *)foobar;
 + (id)createFoobarWithRaboof:(NSString *)raboof andFoobar:(NSString *)foobar;
++ (GINIINjectorTestClass *)createObject;
 
 - (id)instanceCreateFoobar;
 @end
@@ -47,6 +48,11 @@ NSUInteger GINICreateFoobarCalled;
 /** Test factory that has two dependencies */
 +(id)createFoobarWithRaboof:(NSString *)raboof andFoobar:(NSString *)foobar{
     return [NSString stringWithFormat:@"foobar%@%@", raboof, foobar];
+}
+
+/** Test factory that returns a real object */
++ (GINIINjectorTestClass *)createObject {
+    return [[GINIINjectorTestClass alloc] init];
 }
 
 /** Test factory that creates a "foobar" instance, but this time the factory is an instance method, not a class method. */
@@ -159,6 +165,22 @@ describe(@"The GINIInjector", ^{
         id instanceTwo = [giniInjector getInstanceOf:@"foobar"];
         [[instanceOne should] equal:instanceTwo];
         [[theValue(GINICreateFoobarCalled) should] equal:theValue(1)];
+    });
+
+    it(@"should be able to use factories that create an object", ^{
+        [giniInjector setFactory:@selector(createObject) on:[GINIInjectorTestFactory class] forKey:@"object" withDependencies:nil];
+        id instance = [giniInjector getInstanceOf:@"object"];
+        [[instance should] beKindOfClass:[GINIINjectorTestClass class]];
+    });
+
+    it(@"should be able to work in an autoreleasepool", ^{
+        [giniInjector setFactory:@selector(createObject) on:[GINIInjectorTestFactory class] forKey:@"object" withDependencies:nil];
+        @autoreleasepool {
+            for (NSUInteger i=0; i < 100; i+= 1) {
+                id instance = [giniInjector getInstanceOf:@"object"];
+                [[instance should] beKindOfClass:[GINIINjectorTestClass class]];
+            }
+        }
     });
 
     context(@"The factory registration", ^{
