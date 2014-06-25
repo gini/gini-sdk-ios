@@ -1,0 +1,16 @@
+[
+    {
+        "images": {
+            "1280x1810": "https://api.gini.net/documents/c292af40-d06a-11e2-9a2f-000000000000/pages/1/1280x1810",
+            "750x900": "https://api.gini.net/documents/c292af40-d06a-11e2-9a2f-000000000000/pages/1/750x900"
+        },
+        "pageNumber": 1
+    },
+    {
+        "pageNumber": 2,
+        "images": {
+            "1280x1810": "https://api.gini.net/documents/c292af40-d06a-11e2-9a2f-000000000000/pages/2/1280x1810",
+            "750x900": "https://api.gini.net/documents/c292af40-d06a-11e2-9a2f-000000000000/pages/2/750x900"
+        }
+    }
+]
