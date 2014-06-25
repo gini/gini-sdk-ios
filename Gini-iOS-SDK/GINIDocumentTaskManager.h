@@ -10,6 +10,7 @@
 
 @class BFTask;
 @class GINIDocument;
+@class GINIExtraction;
 
 
 /**
@@ -64,6 +65,15 @@
  *                      the extractions may not already exist.
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image;
+
+/**
+ * Saves updates on the extractions.
+ *
+ * Updating extractions is called "Submitting feedback" in the Gini API documentation.
+ *
+ * @param document      The document.
+ */
+- (BFTask *)updateDocument:(GINIDocument *)document;
 
 /**
  * Deletes the given document.
@@ -122,6 +132,16 @@
  * @param document      The document.
  */
 - (BFTask *)getExtractionsForDocument:(GINIDocument *)document;
+
+/**
+ * Saves the new values for the given extraction of the given document.
+ *
+ * Please note that updating an extraction is called "Submitting feedback" in the Gini API documentation.
+ *
+ * @param extraction    The extraction.
+ * @param document      The document.
+ */
+- (BFTask *)updateExtraction:(GINIExtraction *)extraction forDocument:(GINIDocument *)document;
 
 /**
  * Gets the layout for the given document.

@@ -8,6 +8,11 @@
 #import "GINIDocumentTaskManager.h"
 
 
+@interface GINIDocument ()
+@property (readonly) BFTask *extractionTask;
+@end
+
+
 @implementation GINIDocument {
     GINIDocumentTaskManager *_documentTaskManager;
     BFTask *_extractions;
@@ -78,11 +83,25 @@
 
 
 #pragma mark - Properties
-- (BFTask *)extractions {
+- (BFTask *)extractionTask {
     if (!_extractions) {
         _extractions = [_documentTaskManager getExtractionsForDocument:self];
     }
     return _extractions;
+}
+
+- (BFTask *)extractions {
+    return [self.extractionTask continueWithSuccessBlock:^id(BFTask *task) {
+        NSMutableDictionary *results = task.result;
+        return [results valueForKey:@"extractions"];
+    }];
+}
+
+- (BFTask *)candidates {
+    return [self.extractionTask continueWithSuccessBlock:^id(BFTask *task) {
+        NSDictionary *results = task.result;
+        return [results valueForKey:@"candidates"];
+    }];
 }
 
 - (BFTask *)layout {
