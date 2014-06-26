@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINIURLSession Class Reference</title>
+		<title>GINIAPIManagerRequestFactory Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINIURLSession Class Reference</h1>
+				<h1 class="hideInXcode">GINIAPIManagerRequestFactory Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,16 +39,14 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/urlSession">&nbsp;&nbsp;&nbsp;&nbsp;+ urlSession</option>
-	
-	<option value="//api/name/urlSessionWithNSURLSession:">&nbsp;&nbsp;&nbsp;&nbsp;+ urlSessionWithNSURLSession:</option>
+	<option value="//api/name/requestFactoryWithSessionManager:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestFactoryWithSessionManager:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithNSURLSession:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithNSURLSession:</option>
+	<option value="//api/name/initWithSessionManager:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithSessionManager:</option>
 	
 	
 	
@@ -74,9 +72,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlSession">urlSession</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlSessionWithNSURLSession:">urlSessionWithNSURLSession:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestFactoryWithSessionManager:">requestFactoryWithSessionManager:</a></span></li>
 	
 </ul></li>
 
@@ -84,7 +80,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithNSURLSession:">initWithNSURLSession:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithSessionManager:">initWithSessionManager:</a></span></li>
 	
 </ul></li>
 
@@ -93,7 +89,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINIURLSession Class Reference" name="top"></a>
+				<a title="GINIAPIManagerRequestFactory Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -102,7 +98,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINIURLSession Class Reference</h1>
+						<h1 class="title title-header">GINIAPIManagerRequestFactory Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -113,10 +109,10 @@
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Conforms to</td>
-	<td class="specification-value"><a href="../Protocols/GINIURLSession.html">GINIURLSession</a></td>
+	<td class="specification-value"><a href="../Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a></td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINIURLSession.h</td>
+	<td class="specification-value">GINIAPIManagerRequestFactory.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -136,19 +132,13 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/urlSessionWithNSURLSession:">+&nbsp;urlSessionWithNSURLSession:</a></code>
+		<code><a href="#//api/name/requestFactoryWithSessionManager:">+&nbsp;requestFactoryWithSessionManager:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/urlSession">+&nbsp;urlSession</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/initWithNSURLSession:">&ndash;&nbsp;initWithNSURLSession:</a></code>
+		<code><a href="#//api/name/initWithSessionManager:">&ndash;&nbsp;initWithSessionManager:</a></code>
 	</span>
 	
 	
@@ -168,61 +158,18 @@
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/urlSession" title="urlSession"></a>
-	<h3 class="subsubtitle method-title">urlSession</h3>
+	<a name="//api/name/requestFactoryWithSessionManager:" title="requestFactoryWithSessionManager:"></a>
+	<h3 class="subsubtitle method-title">requestFactoryWithSessionManager:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Factory to create a new GINIURLSession instance. The created instance uses an instance of Apple&rsquo;s <code>NSURLSession</code> with
-Apple&rsquo;s default configuration to do the HTTP requests.</p>
+		<p>A factory to create an instance of the GINIAPIManagerRequestFactory.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (instancetype)urlSession</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Factory to create a new GINIURLSession instance. The created instance uses an instance of Apple&rsquo;s <code>NSURLSession</code> with
-Apple&rsquo;s default configuration to do the HTTP requests.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLSession.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/urlSessionWithNSURLSession:" title="urlSessionWithNSURLSession:"></a>
-	<h3 class="subsubtitle method-title">urlSessionWithNSURLSession:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Factory to create a new GINIURLSession instance.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (instancetype)urlSessionWithNSURLSession:(NSURLSession *)<em>urlSession</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)requestFactoryWithSessionManager:(id&lt;GINISessionManager&gt;)<em>sessionManager</em></code></div>
 
     
 	
@@ -230,9 +177,8 @@ Apple&rsquo;s default configuration to do the HTTP requests.</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlSession</em></dt>
-			<dd><p>An instance of Apple&rsquo;s <code>NSURLSession</code> class that is used by the GINIURLSession to do the
-HTTP requests.</p></dd>
+			<dt><em>sessionManager</em></dt>
+			<dd><p>The session manager that performs the HTTP requests.</p></dd>
 		</dl>
 		
 	</div>
@@ -245,7 +191,7 @@ HTTP requests.</p></dd>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Factory to create a new GINIURLSession instance.</p>
+		<p>A factory to create an instance of the GINIAPIManagerRequestFactory.</p>
 	</div>
 	
 	
@@ -256,7 +202,7 @@ HTTP requests.</p></dd>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLSession.h</code><br />
+		<code class="declared-in-ref">GINIAPIManagerRequestFactory.h</code><br />
 	</div>				
 	
 	
@@ -271,8 +217,8 @@ HTTP requests.</p></dd>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithNSURLSession:" title="initWithNSURLSession:"></a>
-	<h3 class="subsubtitle method-title">initWithNSURLSession:</h3>
+	<a name="//api/name/initWithSessionManager:" title="initWithSessionManager:"></a>
+	<h3 class="subsubtitle method-title">initWithSessionManager:</h3>
 	
 	
 	
@@ -282,7 +228,7 @@ HTTP requests.</p></dd>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithNSURLSession:(NSURLSession *)<em>urlSession</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithSessionManager:(id&lt;GINISessionManager&gt;)<em>sessionManager</em></code></div>
 
     
 	
@@ -290,8 +236,8 @@ HTTP requests.</p></dd>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlSession</em></dt>
-			<dd><p>An instance of Apple&rsquo;s <code>NSURLSession</code> class that is used to do the HTTP requests.</p></dd>
+			<dt><em>sessionManager</em></dt>
+			<dd><p>The session manager that performs the HTTP requests.</p></dd>
 		</dl>
 		
 	</div>
@@ -315,7 +261,7 @@ HTTP requests.</p></dd>
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLSession.h</code><br />
+		<code class="declared-in-ref">GINIAPIManagerRequestFactory.h</code><br />
 	</div>				
 	
 	
