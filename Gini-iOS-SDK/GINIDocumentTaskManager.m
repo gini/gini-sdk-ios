@@ -5,6 +5,7 @@
 
 #import "GINIDocumentTaskManager.h"
 #import "GINIDocument.h"
+#import "GINIExtraction.h"
 #import <Bolts/Bolts.h>
 
 
@@ -46,6 +47,23 @@
 
     return [[_apiManager uploadDocumentWithData:UIImagePNGRepresentation(image) contentType:@"image/png" fileName:fileName] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
+    }];
+}
+
+- (BFTask *)updateDocument:(GINIDocument *)document {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+
+    // TODO: The Gini API will offer bulk updates soon. As soon as it is available, refactor this method to use the bulk update
+    return [document.extractions continueWithSuccessBlock:^id(BFTask *task) {
+        NSDictionary *extractions = task.result;
+        NSMutableArray *updateTasks = [NSMutableArray new];
+        for (NSString *key in extractions) {
+            GINIExtraction *extraction = extractions[key];
+            if (extraction.isDirty) {
+                [updateTasks addObject:[self updateExtraction:extraction forDocument:document]];
+            }
+        }
+        return [BFTask taskForCompletionOfAllTasks:updateTasks];
     }];
 }
 
@@ -102,7 +120,66 @@
 - (BFTask *)getExtractionsForDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
-    return [_apiManager getExtractionsForDocument:document.documentId];
+    return [[_apiManager getExtractionsForDocument:document.documentId] continueWithSuccessBlock:^id(BFTask *task) {
+        NSDictionary *apiResponse = task.result;
+        // First of all, create the candidates.
+        NSArray *candidates = [apiResponse valueForKey:@"candidates"];    // TODO error handling
+        NSMutableDictionary *giniCandidates = [NSMutableDictionary new];  // TODO more error handling
+        for (NSUInteger i=0; i < [candidates count]; i++) {               // TODO a lot of error handling
+            NSDictionary *candidate = [candidates objectAtIndex:i];
+            NSString *entity = [candidate valueForKey:@"entity"];
+            if (!giniCandidates[entity]) {
+                giniCandidates[entity] = [NSMutableArray new];
+            }
+            GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:[candidate valueForKey:@"name"]
+                                                                          value:[candidate valueForKey:@"value"]
+                                                                         entity:entity
+                                                                            box:[candidate valueForKey:@"box"]];
+            [giniCandidates[entity] addObject:giniExtraction];
+        }
+        // And then create the extractions.
+        NSArray *extractions = [apiResponse valueForKey:@"extractions"];
+        NSMutableDictionary *giniExtractions = [NSMutableDictionary new];
+        for (NSUInteger i=0; i < [extractions count]; i++) {
+            NSDictionary *extraction = [extractions objectAtIndex:i];
+            NSString *entity = [extraction valueForKey:@"entity"];
+            NSString *name = [extraction valueForKey:@"name"];
+            NSArray *candidatesForExtraction;
+            if (giniCandidates[entity]) {
+                candidatesForExtraction = giniCandidates[entity];
+            } else {
+                candidatesForExtraction = [NSArray new];
+            }
+            GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:[extraction valueForKey:@"name"]
+                                                                          value:[extraction valueForKey:@"value"]
+                                                                         entity:entity
+                                                                            box:[extraction valueForKey:@"box"]];
+            giniExtraction.candidates = candidatesForExtraction;
+            giniExtractions[name] = candidatesForExtraction;
+        }
+
+        return [NSMutableDictionary dictionaryWithDictionary:@{@"extractions": giniExtractions, @"candidates": giniCandidates}];
+    }];
+}
+
+- (BFTask *)updateExtraction:(GINIExtraction *)extraction forDocument:(GINIDocument *)document {
+    NSParameterAssert([GINIExtraction isKindOfClass:[GINIExtraction class]]);
+    NSParameterAssert([GINIDocument isKindOfClass:[GINIDocument class]]);
+
+    return [[_apiManager submitFeedbackForDocument:document.documentId
+                                             label:extraction.name
+                                             value:extraction.value
+                                       boundingBox:extraction.box] continueWithSuccessBlock:^id(BFTask *task) {
+        [document.extractions continueWithSuccessBlock:^id(BFTask *extractionsTask) {
+            NSMutableDictionary *extractions = extractionsTask.result;
+            extractions[extraction.name] = [GINIExtraction extractionWithName:extraction.name
+                                                                        value:extraction.value
+                                                                       entity:extraction.entity
+                                                                          box:extraction.box];
+            return nil;
+        }];
+        return nil;
+    }];
 }
 
 - (BFTask *)getLayoutForDocument:(GINIDocument *)document {

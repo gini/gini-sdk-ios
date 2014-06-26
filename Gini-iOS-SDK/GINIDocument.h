@@ -49,8 +49,10 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 @property NSDate *creationDate;
 /// The document's source classification.
 @property GiniDocumentSourceClassification sourceClassification;
-/// A `BFTask*` resolving to a mapping with extractions.
+/// A `BFTask*` resolving to a mapping with extractions (extraction name as key).
 @property (readonly) BFTask *extractions;
+/// A `BFTask*` resolving to a mapping with the candidates (extraction entity as key).
+@property (readonly) BFTask *candidates;
 /// A `BFTask*` resolving to a dictionary with the layout of the document.
 @property (readonly) BFTask *layout;
 
