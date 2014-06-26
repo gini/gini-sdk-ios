@@ -43,7 +43,7 @@
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
-    NSParameterAssert([UIImage isKindOfClass:[UIImage class]]);
+    NSParameterAssert([image isKindOfClass:[UIImage class]]);
 
     return [[_apiManager uploadDocumentWithData:UIImagePNGRepresentation(image) contentType:@"image/png" fileName:fileName] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
