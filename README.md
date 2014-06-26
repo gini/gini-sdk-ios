@@ -67,4 +67,16 @@ Learn how to use the Gini API at the [Gini Developer Portal](http://developer.gi
 - [Gini iOS SDK Documentation](http://developer.gini.net/gini-sdk-ios/)
 
 
+## Usage in Swift code
+
+In order to use the Gini SDK in Swift code, you first need to add a bridge header file. A good tutorial how to add a
+bridge header file can be found at [Medium](https://medium.com/@stigi/swift-cocoapods-da09d8ba6dd2).
+
+Inside the bridging header, you must import the Gini SDK by adding the following line:
+
+    #import <Gini-iOS-SDK/GiniSDK.h>
+
+After that, you can use all Gini classes inside your Swift code.
+
+
 Copyright (c) 2014, [Gini GmbH](http://www.gini.net)
