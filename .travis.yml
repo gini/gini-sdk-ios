@@ -9,7 +9,7 @@ before_script:
   - export PATH=$PATH:$TRAVIS_BUILD_DIR/appledoc
 
 env:
-  - secure: "YI6U3xYnOX+Cox+RNIWMTMCabCKL/K0fvHI5i9O6HYXUfoRO2lPx9/D2kxS0IK9r3eclXoU1ExzbMVHkr5IZdjjuanQKBILR6oodKhDed+cV0JSjVlV7MKSKWajKp4Liv+LHCg6eRf81c7DtBGf+Vy/5nIfMuoavyD/pG+pmfHM="
+  - secure: "E4dEJos0GWj4jaqXwoLtkXMuydzwJgDS8NUNurLtxX9lzOXtJVFEcCYsDgI5IZXSeG+MKZ9thQmwb1K0AtsgwgjzmrenCmHu2iOJMJQyWZJQ5RydDeLz+rkG+cEyq+1Yp2kovC3AoKdTr0Q7H+fIqePo4IFhlQxWswZ/h0GyRoU=" 
 
 script:
   - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Gini-iOS-SDK -sdk iphonesimulator test
