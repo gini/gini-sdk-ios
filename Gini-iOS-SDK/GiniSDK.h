@@ -13,6 +13,10 @@
 #import "GINISessionParser.h"
 #import "GINIDocumentTaskManager.h"
 #import "GINIIncomingURLDelegate.h"
+#import "GINIDocument.h"
+#import "GINIFactoryDescription.h"
+#import "GINIURLResponse.h"
+#import "GINIExtraction.h"
 
 
 // Keys used in the injector. See the discussion on keys at `GINIInjector` class.
