@@ -36,14 +36,14 @@
 						
 						<h1>Gini iOS SDK</h1>
 
-<p>An SDK for integrating Gini technology into other apps.</p>
+<p>An SDK for integrating Gini technology into other apps. With this SDK you will be able to extract semantic information from various types of documents.</p>
 
 <h2>Installation</h2>
 
 <p>For maximum convenience we rely on the excellent dependency manager <a href="http://www.cocoapods.org">Cocoapods</a>.
 To install the Gini iOS SDK simply add the following repository to your Cocoapods installation</p>
 
-<pre><code>$ pod repo add gini-podspecs git@github.com:gini/gini-podspecs.git
+<pre><code>$ pod repo add gini-podspecs https://github.com/gini/gini-podspecs.git
 </code></pre>
 
 <p>and include the pod in your Podfile</p>
@@ -58,9 +58,54 @@ To install the Gini iOS SDK simply add the following repository to your Cocoapod
 
 <p>in your project directory and open the generated Xcode workspace.</p>
 
+<h2>Register your App with Gini</h2>
+
+<p>See the <a href="http://developer.gini.net/gini-api/html/guides/oauth2.html#first-of-all-register-your-application-with-gini">API Documentation</a>.</p>
+
+<h2>Integrate the Gini iOS SDK</h2>
+
+<p>Import the header in your app delegate header file</p>
+
+<pre><code>#import GiniSDK.h&gt;
+</code></pre>
+
+<p>Create an instance of the <a href="Classes/GiniSDK.html">GiniSDK</a> with your chosen clientID and the custom URL scheme</p>
+
+<pre><code>GiniSDK *giniSDK = [GiniSDK giniSDKWithAppURLScheme:@"YOUR_APP_URL_SCHEME" clientID:@"YOUR_CLIENT_ID"];
+</code></pre>
+
+<p>In your app, register your custom URL scheme together with an abstract name of the URL scheme (reverse DNS-style of the identifier), by adding the information to your Plist file. Please refer to the <a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW50">Apple Documentation</a> for details.</p>
+
+<pre><code>&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+&lt;array&gt;
+    &lt;dict&gt;
+        &lt;key&gt;CFBundleURLName&lt;/key&gt;
+        &lt;string&gt;YOUR_IDENTIFIER&lt;/string&gt;
+        &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+        &lt;array&gt;
+            &lt;string&gt;YOUR_APP_URL_SCHEME&lt;/string&gt;
+        &lt;/array&gt;
+    &lt;/dict&gt;
+&lt;/array&gt;
+</code></pre>
+
+<p>Your app needs to repond on the app delegate to the incoming URL. Do this by implementing the following delegate method</p>
+
+<pre><code>- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [_giniSDK.sessionManager handleURL:url];
+}
+</code></pre>
+
 <h2>Usage</h2>
 
-<p>Learn how to use the Gini API at the <a href="http://developer.gini.net">Gini Developer Portal</a>.</p>
+<p>Learn how to use the Gini API at the <a href="http://developer.gini.net">Gini Developer Portal</a>:</p>
+
+<ul>
+<li><a href="http://developer.gini.net/gini-api/">Gini API Documentation</a></li>
+<li><a href="http://developer.gini.net/gini-sdk-ios/">Gini iOS SDK Documentation</a></li>
+</ul>
+
 
 <p>Copyright &copy; 2014, <a href="http://www.gini.net">Gini GmbH</a></p>
 						
