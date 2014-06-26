@@ -66,6 +66,10 @@
 	
 	<option value="//api/name/pollDocumentWithId:">&nbsp;&nbsp;&nbsp;&nbsp;- pollDocumentWithId:</option>
 	
+	<option value="//api/name/updateDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- updateDocument:</option>
+	
+	<option value="//api/name/updateExtraction:forDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- updateExtraction:forDocument:</option>
+	
 	
 	
 </select>
@@ -82,9 +86,9 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Document Methods">Document Methods</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Extractions Methods">Extractions Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Document Methods">Document Methods</a></span></li>
 	
 </ul></li>
 
@@ -121,6 +125,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pollDocument:">pollDocument:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pollDocumentWithId:">pollDocumentWithId:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateDocument:">updateDocument:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateExtraction:forDocument:">updateExtraction:forDocument:</a></span></li>
 	
 </ul></li>
 
@@ -199,6 +207,32 @@ handle document related tasks.</p>
 						</ul>
 						
 						
+						<a title="Extractions Methods" name="task_Extractions Methods"></a>
+						<h3 class="subsubtitle task-title">Extractions Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getExtractionsForDocument:">&ndash;&nbsp;getExtractionsForDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateExtraction:forDocument:">&ndash;&nbsp;updateExtraction:forDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getLayoutForDocument:">&ndash;&nbsp;getLayoutForDocument:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
 						<a title="Document Methods" name="task_Document Methods"></a>
 						<h3 class="subsubtitle task-title">Document Methods</h3>
 
@@ -212,6 +246,12 @@ handle document related tasks.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/createDocumentWithFilename:fromImage:">&ndash;&nbsp;createDocumentWithFilename:fromImage:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateDocument:">&ndash;&nbsp;updateDocument:</a></code>
 	</span>
 	
 	
@@ -236,26 +276,6 @@ handle document related tasks.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/getPreviewForPage:ofDocument:withSize:">&ndash;&nbsp;getPreviewForPage:ofDocument:withSize:</a></code>
-	</span>
-	
-	
-</li>
-						</ul>
-						
-						
-						<a title="Extractions Methods" name="task_Extractions Methods"></a>
-						<h3 class="subsubtitle task-title">Extractions Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/getExtractionsForDocument:">&ndash;&nbsp;getExtractionsForDocument:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/getLayoutForDocument:">&ndash;&nbsp;getLayoutForDocument:</a></code>
 	</span>
 	
 	
@@ -819,6 +839,117 @@ available.</p>
 
 <p>To avoid flooding the network, there is a pause of at least the number of seconds that is set in the
 <code>pollingInterval</code> property of this class.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIDocumentTaskManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateDocument:" title="updateDocument:"></a>
+	<h3 class="subsubtitle method-title">updateDocument:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Saves updates on the extractions.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)updateDocument:(GINIDocument *)<em>document</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>document</em></dt>
+			<dd><p>The document.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Saves updates on the extractions.</p>
+
+<p>Updating extractions is called &ldquo;Submitting feedback&rdquo; in the Gini API documentation.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIDocumentTaskManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateExtraction:forDocument:" title="updateExtraction:forDocument:"></a>
+	<h3 class="subsubtitle method-title">updateExtraction:forDocument:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Saves the new values for the given extraction of the given document.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)updateExtraction:(GINIExtraction *)<em>extraction</em> forDocument:(GINIDocument *)<em>document</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>extraction</em></dt>
+			<dd><p>The extraction.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>document</em></dt>
+			<dd><p>The document.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Saves the new values for the given extraction of the given document.</p>
+
+<p>Please note that updating an extraction is called &ldquo;Submitting feedback&rdquo; in the Gini API documentation.</p>
 	</div>
 	
 	
