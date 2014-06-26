@@ -123,39 +123,41 @@
     return [[_apiManager getExtractionsForDocument:document.documentId] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *apiResponse = task.result;
         // First of all, create the candidates.
-        NSArray *candidates = [apiResponse valueForKey:@"candidates"];    // TODO error handling
-        NSMutableDictionary *giniCandidates = [NSMutableDictionary new];  // TODO more error handling
-        for (NSUInteger i=0; i < [candidates count]; i++) {               // TODO a lot of error handling
-            NSDictionary *candidate = [candidates objectAtIndex:i];
-            NSString *entity = [candidate valueForKey:@"entity"];
-            if (!giniCandidates[entity]) {
-                giniCandidates[entity] = [NSMutableArray new];
+        NSMutableDictionary *giniCandidates = [NSMutableDictionary new];
+        NSDictionary *candidatesMapping = [apiResponse valueForKey:@"candidates"];
+        for (NSString *entity in candidatesMapping) {
+            NSArray *candidates = candidatesMapping[entity];
+            giniCandidates[entity] = [NSMutableArray new];
+
+            for (NSUInteger i=0; i < [candidates count]; i++) {
+                NSDictionary *candidate = [candidates objectAtIndex:i];
+                GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:nil
+                                                                              value:[candidate valueForKey:@"value"]
+                                                                             entity:entity
+                                                                                box:[candidate valueForKey:@"box"]];
+                [giniCandidates[entity] addObject:giniExtraction];
             }
-            GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:[candidate valueForKey:@"name"]
-                                                                          value:[candidate valueForKey:@"value"]
-                                                                         entity:entity
-                                                                            box:[candidate valueForKey:@"box"]];
-            [giniCandidates[entity] addObject:giniExtraction];
+
         }
+
         // And then create the extractions.
-        NSArray *extractions = [apiResponse valueForKey:@"extractions"];
+        NSMutableDictionary *extractions = [apiResponse valueForKey:@"extractions"];
         NSMutableDictionary *giniExtractions = [NSMutableDictionary new];
-        for (NSUInteger i=0; i < [extractions count]; i++) {
-            NSDictionary *extraction = [extractions objectAtIndex:i];
+        for (NSString *name in extractions) {
+            NSDictionary *extraction = extractions[name];
             NSString *entity = [extraction valueForKey:@"entity"];
-            NSString *name = [extraction valueForKey:@"name"];
             NSArray *candidatesForExtraction;
             if (giniCandidates[entity]) {
                 candidatesForExtraction = giniCandidates[entity];
             } else {
                 candidatesForExtraction = [NSArray new];
             }
-            GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:[extraction valueForKey:@"name"]
+            GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:name
                                                                           value:[extraction valueForKey:@"value"]
                                                                          entity:entity
                                                                             box:[extraction valueForKey:@"box"]];
             giniExtraction.candidates = candidatesForExtraction;
-            giniExtractions[name] = candidatesForExtraction;
+            giniExtractions[name] = giniExtraction;
         }
 
         return [NSMutableDictionary dictionaryWithDictionary:@{@"extractions": giniExtractions, @"candidates": giniCandidates}];
