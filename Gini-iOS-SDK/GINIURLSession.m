@@ -29,10 +29,7 @@ BOOL GINIIsJSONContent(NSString *contentType) {
  */
 BOOL GINIIsImageContent(NSString *contentType) {
     NSArray *contentTypeComponents = [contentType componentsSeparatedByString:@";"];
-    if ([[[contentTypeComponents firstObject] substringToIndex:6] isEqualToString:@"image/"]) {
-        return YES;
-    }
-    return NO;
+    return [[[contentTypeComponents firstObject] substringToIndex:6] isEqualToString:@"image/"];
 }
 
 /**
@@ -40,10 +37,7 @@ BOOL GINIIsImageContent(NSString *contentType) {
  */
 BOOL GINIIsTextContent(NSString *contentType) {
     NSArray *contentTypeComponents = [contentType componentsSeparatedByString:@";"];
-    if ([[[contentTypeComponents firstObject] substringToIndex:5] isEqualToString:@"text/"]) {
-        return YES;
-    }
-    return NO;
+    return [[[contentTypeComponents firstObject] substringToIndex:5] isEqualToString:@"text/"];
 }
 
 /**
