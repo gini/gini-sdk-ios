@@ -37,6 +37,11 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/pollingInterval">&nbsp;&nbsp;&nbsp;&nbsp;pollingInterval</option>
+	
+	
 	
 	
 	<option value="class_methods">Class Methods</option>
@@ -86,15 +91,17 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Extractions Methods">Extractions Methods</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Document Methods">Document Methods</a></span></li>
-	
 </ul></li>
 
 
 
 
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pollingInterval">pollingInterval</a></span></li>
+	
+</ul></li>
 
 
 
@@ -188,7 +195,7 @@ handle document related tasks.</p>
 						
 						
 						
-						<h3 class="subsubtitle task-title">Other Methods</h3>
+						
 
 						<ul class="task-list">
 							<li>
@@ -203,41 +210,13 @@ handle document related tasks.</p>
 	</span>
 	
 	
-</li>
-						</ul>
-						
-						
-						<a title="Extractions Methods" name="task_Extractions Methods"></a>
-						<h3 class="subsubtitle task-title">Extractions Methods</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/getExtractionsForDocument:">&ndash;&nbsp;getExtractionsForDocument:</a></code>
-	</span>
-	
-	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/updateExtraction:forDocument:">&ndash;&nbsp;updateExtraction:forDocument:</a></code>
+		<code><a href="#//api/name/pollingInterval">&nbsp;&nbsp;pollingInterval</a></code>
 	</span>
-	
+	<span class="task-item-suffix">property</span>
 	
 </li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/getLayoutForDocument:">&ndash;&nbsp;getLayoutForDocument:</a></code>
-	</span>
-	
-	
-</li>
-						</ul>
-						
-						
-						<a title="Document Methods" name="task_Document Methods"></a>
-						<h3 class="subsubtitle task-title">Document Methods</h3>
-
-						<ul class="task-list">
-							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/getDocumentWithId:">&ndash;&nbsp;getDocumentWithId:</a></code>
 	</span>
@@ -279,6 +258,24 @@ handle document related tasks.</p>
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getExtractionsForDocument:">&ndash;&nbsp;getExtractionsForDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateExtraction:forDocument:">&ndash;&nbsp;updateExtraction:forDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getLayoutForDocument:">&ndash;&nbsp;getLayoutForDocument:</a></code>
+	</span>
+	
+	
 </li>
 						</ul>
 						
@@ -287,6 +284,53 @@ handle document related tasks.</p>
 					
 					
 					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/pollingInterval" title="pollingInterval"></a>
+	<h3 class="subsubtitle method-title">pollingInterval</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The time in seconds between HTTP requests when polling documents.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property NSUInteger pollingInterval</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The time in seconds between HTTP requests when polling documents.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIDocumentTaskManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
 					
@@ -779,7 +823,7 @@ actually have a little smaller dimensions.</p></dd>
 available.</p>
 
 <p>To avoid flooding the network, there is a pause of at least the number of seconds that is set in the
-<code>pollingInterval</code> property of this class.</p><div class="warning"><p><strong>Warning:</strong> This method returns a <code>BFTask*</code> resolving to a <a href="../Classes/GINIDocument.html"><code>GINIDocument</code></a> instance representing the
+<a href="#//api/name/pollingInterval"><code>pollingInterval</code></a> property of this class.</p><div class="warning"><p><strong>Warning:</strong> This method returns a <code>BFTask*</code> resolving to a <a href="../Classes/GINIDocument.html"><code>GINIDocument</code></a> instance representing the
 document. Please notice that the task&rsquo;s result will not be the same document object as the given
 document instance and the given document instance will not be updated with the polled results!</p></div>
 	</div>
@@ -838,7 +882,7 @@ document instance and the given document instance will not be updated with the p
 available.</p>
 
 <p>To avoid flooding the network, there is a pause of at least the number of seconds that is set in the
-<code>pollingInterval</code> property of this class.</p>
+<a href="#//api/name/pollingInterval"><code>pollingInterval</code></a> property of this class.</p>
 	</div>
 	
 	
