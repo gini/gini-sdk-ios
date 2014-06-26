@@ -141,7 +141,7 @@ BOOL GINICheckHTTPError(NSURLResponse *response, NSError **error) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
         httpResult.response = httpResponse;
         NSString *contentType = [[httpResponse allHeaderFields] objectForKey:@"Content-Type"];
-        if (GINIIsJSONContent(contentType)) {
+        if (GINIIsJSONContent(contentType) && [rawData length] > 0) {
             id deserializedData = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingAllowFragments error:&error];
             if (error) {
                 return [completionSource setError:error];
