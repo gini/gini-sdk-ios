@@ -39,10 +39,10 @@
  * @param apiManager    An instance of `GINIAPIManager` which will be used to communicate with the Gini API.
  */
 - (instancetype)initWithAPIManager:(GINIAPIManager *)apiManager;
-@end
 
-@interface GINIDocumentTaskManager (Document)
-
+/**
+ * The time in seconds between HTTP requests when polling documents.
+ */
 @property NSUInteger pollingInterval;
 
 /**
@@ -122,10 +122,7 @@
  *                      actually have a little smaller dimensions.
  */
 - (BFTask *)getPreviewForPage:(NSUInteger)page ofDocument:(GINIDocument *)document withSize:(GiniApiPreviewSize)size;
-@end
 
-
-@interface GINIDocumentTaskManager (Extractions)
 /**
  * Gets the extractions for the given document.
  *
