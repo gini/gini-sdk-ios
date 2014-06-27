@@ -26,7 +26,7 @@
     self = [super init];
     if (self) {
         _apiManager = apiManager;
-
+        _pollingInterval = 1;
     }
     return self;
 }
@@ -45,7 +45,7 @@
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([image isKindOfClass:[UIImage class]]);
 
-    return [[_apiManager uploadDocumentWithData:UIImagePNGRepresentation(image) contentType:@"image/png" fileName:fileName] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[_apiManager uploadDocumentWithData:UIImageJPEGRepresentation(image, 0.95) contentType:@"image/jpeg" fileName:fileName] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
 }
