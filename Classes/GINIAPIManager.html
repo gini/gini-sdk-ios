@@ -55,6 +55,8 @@
 	
 	<option value="//api/name/getExtractionsForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getExtractionsForDocument:</option>
 	
+	<option value="//api/name/getIncubatorExtractionsForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getIncubatorExtractionsForDocument:</option>
+	
 	<option value="//api/name/getLayoutForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getLayoutForDocument:</option>
 	
 	<option value="//api/name/getPagesForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getPagesForDocument:</option>
@@ -108,6 +110,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getDocumentsWithLimit:offset:">getDocumentsWithLimit:offset:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getExtractionsForDocument:">getExtractionsForDocument:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getIncubatorExtractionsForDocument:">getIncubatorExtractionsForDocument:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getLayoutForDocument:">getLayoutForDocument:</a></span></li>
 	
@@ -227,6 +231,12 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/getExtractionsForDocument:">&ndash;&nbsp;getExtractionsForDocument:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getIncubatorExtractionsForDocument:">&ndash;&nbsp;getIncubatorExtractionsForDocument:</a></code>
 	</span>
 	
 	
@@ -601,6 +611,64 @@
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
 		<p>Gets extractions for the specific document</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIAPIManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getIncubatorExtractionsForDocument:" title="getIncubatorExtractionsForDocument:"></a>
+	<h3 class="subsubtitle method-title">getIncubatorExtractionsForDocument:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Gets the extractions for the specific document, including the incubation extractions (see
+<a href="http://developer.gini.net/gini-api/html/incubator.html">http://developer.gini.net/gini-api/html/incubator.html</a> for details on incubating extractions).</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)getIncubatorExtractionsForDocument:(NSString *)<em>documentId</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>document</em></dt>
+			<dd><p>The document&rsquo;s unique identifier.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A BFTask that will resolve to an NSDictionary containing the extractions for the document.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Gets the extractions for the specific document, including the incubation extractions (see
+<a href="http://developer.gini.net/gini-api/html/incubator.html">http://developer.gini.net/gini-api/html/incubator.html</a> for details on incubating extractions).</p>
 	</div>
 	
 	
