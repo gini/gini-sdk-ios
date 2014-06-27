@@ -2,6 +2,7 @@
  *  Copyright (c) 2014, Gini GmbH.
  *  All rights reserved.
  */
+#import <Bolts/Bolts.h>
 #import "GINIAPIManager.h"
 #import "GINIInjector.h"
 #import "GINIAPIManagerRequestFactory.h"
