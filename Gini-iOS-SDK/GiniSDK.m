@@ -63,7 +63,7 @@ NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGro
 
     // Properties
     GINIAPIManager *_APIManager;
-    id <GINISessionManager> _sessionManager;
+    id <GINISessionManager, GINIIncomingURLDelegate> _sessionManager;
     GINIDocumentTaskManager *_documentTaskManager;
 }
 
@@ -117,7 +117,7 @@ NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGro
     return _APIManager;
 }
 
-- (id <GINISessionManager>)sessionManager {
+- (id <GINISessionManager, GINIIncomingURLDelegate>)sessionManager {
     if (!_sessionManager) {
         _sessionManager = [_injector getInstanceOf:@protocol(GINISessionManager)];
     }

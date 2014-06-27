@@ -13,6 +13,11 @@
 #import "GINIKeychainCredentialsStore.h"
 #import "GINISessionParser.h"
 #import "GINIDocumentTaskManager.h"
+#import "GINIIncomingURLDelegate.h"
+#import "GINIDocument.h"
+#import "GINIFactoryDescription.h"
+#import "GINIURLResponse.h"
+#import "GINIExtraction.h"
 
 
 // Keys used in the injector. See the discussion on keys at `GINIInjector` class.
@@ -99,7 +104,7 @@ FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
 /**
  * The instance of the `GINISessionManager` that is used by the SDK.
  */
-@property (readonly) id <GINISessionManager> sessionManager;
+@property (readonly) id <GINISessionManager, GINIIncomingURLDelegate> sessionManager;
 
 /**
  * The instance of the `GINIDocumentTaskManager` that is used by the SDK. The `GINIDocumentTaskManager` is the high

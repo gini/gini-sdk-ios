@@ -75,6 +75,26 @@ describe(@"The GINIDocumentTaskManager", ^{
 
         });
     });
+
+    context(@"The createDocumentWithFilename:fromImage: method", ^{
+        it(@"should raise an exception when having the wrong arguments", ^{
+            [[theBlock(^{
+                [documentTaskManager createDocumentWithFilename:nil fromImage:nil];
+            }) should] raise];
+
+            [[theBlock(^{
+                [documentTaskManager createDocumentWithFilename:@"foobar.jpg" fromImage:nil];
+            }) should] raise];
+        });
+
+        it(@"should return a BFTask*", ^{
+            NSURL *dataPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"yoda" withExtension:@"jpg"];
+            NSData *data = [NSData dataWithContentsOfURL:dataPath];
+            UIImage *image = [UIImage imageWithData:data];
+
+            [[[documentTaskManager createDocumentWithFilename:@"foobar.jpg" fromImage:image] should] beKindOfClass:[BFTask class]];
+        });
+    });
 });
 
 SPEC_END

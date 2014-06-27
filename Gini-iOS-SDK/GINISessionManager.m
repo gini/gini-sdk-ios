@@ -98,7 +98,7 @@ NSString *const GINIErrorDomain = @"net.gini.error";
 
     BFTaskCompletionSource *task = [BFTaskCompletionSource taskCompletionSource];
 
-    NSURL *URL = [self URLWithString:@"authorize"
+    NSURL *URL = [self URLWithString:@"oauth/authorize"
                           parameters:@{@"response_type" : responseType,
                                   @"client_id" : _clientID,
                                   @"redirect_uri" : redirectURL.absoluteString,
