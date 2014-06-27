@@ -18,7 +18,7 @@
 BOOL GINIIsJSONContent(NSString *contentType) {
     static NSSet *knownContentTypes;
     if (!knownContentTypes) {
-        knownContentTypes = [NSSet setWithObjects:@"application/json", @"application/vnd.gini.v1+json", nil];
+        knownContentTypes = [NSSet setWithObjects:@"application/json", @"application/vnd.gini.v1+json", @"application/vnd.gini.incubator+json", nil];
     }
     NSArray *contentTypeComponents = [contentType componentsSeparatedByString:@";"];
     return ([knownContentTypes containsObject:contentTypeComponents.firstObject]);

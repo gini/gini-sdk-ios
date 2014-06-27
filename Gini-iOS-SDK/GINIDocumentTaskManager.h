@@ -131,6 +131,14 @@
 - (BFTask *)getExtractionsForDocument:(GINIDocument *)document;
 
 /**
+* Gets the extractions for the specific document, including the incubation extractions (see
+* http://developer.gini.net/gini-api/html/incubator.html for details on incubating extractions).
+*
+* @param document       The document.
+*/
+- (BFTask *)getIncubatorExtractionsForDocument:(GINIDocument *)document;
+
+/**
  * Saves the new values for the given extraction of the given document.
  *
  * Please note that updating an extraction is called "Submitting feedback" in the Gini API documentation.

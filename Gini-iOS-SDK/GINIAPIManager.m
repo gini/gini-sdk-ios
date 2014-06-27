@@ -178,13 +178,21 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 }
 
 - (BFTask *)getExtractionsForDocument:(NSString *)documentId {
+    return [self getExtractionsForDocument:documentId withHeader:@"application/vnd.gini.v1+json"];
+}
+
+- (BFTask *)getIncubatorExtractionsForDocument:(NSString *)documentId {
+    return [self getExtractionsForDocument:documentId withHeader:@"application/vnd.gini.incubator+json"];
+}
+
+- (BFTask *)getExtractionsForDocument:(NSString *)documentId withHeader:(NSString *)header{
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
-    
+
     NSString *urlString = [NSString stringWithFormat:@"documents/%@/extractions", documentId];
     NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        [request setValue:header forHTTPHeaderField:@"Accept"];
         return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *extractionsTask) {
             GINIURLResponse *response = extractionsTask.result;
             return response.data;

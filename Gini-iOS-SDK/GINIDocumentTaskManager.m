@@ -120,7 +120,17 @@
 - (BFTask *)getExtractionsForDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
-    return [[_apiManager getExtractionsForDocument:document.documentId] continueWithSuccessBlock:^id(BFTask *task) {
+    return [self createExtractionsForGetTask:[_apiManager getExtractionsForDocument:document.documentId]];
+}
+
+- (BFTask *)getIncubatorExtractionsForDocument:(GINIDocument *)document {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+
+    return [self createExtractionsForGetTask:[_apiManager getIncubatorExtractionsForDocument:document.documentId]];
+}
+
+- (BFTask *)createExtractionsForGetTask:(BFTask *)getTask {
+    return [getTask continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *apiResponse = task.result;
         // First of all, create the candidates.
         NSMutableDictionary *giniCandidates = [NSMutableDictionary new];

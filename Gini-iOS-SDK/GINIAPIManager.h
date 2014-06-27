@@ -106,6 +106,15 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
 - (BFTask *)getExtractionsForDocument:(NSString *)documentId;
 
 /**
+ * Gets the extractions for the specific document, including the incubation extractions (see
+ * http://developer.gini.net/gini-api/html/incubator.html for details on incubating extractions).
+ *
+ * @param document  The document's unique identifier.
+ * @returns A BFTask that will resolve to an NSDictionary containing the extractions for the document.
+ */
+- (BFTask *)getIncubatorExtractionsForDocument:(NSString *)documentId;
+
+/**
  * Submit feedback for the document on a specific label.
  *
  * @param documentId The document's id.
