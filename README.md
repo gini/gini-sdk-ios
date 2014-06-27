@@ -25,6 +25,11 @@ in your project directory and open the generated Xcode workspace.
 
 See the [API Documentation](http://developer.gini.net/gini-api/html/guides/oauth2.html#first-of-all-register-your-application-with-gini).
 
+Please notice that your app needs to implement a custom URL scheme in order to get the session information when the
+user logs in to Gini. Therefore, you need to provide a redirect_uri when registering you app with Gini. The
+redirect_uri should be `your-app-scheme://gini-authorization-finished` (where "your-app-scheme"
+is replaced with your actual custom URL scheme).
+
 
 ## Integrate the Gini iOS SDK
 
@@ -36,7 +41,10 @@ Create an instance of the GiniSDK with your chosen clientID and the custom URL s
 
     GiniSDK *giniSDK = [GiniSDK giniSDKWithAppURLScheme:@"YOUR_APP_URL_SCHEME" clientID:@"YOUR_CLIENT_ID"];
 
-In your app, register your custom URL scheme together with an abstract name of the URL scheme (reverse DNS-style of the identifier), by adding the information to your Plist file. Please refer to the [Apple Documentation](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW50) for details.
+In your app, register your custom URL scheme together with an abstract name of the URL scheme (reverse DNS-style of the 
+identifier), by adding the information to your Plist file. Please refer to the 
+[section "Implementing Custom URL Schemes" in the Apple Documentation](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW50) 
+for details.
 
 	<key>CFBundleURLTypes</key>
 	<array>
