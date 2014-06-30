@@ -40,6 +40,43 @@ describe(@"The GINIDocument", ^{
         GINIDocument *secondInstance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
         [[theValue(secondInstance.pageCount) should] equal:theValue(23)];
     });
+
+    it(@"should set the correct filename", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[instance.filename should] equal:@"scanned.jpg"];
+
+        jsonData[@"name"] = @"foobar.jpg";
+        instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[instance.filename should] equal:@"foobar.jpg"];
+    });
+
+    it(@"should set the correct source classification", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.sourceClassification) should] equal:theValue(GiniDocumentSourceClassificationScanned)];
+
+        jsonData[@"sourceClassification"] = @"NATIVE";
+        instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.sourceClassification) should] equal:theValue(GiniDocumentSourceClassificationNative)];
+    });
+
+    it(@"should set the correct creation date", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[instance.creationDate should] beKindOfClass:[NSDate class]];
+        [[theValue([instance.creationDate isEqualToDate:[NSDate dateWithTimeIntervalSince1970:1360623867]]) should] beYes];
+    });
+
+    it(@"should set the correct document state", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.state) should] equal:theValue(GiniDocumentStateComplete)];
+
+        jsonData[@"progress"] = @"PENDING";
+        instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.state) should] equal:theValue(GiniDocumentStatePending)];
+
+        jsonData[@"progress"] = @"ERROR";
+        instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.state) should] equal:theValue(GiniDocumentStateError)];
+    });
 });
 
 SPEC_END

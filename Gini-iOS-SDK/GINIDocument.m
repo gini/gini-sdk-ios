@@ -55,7 +55,7 @@
 
     GINIDocument *document = [[GINIDocument alloc] initWithId:documentId state:documentState pageCount:pageCount sourceClassification:(GiniDocumentSourceClassification) sourceClassification documentManager:documentManager];
     document.filename = [apiResponse valueForKey:@"name"];
-    document.creationDate = [NSDate dateWithTimeIntervalSince1970:floor([[apiResponse valueForKey:@"creationDate"] intValue] / 1000)];
+    document.creationDate = [NSDate dateWithTimeIntervalSince1970:floor([[apiResponse valueForKey:@"creationDate"] doubleValue] / 1000)];
 
     return document;
 }
