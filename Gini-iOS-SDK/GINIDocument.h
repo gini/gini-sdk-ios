@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param documentManager   The document manager that is used to get the additional data, e.g. for the `extractions`
  *                          and `layout` property.
  */
-- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:(GINIDocumentTaskManager *)documentManager;
+- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state pageCount:(NSUInteger)pageCount sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:(GINIDocumentTaskManager *)documentManager;
 
 /**
  * Gets the preview image for the given page.

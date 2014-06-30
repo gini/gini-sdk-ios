@@ -14,16 +14,17 @@ SPEC_BEGIN(GINIDocumentSpec)
 describe(@"The GINIDocument", ^{
     __block GINIDocumentTaskManager *documentTaskManager;
     __block GINIAPIManagerMock *apiManager;
-    __block NSDictionary *jsonData;
+    __block NSMutableDictionary *jsonData;
 
     beforeEach(^{
         apiManager = [GINIAPIManagerMock new];
         documentTaskManager = [GINIDocumentTaskManager documentTaskManagerWithAPIManager:apiManager];
 
         NSURL *dataPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"document" withExtension:@"json"];
-        jsonData = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:dataPath]
-                                                             options:NSJSONReadingAllowFragments
-                                                               error:nil];
+        jsonData = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:dataPath]
+                                                                                                 options:NSJSONReadingAllowFragments
+                                                                                                   error:nil]];
+
     });
 
     it(@"should have a factory which creates a document from the API response", ^{
@@ -31,7 +32,51 @@ describe(@"The GINIDocument", ^{
         [[instance should] beKindOfClass:[GINIDocument class]];
     });
 
-    // TODO: Tests for document creation.
+    it(@"should set the correct page number", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.pageCount) should] equal:theValue(1)];
+
+        jsonData[@"pageCount"] = @"23";
+        GINIDocument *secondInstance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(secondInstance.pageCount) should] equal:theValue(23)];
+    });
+
+    it(@"should set the correct filename", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[instance.filename should] equal:@"scanned.jpg"];
+
+        jsonData[@"name"] = @"foobar.jpg";
+        instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[instance.filename should] equal:@"foobar.jpg"];
+    });
+
+    it(@"should set the correct source classification", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.sourceClassification) should] equal:theValue(GiniDocumentSourceClassificationScanned)];
+
+        jsonData[@"sourceClassification"] = @"NATIVE";
+        instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.sourceClassification) should] equal:theValue(GiniDocumentSourceClassificationNative)];
+    });
+
+    it(@"should set the correct creation date", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[instance.creationDate should] beKindOfClass:[NSDate class]];
+        [[theValue([instance.creationDate isEqualToDate:[NSDate dateWithTimeIntervalSince1970:1360623867]]) should] beYes];
+    });
+
+    it(@"should set the correct document state", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.state) should] equal:theValue(GiniDocumentStateComplete)];
+
+        jsonData[@"progress"] = @"PENDING";
+        instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.state) should] equal:theValue(GiniDocumentStatePending)];
+
+        jsonData[@"progress"] = @"ERROR";
+        instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[theValue(instance.state) should] equal:theValue(GiniDocumentStateError)];
+    });
 });
 
 SPEC_END

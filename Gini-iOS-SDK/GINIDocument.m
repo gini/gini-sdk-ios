@@ -51,16 +51,18 @@
         return nil;
     }
 
-    GINIDocument *document = [[GINIDocument alloc] initWithId:documentId state:documentState sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:documentManager];
+    NSUInteger pageCount = [[apiResponse valueForKey:@"pageCount"] unsignedIntValue];
+
+    GINIDocument *document = [[GINIDocument alloc] initWithId:documentId state:documentState pageCount:pageCount sourceClassification:(GiniDocumentSourceClassification) sourceClassification documentManager:documentManager];
     document.filename = [apiResponse valueForKey:@"name"];
-    document.creationDate = [NSDate dateWithTimeIntervalSince1970:floor([[apiResponse valueForKey:@"creationDate"] intValue] / 1000)];
+    document.creationDate = [NSDate dateWithTimeIntervalSince1970:floor([[apiResponse valueForKey:@"creationDate"] doubleValue] / 1000)];
 
     return document;
 }
 
 #pragma mark - Initializer
 
-- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:(GINIDocumentTaskManager *)documentManager {
+- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state pageCount:(NSUInteger)pageCount sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:(GINIDocumentTaskManager *)documentManager {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
 
     self = [super init];
@@ -69,6 +71,7 @@
         _state = state;
         _documentTaskManager = documentManager;
         _sourceClassification = sourceClassification;
+        _pageCount = pageCount;
     }
     return self;
 }
