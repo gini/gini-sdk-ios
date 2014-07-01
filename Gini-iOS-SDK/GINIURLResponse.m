@@ -7,8 +7,6 @@
 
 @implementation GINIURLResponse
 
-@synthesize data, response;
-
 #pragma mark - Factories
 + (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)urlResponse {
     return [[GINIURLResponse alloc] initWithResponse:urlResponse];

@@ -29,11 +29,21 @@
 
 /**
  * Factory to create a new GINIExtraction instance.
+ *
+ * @param name      The extraction's name.
+ * @param value     The extraction's value.
+ * @param entity    The extraction's entity.
+ * @param box       The extraction's box.
  */
 + (instancetype)extractionWithName:(NSString *)name value:(NSString *)value entity:(NSString *)entity box:(NSDictionary *)box;
 
 /**
  * The designated initializer.
+ *
+ * @param name      The extraction's name.
+ * @param value     The extraction's value.
+ * @param entity    The extraction's entity.
+ * @param box       The extraction's box.
  */
 - (instancetype)initWithName:(NSString *)name value:(NSString *)value entity:(NSString *)entity box:(NSDictionary *)box;
 

@@ -8,13 +8,20 @@
 @class BFTask, BFTaskCompletionSource, GINISession;
 @protocol GINICredentialsStore, GINIURLSession;
 
-extern NSString * const GINIOAuthServiceURL;
-
 // TODO: Move to more a general class (common)
 extern NSStringEncoding const GINIStringEncoding;
 
 // TODO: Move to GINIError
 extern NSString * const GINIErrorDomain;
+
+/**
+* This protocol describes the behaviour of session managers.
+*
+* The session manager is responsible for the oAuth authentication of Gini accounts. The authentication is required to
+* do requests to the GiniAPI.
+*
+* @see http://developer.gini.net/gini-api/html/guides/oauth2.html.
+*/
 
 @protocol GINISessionManager <NSObject>
 
@@ -74,7 +81,7 @@ extern NSString * const GINIErrorDomain;
 *  @param clientID         The clientID you received from Gini.
 *  @param baseURL          The base URL of the Gini Oauth Server.
 *  @param URLSession       The URLSession used to create URL requests.
-*  @param appScheme        The application scheme of the client application. Used to redirect from the browser back to the app.
+*  @param appURLScheme     The application scheme of the client application. Used to redirect from the browser back to the app.
 *
 *  @return The initialized instance
 */
@@ -91,7 +98,7 @@ extern NSString * const GINIErrorDomain;
 *  @param credentialsStore Object that handles the storage of the tokens.
 *  @param baseURL          The base URL of the Gini Oauth Server.
 *  @param URLSession       The URLSession used to create URL requests.
-*  @param appScheme        The application scheme of the client application. Used to redirect from the browser back to the app.
+*  @param appURLScheme     The application scheme of the client application. Used to redirect from the browser back to the app.
 *
 *  @return The initialized instance
 */

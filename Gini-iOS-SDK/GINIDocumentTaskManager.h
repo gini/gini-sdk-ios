@@ -19,10 +19,10 @@
  *
  * Usage of promises/tasks
  * -----------------------
- * This manager makes heavy use of the concept of tasks (known as promises in other languages). See
- * https://github.com/BoltsFramework/Bolts-iOS#tasks for details on the use of promises.
- *
- * TODO: better documentation.
+ * This manager makes heavy use of the concept of tasks (also known as promises in other languages). The Gini SDK uses
+ * [Facebook's Bolts task implementation](https://github.com/BoltsFramework/Bolts-iOS#tasks). See the
+ * [programming guide for tasks](../docs/Working%20with%20tasks.html) for a detailed introduction
+ * into the usage of tasks in the Gini SDK.
  */
 @interface GINIDocumentTaskManager : NSObject
 
