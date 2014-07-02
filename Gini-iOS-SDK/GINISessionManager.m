@@ -13,7 +13,6 @@
 #import <UIKit/UIApplication.h>
 
 NSString *const GINIAuthorizationURLHost = @"gini-authorization-finished";
-NSString *const GINIOAuthServiceURL = @"https://user.gini.net/";
 NSUInteger const GINIAuthorizationStateLength = 8;
 
 
@@ -23,9 +22,6 @@ NSStringEncoding const GINIStringEncoding = NSUTF8StringEncoding;
 // TODO: Move to GINIError
 NSString *const GINIErrorDomain = @"net.gini.error";
 
-@interface GINISessionManager () {
-}
-@end
 
 @implementation GINISessionManager
 

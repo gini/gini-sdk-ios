@@ -7,9 +7,14 @@
 
 @protocol GINIURLSession;
 
-@interface GINISessionManagerClientFlow : GINISessionManager {
 
-}
+/**
+* The `GINISessionManagerClientFlow` implements the client flow oauth authentication flow.
+*
+* @warning Never use this subclass directly. Instead, use the factory methods on the `GINISessionManager` class to
+*          create the correct session manager depending on your application's authentication flow.
+*/
+@interface GINISessionManagerClientFlow : GINISessionManager
 
 /**
 *  Initializes the manager to use client-side authentication flow.

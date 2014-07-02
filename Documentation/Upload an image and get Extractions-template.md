@@ -3,10 +3,8 @@ Upload an image and get extractions
 
 First of all, get the sdk instance that you previously added as a property of the app delegate: 
 
-    GiniSDK *sdk = ((EXMAppDelegate *)[[UIApplication sharedApplication] delegate]).giniSDK;
+    GiniSDK *sdk = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).giniSDK;
     
-(Please notice that you should use the name of the class of your app delegate instead of `EXMAppDelegate`).
-
 Afterwards, you can use the session manager instance to log in the user.
 
     [sdk.sessionManager logIn]
@@ -32,10 +30,11 @@ Usually you want to do something with the created document:
         GINIDocument *document = createTask.result;
         // Do something with the document
     }];
- 
-And of course you are usually interested in the document's extractions. But the document's extractions are only
-available when the document has been fully processed. Because of that, the Gini SDK provides a method to wait until the
-document is fully processed:
+
+And of course you are usually interested in the document's extractions. Documents are created immediately when you
+upload an image or PDF file to the Gini API, but the document's extractions are only available when the document has 
+been fully processed. Because of that, the Gini iOS SDK provides a method to wait until the document is fully processed.
+The processing state of a document is available as the `state` property of a `GINIDocument` instance.
 
     UIImage *image = myImage; // assuming that you already got an image, e.g. from the Gini Vision library.
     GINIDocumentTaskManager *manager = sdk.documentTaskManager;
@@ -58,3 +57,7 @@ document is fully processed:
 The extractions object is now a dictionary, where the keys are the specific extraction as documented at 
 [Gini's API documentation](http://developer.gini.net/gini-api/html/document_extractions.html#available-specific-extractions) and the values are
 corresponding `GINIExtraction` objects.
+
+If you want to use the received extractions to update your application's user interface, make sure that you follow the
+issues brought up in the [working with tasks programming guide](Working%20with%20tasks.html), especially the section
+*Tasks and Threads / Queues*.

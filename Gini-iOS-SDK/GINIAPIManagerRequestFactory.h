@@ -7,7 +7,7 @@
 @protocol GINISessionManager;
 
 /**
- * The GINIAPIManagerRequestFactory creates NSURLRequests, usually for the GINIAPIManager. It is guaranteed that the
+ * The GINIAPIManagerRequestFactory creates NSURLRequests, usually for the `GINIAPIManager`. It is guaranteed that the
  * created requests have the correct HTTP headers set to make requests against the Gini API based on the user's current
  * session.
  *
@@ -20,38 +20,34 @@
 @required
 
 /**
- * Returns a NSMutableURLRequest that is guaranteed to have the correct headers set (including session headers) to do
- * a request to the Gini API.
- *
- * Please notice that in some implementations, this method will block the thread in which it is executed! Because of
- * that, it is usually preferred to use the asynchronous implementation asynchronousRequestUrl:withMethod:andParameters.
- */
-- (NSMutableURLRequest *)requestUrl:(NSURL *)url withMethod:(NSString *)httpMethod;
-
-/**
- * Returns a BFTask that will resolve to a NSMutableURLRequest that is guaranteed to have the correct headers set
+ * Returns a `BFTask*` that will resolve to a NSMutableURLRequest that is guaranteed to have the correct headers set
  * (including session headers) to do a request to the Gini API.
  *
- * This method is the asynchronous implementation of requestUrl:withMethod:andParameters.
+ * @param url           The URL to which the request should be made.
+ * @param httpMethod    The HTTP method which should be used to do the HTTP request, e.g. POST or GET or DELETE.
  */
 - (BFTask *)asynchronousRequestUrl:(NSURL *)url withMethod:(NSString *)httpMethod;
 
 @end
 
 
+/**
+ * The default implementation of the `GINIAPIManagerRequestFactory`. Used in the Gini SDK to create the requests for the
+ * `GINIURLSession`.
+ */
 @interface GINIAPIManagerRequestFactory : NSObject <GINIAPIManagerRequestFactory>
 
 /**
  * A factory to create an instance of the GINIAPIManagerRequestFactory.
  *
- * @param sessionManager        The session manager that performs the HTTP requests.
+ * @param sessionManager        The session manager which is used to get the session.
  */
 + (instancetype)requestFactoryWithSessionManager:(id<GINISessionManager>)sessionManager;
 
 /**
  * The designated initializer.
  *
- * @param sessionManager        The session manager that performs the HTTP requests.
+ * @param sessionManager        The session manager which is used to get the session.
  */
 - (instancetype)initWithSessionManager:(id <GINISessionManager>)sessionManager;
 

@@ -32,16 +32,6 @@ describe(@"The GINIAPIManagerRequestFactory", ^{
         }) should] raise];
 #pragma clang diagnostic pop
     });
-    
-    
-
-    context(@"synchronous method to get the session", ^{
-        it(@"should set the correct access token", ^{
-            NSMutableURLRequest *request = [requestFactory requestUrl:url withMethod:@"POST"];
-            NSString *expectedHeader = [@"Bearer " stringByAppendingString:accessToken];
-            [[[request valueForHTTPHeaderField:@"Authorization"] should] equal:expectedHeader];
-        });
-    });
 
     context(@"asynchronous method to get the session", ^{
         it(@"should set the correct access token", ^{

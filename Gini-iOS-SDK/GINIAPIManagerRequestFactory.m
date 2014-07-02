@@ -27,19 +27,6 @@
 }
 
 #pragma mark - Public Methods
-- (NSMutableURLRequest *)requestUrl:(NSURL *)url withMethod:(NSString *)httpMethod {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod:httpMethod];
-    BFTask *sessionTask = [_sessionManager getSession];
-    [sessionTask waitUntilFinished];
-    [sessionTask continueWithSuccessBlock:^id(BFTask *task){
-        GINISession *session = task.result;
-        [request setValue:[@"Bearer " stringByAppendingString:session.accessToken] forHTTPHeaderField:@"Authorization"];
-        return nil;
-    }];
-    return request;
-}
-
 - (BFTask *)asynchronousRequestUrl:(NSURL *)url withMethod:(NSString *)httpMethod {
     return [[_sessionManager getSession] continueWithSuccessBlock:^id(BFTask *task){
         GINISession *session = task.result;

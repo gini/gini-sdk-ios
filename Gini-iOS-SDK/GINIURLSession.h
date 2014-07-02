@@ -27,6 +27,8 @@
  * In all other cases, the data property is a NSData* object containing the response's HTTP body.
  * If there have benn errors in the HTTP communication or in the response deserialization (e.g. due to an invalid JSON
  * response), the error property of the task is set accordingly.
+ *
+ * @param request   The HTTP request that should be done to get the data.
  */
 - (BFTask *)BFDataTaskWithRequest:(NSURLRequest *)request;
 
@@ -34,6 +36,8 @@
  * This method wraps a BFTask around Apple's downloadTaskWithRequest: method. The BFTask* resolves to a
  * `GINIURLResponse` object where the `data` property is an NSURL* representing the file system path of the downloaded
  * file.
+ *
+ * @param request   The HTTP request that should be done to download the data.
  */
 - (BFTask *)BFDownloadTaskWithRequest:(NSURLRequest *)request;
 
@@ -50,12 +54,17 @@
  * In all other cases, the task resolves to a NSData* object containing the response's HTTP body.
  * If there are errors in the HTTP communication or in the response deserialization (e.g. due to an invalid JSON
  * response), the error property of the task is set accordingly.
+ *
+ * @param request       The HTTP request that should be done to upload the data.
+ * @param uploadData    The data that should be uploaded.
  */
 - (BFTask *)BFUploadTaskWithRequest:(NSURLRequest *)request fromData:(NSData *)uploadData;
 @end
 
 
-
+/**
+ * Gini's default implementation of the <GINIURLSession> protocol.
+ */
 @interface GINIURLSession : NSObject <GINIURLSession>
 
 /**
