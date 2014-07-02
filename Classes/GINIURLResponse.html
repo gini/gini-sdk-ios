@@ -46,6 +46,20 @@
 	
 	
 	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/urlResponseWithResponse:">&nbsp;&nbsp;&nbsp;&nbsp;+ urlResponseWithResponse:</option>
+	
+	<option value="//api/name/urlResponseWithResponse:data:">&nbsp;&nbsp;&nbsp;&nbsp;+ urlResponseWithResponse:data:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/initWithResponse:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithResponse:</option>
+	
+	<option value="//api/name/initWithResponse:data:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithResponse:data:</option>
 	
 	
 	
@@ -79,7 +93,23 @@
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlResponseWithResponse:">urlResponseWithResponse:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlResponseWithResponse:data:">urlResponseWithResponse:data:</a></span></li>
+	
+</ul></li>
 
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithResponse:">initWithResponse:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithResponse:data:">initWithResponse:data:</a></span></li>
+	
+</ul></li>
 
 
 			</ul>
@@ -116,7 +146,12 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The <code>GINIURLResponse</code> is a value object for the result of an HTTP request.</p>
+						<p>The <code>GINIURLResponse</code> is a value object for the result of an HTTP request. It is used inside the Gini SDK to have
+the possibility to pass the interpreted result of an HTTP communication (the <a href="#//api/name/data"><code>data</code></a> property) together with the
+HTTP request&rsquo;s original meta <a href="#//api/name/data">data</a> (like HTTP headers and so on).</p>
+
+<p>Usually you don&rsquo;t use this <a href="#//api/name/data">data</a> object directly. It is only used by low level classes such as the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a>
+class.</p>
 					</div>
 					
 					
@@ -133,6 +168,30 @@
 
 						<ul class="task-list">
 							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/urlResponseWithResponse:">+&nbsp;urlResponseWithResponse:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/urlResponseWithResponse:data:">+&nbsp;urlResponseWithResponse:data:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithResponse:">&ndash;&nbsp;initWithResponse:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithResponse:data:">&ndash;&nbsp;initWithResponse:data:</a></code>
+	</span>
+	
+	
+</li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/data">&nbsp;&nbsp;data</a></code>
 	</span>
@@ -164,8 +223,8 @@
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. @see <a href="../Classes/GINIURLSession.html">GINIURLSession</a> for more detailed information
-about the of the content-type deserialization of the data.</p>
+		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. See the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a> documentation for more
+detailed information about the of the content-type deserialization of the data.</p>
 	</div>		
 	
     
@@ -182,8 +241,8 @@ about the of the content-type deserialization of the data.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. @see <a href="../Classes/GINIURLSession.html">GINIURLSession</a> for more detailed information
-about the of the content-type deserialization of the data.</p>
+		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. See the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a> documentation for more
+detailed information about the of the content-type deserialization of the data.</p>
 	</div>
 	
 	
@@ -207,8 +266,7 @@ about the of the content-type deserialization of the data.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>TODO
-Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
+		<p>The NSHTTPURLResponse (including the HTTP headers and other meta <a href="#//api/name/data">data</a>).</p>
 	</div>		
 	
     
@@ -225,8 +283,7 @@ Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>TODO
-Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
+		<p>The NSHTTPURLResponse (including the HTTP headers and other meta <a href="#//api/name/data">data</a>).</p>
 	</div>
 	
 	
@@ -247,7 +304,233 @@ Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/urlResponseWithResponse:" title="urlResponseWithResponse:"></a>
+	<h3 class="subsubtitle method-title">urlResponseWithResponse:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory to create a new <code>GINIURLResponse</code> where the <a href="#//api/name/data"><code>data</code></a> property is nil.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlResponse</em></dt>
+			<dd><p>The <code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory to create a new <code>GINIURLResponse</code> where the <a href="#//api/name/data"><code>data</code></a> property is nil.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/urlResponseWithResponse:data:" title="urlResponseWithResponse:data:"></a>
+	<h3 class="subsubtitle method-title">urlResponseWithResponse:data:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory to create a new <code>GINIURLResponse</code>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em> data:(id)<em>urlData</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlResponse</em></dt>
+			<dd><p>The<code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlData</em></dt>
+			<dd><p>The interpreted <a href="#//api/name/data">data</a> of the HTTP <a href="#//api/name/response">response</a>. Will be set as the <a href="#//api/name/data"><code>data</code></a> property.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory to create a new <code>GINIURLResponse</code>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithResponse:" title="initWithResponse:"></a>
+	<h3 class="subsubtitle method-title">initWithResponse:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializer.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlResponse</em></dt>
+			<dd><p>The <code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Initializer.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithResponse:data:" title="initWithResponse:data:"></a>
+	<h3 class="subsubtitle method-title">initWithResponse:data:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The designates initializer.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em> data:(id)<em>responseData</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlResponse</em></dt>
+			<dd><p>The<code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>responseData</em></dt>
+			<dd><p>The interpreted <a href="#//api/name/data">data</a> of the HTTP <a href="#//api/name/response">response</a>. Will be set as the <a href="#//api/name/data"><code>data</code></a> property.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The designates initializer.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
 					
 					
                     
@@ -262,7 +545,7 @@ Usually this property is of the sub type <code>NSHTTPURLResponse</code>.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-06-30)</span><br />
+						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-07-02)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
