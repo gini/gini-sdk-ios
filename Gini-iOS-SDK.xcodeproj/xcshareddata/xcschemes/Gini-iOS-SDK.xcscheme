@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "23BD193D1964426600D5622B"
+               BuildableName = "Gini-iOS-SDKIntegrationTests.xctest"
+               BlueprintName = "Gini-iOS-SDKIntegrationTests"
+               ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

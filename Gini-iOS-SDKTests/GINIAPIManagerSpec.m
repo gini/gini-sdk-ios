@@ -8,6 +8,7 @@
 #import "GINIAPIManager.h"
 #import "GINIURLSessionMock.h"
 #import "GINIAPIManagerRequestFactory.h"
+#import "GINISessionManager.h"
 #import "GINISessionManagerMock.h"
 #import "BFTask.h"
 #import "GINIURLResponse.h"

@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23D53C031934BC85001A957E"
-               BuildableName = "Gini-iOS-SDKTests.xctest"
-               BlueprintName = "Gini-iOS-SDKTests"
+               BlueprintIdentifier = "23BD193D1964426600D5622B"
+               BuildableName = "Gini-iOS-SDKIntegrationTests.xctest"
+               BlueprintName = "Gini-iOS-SDKIntegrationTests"
                ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23D53C031934BC85001A957E"
-               BuildableName = "Gini-iOS-SDKTests.xctest"
-               BlueprintName = "Gini-iOS-SDKTests"
+               BlueprintIdentifier = "23BD193D1964426600D5622B"
+               BuildableName = "Gini-iOS-SDKIntegrationTests.xctest"
+               BlueprintName = "Gini-iOS-SDKIntegrationTests"
                ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
             </BuildableReference>
          </TestableReference>

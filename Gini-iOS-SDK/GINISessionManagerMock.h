@@ -4,9 +4,8 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "GINISessionManager.h"
 
-
+@protocol GINISessionManager;
 @class GINISession;
 
 /**
