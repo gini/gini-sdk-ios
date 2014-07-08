@@ -59,6 +59,8 @@ FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
  */
 @interface GiniSDK : NSObject
 
+/** @name Factories */
+
 /**
  * Creates an instance of the GiniSDK where the client authentication flow is used.
  *
@@ -83,12 +85,16 @@ FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
 */
 + (instancetype)giniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret;
 
+/** @name initializer */
+
 /**
  * The designated initializer.
  *
  * @param injector       The GINIInjector instance that is used for wiring the app.
  */
 - (instancetype)initWithInjector:(GINIInjector *)injector;
+
+/** @name Provided Manager instances */
 
 /**
  * The instance of the `GINIAPIManager` that is used by the SDK.

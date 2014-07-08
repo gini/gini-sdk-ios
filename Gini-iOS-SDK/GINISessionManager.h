@@ -17,7 +17,7 @@ extern NSString * const GINIErrorDomain;
 /**
 * This protocol describes the behaviour of session managers.
 *
-* The session manager is responsible for the oAuth authentication of Gini accounts. The authentication is required to
+* The session manager is responsible for the OAuth authentication of Gini accounts. The authentication is required to
 * do requests to the GiniAPI.
 *
 * @see http://developer.gini.net/gini-api/html/guides/oauth2.html.
@@ -79,7 +79,7 @@ extern NSString * const GINIErrorDomain;
 *  Creates a manager that uses client-side authentication flow.
 *
 *  @param clientID         The clientID you received from Gini.
-*  @param baseURL          The base URL of the Gini Oauth Server.
+*  @param baseURL          The base URL of the Gini OAuth Server.
 *  @param URLSession       The URLSession used to create URL requests.
 *  @param appURLScheme     The application scheme of the client application. Used to redirect from the browser back to the app.
 *
@@ -96,7 +96,7 @@ extern NSString * const GINIErrorDomain;
 *  @param clientID         The clientID you received from Gini.
 *  @param clientSecret     The client secret you received from Gini.
 *  @param credentialsStore Object that handles the storage of the tokens.
-*  @param baseURL          The base URL of the Gini Oauth Server.
+*  @param baseURL          The base URL of the Gini OAuth Server.
 *  @param URLSession       The URLSession used to create URL requests.
 *  @param appURLScheme     The application scheme of the client application. Used to redirect from the browser back to the app.
 *

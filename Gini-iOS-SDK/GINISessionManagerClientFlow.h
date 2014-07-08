@@ -20,7 +20,7 @@
 *  Initializes the manager to use client-side authentication flow.
 *
 *  @param clientID          The clientID you received from Gini.
-*  @param baseURL           The base URL of the Gini Oauth Server.
+*  @param baseURL           The base URL of the Gini OAuth Server.
 *  @param URLSession        The `GINIURLSession` to make the requests.
 *  @param appURLScheme      The URL scheme used for redirection to the app once the login on the browser is done.
 *
