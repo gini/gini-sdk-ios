@@ -21,7 +21,7 @@
  * -----------------------
  * This manager makes heavy use of the concept of tasks (also known as promises in other languages). The Gini SDK uses
  * [Facebook's Bolts task implementation](https://github.com/BoltsFramework/Bolts-iOS#tasks). See the
- * [programming guide for tasks](../docs/Working%20with%20tasks.html) for a detailed introduction
+ * [programming guide for tasks](../docs/2.%20Working%20with%20tasks.html) for a detailed introduction
  * into the usage of tasks in the Gini SDK.
  */
 @interface GINIDocumentTaskManager : NSObject

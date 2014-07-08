@@ -9,7 +9,7 @@
 @protocol GINICredentialsStore;
 
 /**
- * The `GINISessionManagerServerFlow` implements the server flow oauth authentication flow.
+ * The `GINISessionManagerServerFlow` implements the server-side OAuth authentication flow.
  *
  * @warning Never use this subclass directly. Instead, use the factory methods on the `GINISessionManager` class to
  *          create the correct session manager depending on your application's authentication flow.
@@ -29,7 +29,7 @@
 *  @param clientID         The clientID you received from Gini.
 *  @param clientSecret     The client secret you received from Gini.
 *  @param credentialsStore Object that handles the storage of the tokens.
-*  @param baseURL          The base URL of the Gini Oauth Server.
+*  @param baseURL          The base URL of the Gini OAuth Server.
 *  @param URLSession       The NSURLSession used for the network connections.
 *  @param appURLScheme     The URL scheme used for redirection to the app once the login on the browser is done.
 *
