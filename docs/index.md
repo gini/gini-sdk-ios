@@ -1,41 +1,35 @@
-## Integrate the Gini iOS SDK
+Architecture
+------------
 
-Import the header in your app delegate header file
+The Gini iOS SDK provides several managers that are used to interact with the 
+[Gini API](http://developer.gini.net/gini-api/html/index.html). Those are:
 
-    #import <GiniSDK.h>
+- `GINIDocumentTaskManager`: A high-level manager for document-related tasks. Use this manager to integrate the Gini
+  magic into your application. It is built upon the `GINIAPIManager` and the `GINISessionManager`.
+- `GINIAPIManager`: A low-level manager which interacts with the Gini API and which directly returns the API responses
+  without much interpretation of the response. Because of that, it is not recommended that you use this manager
+  directly. Instead use the `GINIDocumentTaskManager` which offers much more sophisticated methods for dealing with
+  documents and extractions.
+- `GINISessionManager`: Handles login-related tasks.
 
-Create an instance of the GiniSDK with your chosen clientID and the custom URL scheme
-
-    GiniSDK *giniSDK = [GiniSDK giniSDKWithAppURLScheme:@"YOUR_APP_URL_SCHEME" clientID:@"YOUR_CLIENT_ID"];
-
-## Implement the custom URL scheme
-
-Please notice that your app needs to implement a custom URL scheme in order to get the session information when the
-user logs in to Gini. Therefore, you need to provide a redirect_uri when registering you app with Gini. The
-redirect_uri should be `your-app-scheme://gini-authorization-finished` (where "your-app-scheme"
-is replaced with your actual custom URL scheme).
-
-In your app, register your custom URL scheme together with an abstract name of the URL scheme (reverse DNS-style of the 
-identifier), by adding the information to your Plist file. Please refer to the 
-[section "Implementing Custom URL Schemes" in the Apple Documentation](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW50) 
-for details.
-
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string>YOUR_IDENTIFIER</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>YOUR_APP_URL_SCHEME</string>
-			</array>
-		</dict>
-	</array>
+You don't need to create those manager instances yourself (and it is not recommended to try it, since the managers have
+non-trivial dependencies). Instead, create and use an instance of the `GiniSDK` class (as
+described in the [integration guide](docs/1.%20Integration%20Guide.html)). The `GiniSDK` instance uses an injector (which
+is provided at the instance's `injector` property) to create the manager instances and to manage the dependencies
+between the managers and makes those manager instances available as properties.
 
 
-Your app needs to repond on the app delegate to the incoming URL. Do this by implementing the following delegate method
+How to start
+------------
 
-    - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-    {
-        return [_giniSDK.sessionManager handleURL:url];
-    }
+We recommend that you read the [integration guide](docs/1.%20Integration%20Guide.html) for more details how to
+integrate the SDK and the [Working with tasks programming guide](docs/2.%20Working%20with%20tasks.html) since the SDK
+makes heavy use of the concept of tasks.
+
+
+Support and Feedback
+--------------------
+
+We are happy to hear from you. The SDK's source files are [hosted at github](https://github.com/gini/gini-sdk-ios). Feel
+free to contact Gini at hello@gini.net (you can write in German or English) if you have questions, experience problems
+or need support.

@@ -34,50 +34,39 @@
 					<div class="section section-overview index-overview">
 						
 						
-						<h2>Integrate the Gini iOS SDK</h2>
+						<h2>Architecture</h2>
 
-<p>Import the header in your app delegate header file</p>
+<p>The Gini iOS SDK provides several managers that are used to interact with the
+<a href="http://developer.gini.net/gini-api/html/index.html">Gini API</a>. Those are:</p>
 
-<pre><code>#import GiniSDK.h&gt;
-</code></pre>
+<ul>
+<li><a href="Classes/GINIDocumentTaskManager.html"><code>GINIDocumentTaskManager</code></a>: A high-level manager for document-related tasks. Use this manager to integrate the Gini
+magic into your application. It is built upon the <a href="Classes/GINIAPIManager.html"><code>GINIAPIManager</code></a> and the <a href="Classes/GINISessionManager.html"><code>GINISessionManager</code></a>.</li>
+<li><a href="Classes/GINIAPIManager.html"><code>GINIAPIManager</code></a>: A low-level manager which interacts with the Gini API and which directly returns the API responses
+without much interpretation of the response. Because of that, it is not recommended that you use this manager
+directly. Instead use the <a href="Classes/GINIDocumentTaskManager.html"><code>GINIDocumentTaskManager</code></a> which offers much more sophisticated methods for dealing with
+documents and extractions.</li>
+<li><a href="Classes/GINISessionManager.html"><code>GINISessionManager</code></a>: Handles login-related tasks.</li>
+</ul>
 
-<p>Create an instance of the <a href="Classes/GiniSDK.html">GiniSDK</a> with your chosen clientID and the custom URL scheme</p>
 
-<pre><code>GiniSDK *giniSDK = [GiniSDK giniSDKWithAppURLScheme:@"YOUR_APP_URL_SCHEME" clientID:@"YOUR_CLIENT_ID"];
-</code></pre>
+<p>You don&rsquo;t need to create those manager instances yourself (and it is not recommended to try it, since the managers have
+non-trivial dependencies). Instead, create and use an instance of the <a href="Classes/GiniSDK.html"><code>GiniSDK</code></a> class (as
+described in the <a href="docs/1.%20Integration%20Guide.html">integration guide</a>). The <a href="Classes/GiniSDK.html"><code>GiniSDK</code></a> instance uses an injector (which
+is provided at the instance&rsquo;s <code>injector</code> property) to create the manager instances and to manage the dependencies
+between the managers and makes those manager instances available as properties.</p>
 
-<h2>Implement the custom URL scheme</h2>
+<h2>How to start</h2>
 
-<p>Please notice that your app needs to implement a custom URL scheme in order to get the session information when the
-user logs in to Gini. Therefore, you need to provide a redirect_uri when registering you app with Gini. The
-redirect_uri should be <code>your-app-scheme://gini-authorization-finished</code> (where &ldquo;your-app-scheme&rdquo;
-is replaced with your actual custom URL scheme).</p>
+<p>We recommend that you read the <a href="docs/1.%20Integration%20Guide.html">integration guide</a> for more details how to
+integrate the SDK and the <a href="docs/2.%20Working%20with%20tasks.html">Working with tasks programming guide</a> since the SDK
+makes heavy use of the concept of tasks.</p>
 
-<p>In your app, register your custom URL scheme together with an abstract name of the URL scheme (reverse DNS-style of the
-identifier), by adding the information to your Plist file. Please refer to the
-<a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/AdvancedAppTricks/AdvancedAppTricks.html#//apple_ref/doc/uid/TP40007072-CH7-SW50">section &ldquo;Implementing Custom URL Schemes&rdquo; in the Apple Documentation</a>
-for details.</p>
+<h2>Support and Feedback</h2>
 
-<pre><code>&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
-&lt;array&gt;
-    &lt;dict&gt;
-        &lt;key&gt;CFBundleURLName&lt;/key&gt;
-        &lt;string&gt;YOUR_IDENTIFIER&lt;/string&gt;
-        &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
-        &lt;array&gt;
-            &lt;string&gt;YOUR_APP_URL_SCHEME&lt;/string&gt;
-        &lt;/array&gt;
-    &lt;/dict&gt;
-&lt;/array&gt;
-</code></pre>
-
-<p>Your app needs to repond on the app delegate to the incoming URL. Do this by implementing the following delegate method</p>
-
-<pre><code>- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return [_giniSDK.sessionManager handleURL:url];
-}
-</code></pre>
+<p>We are happy to hear from you. The SDK&rsquo;s source files are <a href="https://github.com/gini/gini-sdk-ios">hosted at github</a>. Feel
+free to contact Gini at hello@gini.net (you can write in German or English) if you have questions, experience problems
+or need support.</p>
 						
 						
 					</div>
@@ -88,9 +77,15 @@ for details.</p>
 						<h2 class="index-title">Programming Guides</h2>
 						<ul>
                         
-                        <li><a href="docs/Upload an image and get Extractions.html">Upload an image and get Extractions</a></li>
+                        <li><a href="docs/1. Integration Guide.html">1. Integration Guide</a></li>
                         
-                        <li><a href="docs/Working with tasks.html">Working with tasks</a></li>
+                        <li><a href="docs/2. Working with tasks.html">2. Working with tasks</a></li>
+                        
+                        <li><a href="docs/3. Upload an image and get Extractions.html">3. Upload an image and get Extractions</a></li>
+                        
+                        <li><a href="docs/4. Adapting the SDK to your needs.html">4. Adapting the SDK to your needs</a></li>
+                        
+                        <li><a href="docs/5. Swift integration guide.html">5. Swift integration guide</a></li>
                         
 						</ul>
                         </div>
@@ -175,7 +170,7 @@ for details.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-07-02)</span><br />
+						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-07-08)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
