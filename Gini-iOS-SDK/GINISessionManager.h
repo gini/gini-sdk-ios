@@ -11,8 +11,6 @@
 // TODO: Move to more a general class (common)
 extern NSStringEncoding const GINIStringEncoding;
 
-// TODO: Move to GINIError
-extern NSString * const GINIErrorDomain;
 
 /**
 * This protocol describes the behaviour of session managers.
@@ -20,7 +18,7 @@ extern NSString * const GINIErrorDomain;
 * The session manager is responsible for the OAuth authentication of Gini accounts. The authentication is required to
 * do requests to the GiniAPI.
 *
-* @see http://developer.gini.net/gini-api/html/guides/oauth2.html.
+* See http://developer.gini.net/gini-api/html/guides/oauth2.html for details.
 */
 
 @protocol GINISessionManager <NSObject>
@@ -28,7 +26,10 @@ extern NSString * const GINIErrorDomain;
 /**
  * Gets the current session.
  *
- * The method returns an error if the session cannot be created without user intervention.
+ * The returned task will fail if the session manager can't reuse or create a session without user intervention (which
+ * means that the user has to log in again). This expected error is a `GINIError` instance. If the task fails with a
+ * `GINIError`, the application must log in the user via the session manager's `logIn` method. There may be other errors
+ * (like network errors when there is no internet connection and so on). Those errors are a `NSError` instance.
  *
  * @returns A BFTask that resolves into a new `GINISession`.
  */

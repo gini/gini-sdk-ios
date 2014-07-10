@@ -52,7 +52,9 @@
 		81EE4F7C1974ACC44C8E2228 /* GINIUIApplicationMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4DF2F8B989F20875FBDE /* GINIUIApplicationMock.m */; };
 		8C4988B6B8B1418A968B8474 /* libPods-Gini-iOS-SDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2056985987664BD8B2381A5A /* libPods-Gini-iOS-SDKTests.a */; };
 		C753E077835616EB9E2FBEBB /* GINIDocumentSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EE42B727F1D19C196505 /* GINIDocumentSpec.m */; };
+		C753E11D15E4F0638124672C /* GINIErrorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EB2A264F10B5B521A43F /* GINIErrorSpec.m */; };
 		C753E17053FE943544163E96 /* GINIDocumentTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E3DEEFB9F9E65CEABEBA /* GINIDocumentTaskManager.m */; };
+		C753E4024AB5984429995A94 /* GINIError.m in Sources */ = {isa = PBXBuildFile; fileRef = C753ED40D89759A5357CD45A /* GINIError.m */; };
 		C753E52AB79C7FE6A0E4E417 /* GINIDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EFC0A1550610FBBADD7E /* GINIDocument.m */; };
 		C753E8F5185BB49A2704BC47 /* GINIDocumentTaskManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753ED654AEE85B91F17136E /* GINIDocumentTaskManagerSpec.m */; };
 		C753E99B2C97D3DE8CF0F9B8 /* GINIAPIManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EDF63DE1898A9FB6D2E3 /* GINIAPIManagerMock.m */; };
@@ -164,6 +166,9 @@
 		C753E68A8EF1189B69F4FE7F /* GINIDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIDocument.h; sourceTree = "<group>"; };
 		C753E6AB8924874770815AD5 /* GINIDocumentTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIDocumentTaskManager.h; sourceTree = "<group>"; };
 		C753E7056A2CCC68D74446E8 /* GINIExtraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIExtraction.h; sourceTree = "<group>"; };
+		C753EA24DB27F2E6F0F6EB64 /* GINIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIError.h; sourceTree = "<group>"; };
+		C753EB2A264F10B5B521A43F /* GINIErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIErrorSpec.m; sourceTree = "<group>"; };
+		C753ED40D89759A5357CD45A /* GINIError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIError.m; sourceTree = "<group>"; };
 		C753ED654AEE85B91F17136E /* GINIDocumentTaskManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIDocumentTaskManagerSpec.m; sourceTree = "<group>"; };
 		C753ED9AB7A88297B3CF63A3 /* GINIExtractionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIExtractionSpec.m; sourceTree = "<group>"; };
 		C753EDF63DE1898A9FB6D2E3 /* GINIAPIManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManagerMock.m; sourceTree = "<group>"; };
@@ -292,6 +297,8 @@
 				C753E3DEEFB9F9E65CEABEBA /* GINIDocumentTaskManager.m */,
 				C753E35FE342DCE3F9562F15 /* GINIExtraction.m */,
 				C753E7056A2CCC68D74446E8 /* GINIExtraction.h */,
+				C753ED40D89759A5357CD45A /* GINIError.m */,
+				C753EA24DB27F2E6F0F6EB64 /* GINIError.h */,
 			);
 			path = "Gini-iOS-SDK";
 			sourceTree = "<group>";
@@ -322,6 +329,7 @@
 				C753ED654AEE85B91F17136E /* GINIDocumentTaskManagerSpec.m */,
 				C753EE42B727F1D19C196505 /* GINIDocumentSpec.m */,
 				C753ED9AB7A88297B3CF63A3 /* GINIExtractionSpec.m */,
+				C753EB2A264F10B5B521A43F /* GINIErrorSpec.m */,
 			);
 			path = "Gini-iOS-SDKTests";
 			sourceTree = "<group>";
@@ -565,6 +573,7 @@
 				C753E52AB79C7FE6A0E4E417 /* GINIDocument.m in Sources */,
 				C753E17053FE943544163E96 /* GINIDocumentTaskManager.m in Sources */,
 				C753ECF5E94E74854F44474B /* GINIExtraction.m in Sources */,
+				C753E4024AB5984429995A94 /* GINIError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +597,7 @@
 				C753E077835616EB9E2FBEBB /* GINIDocumentSpec.m in Sources */,
 				C753E99B2C97D3DE8CF0F9B8 /* GINIAPIManagerMock.m in Sources */,
 				C753EDDE1BCC050D75A32D0F /* GINIExtractionSpec.m in Sources */,
+				C753E11D15E4F0638124672C /* GINIErrorSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

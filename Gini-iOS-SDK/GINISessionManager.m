@@ -8,6 +8,7 @@
 #import "GINISessionManagerClientFlow.h"
 #import "GINISessionManagerServerFlow.h"
 #import "GINIURLSession.h"
+#import "GINIError.h"
 #import "NSString+GINIAdditions.h"
 #import <Bolts/Bolts.h>
 #import <UIKit/UIApplication.h>
@@ -18,9 +19,6 @@ NSUInteger const GINIAuthorizationStateLength = 8;
 
 // TODO: Move to more a general class (common)
 NSStringEncoding const GINIStringEncoding = NSUTF8StringEncoding;
-
-// TODO: Move to GINIError
-NSString *const GINIErrorDomain = @"net.gini.error";
 
 
 @implementation GINISessionManager
