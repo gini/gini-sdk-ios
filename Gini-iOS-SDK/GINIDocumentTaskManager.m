@@ -85,28 +85,18 @@
 }
 
 - (BFTask *)pollDocumentWithId:(NSString *)documentId{
-    BFTaskCompletionSource *taskCompletionSource = [BFTaskCompletionSource taskCompletionSource];
-    [self pollDocumentWithId:documentId completionSource:taskCompletionSource];
-    return taskCompletionSource.task;
-}
-
-- (void)pollDocumentWithId:(NSString *)documentId completionSource:(BFTaskCompletionSource *)taskCompletionSource {
-    [[_apiManager getDocument:documentId] continueWithBlock:^id(BFTask *task) {
-        if (task.error) {
-            [taskCompletionSource setError:task.error];
+    return [[_apiManager getDocument:documentId] continueWithSuccessBlock:^id(BFTask *task) {
+        NSDictionary *polledDocument = task.result;
+        // If the document is not fully processed yet, wait a second and then poll again.
+        if ([polledDocument[@"progress"] isEqualToString:@"PENDING"]) {
+            return [[BFTask taskWithDelay:self.pollingInterval * 1000] continueWithSuccessBlock:^id(BFTask *waitTask) {
+                return [self pollDocumentWithId:documentId];
+            }];
+        // Otherwise return the document.
         } else {
-            NSDictionary *polledDocument = task.result;
-            if ([[polledDocument objectForKey:@"progress"] isEqualToString:@"PENDING"]) {
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, self.pollingInterval * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                    [self pollDocumentWithId:documentId completionSource:taskCompletionSource];
-                });
-            } else {
-                GINIDocument *document = [GINIDocument documentFromAPIResponse:polledDocument withDocumentManager:self];
-                [taskCompletionSource setResult:document];
-            }
+            return [GINIDocument documentFromAPIResponse:polledDocument withDocumentManager:self];
         }
-        return nil;
-    }];
+     }];
 }
 
 - (BFTask *)getPreviewForPage:(NSUInteger)page ofDocument:(GINIDocument *)document withSize:(GiniApiPreviewSize)size {
