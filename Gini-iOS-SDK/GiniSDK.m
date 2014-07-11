@@ -100,7 +100,27 @@ NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGro
     return sdkInstance;
 }
 
++ (instancetype)sandboxGiniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID {
+    // Create a "normal" SDK instance...
+    GiniSDK *giniSDK = [GiniSDK giniSDKWithAppURLScheme:urlScheme clientID:clientID];
+    // ..but change some configuration values in the injector.
+    [giniSDK.injector setObject:[NSURL URLWithString:@"https://api-sandbox.gini.net/"] forKey:GINIAPIBaseURLKey];
+    [giniSDK.injector setObject:[NSURL URLWithString:@"https://user-sandbox.gini.net/"] forKey:GINIUserBaseURLKey];
+    return giniSDK;
+}
+
++ (instancetype)sandboxGiniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret {
+    // Create a "normal" SDK instance...
+    GiniSDK *giniSDK = [GiniSDK giniSDKWithAppURLScheme:urlScheme clientID:clientID clientSecret:clientSecret];
+    // ...but change some configuration values in the injector.
+    [giniSDK.injector setObject:[NSURL URLWithString:@"https://api-sandbox.gini.net/"] forKey:GINIAPIBaseURLKey];
+    [giniSDK.injector setObject:[NSURL URLWithString:@"https://user-sandbox.gini.net/"] forKey:GINIUserBaseURLKey];
+    return giniSDK;
+}
+
+
 #pragma mark - Initializer
+
 - (instancetype)initWithInjector:(GINIInjector *)injector{
     self = [super init];
     if (self) {

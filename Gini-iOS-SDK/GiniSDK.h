@@ -85,6 +85,34 @@ FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
 */
 + (instancetype)giniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret;
 
+
+/**
+* Creates an instance of the GiniSDK where the client authentication flow is used but Gini's sandbox environment is
+* used instead of the production environment.
+*
+* @param urlScheme      The custom URL scheme of the application that is used for the authentication flow. It is used
+*                       when the browser redirects back to the app after a login. Must be the same as the custom URL
+*                       you registered with Gini.
+*
+* @param clientID       The application's client ID for the Gini API.
+*/
++ (instancetype)sandboxGiniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID;
+
+/**
+* Creates an instance of the GiniSDK where the server authentication flow is used but Gini's sandbox environment is
+* used instead of the production environment.
+*
+* @param urlScheme       The custom URL scheme of the application that is used for the authentication flow. It is used
+*                        when the browser redirects back to the app after a login. Must be the same as the custom URL
+*                        you registered with Gini.
+*
+* @param clientID        The application's client ID for the Gini API.
+*
+* @param clientSecret    The client secret you received from Gini.
+*/
++ (instancetype)sandboxGiniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret;
+
+
 /** @name initializer */
 
 /**
