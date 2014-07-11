@@ -4,6 +4,6 @@ target 'Gini-iOS-SDK' do
 	pod 'Bolts'
 
 	target 'Gini-iOS-SDKTests', :exclusive => true do
-   		pod 'Kiwi/XCTest'
+   		pod 'Kiwi/XCTest', '2.2.4'
 	end
 end
