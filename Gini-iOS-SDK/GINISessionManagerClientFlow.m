@@ -9,6 +9,7 @@
 #import "GINISessionManager_Private.h"
 #import "GINISessionParser.h"
 #import "GINIURLSession.h"
+#import "GINIError.h"
 #import <Bolts/Bolts.h>
 
 @interface GINISessionManagerClientFlow () {
@@ -30,12 +31,12 @@ NSString *const GINIClientFlowResponseType = @"token";
 
 - (BFTask *)getSession {
 
+    // The client-side flow can't get a new access token with the help of a refresh token.
     if (_activeSession && ![_activeSession hasAlreadyExpired]) {
         return [BFTask taskWithResult:_activeSession];
     }
 
-    NSError *credentialsNeededError = [NSError errorWithDomain:GINIErrorDomain code:1 userInfo:nil];
-    return [BFTask taskWithError:credentialsNeededError];
+    return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorNoValidSession userInfo:nil]];
 }
 
 - (BFTask *)logIn {

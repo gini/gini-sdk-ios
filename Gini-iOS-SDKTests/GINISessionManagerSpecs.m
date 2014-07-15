@@ -14,6 +14,7 @@
 #import "GINIURLResponse.h"
 #import "GINISessionManager_Private.h"
 #import "GINICredentialsStoreMock.h"
+#import "GINIError.h"
 
 NSString *const appURLSchemeMock = @"mock.me";
 
@@ -100,7 +101,8 @@ SPEC_BEGIN(GINISessionManagerSpecs)
 
                 it(@"should give error when logging in has not happened", ^{
                     BFTask *task = [[sessionManager getSession] continueWithBlock:^id(BFTask *task) {
-                        [[task.error shouldNot] beNil];
+                        [[task.error should] beKindOfClass:[GINIError class]];
+                        [[theValue(task.error.code) should] equal:theValue(GINIErrorNoValidSession)];
                         return nil;
                     }];
                     [task waitUntilFinished];
@@ -202,7 +204,8 @@ SPEC_BEGIN(GINISessionManagerSpecs)
 
                 it(@"should give error when logging in has not happened", ^{
                     BFTask *task = [[sessionManager getSession] continueWithBlock:^id(BFTask *task) {
-                        [[task.error shouldNot] beNil];
+                        [[task.error should] beKindOfClass:[GINIError class]];
+                        [[theValue(task.error.code) should] equal:theValue(GINIErrorNoValidSession)];
                         return nil;
                     }];
                     [task waitUntilFinished];

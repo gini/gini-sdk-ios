@@ -10,6 +10,7 @@
 #import "GINISessionManager_Private.h"
 #import "GINISessionParser.h"
 #import "GINIURLSession.h"
+#import "GINIError.h"
 #import <Bolts/Bolts.h>
 
 
@@ -55,11 +56,9 @@ NSString *const GINIServerFlowResponseType = @"code";
         if (storedRefreshToken) {
             return [self refreshTokensWithToken:storedRefreshToken];
         } else {
-            // Unable to get session without user interaction
 
-            // TODO: Use GINIError when available
-            NSError *error = [NSError errorWithDomain:GINIErrorDomain code:1 userInfo:nil];
-            return [BFTask taskWithError:error];
+            // Unable to get session without user interaction.
+            return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorNoValidSession userInfo:nil]];
         }
     }
 }

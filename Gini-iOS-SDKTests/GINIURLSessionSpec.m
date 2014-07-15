@@ -199,12 +199,13 @@ SPEC_BEGIN(GINIURLSessionSpec)
                 [[task.result should] beNil];
             });
 
-            it(@"should resolve to an error if the HTTP status indicates an error", ^{
+            it(@"should resolve to an error if the NSURLSession has an error", ^{
                 NSURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://api.gini.net"]
                                                                       statusCode:403
                                                                      HTTPVersion:@"1.1"
                                                                     headerFields:nil];
                 nsURLSessionMock.response = response;
+                nsURLSessionMock.error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorBadServerResponse userInfo:nil];
                 BFTask *task = [giniURLSession BFDataTaskWithRequest:request];
                 [[task.error should] beKindOfClass:[NSError class]];
                 [[task.result should] beNil];
