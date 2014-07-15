@@ -9,8 +9,20 @@
 /** The default error domain for GINI Errors. */
 extern NSString * const GINIErrorDomain;
 
-/** The error code when the Gini iOS SDK can't get a new valid session. */
-extern NSInteger const GINIErrorNoValidSession;
+typedef NS_ENUM(NSInteger, GINIErrorCode) {
+    /** The error code when the Gini iOS SDK can't get a new valid session without user interaction. */
+    GINIErrorNoValidSession,
+
+    GINIErrorNotAuthorized,
+
+    GINIErrorInsufficientRights,
+
+    /**
+     * The error code when the Resource is not found, e.g. when you try to access a non-existing document (wrong ID) or
+     * if you try to access an extraction which does not exist for the document.
+     */
+    GINIErrorResourceNotFound,
+};
 
 
 /**

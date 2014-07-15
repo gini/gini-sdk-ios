@@ -6,7 +6,36 @@
 #import "GINIDocumentTaskManager.h"
 #import "GINIDocument.h"
 #import "GINIExtraction.h"
+#import "GINIError.h"
 #import <Bolts/Bolts.h>
+
+
+/**
+ * Handles common HTTP errors and expected errors that occur during task execution.
+ */
+BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
+    return [originalTask continueWithBlock:^id(BFTask *task) {
+        if (task.error && [task.error.domain isEqualToString:NSURLErrorDomain]) {
+            switch(task.error.code) {
+                // HTTP #404
+                case NSURLErrorFileDoesNotExist:
+                    return [GINIError errorWithCode:GINIErrorResourceNotFound userInfo:task.error.userInfo];
+
+                // HTTP #401
+                case NSURLErrorUserAuthenticationRequired:
+                    return [GINIError errorWithCode:GINIErrorNotAuthorized userInfo:task.error.userInfo];
+
+                // HTTP #403
+                case NSURLErrorNoPermissionsToReadFile:
+                    return [GINIError errorWithCode:GINIErrorInsufficientRights userInfo:task.error.userInfo];
+
+                default:
+                    break;
+            }
+        }
+        return task;
+    }];
+}
 
 
 @implementation GINIDocumentTaskManager {
@@ -35,26 +64,28 @@
 - (BFTask *)getDocumentWithId:(NSString *)documentId{
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
 
-    return [[_apiManager getDocument:documentId] continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *documentTask = [[_apiManager getDocument:documentId] continueWithSuccessBlock:^id(BFTask *task) {
         GINIDocument *document = [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
         return document;
     }];
+    return GINIhandleHTTPerrors(documentTask);
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([image isKindOfClass:[UIImage class]]);
 
-    return [[_apiManager uploadDocumentWithData:UIImageJPEGRepresentation(image, 0.95) contentType:@"image/jpeg" fileName:fileName] continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *createTask = [[_apiManager uploadDocumentWithData:UIImageJPEGRepresentation(image, 0.95) contentType:@"image/jpeg" fileName:fileName] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
+    return GINIhandleHTTPerrors(createTask);
 }
 
 - (BFTask *)updateDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
     // TODO: The Gini API will offer bulk updates soon. As soon as it is available, refactor this method to use the bulk update
-    return [document.extractions continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *updateTask = [document.extractions continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *extractions = task.result;
         NSMutableArray *updateTasks = [NSMutableArray new];
         for (NSString *key in extractions) {
@@ -65,12 +96,13 @@
         }
         return [BFTask taskForCompletionOfAllTasks:updateTasks];
     }];
+    return GINIhandleHTTPerrors(updateTask);
 }
 
 - (BFTask *)deleteDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
-    return [_apiManager deleteDocument:document.documentId];
+    return GINIhandleHTTPerrors([_apiManager deleteDocument:document.documentId]);
 }
 
 - (BFTask *)pollDocument:(GINIDocument *)document {
@@ -85,38 +117,48 @@
 }
 
 - (BFTask *)pollDocumentWithId:(NSString *)documentId{
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+
+    BFTask *pollTask = [self privatePollDocumentWithId:documentId];
+    return GINIhandleHTTPerrors(pollTask);
+}
+
+- (BFTask *)privatePollDocumentWithId:(NSString *)documentId {
     return [[_apiManager getDocument:documentId] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *polledDocument = task.result;
         // If the document is not fully processed yet, wait a second and then poll again.
         if ([polledDocument[@"progress"] isEqualToString:@"PENDING"]) {
             return [[BFTask taskWithDelay:self.pollingInterval * 1000] continueWithSuccessBlock:^id(BFTask *waitTask) {
-                return [self pollDocumentWithId:documentId];
+                return [self privatePollDocumentWithId:documentId];
             }];
-        // Otherwise return the document.
+            // Otherwise return the document.
         } else {
             return [GINIDocument documentFromAPIResponse:polledDocument withDocumentManager:self];
         }
-     }];
+    }];
 }
 
 - (BFTask *)getPreviewForPage:(NSUInteger)page ofDocument:(GINIDocument *)document withSize:(GiniApiPreviewSize)size {
     NSParameterAssert(page > 0);
     NSParameterAssert(page <= document.pageCount);
 
-    return [_apiManager getPreviewForPage:page ofDocument:document.documentId withSize:size];
+    BFTask *pageTask = [_apiManager getPreviewForPage:page ofDocument:document.documentId withSize:size];
+    return GINIhandleHTTPerrors(pageTask);
 }
 
 #pragma mark - Extraction methods
 - (BFTask *)getExtractionsForDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
-    return [self createExtractionsForGetTask:[_apiManager getExtractionsForDocument:document.documentId]];
+    BFTask *extractionsTask = [self createExtractionsForGetTask:[_apiManager getExtractionsForDocument:document.documentId]];
+    return GINIhandleHTTPerrors(extractionsTask);
 }
 
 - (BFTask *)getIncubatorExtractionsForDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
-    return [self createExtractionsForGetTask:[_apiManager getIncubatorExtractionsForDocument:document.documentId]];
+    BFTask *extractionsTask = [self createExtractionsForGetTask:[_apiManager getIncubatorExtractionsForDocument:document.documentId]];
+    return GINIhandleHTTPerrors(extractionsTask);
 }
 
 - (BFTask *)createExtractionsForGetTask:(BFTask *)getTask {
@@ -168,7 +210,7 @@
     NSParameterAssert([GINIExtraction isKindOfClass:[GINIExtraction class]]);
     NSParameterAssert([GINIDocument isKindOfClass:[GINIDocument class]]);
 
-    return [[_apiManager submitFeedbackForDocument:document.documentId
+    BFTask *updateTask = [[_apiManager submitFeedbackForDocument:document.documentId
                                              label:extraction.name
                                              value:extraction.value
                                        boundingBox:extraction.box] continueWithSuccessBlock:^id(BFTask *task) {
@@ -182,12 +224,14 @@
         }];
         return nil;
     }];
+    return GINIhandleHTTPerrors(updateTask);
 }
 
 - (BFTask *)getLayoutForDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
-    return [_apiManager getLayoutForDocument:document.documentId];
+    BFTask *layoutTask = [_apiManager getLayoutForDocument:document.documentId];
+    return GINIhandleHTTPerrors(layoutTask);
 }
 
 @end

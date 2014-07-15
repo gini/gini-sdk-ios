@@ -40,29 +40,6 @@ BOOL GINIIsTextContent(NSString *contentType) {
     return [[[contentTypeComponents firstObject] substringToIndex:5] isEqualToString:@"text/"];
 }
 
-/**
- * Checks if there has been an error in the HTTP communication and if the HTTP status code is an error.
- */
-BOOL GINICheckHTTPError(NSURLResponse *response, NSError **error) {
-    if (*error) {
-        return YES;
-    }
-    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        // TODO: More detailed errors, e.g. special errors for #400 and #403
-        if (httpResponse.statusCode < 200 || httpResponse.statusCode > 304) {
-            NSDictionary *info = @{
-                    NSLocalizedDescriptionKey : @"The server returned a bad HTTP response code",
-                    NSURLErrorFailingURLStringErrorKey : response.URL.absoluteString,
-                    NSURLErrorFailingURLErrorKey : response.URL
-            };
-            *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorBadServerResponse userInfo:info];
-            return YES;
-        }
-    }
-    return NO;
-}
-
 @implementation GINIURLSession {
     NSURLSession *_nsURLSession;
 }
@@ -89,7 +66,7 @@ BOOL GINICheckHTTPError(NSURLResponse *response, NSError **error) {
     BFTaskCompletionSource *completionSource = [BFTaskCompletionSource taskCompletionSource];
     NSURLSessionDataTask *task = [_nsURLSession dataTaskWithRequest:request completionHandler:^void(NSData *data, NSURLResponse *response, NSError *error) {
         // If there has been an error in the HTTP communication, transparently pass-through the error.
-        if (GINICheckHTTPError(response, &error)) {
+        if (error) {
             return [completionSource setError:error];
         }
         [self deserializeResponse:response withData:data completingTaskSource:completionSource];
@@ -102,7 +79,7 @@ BOOL GINICheckHTTPError(NSURLResponse *response, NSError **error) {
     BFTaskCompletionSource *completionSource = [BFTaskCompletionSource taskCompletionSource];
     NSURLSessionDownloadTask *downloadTask = [_nsURLSession downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
         // If there has been an error in the HTTP communication, transparently pass-through the error.
-        if (GINICheckHTTPError(response, &error)) {
+        if (error) {
             return [completionSource setError:error];
         }
         [completionSource setResult:[GINIURLResponse urlResponseWithResponse:(NSHTTPURLResponse *)response data:location]]; // TODO: downcast
@@ -114,7 +91,7 @@ BOOL GINICheckHTTPError(NSURLResponse *response, NSError **error) {
 - (BFTask *)BFUploadTaskWithRequest:(NSURLRequest *)request fromData:(NSData *)uploadData {
     BFTaskCompletionSource *completionSource = [BFTaskCompletionSource taskCompletionSource];
     NSURLSessionUploadTask *uploadTask = [_nsURLSession uploadTaskWithRequest:request fromData:uploadData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (GINICheckHTTPError(response, &error)) {
+        if (error) {
             return [completionSource setError:error];
         }
         [self deserializeResponse:response withData:data completingTaskSource:completionSource];

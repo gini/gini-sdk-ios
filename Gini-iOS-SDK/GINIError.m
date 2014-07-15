@@ -8,7 +8,6 @@
 
 
 NSString *const GINIErrorDomain = @"net.gini.error";
-NSInteger const GINIErrorNoValidSession = 1;
 
 
 @implementation GINIError
