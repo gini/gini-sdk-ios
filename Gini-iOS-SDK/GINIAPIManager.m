@@ -254,4 +254,22 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     }];
 }
 
+- (BFTask *)reportErrorForDocument:(NSString *)documentId summary:(NSString *)summary description:(NSString *)description {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+
+    NSString *summaryEncoded = [summary stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *descriptionEncoded = [description stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/%@/errorreport?summary=%@&description=%@", documentId, summaryEncoded, descriptionEncoded];
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Content-Type"];
+        return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *reportErrorTask) {
+            GINIURLResponse *response = reportErrorTask.result;
+            return response.data;
+        }];
+    }];
+}
+
 @end

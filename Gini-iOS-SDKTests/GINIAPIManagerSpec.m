@@ -415,6 +415,53 @@ describe(@"The GINIAPIManager", ^{
             [[extractionsTask.result should] equal:json];
         });
     });
+
+    context(@"The error report method", ^{
+        NSString *summary = @"A test error report";
+        NSString *summaryEncoded = [summary stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+        NSString *description = @"This is a more detailed description of the error report";
+        NSString *descriptionEncoded = [description stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+
+        NSURL *dataPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"errorreport" withExtension:@"json"];
+        NSDictionary *errorReportJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:dataPath]
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:nil];
+
+        it(@"should return a BFTask", ^{
+            [[[apiManager reportErrorForDocument:documentId summary:summary description:description] should] beKindOfClass:[BFTask class]];
+        });
+
+        it(@"should do the correct request to the Gini API", ^{
+            [apiManager reportErrorForDocument:documentId summary:summary description:description];
+            NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/%@/errorreport?summary=%@&description=%@", documentId, summaryEncoded, descriptionEncoded];
+            checkRequest(urlString, 1);
+        });
+
+        it(@"should react correctly on the HTTP response", ^{
+            NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/%@/errorreport?summary=%@&description=%@", documentId, summaryEncoded, descriptionEncoded];
+            NSHTTPURLResponse *nsURLResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:urlString]
+                                                                           statusCode:200
+                                                                          HTTPVersion:@"1.1"
+                                                                         headerFields:nil];
+            GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:errorReportJson];
+            [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:urlString];
+            BFTask *errorReportTask = [apiManager reportErrorForDocument:documentId summary:summary description:description];
+            [[errorReportTask.error should] beNil];
+            [[errorReportTask.result should] beNonNil];
+        });
+
+        it(@"should return nothing if the document was not found", ^{
+            NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/Foobar/errorreport?summary=%@&description=%@", summaryEncoded, descriptionEncoded];
+            NSHTTPURLResponse *nsURLResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:urlString]
+                                                                           statusCode:404
+                                                                          HTTPVersion:@"1.1"
+                                                                         headerFields:nil];
+            GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse];
+            [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:urlString];
+            BFTask *errorReportTask = [apiManager reportErrorForDocument:documentId summary:summary description:description];
+            [[errorReportTask.result should] beNil];
+        });
+    });
 });
 
 
