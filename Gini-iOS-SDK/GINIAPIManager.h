@@ -176,6 +176,15 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
 - (BFTask *)search:(NSString *)searchTerm limit:(NSUInteger)limit offset:(NSUInteger)offset docType:(NSString *)docType;
 
 /**
+* Report an error for a specific document.
+*
+* @param documentId        The document's id.
+* @param summary           A summary for the error.
+* @param description       A detailed description for the error.
+*/
+- (BFTask *)reportErrorForDocument:(NSString *)documentId summary:(NSString *)summary description:(NSString *)description;
+
+/**
  * The designated initializer.
  *
  * @param urlSession        An object that implements the <GINIURLSession> protocol. Will be used to perform the HTTP
