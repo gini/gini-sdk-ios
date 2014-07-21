@@ -155,4 +155,17 @@
  */
 - (BFTask *)getLayoutForDocument:(GINIDocument *)document;
 
+/**
+ * Report an error for a specific document. If the processing result for a document was not satisfactory (e.g.
+ * extractions where empty or incorrect), you can create an error report for a document. This allows Gini to analyze and
+ * correct the problem that was found. The returned errorId can be used to refer to the reported error towards the Gini
+ * support.
+ *
+ * @warning The owner of this document must agree that Gini can use this document for debugging and error analysis.
+ *
+ * @param document          The document for which the error is reported.
+ * @param summary           A summary for the error (optional).
+ * @param description       A detailed description for the error (optional).
+ */
+- (BFTask *)errorReportForDocument:(GINIDocument *)document summary:(NSString *)summary description:(NSString *)description;
 @end

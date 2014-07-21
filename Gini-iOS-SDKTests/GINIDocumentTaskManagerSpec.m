@@ -95,6 +95,24 @@ describe(@"The GINIDocumentTaskManager", ^{
             [[[documentTaskManager createDocumentWithFilename:@"foobar.jpg" fromImage:image] should] beKindOfClass:[BFTask class]];
         });
     });
+
+    context(@"The errorReportForDocument:summary:description: method", ^{
+        it(@"should raise an exception when having the wrong arguments", ^{
+            [[theBlock(^{
+                [documentTaskManager errorReportForDocument:nil summary:nil description:nil];
+            }) should] raise];
+        });
+
+        it(@"should return a BFTask*", ^{
+            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234"
+                                                                state:GiniDocumentStatePending
+                                                            pageCount:1
+                                                 sourceClassification:GiniDocumentSourceClassificationNative
+                                                      documentManager:documentTaskManager];
+            BFTask *errorReportTask = [documentTaskManager errorReportForDocument:document summary:@"foo error" description:@"Short description."];
+            [[errorReportTask should] beKindOfClass:[BFTask class]];
+        });
+    });
 });
 
 SPEC_END

@@ -36,4 +36,8 @@
     return [BFTask taskWithError:[NSError errorWithDomain:@"mock" code:1 userInfo:nil]];
 }
 
+- (BFTask *)reportErrorForDocument:(NSString *)documentId summary:(NSString *)summary description:(NSString *)description {
+    return [BFTask taskWithError:[NSError errorWithDomain:@"mock" code:1 userInfo:nil]];
+}
+
 @end

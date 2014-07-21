@@ -234,4 +234,11 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return GINIhandleHTTPerrors(layoutTask);
 }
 
+- (BFTask *)errorReportForDocument:(GINIDocument *)document summary:(NSString *)summary description:(NSString *)description{
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+
+    BFTask *errorReportTask = [_apiManager reportErrorForDocument:document.documentId summary:summary description:description];
+    return GINIhandleHTTPerrors(errorReportTask);
+}
+
 @end
