@@ -67,6 +67,18 @@
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image;
 
 /**
+ * Creates a new document with the given `doctype` from the given image. By providing the doctype, Gini's document
+ * processing is optimized in many ways.
+ *
+ * See the [Gini API documentation](http://developer.gini.net/gini-api/html/documents.html#document-type-hints) for
+ * details and [a list of available doctypes](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ *
+ * @warning Some incubating extractions are only available if you create the document with this method, so the Gini API
+ * knows the doctype.
+ */
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType;
+
+/**
  * Saves updates on the extractions.
  *
  * Updating extractions is called "Submitting feedback" in the Gini API documentation.

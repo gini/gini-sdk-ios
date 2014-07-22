@@ -27,7 +27,7 @@
     }];
 }
 
-- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName {
+- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName docType:(NSString *)docType {
     NSParameterAssert([documentData isKindOfClass:[NSData class]]);
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([contentType isKindOfClass:[NSString class]]);

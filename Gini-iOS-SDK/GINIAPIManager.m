@@ -128,12 +128,16 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 }
 
 
-- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName {
+- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName docType:(NSString *)docType {
     NSParameterAssert([documentData isKindOfClass:[NSData class]]);
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([contentType isKindOfClass:[NSString class]]);
 
     NSString *urlString = [NSString stringWithFormat:@"documents/?filename=%@", stringByEscapingString(fileName)];
+    if (docType) {
+        urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"&doctype=%@", stringByEscapingString(docType)]];
+    }
+
     NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;

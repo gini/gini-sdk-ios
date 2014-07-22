@@ -98,10 +98,13 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
  *                          for details.
  * @param contentType       The content type of the document (as a MIME string).
  * @param fileName          The filename of the document.
+ * @param docType           (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+ *                          [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
+ *                          for a list of possibles doctypes.
  *
  * @returns                 A`BFTask*` that will resolve to a NSString containing the created document's ID.
  */
-- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName;
+- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName docType:(NSString *)docType;
 
 /**
  * Deletes the document with the given ID.
