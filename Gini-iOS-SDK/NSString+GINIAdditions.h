@@ -5,13 +5,14 @@
 
 #import <Foundation/Foundation.h>
 
+NSString *stringByEscapingString(NSString *string);
+
 @interface NSString (GINIAdditions)
 
 /*
  * Creates a URL query string from a parameter dictionary.
  *
- * Every key in the dictionary ìs expected to be an `NSString`. All keys that have a value of `[NSNull null]` will be
- * translated to a parameter without '=' character.
+ * Every key in the dictionary is expected to be an `NSString`.
  *
  * NOTE: The resulting query string is automatically percent-encoded.
  *

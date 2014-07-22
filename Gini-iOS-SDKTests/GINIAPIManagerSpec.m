@@ -11,6 +11,7 @@
 #import "GINISessionManagerMock.h"
 #import "BFTask.h"
 #import "GINIURLResponse.h"
+#import "NSString+GINIAdditions.h"
 
 
 SPEC_BEGIN(GINIAPIManagerSpec)
@@ -418,9 +419,9 @@ describe(@"The GINIAPIManager", ^{
 
     context(@"The error report method", ^{
         NSString *summary = @"A test error report";
-        NSString *summaryEncoded = [summary stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+        NSString *summaryEncoded = stringByEscapingString(summary);
         NSString *description = @"This is a more detailed description of the error report";
-        NSString *descriptionEncoded = [description stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+        NSString *descriptionEncoded = stringByEscapingString(description);
 
         NSURL *dataPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"errorreport" withExtension:@"json"];
         NSDictionary *errorReportJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:dataPath]

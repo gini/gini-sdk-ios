@@ -9,7 +9,7 @@
 #import "GINIAPIManagerRequestFactory.h"
 #import "GINIURLSession.h"
 #import "GINIURLResponse.h"
-
+#import "NSString+GINIAdditions.h"
 
 /**
  * Returns the string that is part of the URL of an API request for the given image preview size.
@@ -133,7 +133,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([contentType isKindOfClass:[NSString class]]);
 
-    NSString *urlString = [NSString stringWithFormat:@"documents/?filename=%@", [fileName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSString *urlString = [NSString stringWithFormat:@"documents/?filename=%@", stringByEscapingString(fileName)];
     NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
@@ -257,8 +257,9 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 - (BFTask *)reportErrorForDocument:(NSString *)documentId summary:(NSString *)summary description:(NSString *)description {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
 
-    NSString *summaryEncoded = [summary stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
-    NSString *descriptionEncoded = [description stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSString *summaryEncoded = stringByEscapingString(summary);
+    NSString *descriptionEncoded = stringByEscapingString(description);
+
     NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/%@/errorreport?summary=%@&description=%@", documentId, summaryEncoded, descriptionEncoded];
     NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
 

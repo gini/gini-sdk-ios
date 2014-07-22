@@ -5,6 +5,15 @@
 
 #import "NSString+GINIAdditions.h"
 
+// This method is copied from BFAppLinkNavigation.m (Bolts framework)
+NSString *stringByEscapingString(NSString *string) {
+    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+            (CFStringRef)string,
+            NULL,
+            (CFStringRef)@":/?#[]@!$&'()*+,;=",
+            kCFStringEncodingUTF8));
+}
+
 @implementation NSString (GINIAdditions)
 
 NSString *GINIDecodeURLString(NSString *string) {
@@ -14,22 +23,26 @@ NSString *GINIDecodeURLString(NSString *string) {
 
 + (instancetype)GINIQueryStringWithParameterDictionary:(NSDictionary *)parameters {
 
-    NSMutableString *query = [NSMutableString string];
+    NSMutableArray *stringParameters = [NSMutableArray new];
 
     for (NSString *key in parameters.allKeys) {
-        [query appendFormat:@"%@", key];
-        NSString * value = parameters[key];
-        if (value != (id)[NSNull null]) {
-            [query appendFormat:@"=%@", value];
+        NSMutableArray *parameterComponents = [NSMutableArray new];
+        [parameterComponents addObject:stringByEscapingString(key)];
+
+        NSString * value;
+        if ([parameters[key] isKindOfClass:[NSString class]]) {
+            value = parameters[key];
+        } else {
+            value = [NSString stringWithFormat:@"%@", value];
         }
-        [query appendString:@"&"];
+
+        if (value) {
+            [parameterComponents addObject:stringByEscapingString(value)];
+        }
+        [stringParameters addObject:[parameterComponents componentsJoinedByString:@"="]];
     }
 
-    if (query.length > 0) {
-        [query deleteCharactersInRange:NSMakeRange(query.length - 1, 1)];
-    }
-
-    return [query stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    return [stringParameters componentsJoinedByString:@"&"];
 }
 
 - (NSDictionary *)GINIQueryStringParameterDictionary {

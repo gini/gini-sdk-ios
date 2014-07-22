@@ -176,17 +176,17 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
 - (BFTask *)search:(NSString *)searchTerm limit:(NSUInteger)limit offset:(NSUInteger)offset docType:(NSString *)docType;
 
 /**
-* Report an error for a specific document. If the processing result for a document was not satisfactory (e.g.
-* extractions where empty or incorrect), you can create an error report for a document. This allows Gini to analyze and
-* correct the problem that was found. The returned errorId can be used to refer to the reported error towards the Gini
-* support.
-*
-* @warning The owner of this document must agree that Gini can use this document for debugging and error analysis.
-*
-* @param documentId        The document's id.
-* @param summary           A summary for the error.
-* @param description       A detailed description for the error.
-*/
+ * Report an error for a specific document. If the processing result for a document was not satisfactory (e.g.
+ * extractions where empty or incorrect), you can create an error report for a document. This allows Gini to analyze and
+ * correct the problem that was found. The returned errorId can be used to refer to the reported error towards the Gini
+ * support.
+ *
+ * @warning The owner of this document must agree that Gini can use this document for debugging and error analysis.
+ *
+ * @param documentId        The document's id.
+ * @param summary           A summary for the error.
+ * @param description       A detailed description for the error.
+ */
 - (BFTask *)reportErrorForDocument:(NSString *)documentId summary:(NSString *)summary description:(NSString *)description;
 
 /**
