@@ -206,9 +206,9 @@ describe(@"The GINIAPIManager", ^{
         });
     });
     
-    context(@"The uploadDocumentWithData:contentType:fileName method", ^{
+    context(@"The uploadDocumentWithData:contentType:fileName:docType method", ^{
         it(@"should return a BFTask*", ^{
-            [[[apiManager uploadDocumentWithData:[NSData new] contentType:@"image/png" fileName:@"foo.png"] should] beKindOfClass:[BFTask class]];
+            [[[apiManager uploadDocumentWithData:[NSData new] contentType:@"image/png" fileName:@"foo.png" docType:nil] should] beKindOfClass:[BFTask class]];
         });
 
         it(@"should do the correct request to the GINI API", ^{
@@ -223,7 +223,23 @@ describe(@"The GINIAPIManager", ^{
                                                                          }];
             GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:[NSData new]];
             [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:uploadURL];
-            [apiManager uploadDocumentWithData:[NSData new] contentType:@"image/png" fileName:@"foo.png"];
+            [apiManager uploadDocumentWithData:[NSData new] contentType:@"image/png" fileName:@"foo.png" docType:nil];
+            checkRequest(createdDocumentsURL, 2);
+        });
+
+        it(@"should accept a doctype hint", ^{
+            NSString *uploadURL = @"https://api.gini.net/documents/?filename=foo.png&doctype=Invoice";
+            NSString *createdDocumentsURL = @"https://api.gini.net/documents/Foobar";
+            NSHTTPURLResponse *nsURLResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:uploadURL]
+                                                                           statusCode:201
+                                                                          HTTPVersion:@"1.1"
+                                                                         headerFields:@{
+                                                                                 @"Location": createdDocumentsURL,
+                                                                                 @"Content-Type": @"application/vnd.gini.v1+json"
+                                                                         }];
+            GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:[NSData new]];
+            [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:uploadURL];
+            [apiManager uploadDocumentWithData:[NSData new] contentType:@"image/png" fileName:@"foo.png" docType:@"Invoice"];
             checkRequest(createdDocumentsURL, 2);
         });
     });

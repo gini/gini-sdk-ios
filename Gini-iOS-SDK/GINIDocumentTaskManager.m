@@ -75,7 +75,18 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([image isKindOfClass:[UIImage class]]);
 
-    BFTask *createTask = [[_apiManager uploadDocumentWithData:UIImageJPEGRepresentation(image, 0.95) contentType:@"image/jpeg" fileName:fileName] continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *createTask = [[_apiManager uploadDocumentWithData:UIImageJPEGRepresentation(image, 0.95) contentType:@"image/jpeg" fileName:fileName docType:nil] continueWithSuccessBlock:^id(BFTask *task) {
+        return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
+    }];
+    return GINIhandleHTTPerrors(createTask);
+}
+
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType {
+    NSParameterAssert([fileName isKindOfClass:[NSString class]]);
+    NSParameterAssert([image isKindOfClass:[UIImage class]]);
+    NSParameterAssert([docType isKindOfClass:[NSString class]]);
+
+    BFTask *createTask = [[_apiManager uploadDocumentWithData:UIImageJPEGRepresentation(image, 0.95) contentType:@"image/jpeg" fileName:fileName docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
     return GINIhandleHTTPerrors(createTask);
