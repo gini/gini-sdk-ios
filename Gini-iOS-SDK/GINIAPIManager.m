@@ -226,6 +226,27 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     }];
 }
 
+- (BFTask *)submitBatchFeedbackForDocument:(NSString *)documentId feedback:(NSDictionary *)feedback {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    NSParameterAssert([feedback isKindOfClass:[NSDictionary class]]);
+
+    NSString *urlString = [NSString stringWithFormat:@"documents/%@/extractions", documentId];
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"PUT"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Content-Type"];
+        NSData *feedbackData = [NSJSONSerialization dataWithJSONObject:@{@"feedback": feedback}
+                                                               options:NSJSONWritingPrettyPrinted
+                                                                 error:nil];
+
+        return [[_urlSession BFUploadTaskWithRequest:request fromData:feedbackData] continueWithSuccessBlock:^id(BFTask *updateTask) {
+            GINIURLResponse *response = updateTask.result;
+            return response.data;
+        }];
+    }];
+}
+
 - (BFTask *)deleteFeedbackForDocument:(NSString *)documentId label:(NSString *)label {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
     NSParameterAssert([label isKindOfClass:[NSString class]]);

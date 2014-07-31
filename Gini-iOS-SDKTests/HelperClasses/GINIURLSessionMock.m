@@ -49,6 +49,7 @@
 }
 
 - (BFTask *)BFUploadTaskWithRequest:(NSURLRequest *)request fromData:(NSData *)uploadData {
+    [request setValue:uploadData forKey:@"HTTPBody"];
     [_requests addObject:request];
     return [self responseForURL:[request.URL absoluteString]];
 }

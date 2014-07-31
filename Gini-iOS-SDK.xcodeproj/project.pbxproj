@@ -37,6 +37,7 @@
 		23D53C071934BC85001A957E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53BF71934BC85001A957E /* Foundation.framework */; };
 		23D53C121934BC85001A957E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23D53C101934BC85001A957E /* InfoPlist.strings */; };
 		3D1C5F28DBBC44B597F5770B /* libPods-Gini-iOS-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439411C6E91498D8E5A31B2 /* libPods-Gini-iOS-SDK.a */; };
+		59A9690C3E4F8E47848268A1 /* feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 59A96C6B0754CAD2A1868669 /* feedback.json */; };
 		59A96DC1EF05B7643FBD6471 /* errorreport.json in Resources */ = {isa = PBXBuildFile; fileRef = 59A96CB6369C9F78DE897C7A /* errorreport.json */; };
 		81EE4016DD5977EA419AAB82 /* GINISessionManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE48376DD3F8CEA4908F4D /* GINISessionManagerMock.m */; };
 		81EE40E5B0692EC02D52532A /* GINICredentialsStoreMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE46B2FC973F21033FBA16 /* GINICredentialsStoreMock.m */; };
@@ -136,6 +137,7 @@
 		23D53C0F1934BC85001A957E /* Gini-iOS-SDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gini-iOS-SDKTests-Info.plist"; sourceTree = "<group>"; };
 		23D53C111934BC85001A957E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3BE557B4E7EF4995B164009C /* Pods-Gini-iOS-SDKTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDKTests.xcconfig"; path = "Pods/Pods-Gini-iOS-SDKTests.xcconfig"; sourceTree = "<group>"; };
+		59A96C6B0754CAD2A1868669 /* feedback.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = feedback.json; sourceTree = "<group>"; };
 		59A96CB6369C9F78DE897C7A /* errorreport.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = errorreport.json; sourceTree = "<group>"; };
 		81EE409560F238177896AAE6 /* session.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = session.json; sourceTree = "<group>"; };
 		81EE41360403FDC922D327D7 /* GINIAPIManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManagerSpec.m; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				04A595C319599E6A00CB8E1B /* layout.json */,
 				04B754821959ABB600CF6072 /* search.json */,
 				59A96CB6369C9F78DE897C7A /* errorreport.json */,
+				59A96C6B0754CAD2A1868669 /* feedback.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				81EE4EA88FD761DB89CC3337 /* session.json in Resources */,
 				04A595B2195869DD00CB8E1B /* documents.json in Resources */,
 				59A96DC1EF05B7643FBD6471 /* errorreport.json in Resources */,
+				59A9690C3E4F8E47848268A1 /* feedback.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -476,6 +476,51 @@ describe(@"The GINIAPIManager", ^{
             [[errorReportTask.error should] beNonNil];
         });
     });
+
+    context(@"The method to submit batch feedback", ^{
+        NSURL *dataPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"feedback" withExtension:@"json"];
+        NSDictionary *feedback = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:dataPath]
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:nil];
+
+        it(@"should return a BFTask", ^{
+            [[[apiManager submitBatchFeedbackForDocument:documentId feedback:feedback] should] beKindOfClass:[BFTask class]];
+        });
+
+        it(@"should perform a PUT request", ^{
+            [apiManager submitBatchFeedbackForDocument:documentId feedback:feedback];
+            NSURLRequest *request = urlSessionMock.lastRequest;
+            [[request.HTTPMethod should] equal:@"PUT"];
+        });
+
+        it(@"should do the correct request to the Gini API", ^{
+            [apiManager submitBatchFeedbackForDocument:documentId feedback:feedback];
+            NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/%@/extractions", documentId];
+            checkRequest(urlString, 1);
+        });
+
+        it(@"should react correctly on the HTTP response", ^{
+            NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/%@/extractions", documentId];
+            NSHTTPURLResponse *nsURLResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:urlString]
+                                                                           statusCode:204
+                                                                          HTTPVersion:@"1.1"
+                                                                         headerFields:nil];
+            GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:nil];
+            [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:urlString];
+            BFTask *errorReportTask = [apiManager submitBatchFeedbackForDocument:documentId feedback:feedback];
+            [[errorReportTask.error should] beNil];
+            [[errorReportTask.result should] beNil];
+        });
+
+        it(@"should build the correct payload", ^{
+            [apiManager submitBatchFeedbackForDocument:documentId feedback:feedback];
+            NSData *httpBody = urlSessionMock.lastRequest.HTTPBody;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:httpBody options:NSJSONReadingAllowFragments error:nil];
+            [[json should] beNonNil];
+            [[json[@"feedback"] should] beKindOfClass:[NSDictionary class]];
+            [[json[@"feedback"] should] equal:feedback];
+        });
+    });;
 });
 
 

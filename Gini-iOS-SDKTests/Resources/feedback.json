@@ -1,0 +1,23 @@
+{
+    "amountToPay": {
+        "box": {
+            "height": 14,
+            "left": 405,
+            "page": 1,
+            "top": 421,
+            "width": 36
+        },
+        "value": "12.30:EUR"
+    },
+    "bic": {
+        "box": {
+            "height": 14,
+            "left": 100,
+            "page": 1,
+            "top": 609,
+            "width": 40
+        },
+        "value": "new value",
+        "entity": "bic"
+    }
+}

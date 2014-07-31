@@ -10,6 +10,17 @@
 
 @implementation GINIAPIManagerMock
 
++ (NSDictionary *)extractionsData{
+    static NSDictionary *extractions;
+    if (!extractions) {
+        NSURL *dataPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"extractions" withExtension:@"json"];
+        extractions = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:dataPath]
+                                                      options:NSJSONReadingAllowFragments
+                                                        error:nil];
+    }
+    return extractions;
+}
+
 - (instancetype)init{
     self = [super self];
     if (self) {
@@ -38,6 +49,14 @@
 
 - (BFTask *)reportErrorForDocument:(NSString *)documentId summary:(NSString *)summary description:(NSString *)description {
     return [BFTask taskWithError:[NSError errorWithDomain:@"mock" code:1 userInfo:nil]];
+}
+
+- (BFTask *)submitBatchFeedbackForDocument:(NSString *)documentId feedback:(NSDictionary *)feedback {
+    return [BFTask taskWithError:[NSError errorWithDomain:@"mock" code:1 userInfo:nil]];
+}
+
+- (BFTask *)getExtractionsForDocument:(NSString *)documentId {
+    return [BFTask taskWithResult:[GINIAPIManagerMock extractionsData]];
 }
 
 @end
