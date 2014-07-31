@@ -95,17 +95,22 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 - (BFTask *)updateDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
-    // TODO: The Gini API will offer bulk updates soon. As soon as it is available, refactor this method to use the bulk update
     BFTask *updateTask = [document.extractions continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *extractions = task.result;
-        NSMutableArray *updateTasks = [NSMutableArray new];
+        NSMutableDictionary *updateExtractions = [NSMutableDictionary new];
+
         for (NSString *key in extractions) {
             GINIExtraction *extraction = extractions[key];
             if (extraction.isDirty) {
-                [updateTasks addObject:[self updateExtraction:extraction forDocument:document]];
+                updateExtractions[key] = @{
+                    @"value": extraction.value
+                };
+                if (extraction.box) {
+                    updateExtractions[key][@"box"] = extraction.box;
+                }
             }
         }
-        return [BFTask taskForCompletionOfAllTasks:updateTasks];
+        return [_apiManager submitBatchFeedbackForDocument:document.documentId feedback:updateExtractions];
     }];
     return GINIhandleHTTPerrors(updateTask);
 }

@@ -157,6 +157,18 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
 - (BFTask *)submitFeedbackForDocument:(NSString *)documentId label:(NSString *)label value:(NSString *)value boundingBox:(NSDictionary *)boundingBox;
 
 /**
+* Submit batch feedback for the document on multiple labels.
+*
+* @param documentId         The document's id.
+* @param feedback           The feedback dictionary containing the labels that correspond to the names of extraction types.
+*                           See the Gini API documentation on submitting feedback on multiple extractions
+*                           (http://developer.gini.net/gini-api/html/documents.html#submitting-feedback-on-multiple-extractions).
+*
+* @returns                  A `BFTask*`
+*/
+- (BFTask *)submitBatchFeedbackForDocument:(NSString *)documentId feedback:(NSDictionary *)feedback;
+
+/**
  * Delete a specific feedback label for the document.
  * 
  * @param documentId        The document's id.

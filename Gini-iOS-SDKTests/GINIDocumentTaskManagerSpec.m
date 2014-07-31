@@ -76,6 +76,16 @@ describe(@"The GINIDocumentTaskManager", ^{
         });
     });
 
+    context(@"The updateDocument method", ^{
+        it(@"should return a BFTask*", ^{
+            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234" state:GiniDocumentStateComplete pageCount:0 sourceClassification:GiniDocumentSourceClassificationNative documentManager:documentTaskManager];
+            BFTask *task = [documentTaskManager updateDocument:document];
+            [[task should] beKindOfClass:[BFTask class]];
+        });
+
+
+    });
+
     context(@"The createDocumentWithFilename:fromImage: method", ^{
         it(@"should raise an exception when having the wrong arguments", ^{
             [[theBlock(^{
