@@ -11,6 +11,7 @@
 @property NSString *userId;
 @property NSString *userEmail;
 
+/** @name Factories */
 /**
  * Factory to create a new `GINIUser` instance.
  *
@@ -19,6 +20,17 @@
  */
 + (instancetype)userWithEmail:(NSString *)email userId:(NSString *)userId;
 
+/**
+ * Factory to create a new `GINIUser` instance from a dictionary that is the result of a call to the Gini User Center
+ * API. Returns nil if the data is incomplete or has a wrong structure, so you have to do nil-checks with the result of
+ * calls to this factory.
+ *
+ * @param response      The response from the Gini API.
+ */
++ (id)userFromAPIResponse:(NSDictionary *)response;
+
+
+/** @name Initializer */
 /**
  * The designated initializer to create a `GINIUser`.
  *

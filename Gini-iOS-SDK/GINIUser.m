@@ -15,6 +15,21 @@
     return [[GINIUser alloc] initWithEmail:email userId:userId];
 }
 
++ (id)userFromAPIResponse:(NSDictionary *)response {
+
+    if ([response isKindOfClass:[NSDictionary class]]) {
+        id email = response[@"email"];
+        id userId = response[@"id"];
+
+        if ([email isKindOfClass:[NSString class]] && [userId isKindOfClass:[NSString class]]) {
+            return [GINIUser userWithEmail:email userId:userId];
+        }
+    }
+
+    return nil;
+}
+
+
 - (instancetype)initWithEmail:(NSString *)email userId:(NSString *)userId {
     self = [super init];
     if (self) {
