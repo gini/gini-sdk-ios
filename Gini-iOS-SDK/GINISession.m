@@ -10,7 +10,7 @@
 
 @implementation GINISession
 
-- (instancetype)initWithAccessToken:(NSString *)accessToken refreshToken:(NSString *)refreshToken expirationDate:(NSDate*)expirationDate {
+- (instancetype)initWithAccessToken:(NSString *)accessToken refreshToken:(NSString *)refreshToken expirationDate:(NSDate *)expirationDate {
     self = [super init];
     if (self) {
         [self refreshWithAccessToken:accessToken refreshToken:refreshToken expirationDate:expirationDate];
@@ -18,7 +18,7 @@
     return self;
 }
 
-- (void)refreshWithAccessToken:(NSString *)accessToken refreshToken:(NSString *)refreshToken expirationDate:(NSDate*)expirationDate {
+- (void)refreshWithAccessToken:(NSString *)accessToken refreshToken:(NSString *)refreshToken expirationDate:(NSDate *)expirationDate {
 
     if (!accessToken) {
         [NSException raise:@"Invalid parameter value" format:@"'accessToken' must be non-nil"];
