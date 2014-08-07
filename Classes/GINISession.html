@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINIExtraction Class Reference</title>
+		<title>GINISession Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINIExtraction Class Reference</h1>
+				<h1 class="hideInXcode">GINISession Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,31 +39,24 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/box">&nbsp;&nbsp;&nbsp;&nbsp;box</option>
+	<option value="//api/name/accessToken">&nbsp;&nbsp;&nbsp;&nbsp;accessToken</option>
 	
-	<option value="//api/name/candidates">&nbsp;&nbsp;&nbsp;&nbsp;candidates</option>
+	<option value="//api/name/expirationDate">&nbsp;&nbsp;&nbsp;&nbsp;expirationDate</option>
 	
-	<option value="//api/name/entity">&nbsp;&nbsp;&nbsp;&nbsp;entity</option>
-	
-	<option value="//api/name/isDirty">&nbsp;&nbsp;&nbsp;&nbsp;isDirty</option>
-	
-	<option value="//api/name/name">&nbsp;&nbsp;&nbsp;&nbsp;name</option>
-	
-	<option value="//api/name/value">&nbsp;&nbsp;&nbsp;&nbsp;value</option>
+	<option value="//api/name/refreshToken">&nbsp;&nbsp;&nbsp;&nbsp;refreshToken</option>
 	
 	
-	
-	
-	<option value="class_methods">Class Methods</option>
-	
-	<option value="//api/name/extractionWithName:value:entity:box:">&nbsp;&nbsp;&nbsp;&nbsp;+ extractionWithName:value:entity:box:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithName:value:entity:box:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithName:value:entity:box:</option>
+	<option value="//api/name/hasAlreadyExpired">&nbsp;&nbsp;&nbsp;&nbsp;- hasAlreadyExpired</option>
+	
+	<option value="//api/name/initWithAccessToken:refreshToken:expirationDate:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAccessToken:refreshToken:expirationDate:</option>
+	
+	<option value="//api/name/refreshWithAccessToken:refreshToken:expirationDate:">&nbsp;&nbsp;&nbsp;&nbsp;- refreshWithAccessToken:refreshToken:expirationDate:</option>
 	
 	
 	
@@ -89,33 +82,25 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/box">box</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/accessToken">accessToken</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/candidates">candidates</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/expirationDate">expirationDate</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/entity">entity</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/isDirty">isDirty</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/name">name</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/value">value</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/refreshToken">refreshToken</a></span></li>
 	
 </ul></li>
 
 
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/extractionWithName:value:entity:box:">extractionWithName:value:entity:box:</a></span></li>
-	
-</ul></li>
 
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithName:value:entity:box:">initWithName:value:entity:box:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasAlreadyExpired">hasAlreadyExpired</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAccessToken:refreshToken:expirationDate:">initWithAccessToken:refreshToken:expirationDate:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/refreshWithAccessToken:refreshToken:expirationDate:">refreshWithAccessToken:refreshToken:expirationDate:</a></span></li>
 	
 </ul></li>
 
@@ -124,7 +109,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINIExtraction Class Reference" name="top"></a>
+				<a title="GINISession Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -133,7 +118,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINIExtraction Class Reference</h1>
+						<h1 class="title title-header">GINISession Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -144,7 +129,7 @@
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINIExtraction.h</td>
+	<td class="specification-value">GINISession.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -154,7 +139,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Data model for an extraction.</p>
+						<p>This class represents a session of the GINI authentication system.</p>
 					</div>
 					
 					
@@ -172,49 +157,37 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/isDirty">&nbsp;&nbsp;isDirty</a></code>
+		<code><a href="#//api/name/refreshToken">&nbsp;&nbsp;refreshToken</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
+		<code><a href="#//api/name/accessToken">&nbsp;&nbsp;accessToken</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/value">&nbsp;&nbsp;value</a></code>
+		<code><a href="#//api/name/expirationDate">&nbsp;&nbsp;expirationDate</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/entity">&nbsp;&nbsp;entity</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/box">&nbsp;&nbsp;box</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/candidates">&nbsp;&nbsp;candidates</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/extractionWithName:value:entity:box:">+&nbsp;extractionWithName:value:entity:box:</a></code>
+		<code><a href="#//api/name/initWithAccessToken:refreshToken:expirationDate:">&ndash;&nbsp;initWithAccessToken:refreshToken:expirationDate:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithName:value:entity:box:">&ndash;&nbsp;initWithName:value:entity:box:</a></code>
+		<code><a href="#//api/name/refreshWithAccessToken:refreshToken:expirationDate:">&ndash;&nbsp;refreshWithAccessToken:refreshToken:expirationDate:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hasAlreadyExpired">&ndash;&nbsp;hasAlreadyExpired</a></code>
 	</span>
 	
 	
@@ -232,18 +205,18 @@
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/box" title="box"></a>
-	<h3 class="subsubtitle method-title">box</h3>
+	<a name="//api/name/accessToken" title="accessToken"></a>
+	<h3 class="subsubtitle method-title">accessToken</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The extraction&rsquo;s box. Only available on some extractions. Changing this <a href="#//api/name/value">value</a> marks the extraction as dirty.</p>
+		<p>The access token of the session. Used to access resources of the Gini API.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property NSDictionary *box</code></div>
+	<div class="method-subsection method-declaration"><code>@property (readonly) NSString *accessToken</code></div>
 
     
 	
@@ -255,7 +228,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The extraction&rsquo;s box. Only available on some extractions. Changing this <a href="#//api/name/value">value</a> marks the extraction as dirty.</p>
+		<p>The access token of the session. Used to access resources of the Gini API.</p>
 	</div>
 	
 	
@@ -266,25 +239,25 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIExtraction.h</code><br />
+		<code class="declared-in-ref">GINISession.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/candidates" title="candidates"></a>
-	<h3 class="subsubtitle method-title">candidates</h3>
+	<a name="//api/name/expirationDate" title="expirationDate"></a>
+	<h3 class="subsubtitle method-title">expirationDate</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The available candidates for this extraction (GINIExtraction instances).</p>
+		<p>The expiration date of the validity of the access token.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property NSArray *candidates</code></div>
+	<div class="method-subsection method-declaration"><code>@property (readonly) NSDate *expirationDate</code></div>
 
     
 	
@@ -296,7 +269,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The available candidates for this extraction (GINIExtraction instances).</p>
+		<p>The expiration date of the validity of the access token.</p>
 	</div>
 	
 	
@@ -307,25 +280,25 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIExtraction.h</code><br />
+		<code class="declared-in-ref">GINISession.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/entity" title="entity"></a>
-	<h3 class="subsubtitle method-title">entity</h3>
+	<a name="//api/name/refreshToken" title="refreshToken"></a>
+	<h3 class="subsubtitle method-title">refreshToken</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The extraction&rsquo;s entity.</p>
+		<p>The refresh token of the session. Used to get a new access token when the latter has expired.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property NSString *entity</code></div>
+	<div class="method-subsection method-declaration"><code>@property (readonly) NSString *refreshToken</code></div>
 
     
 	
@@ -337,7 +310,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The extraction&rsquo;s entity.</p>
+		<p>The refresh token of the session. Used to get a new access token when the latter has expired.</p>
 	</div>
 	
 	
@@ -348,130 +321,7 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIExtraction.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/isDirty" title="isDirty"></a>
-	<h3 class="subsubtitle method-title">isDirty</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Whether or not this extraction has some unsaved changes (e.g. after the <a href="#//api/name/value">value</a> has been changed).</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (readonly) BOOL isDirty</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Whether or not this extraction has some unsaved changes (e.g. after the <a href="#//api/name/value">value</a> has been changed).</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIExtraction.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/name" title="name"></a>
-	<h3 class="subsubtitle method-title">name</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The identifier for the extraction.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (readonly) NSString *name</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The identifier for the extraction.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIExtraction.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/value" title="value"></a>
-	<h3 class="subsubtitle method-title">value</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The extraction&rsquo;s value. Changing this value marks the extraction as dirty.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property NSString *value</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The extraction&rsquo;s value. Changing this value marks the extraction as dirty.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIExtraction.h</code><br />
+		<code class="declared-in-ref">GINISession.h</code><br />
 	</div>				
 	
 	
@@ -480,78 +330,6 @@
 					</div>
 					
 					
-					
-					<div class="section section-methods">
-						<a title="Class Methods" name="class_methods"></a>
-						<h2 class="subtitle subtitle-methods">Class Methods</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/extractionWithName:value:entity:box:" title="extractionWithName:value:entity:box:"></a>
-	<h3 class="subsubtitle method-title">extractionWithName:value:entity:box:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Factory to create a new GINIExtraction instance.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (instancetype)extractionWithName:(NSString *)<em>name</em> value:(NSString *)<em>value</em> entity:(NSString *)<em>entity</em> box:(NSDictionary *)<em>box</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>name</em></dt>
-			<dd><p>The extraction&rsquo;s <a href="#//api/name/name">name</a>.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>value</em></dt>
-			<dd><p>The extraction&rsquo;s <a href="#//api/name/value">value</a>.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>entity</em></dt>
-			<dd><p>The extraction&rsquo;s <a href="#//api/name/entity">entity</a>.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>box</em></dt>
-			<dd><p>The extraction&rsquo;s <a href="#//api/name/box">box</a>.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Factory to create a new GINIExtraction instance.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIExtraction.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
 					
 					
 					
@@ -560,18 +338,64 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithName:value:entity:box:" title="initWithName:value:entity:box:"></a>
-	<h3 class="subsubtitle method-title">initWithName:value:entity:box:</h3>
+	<a name="//api/name/hasAlreadyExpired" title="hasAlreadyExpired"></a>
+	<h3 class="subsubtitle method-title">hasAlreadyExpired</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The designated initializer.</p>
+		<p>A convenient check on whether the access token has expired.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithName:(NSString *)<em>name</em> value:(NSString *)<em>value</em> entity:(NSString *)<em>entity</em> box:(NSDictionary *)<em>box</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)hasAlreadyExpired</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>True if the <a href="#//api/name/accessToken"><code>accessToken</code></a> has expired, False otherwise.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A convenient check on whether the access token has expired.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINISession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithAccessToken:refreshToken:expirationDate:" title="initWithAccessToken:refreshToken:expirationDate:"></a>
+	<h3 class="subsubtitle method-title">initWithAccessToken:refreshToken:expirationDate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes the session with the access token, refresh token and expiration date. The refresh token can be nil.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithAccessToken:(NSString *)<em>accessToken</em> refreshToken:(NSString *)<em>refreshToken</em> expirationDate:(NSDate *)<em>expirationDate</em></code></div>
 
     
 	
@@ -579,23 +403,18 @@
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>name</em></dt>
-			<dd><p>The extraction&rsquo;s <a href="#//api/name/name">name</a>.</p></dd>
+			<dt><em>accessToken</em></dt>
+			<dd><p>The <a href="#//api/name/accessToken"><code>accessToken</code></a> used to create the session instance.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>value</em></dt>
-			<dd><p>The extraction&rsquo;s <a href="#//api/name/value">value</a>.</p></dd>
+			<dt><em>refreshToken</em></dt>
+			<dd><p>The <a href="#//api/name/refreshToken"><code>refreshToken</code></a> used to create the session instance.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>entity</em></dt>
-			<dd><p>The extraction&rsquo;s <a href="#//api/name/entity">entity</a>.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>box</em></dt>
-			<dd><p>The extraction&rsquo;s <a href="#//api/name/box">box</a>.</p></dd>
+			<dt><em>expirationDate</em></dt>
+			<dd><p>The expiration date of the <a href="#//api/name/accessToken"><code>accessToken</code></a>.</p></dd>
 		</dl>
 		
 	</div>
@@ -608,7 +427,7 @@
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The designated initializer.</p>
+		<p>Initializes the session with the access token, refresh token and expiration date. The refresh token can be nil.</p>
 	</div>
 	
 	
@@ -619,7 +438,71 @@
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIExtraction.h</code><br />
+		<code class="declared-in-ref">GINISession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/refreshWithAccessToken:refreshToken:expirationDate:" title="refreshWithAccessToken:refreshToken:expirationDate:"></a>
+	<h3 class="subsubtitle method-title">refreshWithAccessToken:refreshToken:expirationDate:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Refreshes the session with new tokens.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)refreshWithAccessToken:(NSString *)<em>accessToken</em> refreshToken:(NSString *)<em>refreshToken</em> expirationDate:(NSDate *)<em>expirationDate</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>accessToken</em></dt>
+			<dd><p>The <a href="#//api/name/accessToken"><code>accessToken</code></a> used to create the session instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>refreshToken</em></dt>
+			<dd><p>The <a href="#//api/name/refreshToken"><code>refreshToken</code></a> used to create the session instance.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>expirationDate</em></dt>
+			<dd><p>The expiration date of the <a href="#//api/name/accessToken"><code>accessToken</code></a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Refreshes the session with new tokens.</p>
+
+<p>It gives the same result as in the init method but its existence makes sense semantically when a new pair of tokens
+is received and the current session just needs to be updated.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINISession.h</code><br />
 	</div>				
 	
 	
