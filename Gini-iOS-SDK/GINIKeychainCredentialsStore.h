@@ -5,16 +5,26 @@
 
 #import "GINICredentialsStore.h"
 
+@class GINIKeychainManager;
+
+
 /**
- * A `GINIKeychainCredentialsStore` saves the token on the Keychain of the device.
+ * A `GINIKeychainCredentialsStore` saves the refresh token in the Keychain of the device.
  */
 @interface GINIKeychainCredentialsStore : NSObject <GINICredentialsStore>
 
-+ (instancetype)credentialsStoreWithIdentifier:(NSString *)identifier accessGroup:(NSString *)accessGroup;
+/**
+ * Factory to create a new `GINIKeychainCredentialsStore` instance.
+ *
+ * @param keychainManager       A `GINIKeychainManager` instance which is used to store the refresh token.
+ */
++ (instancetype)credentialsStoreWithKeychainManager:(GINIKeychainManager *)keychainManager;
 
 /**
- * TODO
+ * The designated initializer.
+ *
+ * @param keychainManager       A `GINIKeychainManager` instance which is used to store the refresh token.
  */
-- (instancetype)initWithIdentifier:(NSString*)identifier accessGroup:(NSString*)accessGroup;
+- (instancetype)initWithKeychainManager:(GINIKeychainManager *)keychainManager;
 
 @end

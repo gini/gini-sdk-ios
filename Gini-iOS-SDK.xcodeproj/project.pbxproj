@@ -43,7 +43,6 @@
 		81EE40E5B0692EC02D52532A /* GINICredentialsStoreMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE46B2FC973F21033FBA16 /* GINICredentialsStoreMock.m */; };
 		81EE40F50CF5B93E99221405 /* GINIURLSession.h in Copy Files */ = {isa = PBXBuildFile; fileRef = E2CAFE841940DC7F0059E228 /* GINIURLSession.h */; };
 		81EE43C2A85297C952E80592 /* yoda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81EE468AFDEFC8942E20F31F /* yoda.jpg */; };
-		81EE43DFB1FB962DB0EAF76D /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4B6D62767279BA5CCBB4 /* KeychainItemWrapper.m */; };
 		81EE44133FBD4D2243E5D77D /* GINIURLSessionMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE44A91F8A4C73596596E6 /* GINIURLSessionMock.m */; };
 		81EE45A4EF18AB0E62828A78 /* NSString+GINIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE4B1918AA3A3DEFC1D8BF /* NSString+GINIAdditions.m */; };
 		81EE45DC3D42483D285716B5 /* document.json in Resources */ = {isa = PBXBuildFile; fileRef = 81EE4FC272A3BC02720C26F5 /* document.json */; };
@@ -59,6 +58,7 @@
 		C753E1B6E6C30079A17F654C /* GINIKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E6D56C72A94E5C131EF6 /* GINIKeychainManager.m */; };
 		C753E4024AB5984429995A94 /* GINIError.m in Sources */ = {isa = PBXBuildFile; fileRef = C753ED40D89759A5357CD45A /* GINIError.m */; };
 		C753E52AB79C7FE6A0E4E417 /* GINIDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EFC0A1550610FBBADD7E /* GINIDocument.m */; };
+		C753E6AB8844DA576B0BF8FF /* GINIKeychainCredentialsStoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753ECA47058756178576D14 /* GINIKeychainCredentialsStoreSpec.m */; };
 		C753E8F5185BB49A2704BC47 /* GINIDocumentTaskManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753ED654AEE85B91F17136E /* GINIDocumentTaskManagerSpec.m */; };
 		C753E99B2C97D3DE8CF0F9B8 /* GINIAPIManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EDF63DE1898A9FB6D2E3 /* GINIAPIManagerMock.m */; };
 		C753EA27B4405A94767ED6F7 /* GINIKeychainItemSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E9AEB99CB89FBAE99C96 /* GINIKeychainItemSpec.m */; };
@@ -161,11 +161,9 @@
 		81EE49DE7AC6AC636600CB39 /* GINIURLSessionMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIURLSessionMock.h; sourceTree = "<group>"; };
 		81EE4AB29B03712932652CA5 /* NSString+GINIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GINIAdditions.h"; sourceTree = "<group>"; };
 		81EE4B1918AA3A3DEFC1D8BF /* NSString+GINIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GINIAdditions.m"; sourceTree = "<group>"; };
-		81EE4B6D62767279BA5CCBB4 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		81EE4DF2F8B989F20875FBDE /* GINIUIApplicationMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIUIApplicationMock.m; sourceTree = "<group>"; };
 		81EE4E20884B3E4BB789E91D /* GINISession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISession.m; sourceTree = "<group>"; };
 		81EE4E6A486CD98E99B37CF5 /* GINIURLResponseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLResponseSpec.m; sourceTree = "<group>"; };
-		81EE4F2F44229F40CA054CF2 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		81EE4FC272A3BC02720C26F5 /* document.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = document.json; sourceTree = "<group>"; };
 		B7CCF32889824032B0CDD0C8 /* Pods-Gini-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDK.xcconfig"; path = "Pods/Pods-Gini-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
 		C753E14CEE34C4191333A19E /* GINIKeychainManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIKeychainManagerSpec.m; sourceTree = "<group>"; };
@@ -180,6 +178,7 @@
 		C753E9AEB99CB89FBAE99C96 /* GINIKeychainItemSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIKeychainItemSpec.m; sourceTree = "<group>"; };
 		C753EA24DB27F2E6F0F6EB64 /* GINIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIError.h; sourceTree = "<group>"; };
 		C753EB2A264F10B5B521A43F /* GINIErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIErrorSpec.m; sourceTree = "<group>"; };
+		C753ECA47058756178576D14 /* GINIKeychainCredentialsStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIKeychainCredentialsStoreSpec.m; sourceTree = "<group>"; };
 		C753ED40D89759A5357CD45A /* GINIError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIError.m; sourceTree = "<group>"; };
 		C753ED654AEE85B91F17136E /* GINIDocumentTaskManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIDocumentTaskManagerSpec.m; sourceTree = "<group>"; };
 		C753ED9AB7A88297B3CF63A3 /* GINIExtractionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIExtractionSpec.m; sourceTree = "<group>"; };
@@ -350,6 +349,7 @@
 				C753EB2A264F10B5B521A43F /* GINIErrorSpec.m */,
 				C753E9AEB99CB89FBAE99C96 /* GINIKeychainItemSpec.m */,
 				C753E14CEE34C4191333A19E /* GINIKeychainManagerSpec.m */,
+				C753ECA47058756178576D14 /* GINIKeychainCredentialsStoreSpec.m */,
 			);
 			path = "Gini-iOS-SDKTests";
 			sourceTree = "<group>";
@@ -400,8 +400,6 @@
 		E2AFC670194079B2006AAB79 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				81EE4F2F44229F40CA054CF2 /* KeychainItemWrapper.h */,
-				81EE4B6D62767279BA5CCBB4 /* KeychainItemWrapper.m */,
 			);
 			name = Vendor;
 			sourceTree = "<group>";
@@ -592,7 +590,6 @@
 				E2CAFE7E1940DC570059E228 /* GINIAPIManager.m in Sources */,
 				81EE4B90C0B56487757C438B /* GINISessionParser.m in Sources */,
 				E2CAFE811940DC610059E228 /* GINIAPIManagerRequestFactory.m in Sources */,
-				81EE43DFB1FB962DB0EAF76D /* KeychainItemWrapper.m in Sources */,
 				81EE45A4EF18AB0E62828A78 /* NSString+GINIAdditions.m in Sources */,
 				C753E52AB79C7FE6A0E4E417 /* GINIDocument.m in Sources */,
 				C753E17053FE943544163E96 /* GINIDocumentTaskManager.m in Sources */,
@@ -626,6 +623,7 @@
 				C753E11D15E4F0638124672C /* GINIErrorSpec.m in Sources */,
 				C753EA27B4405A94767ED6F7 /* GINIKeychainItemSpec.m in Sources */,
 				C753EDBA1A50DDDF25D5DBCF /* GINIKeychainManagerSpec.m in Sources */,
+				C753E6AB8844DA576B0BF8FF /* GINIKeychainCredentialsStoreSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

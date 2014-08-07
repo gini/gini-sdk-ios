@@ -4,37 +4,41 @@
  */
 
 #import "GINIKeychainCredentialsStore.h"
-#import "KeychainItemWrapper.h"
+#import "GINIKeychainManager.h"
+#import "GINIKeychainItem.h"
 
-@interface GINIKeychainCredentialsStore () {
-    KeychainItemWrapper *_keychain;
+
+/// The identifier of the keychain item for the refresh token.
+NSString *const GINIrefreshTokenKey = @"refreshToken";
+
+
+@implementation GINIKeychainCredentialsStore {
+    GINIKeychainManager *_keychainManager;
 }
-@end
 
-@implementation GINIKeychainCredentialsStore
-
-+ (instancetype)credentialsStoreWithIdentifier:(NSString *)identifier accessGroup:(NSString *)accessGroup {
-    return [[GINIKeychainCredentialsStore alloc] initWithIdentifier:identifier accessGroup:accessGroup];
++ (instancetype)credentialsStoreWithKeychainManager:(GINIKeychainManager *)keychainManager {
+    return [[GINIKeychainCredentialsStore alloc] initWithKeychainManager:keychainManager];
 }
 
-- (instancetype)initWithIdentifier:(NSString *)identifier accessGroup:(NSString *)accessGroup {
-    self = [super init];
-    if (self) {
-        _keychain = [[KeychainItemWrapper alloc] initWithIdentifier:identifier accessGroup:accessGroup];
+- (instancetype)initWithKeychainManager:(GINIKeychainManager *)keychainManager {
+    NSParameterAssert([keychainManager isKindOfClass:[GINIKeychainManager class]]);
+
+    if (self = [super init]) {
+        _keychainManager = keychainManager;
     }
     return self;
 }
 
+
 - (BOOL)storeRefreshToken:(NSString *)refreshToken {
-    if (refreshToken) {
-        [_keychain setObject:refreshToken forKey:(__bridge id)kSecValueData];
-        return YES;
-    }
-    return NO;
+    NSParameterAssert([refreshToken isKindOfClass:[NSString class]]);
+
+    GINIKeychainItem *refreshTokenItem = [GINIKeychainItem keychainItemWithIdentifier:GINIrefreshTokenKey value:refreshToken];
+    return [_keychainManager storeItem:refreshTokenItem];
 }
 
 - (NSString *)fetchRefreshToken {
-    return [_keychain objectForKey:(__bridge id)kSecValueData];
+    return [[_keychainManager getItem:GINIrefreshTokenKey] value];
 }
 
 @end

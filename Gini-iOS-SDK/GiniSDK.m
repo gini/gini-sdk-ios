@@ -3,6 +3,7 @@
  *  All rights reserved.
  */
 #import "GiniSDK.h"
+#import "GINIKeychainManager.h"
 
 
 NSString *const GINIAPIBaseURLKey = @"APIBaseURL";
@@ -10,8 +11,6 @@ NSString *const GINIUserBaseURLKey = @"UserBaseURL";
 NSString *const GINIURLSchemeKey = @"AppURLScheme";
 NSString *const GINIClientSecretKey = @"AppClientSecret";
 NSString *const GINIClientIDKey = @"AppClientId";
-NSString *const GINICredentialsStoreIdentifierKey = @"CredentialsStoreIdentifier";
-NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGroup";
 
 
 @implementation GINIInjector (DefaultWiring)
@@ -50,6 +49,12 @@ NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGro
                                on:[GINIDocumentTaskManager class]
                            forKey:[GINIDocumentTaskManager class]
                  withDependencies:[GINIAPIManager class], nil];
+
+    // Keychain manager
+    [injector setSingletonFactory:@selector(new)
+                               on:[GINIKeychainManager class]
+                           forKey:[GINIKeychainManager class]
+                 withDependencies:nil];
 
     return injector;
 }
@@ -93,10 +98,12 @@ NSString *const GINICredentialsStoreAccessGroupKey = @"CredentialsStoreAccessGro
                                on:[GINISessionManager class]
                            forKey:@protocol(GINISessionManager)
                  withDependencies:GINIClientIDKey, GINIClientSecretKey, @protocol(GINICredentialsStore), GINIUserBaseURLKey, @protocol(GINIURLSession), GINIURLSchemeKey, nil];
-    [injector setSingletonFactory:@selector(credentialsStoreWithIdentifier:accessGroup:)
+    [injector setSingletonFactory:@selector(credentialsStoreWithKeychainManager:)
                                on:[GINIKeychainCredentialsStore class]
                            forKey:@protocol(GINICredentialsStore)
-                 withDependencies:GINICredentialsStoreIdentifierKey, GINICredentialsStoreAccessGroupKey, nil];
+                 withDependencies:[GINIKeychainManager class], nil];
+    // And provide the client secret for the injector.
+    [injector setObject:clientSecret forKey:GINIClientSecretKey];
     return sdkInstance;
 }
 
