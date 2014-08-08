@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINISessionManagerClientFlow Class Reference</title>
+		<title>GINIKeychainManager Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINISessionManagerClientFlow Class Reference</h1>
+				<h1 class="hideInXcode">GINIKeychainManager Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -25,8 +25,6 @@
 				<li id="jumpto_button" role="navigation">
 					<select id="jumpTo">
 	<option value="top">Jump To&#133;</option>
-	
-	<option value="overview">Overview</option>
 	
 	
 	
@@ -43,7 +41,13 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithClientID:baseURL:URLSession:appURLScheme:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithClientID:baseURL:URLSession:appURLScheme:</option>
+	<option value="//api/name/deleteAllItems">&nbsp;&nbsp;&nbsp;&nbsp;- deleteAllItems</option>
+	
+	<option value="//api/name/deleteItem:">&nbsp;&nbsp;&nbsp;&nbsp;- deleteItem:</option>
+	
+	<option value="//api/name/getItem:">&nbsp;&nbsp;&nbsp;&nbsp;- getItem:</option>
+	
+	<option value="//api/name/storeItem:">&nbsp;&nbsp;&nbsp;&nbsp;- storeItem:</option>
 	
 	
 	
@@ -54,8 +58,6 @@
 		<nav id="tocContainer" class="isShowingTOC">
 			<ul id="toc" role="tree">
 				
-<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
-
 
 
 
@@ -73,7 +75,13 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithClientID:baseURL:URLSession:appURLScheme:">initWithClientID:baseURL:URLSession:appURLScheme:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteAllItems">deleteAllItems</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/deleteItem:">deleteItem:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getItem:">getItem:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/storeItem:">storeItem:</a></span></li>
 	
 </ul></li>
 
@@ -82,7 +90,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINISessionManagerClientFlow Class Reference" name="top"></a>
+				<a title="GINIKeychainManager Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -91,7 +99,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINISessionManagerClientFlow Class Reference</h1>
+						<h1 class="title title-header">GINIKeychainManager Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -99,24 +107,15 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value"><a href="../Classes/GINISessionManager.html">GINISessionManager</a> : NSObject</td>
+	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINISessionManagerClientFlow.h</td>
+	<td class="specification-value">GINIKeychainManager.h</td>
 </tr>
 						</tbody></table></div>
 					
                     
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The <code>GINISessionManagerClientFlow</code> implements the client flow oauth authentication flow.</p><div class="warning"><p><strong>Warning:</strong> Never use this subclass directly. Instead, use the factory methods on the <a href="../Classes/GINISessionManager.html"><code>GINISessionManager</code></a> class to
-create the correct session manager depending on your application&rsquo;s authentication flow.</p></div>
-					</div>
-					
-					
 					
 					
 					
@@ -131,7 +130,25 @@ create the correct session manager depending on your application&rsquo;s authent
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithClientID:baseURL:URLSession:appURLScheme:">&ndash;&nbsp;initWithClientID:baseURL:URLSession:appURLScheme:</a></code>
+		<code><a href="#//api/name/getItem:">&ndash;&nbsp;getItem:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/storeItem:">&ndash;&nbsp;storeItem:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteItem:">&ndash;&nbsp;deleteItem:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/deleteAllItems">&ndash;&nbsp;deleteAllItems</a></code>
 	</span>
 	
 	
@@ -153,52 +170,22 @@ create the correct session manager depending on your application&rsquo;s authent
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithClientID:baseURL:URLSession:appURLScheme:" title="initWithClientID:baseURL:URLSession:appURLScheme:"></a>
-	<h3 class="subsubtitle method-title">initWithClientID:baseURL:URLSession:appURLScheme:</h3>
+	<a name="//api/name/deleteAllItems" title="deleteAllItems"></a>
+	<h3 class="subsubtitle method-title">deleteAllItems</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initializes the manager to use client-side authentication flow.</p>
+		<p>Deletes all previously stored items from the keychain. Handy for tests.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithClientID:(NSString *)<em>clientID</em> baseURL:(NSURL *)<em>baseURL</em> URLSession:(id&lt;GINIURLSession&gt;)<em>URLSession</em> appURLScheme:(NSString *)<em>appURLScheme</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BOOL)deleteAllItems</code></div>
 
     
 	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>clientID</em></dt>
-			<dd><p>The clientID you received from Gini.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>baseURL</em></dt>
-			<dd><p>The base URL of the Gini OAuth Server.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>URLSession</em></dt>
-			<dd><p>The <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a> to make the requests.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>appURLScheme</em></dt>
-			<dd><p>The URL scheme used for redirection to the app once the login on the browser is done.</p></dd>
-		</dl>
-		
-	</div>
 	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>The initialized instance.</p>
-	</div>
 	
 	
 	
@@ -206,7 +193,7 @@ create the correct session manager depending on your application&rsquo;s authent
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initializes the manager to use client-side authentication flow.</p>
+		<p>Deletes all previously stored items from the keychain. Handy for tests.</p>
 	</div>
 	
 	
@@ -217,7 +204,170 @@ create the correct session manager depending on your application&rsquo;s authent
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINISessionManagerClientFlow.h</code><br />
+		<code class="declared-in-ref">GINIKeychainManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/deleteItem:" title="deleteItem:"></a>
+	<h3 class="subsubtitle method-title">deleteItem:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deletes the given item in the keychain.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)deleteItem:(GINIKeychainItem *)<em>item</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>item</em></dt>
+			<dd><p>The <a href="../Classes/GINIKeychainItem.html"><code>GINIKeychainItem</code></a> to delete.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Whether or not the item was deleted successfully.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Deletes the given item in the keychain.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIKeychainManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getItem:" title="getItem:"></a>
+	<h3 class="subsubtitle method-title">getItem:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Gets the item with the given identifier from the keychain.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (GINIKeychainItem *)getItem:(NSString *)<em>identifier</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>identifier</em></dt>
+			<dd><p>The keychain item identifier.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Gets the item with the given identifier from the keychain.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIKeychainManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/storeItem:" title="storeItem:"></a>
+	<h3 class="subsubtitle method-title">storeItem:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Stores the given item in the keychain.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)storeItem:(GINIKeychainItem *)<em>item</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>item</em></dt>
+			<dd><p>The `<a href="../Classes/GINIKeychainItem.html">GINIKeychainItem</a> to store.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Whether or not the item was stored successfully.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Stores the given item in the keychain.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIKeychainManager.h</code><br />
 	</div>				
 	
 	
