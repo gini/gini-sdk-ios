@@ -8,6 +8,9 @@
 #import "GINIKeychainItem.h"
 
 
+// TODO: Maybe provide some possibility to set the kSecAttrService key, since kSecClassGenericPasswords are identified by
+//       the combination of kSecAttrAccount and kSecAttrService.
+
 /**
  * Creates and returns a new dictionary which can be used as the query dictionary in a keychain search.
  */
@@ -34,7 +37,7 @@ NSMutableDictionary* GINIqueryDictionaryFromKeychainItem(GINIKeychainItem *item)
     // The item should not be displayed.
     queryDictionary[(__bridge id) kSecAttrIsInvisible] = (__bridge id)kCFBooleanTrue;
     queryDictionary[(__bridge id) kSecClass] = (__bridge id) kSecClassGenericPassword;
-    queryDictionary[(__bridge id) kSecAttrGeneric] = item.identifier;
+    queryDictionary[(__bridge id) kSecAttrAccount] = item.identifier;
 
     return queryDictionary;
 }
@@ -48,7 +51,7 @@ NSMutableDictionary* GINIqueryDictionaryFromKeychainItem(GINIKeychainItem *item)
 
     // Build the query dictionary.
     NSMutableDictionary *queryDictionary = GINIqueryDictionary();
-    queryDictionary[(__bridge id) kSecAttrGeneric] = identifier;
+    queryDictionary[(__bridge id) kSecAttrAccount] = identifier;
 
     // And query the keychain.
     CFDataRef storedData;

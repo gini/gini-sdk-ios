@@ -67,6 +67,19 @@ SPEC_BEGIN(GINIKeychainManagerSpec)
                 [[storedItem should] beKindOfClass:[GINIKeychainItem class]];
                 [[storedItem.value should] equal:@"nextValue"];
             });
+
+            it(@"should store multiple items", ^{
+                GINIKeychainItem *firstItem = [GINIKeychainItem keychainItemWithIdentifier:@"firstItem" value:@"1"];
+                GINIKeychainItem *secondItem = [GINIKeychainItem keychainItemWithIdentifier:@"secondItem" value:@"2"];
+                GINIKeychainItem *thirdItem = [GINIKeychainItem keychainItemWithIdentifier:@"thirdItem" value:@"3"];
+                [keychainManager storeItem:firstItem];
+                [keychainManager storeItem:secondItem];
+                [keychainManager storeItem:thirdItem];
+
+                [[[keychainManager getItem:@"firstItem"].value should] equal:@"1"];
+                [[[keychainManager getItem:@"secondItem"].value should] equal:@"2"];
+                [[[keychainManager getItem:@"thirdItem"].value should] equal:@"3"];
+            });
         });
 
         context(@"the deleteItem: method", ^{
