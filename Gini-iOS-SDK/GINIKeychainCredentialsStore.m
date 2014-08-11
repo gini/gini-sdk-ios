@@ -8,12 +8,9 @@
 #import "GINIKeychainItem.h"
 
 
-/// The identifier of the keychain item for the refresh token.
 NSString *const GINIRefreshTokenKey = @"refreshToken";
-/// The identifier of the keychain item for the username.
 NSString *const GINIUserNameKey = @"userName";
-/// The identifier of the keychain item for the password.
-NSString *const GINIPasswordKey = @"hrmPassword";
+NSString *const GINIPasswordKey = @"Password";
 
 
 @implementation GINIKeychainCredentialsStore {

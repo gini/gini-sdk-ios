@@ -7,6 +7,13 @@
 
 @class GINIKeychainManager;
 
+/// The identifier of the keychain item for the refresh token.
+extern NSString *const GINIRefreshTokenKey;
+/// The identifier of the keychain item for the username.
+extern NSString *const GINIUserNameKey;
+/// The identifier of the keychain item for the password.
+extern NSString *const GINIPasswordKey;
+
 
 /**
  * The `GINIKeychainCredentialsStore` implements the <GINICredentialsStore> protocol by saving the user data into the
