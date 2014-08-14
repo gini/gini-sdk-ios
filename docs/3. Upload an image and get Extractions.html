@@ -40,7 +40,7 @@ getting the extractions for that document.</p>
 </code></pre>
 
 <p>If the user is not logged in or if his access token has been expired and cannot be renewed thus requiring a new
-authentication by the user, this task fails with an error and you must log in the user again:</p>
+authorisation by the user, this task fails with an error and you must log in the user again:</p>
 
 <pre><code>[[sdk.sessionManager getSession] continueWithBlock:^id(BFTask *sessionTask){
     if (sessionTask.error) {
