@@ -26,7 +26,7 @@
 				<div id="container">	
 					<h2>Integration Guide</h2>
 
-<p>The <a href="../Classes/GiniSDK.html"><code>GiniSDK</code></a> instance creates and provides all managers that are provided by the Gini iOS SDK. It should be
+<p>The <a href="../Classes/GiniSDK.html"><code>GiniSDK</code></a> instance provides all managers which are provided by the Gini iOS SDK. It should be
 singleton-like during your application&rsquo;s lifetime. By saying singleton-like we mean
 that you somehow manage to create one instance at application start and get exactly this instance whenever you need to
 do something with the Gini iOS SDK (instead of creating everytime a new instance at the places where you need to
@@ -52,7 +52,7 @@ First of all, include the Gini iOS SDK in your AppDelegate header file and decla
 
 <pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _giniSDK = [GiniSDK giniSDKWithAppURLScheme:@"your-app-scheme" clientID:@"your-app-id"];
+    _giniSDK = [[GINISDKBuilder clientFlowWithClientID:@"your-app-id" urlScheme:@"your-app-scheme"] build];
 
     return YES;
 }
@@ -66,36 +66,12 @@ First of all, include the Gini iOS SDK in your AppDelegate header file and decla
 <pre><code>GiniSDK *sdk = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).giniSDK;
 </code></pre>
 
-<h1>Sandbox Access</h1>
+<h2>Implementing the OAuth authorization</h2>
 
-<p>Please notice that Gini provides two environments of the Gini API, which are isolated and available via different
-end points:</p>
-
-<pre><code>- Production (https://api.gini.net and https://user.gini.net)
-- Sandbox (https://api-sandbox.gini.net and https://user-sandbox.gini.net).
-</code></pre>
-
-<p>You can&rsquo;t use user accounts for the production environment in the sandbox environment and vice versa.</p>
-
-<p>To use the sandbox environment, you must create the SDK instance via different factory methods. The methods are the
-same as the factories for the production environment, but are prefixed with <code>sandbox</code>:</p>
-
-<pre><code>// Creates an SDK instance which uses the client flow authorization and the production environment
-giniSDK = [GiniSDK giniSDKWithAppURLScheme:@"your-app-scheme" clientID:@"your-app-id"];
-
-// Creates an SDK instance which uses the client flow authorization and the sandbox environment
-giniSDK = [GiniSDK sandboxGiniSDKWithAppURLScheme:@"your-app-scheme" clientID:@"your-app-id"];
-</code></pre>
-
-<p>Usually, when you try out the Gini iOS SDK, you only get an account for the sandbox environment, so you have to adapt
-your code and create a sandbox instance of the Gini SDK.</p>
-
-<h2>Implementing the OAuth authentication</h2>
-
-<p>All requests to the Gini API require an authenticated Gini user. Gini uses OAuth 2.0 for authentication, as
+<p>All requests to the Gini API require an authorized Gini user. Gini uses OAuth 2.0 for authorization, as
 <a href="http://developer.gini.net/gini-api/html/guides/oauth2.html">described in the documentation</a>.</p>
 
-<p>Gini currently supports two OAuth 2.0 authentication flows which are both implemented and available in the Gini iOS SDK:</p>
+<p>Gini currently supports two OAuth 2.0 authorization flows which are both implemented and available in the Gini iOS SDK:</p>
 
 <ul>
 <li>Client-Side Flow</li>
@@ -104,9 +80,11 @@ your code and create a sandbox instance of the Gini SDK.</p>
 
 
 <p>Both flows have in common that you get an access token from Gini and your app (respectively the Gini iOS SDK) uses that
-access token for authentication. And in both flows the user is redirected to the web browser on his device where he logs
+access token for authorisation. And in both flows the user is redirected to the web browser on his device where he logs
 into his Gini account. After a successful login the user is automatically redirected back to you app. Therefore your app
 must always implement a custom URL scheme, as described in the section &ldquo;Implementing the custom URL scheme&rdquo; below.</p>
+
+<p>Furthermore, the Gini SDK provides anonymous user accounts. This flow doesn&rsquo;t require any authorization by the user.</p>
 
 <h1>Client-Side Flow</h1>
 
@@ -131,7 +109,7 @@ on the device thus cannot be extracted and abused.</p>
 <li>The Gini User Center (in the browser) then redirects the user back into your app by redirecting to a custom URL scheme
 with a code, e.g. <code>your-app://gini-authentication?code=117587e6-4ea5-49ce-a90b-a66d232dfa26&amp;state=uiaeo</code>.</li>
 <li>Your app has a so called client secret and does another request (but inside the app, not inside the browser) to the
-Gini authentication server where the given code in combination with the client secret is exchanged for an access token
+Gini authorisation server where the given code in combination with the client secret is exchanged for an access token
 and a refresh token.</li>
 <li>Both the access token and refresh token are stored in the keychain on the device.</li>
 <li>Your app then has the access token and the Gini iOS SDK uses this access token for requests to the Gini API.</li>
@@ -147,24 +125,28 @@ and used abusive. Please make sure that you
 
 <h1>Implementing your chosen flow</h1>
 
-<p>The Gini iOS SDK completely handles the authentication flow for your application. The factory method you use to create
-the <a href="../Classes/GiniSDK.html"><code>GiniSDK</code></a> instance will decide which flow is used:</p>
+<p>The Gini iOS SDK completely handles the authorisation flow for your application. The factory method you use to create
+the <a href="../Classes/GINISDKBuilder.html"><code>GINISDKBuilder</code></a> instance which then creates the <a href="../Classes/GiniSDK.html"><code>GiniSDK</code></a> instance will decide which flow is used:</p>
 
-<pre><code>// Factory method to create a SDK instance that uses the client-side flow:
-_giniSDK = [GiniSDK giniSDKWithAppURLScheme:@"your-app-scheme" clientID:@"your-app-id"];
+<pre><code>// Factory method to create a SDK builder instance that uses the client-side flow:
+_giniSDK = [[GINISDKBuilder clientFlowWithClientID:@"your-client-id" urlScheme:@"your-app-scheme"] build];
 
 
 // Factory method to create a SDK instance that uses the server-side flow:
-_giniSDK = [GiniSDK giniSDKWithAppURLScheme:@"your-app-scheme" clientID:@"your-app-id" clientSecret:@"your-apps-client-secret"];
+_giniSDK = [[GiniSDKBuilder serverFlowWithClientID:@"your-app-id" clientSecret:@"your-apps-client-secret" urlScheme:@"your-app-scheme"] build];
+
+
+// Factory method to hide the OAuth authorisation by using anonymous accounts
+_giniSDK = [[GiniSDKBuilder anonymousUserWithClientID:@"your-app-id" clientSecret:@"your-apps-client-secret" userEmailDomain:@"your-domain.com"] build];
 </code></pre>
 
 <p>No matter which of both flows you are using, your app needs to implement a custom URL scheme.</p>
 
 <h2>Implementing the custom URL scheme</h2>
 
-<p>As described above, your app needs to react on a custom URL scheme because
+<p>As described above, your app needs to react on a custom URL scheme when you don&rsquo;t use anonymous user accounts because
 the Gini User Center redirects the user back in the app by redirecting to a URL with the custom url scheme. Otherwise
-you must handle user authentication and getting the access tokens yourself by implementing your custom session manager.
+you must handle user authorisation and getting the access tokens yourself by implementing your custom session manager.
 An explanation how to do such adaptions can be found in the <a href="4.%20Adapting%20the%20SDK%20to%20you%20needs.html">adaption programming guide</a>.</p>
 
 <p>Therefore, you need to provide a redirect_uri when registering you app with Gini. The
@@ -197,11 +179,33 @@ in the implementation (.m) file of your AppDelegate:</p>
     return [_giniSDK.sessionManager handleURL:url];
 }
 </code></pre>
+
+<h1>Sandbox Access</h1>
+
+<p>Please notice that Gini provides two environments of the Gini API, which are isolated and available via different
+end points:</p>
+
+<pre><code>- Production (https://api.gini.net and https://user.gini.net)
+- Sandbox (https://api-sandbox.gini.net and https://user-sandbox.gini.net).
+</code></pre>
+
+<p>You can&rsquo;t use user accounts for the production environment in the sandbox environment and vice versa.</p>
+
+<p>To use the sandbox environment, you must call the GINISDKBuilder&rsquo;s <code>useSandbox</code> method:</p>
+
+<pre><code>// Creates an SDK instance which uses the client flow authorization and the production environment
+GINISDKBuilder *[GINISDKBuilder clientFlowWithClientID:@"your-app-id" urlScheme:@"your-app-scheme"];
+[builder useSandbox];
+GiniSDK *sdk = [builder build];
+</code></pre>
+
+<p>Usually, when you try out the Gini iOS SDK, you only get an account for the sandbox environment, so you have to adapt
+your code and create a sandbox instance of the Gini SDK.</p>
 				</div>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-08-08)</span><br />
+						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-08-14)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

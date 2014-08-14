@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINIURLResponse Class Reference</title>
+		<title>GINIUserCenterManager Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINIURLResponse Class Reference</h1>
+				<h1 class="hideInXcode">GINIUserCenterManager Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -37,29 +37,24 @@
 	
 	
 	
-	<option value="properties">Properties</option>
-	
-	<option value="//api/name/data">&nbsp;&nbsp;&nbsp;&nbsp;data</option>
-	
-	<option value="//api/name/response">&nbsp;&nbsp;&nbsp;&nbsp;response</option>
-	
-	
 	
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/urlResponseWithResponse:">&nbsp;&nbsp;&nbsp;&nbsp;+ urlResponseWithResponse:</option>
-	
-	<option value="//api/name/urlResponseWithResponse:data:">&nbsp;&nbsp;&nbsp;&nbsp;+ urlResponseWithResponse:data:</option>
+	<option value="//api/name/userCenterManagerWithURLSession:clientID:clientSecret:baseURL:">&nbsp;&nbsp;&nbsp;&nbsp;+ userCenterManagerWithURLSession:clientID:clientSecret:baseURL:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithResponse:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithResponse:</option>
+	<option value="//api/name/createUserWithEmail:password:">&nbsp;&nbsp;&nbsp;&nbsp;- createUserWithEmail:password:</option>
 	
-	<option value="//api/name/initWithResponse:data:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithResponse:data:</option>
+	<option value="//api/name/getUserInfo:">&nbsp;&nbsp;&nbsp;&nbsp;- getUserInfo:</option>
+	
+	<option value="//api/name/initWithURLSession:clientID:clientSecret:baseURL:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithURLSession:clientID:clientSecret:baseURL:</option>
+	
+	<option value="//api/name/loginUser:password:">&nbsp;&nbsp;&nbsp;&nbsp;- loginUser:password:</option>
 	
 	
 	
@@ -77,27 +72,23 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
-</ul></li>
-
-
-
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Factory">Factory</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/data">data</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_initializer">initializer</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/response">response</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Methods">Methods</a></span></li>
 	
 </ul></li>
+
+
+
+
 
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlResponseWithResponse:">urlResponseWithResponse:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlResponseWithResponse:data:">urlResponseWithResponse:data:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/userCenterManagerWithURLSession:clientID:clientSecret:baseURL:">userCenterManagerWithURLSession:clientID:clientSecret:baseURL:</a></span></li>
 	
 </ul></li>
 
@@ -105,9 +96,13 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithResponse:">initWithResponse:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createUserWithEmail:password:">createUserWithEmail:password:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithResponse:data:">initWithResponse:data:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getUserInfo:">getUserInfo:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithURLSession:clientID:clientSecret:baseURL:">initWithURLSession:clientID:clientSecret:baseURL:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginUser:password:">loginUser:password:</a></span></li>
 	
 </ul></li>
 
@@ -116,7 +111,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINIURLResponse Class Reference" name="top"></a>
+				<a title="GINIUserCenterManager Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -125,7 +120,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINIURLResponse Class Reference</h1>
+						<h1 class="title title-header">GINIUserCenterManager Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -136,7 +131,7 @@
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINIURLResponse.h</td>
+	<td class="specification-value">GINIUserCenterManager.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -146,12 +141,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The <code>GINIURLResponse</code> is a value object for the result of an HTTP request. It is used inside the Gini SDK to have
-the possibility to pass the interpreted result of an HTTP communication (the <a href="#//api/name/data"><code>data</code></a> property) together with the
-HTTP request&rsquo;s original meta <a href="#//api/name/data">data</a> (like HTTP headers and so on).</p>
-
-<p>Usually you don&rsquo;t use this <a href="#//api/name/data">data</a> object directly. It is only used by low level classes such as the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a>
-class.</p>
+						<p>The <code>GINIUserCenterManager</code> handles the communication with the Gini User Center via the Gini User Center API</p><div class="warning"><p><strong>Warning:</strong> Access to the User Center API is restricted to selected clients only.</p></div>
 					</div>
 					
 					
@@ -163,45 +153,55 @@ class.</p>
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
-						
-						
+						<a title="Factory" name="task_Factory"></a>
+						<h3 class="subsubtitle task-title">Factory</h3>
 
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/urlResponseWithResponse:">+&nbsp;urlResponseWithResponse:</a></code>
+		<code><a href="#//api/name/userCenterManagerWithURLSession:clientID:clientSecret:baseURL:">+&nbsp;userCenterManagerWithURLSession:clientID:clientSecret:baseURL:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="initializer" name="task_initializer"></a>
+						<h3 class="subsubtitle task-title">initializer</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithURLSession:clientID:clientSecret:baseURL:">&ndash;&nbsp;initWithURLSession:clientID:clientSecret:baseURL:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Methods" name="task_Methods"></a>
+						<h3 class="subsubtitle task-title">Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getUserInfo:">&ndash;&nbsp;getUserInfo:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/urlResponseWithResponse:data:">+&nbsp;urlResponseWithResponse:data:</a></code>
+		<code><a href="#//api/name/createUserWithEmail:password:">&ndash;&nbsp;createUserWithEmail:password:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithResponse:">&ndash;&nbsp;initWithResponse:</a></code>
+		<code><a href="#//api/name/loginUser:password:">&ndash;&nbsp;loginUser:password:</a></code>
 	</span>
 	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/initWithResponse:data:">&ndash;&nbsp;initWithResponse:data:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/data">&nbsp;&nbsp;data</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/response">&nbsp;&nbsp;response</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
 	
 </li>
 						</ul>
@@ -212,96 +212,6 @@ class.</p>
 					
 					
 					
-					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/data" title="data"></a>
-	<h3 class="subsubtitle method-title">data</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. See the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a> documentation for more
-detailed information about the of the content-type deserialization of the data.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property id data</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. See the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a> documentation for more
-detailed information about the of the content-type deserialization of the data.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/response" title="response"></a>
-	<h3 class="subsubtitle method-title">response</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The NSHTTPURLResponse (including the HTTP headers and other meta <a href="#//api/name/data">data</a>).</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property NSHTTPURLResponse *response</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The NSHTTPURLResponse (including the HTTP headers and other meta <a href="#//api/name/data">data</a>).</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
-					
 					
 					
 					<div class="section section-methods">
@@ -309,18 +219,18 @@ detailed information about the of the content-type deserialization of the data.<
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/urlResponseWithResponse:" title="urlResponseWithResponse:"></a>
-	<h3 class="subsubtitle method-title">urlResponseWithResponse:</h3>
+	<a name="//api/name/userCenterManagerWithURLSession:clientID:clientSecret:baseURL:" title="userCenterManagerWithURLSession:clientID:clientSecret:baseURL:"></a>
+	<h3 class="subsubtitle method-title">userCenterManagerWithURLSession:clientID:clientSecret:baseURL:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Factory to create a new <code>GINIURLResponse</code> where the <a href="#//api/name/data"><code>data</code></a> property is nil.</p>
+		<p>Factory to create a new <code>GINIUserCenterManager</code> instance.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)userCenterManagerWithURLSession:(id&lt;GINIURLSession&gt;)<em>urlSession</em> clientID:(NSString *)<em>clientID</em> clientSecret:(NSString *)<em>clientSecret</em> baseURL:(NSURL *)<em>baseURL</em></code></div>
 
     
 	
@@ -328,8 +238,8 @@ detailed information about the of the content-type deserialization of the data.<
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlResponse</em></dt>
-			<dd><p>The <code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
+			<dt><em>urlSession</em></dt>
+			<dd><p>The <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a> instance that will be used to do the HTTP requests to the Gini User Center.</p></dd>
 		</dl>
 		
 	</div>
@@ -342,7 +252,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Factory to create a new <code>GINIURLResponse</code> where the <a href="#//api/name/data"><code>data</code></a> property is nil.</p>
+		<p>Factory to create a new <code>GINIUserCenterManager</code> instance.</p>
 	</div>
 	
 	
@@ -353,63 +263,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/urlResponseWithResponse:data:" title="urlResponseWithResponse:data:"></a>
-	<h3 class="subsubtitle method-title">urlResponseWithResponse:data:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Factory to create a new <code>GINIURLResponse</code>.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>+ (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em> data:(id)<em>urlData</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>urlResponse</em></dt>
-			<dd><p>The<code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>urlData</em></dt>
-			<dd><p>The interpreted <a href="#//api/name/data">data</a> of the HTTP <a href="#//api/name/response">response</a>. Will be set as the <a href="#//api/name/data"><code>data</code></a> property.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Factory to create a new <code>GINIURLResponse</code>.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINIUserCenterManager.h</code><br />
 	</div>				
 	
 	
@@ -424,18 +278,18 @@ detailed information about the of the content-type deserialization of the data.<
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithResponse:" title="initWithResponse:"></a>
-	<h3 class="subsubtitle method-title">initWithResponse:</h3>
+	<a name="//api/name/createUserWithEmail:password:" title="createUserWithEmail:password:"></a>
+	<h3 class="subsubtitle method-title">createUserWithEmail:password:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initializer.</p>
+		<p>Creates a new user.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BFTask *)createUserWithEmail:(NSString *)<em>email</em> password:(NSString *)<em>password</em></code></div>
 
     
 	
@@ -443,13 +297,23 @@ detailed information about the of the content-type deserialization of the data.<
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlResponse</em></dt>
-			<dd><p>The <code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
+			<dt><em>email</em></dt>
+			<dd><p>The user&rsquo;s email address. Will also be used as the user&rsquo;s username.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>The user&rsquo;s password. Must be at leas 6 characters long.</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <code>BFTask *</code> which will resolve to the user&rsquo;s unique ID.</p>
+	</div>
 	
 	
 	
@@ -457,7 +321,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initializer.</p>
+		<p>Creates a new user.</p>
 	</div>
 	
 	
@@ -468,25 +332,25 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINIUserCenterManager.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithResponse:data:" title="initWithResponse:data:"></a>
-	<h3 class="subsubtitle method-title">initWithResponse:data:</h3>
+	<a name="//api/name/getUserInfo:" title="getUserInfo:"></a>
+	<h3 class="subsubtitle method-title">getUserInfo:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The designates initializer.</p>
+		<p>Gets the information on the user with the given unique ID.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em> data:(id)<em>responseData</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BFTask *)getUserInfo:(NSString *)<em>userID</em></code></div>
 
     
 	
@@ -494,18 +358,18 @@ detailed information about the of the content-type deserialization of the data.<
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlResponse</em></dt>
-			<dd><p>The<code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>responseData</em></dt>
-			<dd><p>The interpreted <a href="#//api/name/data">data</a> of the HTTP <a href="#//api/name/response">response</a>. Will be set as the <a href="#//api/name/data"><code>data</code></a> property.</p></dd>
+			<dt><em>userID</em></dt>
+			<dd><p>The user&rsquo;s unique ID.</p></dd>
 		</dl>
 		
 	</div>
 	
 	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <code>BFTask *</code> which will resolve to a <a href="../Classes/GINIUser.html"><code>GINIUser</code></a> model instance representing the user information.</p>
+	</div>
 	
 	
 	
@@ -513,7 +377,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The designates initializer.</p>
+		<p>Gets the information on the user with the given unique ID.</p>
 	</div>
 	
 	
@@ -524,7 +388,109 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINIUserCenterManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithURLSession:clientID:clientSecret:baseURL:" title="initWithURLSession:clientID:clientSecret:baseURL:"></a>
+	<h3 class="subsubtitle method-title">initWithURLSession:clientID:clientSecret:baseURL:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The designated initializer.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithURLSession:(id&lt;GINIURLSession&gt;)<em>urlSession</em> clientID:(NSString *)<em>clientID</em> clientSecret:(NSString *)<em>clientSecret</em> baseURL:(NSURL *)<em>baseURL</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The designated initializer.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIUserCenterManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loginUser:password:" title="loginUser:password:"></a>
+	<h3 class="subsubtitle method-title">loginUser:password:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Logs in the user with the given username and password.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)loginUser:(NSString *)<em>userName</em> password:(NSString *)<em>password</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>The user&rsquo;s password.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>email</em></dt>
+			<dd><p>The user&rsquo;s username (usually the email address).</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <code>BFTask *</code> which will resolve to a <a href="../Classes/GINISession.html"><code>GINISession</code></a> instance.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Logs in the user with the given username and password.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIUserCenterManager.h</code><br />
 	</div>				
 	
 	

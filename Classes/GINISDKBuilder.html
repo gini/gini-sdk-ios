@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>GINIURLResponse Class Reference</title>
+		<title>GINISDKBuilder Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
@@ -16,7 +16,7 @@
 			</div>
 			
 			<div id="title" role="banner">
-				<h1 class="hideInXcode">GINIURLResponse Class Reference</h1>
+				<h1 class="hideInXcode">GINISDKBuilder Class Reference</h1>
 			</div>
 			<ul id="headerButtons" role="toolbar">
 				<li id="toc_button">
@@ -39,27 +39,27 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/data">&nbsp;&nbsp;&nbsp;&nbsp;data</option>
-	
-	<option value="//api/name/response">&nbsp;&nbsp;&nbsp;&nbsp;response</option>
+	<option value="//api/name/injector">&nbsp;&nbsp;&nbsp;&nbsp;injector</option>
 	
 	
 	
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/urlResponseWithResponse:">&nbsp;&nbsp;&nbsp;&nbsp;+ urlResponseWithResponse:</option>
+	<option value="//api/name/anonymousUserWithClientID:clientSecret:userEmailDomain:">&nbsp;&nbsp;&nbsp;&nbsp;+ anonymousUserWithClientID:clientSecret:userEmailDomain:</option>
 	
-	<option value="//api/name/urlResponseWithResponse:data:">&nbsp;&nbsp;&nbsp;&nbsp;+ urlResponseWithResponse:data:</option>
+	<option value="//api/name/clientFlowWithClientID:urlScheme:">&nbsp;&nbsp;&nbsp;&nbsp;+ clientFlowWithClientID:urlScheme:</option>
+	
+	<option value="//api/name/serverFlowWithClientID:clientSecret:urlScheme:">&nbsp;&nbsp;&nbsp;&nbsp;+ serverFlowWithClientID:clientSecret:urlScheme:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithResponse:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithResponse:</option>
+	<option value="//api/name/build">&nbsp;&nbsp;&nbsp;&nbsp;- build</option>
 	
-	<option value="//api/name/initWithResponse:data:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithResponse:data:</option>
+	<option value="//api/name/useSandbox">&nbsp;&nbsp;&nbsp;&nbsp;- useSandbox</option>
 	
 	
 	
@@ -85,9 +85,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/data">data</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/response">response</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/injector">injector</a></span></li>
 	
 </ul></li>
 
@@ -95,9 +93,11 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlResponseWithResponse:">urlResponseWithResponse:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/anonymousUserWithClientID:clientSecret:userEmailDomain:">anonymousUserWithClientID:clientSecret:userEmailDomain:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/urlResponseWithResponse:data:">urlResponseWithResponse:data:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clientFlowWithClientID:urlScheme:">clientFlowWithClientID:urlScheme:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/serverFlowWithClientID:clientSecret:urlScheme:">serverFlowWithClientID:clientSecret:urlScheme:</a></span></li>
 	
 </ul></li>
 
@@ -105,9 +105,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithResponse:">initWithResponse:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/build">build</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithResponse:data:">initWithResponse:data:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/useSandbox">useSandbox</a></span></li>
 	
 </ul></li>
 
@@ -116,7 +116,7 @@
 		</nav>
 		<article>
 			<div id="contents" class="isShowingTOC" role="main">
-				<a title="GINIURLResponse Class Reference" name="top"></a>
+				<a title="GINISDKBuilder Class Reference" name="top"></a>
 				<div class="main-navigation navigation-top">
 					<ul>
 	<li><a href="../index.html">Index</a></li>
@@ -125,7 +125,7 @@
 				</div>
 				<div id="header">
 					<div class="section-header">
-						<h1 class="title title-header">GINIURLResponse Class Reference</h1>
+						<h1 class="title title-header">GINISDKBuilder Class Reference</h1>
 					</div>		
 				</div>
 				<div id="container">	
@@ -136,7 +136,7 @@
 	<td class="specification-value">NSObject</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
-	<td class="specification-value">GINIURLResponse.h</td>
+	<td class="specification-value">GINISDKBuilder.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -146,12 +146,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The <code>GINIURLResponse</code> is a value object for the result of an HTTP request. It is used inside the Gini SDK to have
-the possibility to pass the interpreted result of an HTTP communication (the <a href="#//api/name/data"><code>data</code></a> property) together with the
-HTTP request&rsquo;s original meta <a href="#//api/name/data">data</a> (like HTTP headers and so on).</p>
-
-<p>Usually you don&rsquo;t use this <a href="#//api/name/data">data</a> object directly. It is only used by low level classes such as the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a>
-class.</p>
+						<p>The GINISDKBuilder is used to create and configure new instances of the Gini SDK.</p>
 					</div>
 					
 					
@@ -169,39 +164,39 @@ class.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/urlResponseWithResponse:">+&nbsp;urlResponseWithResponse:</a></code>
+		<code><a href="#//api/name/clientFlowWithClientID:urlScheme:">+&nbsp;clientFlowWithClientID:urlScheme:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/urlResponseWithResponse:data:">+&nbsp;urlResponseWithResponse:data:</a></code>
+		<code><a href="#//api/name/serverFlowWithClientID:clientSecret:urlScheme:">+&nbsp;serverFlowWithClientID:clientSecret:urlScheme:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithResponse:">&ndash;&nbsp;initWithResponse:</a></code>
+		<code><a href="#//api/name/anonymousUserWithClientID:clientSecret:userEmailDomain:">+&nbsp;anonymousUserWithClientID:clientSecret:userEmailDomain:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithResponse:data:">&ndash;&nbsp;initWithResponse:data:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/data">&nbsp;&nbsp;data</a></code>
+		<code><a href="#//api/name/injector">&nbsp;&nbsp;injector</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/response">&nbsp;&nbsp;response</a></code>
+		<code><a href="#//api/name/useSandbox">&ndash;&nbsp;useSandbox</a></code>
 	</span>
-	<span class="task-item-suffix">property</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/build">&ndash;&nbsp;build</a></code>
+	</span>
+	
 	
 </li>
 						</ul>
@@ -217,19 +212,18 @@ class.</p>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/data" title="data"></a>
-	<h3 class="subsubtitle method-title">data</h3>
+	<a name="//api/name/injector" title="injector"></a>
+	<h3 class="subsubtitle method-title">injector</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. See the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a> documentation for more
-detailed information about the of the content-type deserialization of the data.</p>
+		<p>The <a href="../Classes/GINIInjector.html">GINIInjector</a> instance which is used for the dependency injection.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property id data</code></div>
+	<div class="method-subsection method-declaration"><code>@property GINIInjector *injector</code></div>
 
     
 	
@@ -241,8 +235,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The interpreted data, based on the content type of the <a href="#//api/name/response">response</a>. See the <a href="../Classes/GINIURLSession.html"><code>GINIURLSession</code></a> documentation for more
-detailed information about the of the content-type deserialization of the data.</p>
+		<p>The <a href="../Classes/GINIInjector.html">GINIInjector</a> instance which is used for the dependency injection.</p>
 	</div>
 	
 	
@@ -253,48 +246,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/response" title="response"></a>
-	<h3 class="subsubtitle method-title">response</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>The NSHTTPURLResponse (including the HTTP headers and other meta <a href="#//api/name/data">data</a>).</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property NSHTTPURLResponse *response</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>The NSHTTPURLResponse (including the HTTP headers and other meta <a href="#//api/name/data">data</a>).</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINISDKBuilder.h</code><br />
 	</div>				
 	
 	
@@ -309,18 +261,18 @@ detailed information about the of the content-type deserialization of the data.<
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/urlResponseWithResponse:" title="urlResponseWithResponse:"></a>
-	<h3 class="subsubtitle method-title">urlResponseWithResponse:</h3>
+	<a name="//api/name/anonymousUserWithClientID:clientSecret:userEmailDomain:" title="anonymousUserWithClientID:clientSecret:userEmailDomain:"></a>
+	<h3 class="subsubtitle method-title">anonymousUserWithClientID:clientSecret:userEmailDomain:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Factory to create a new <code>GINIURLResponse</code> where the <a href="#//api/name/data"><code>data</code></a> property is nil.</p>
+		<p>Creates an instance of the GINISDKBuilder where anonymous users are used.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)anonymousUserWithClientID:(NSString *)<em>clientId</em> clientSecret:(NSString *)<em>clientSecret</em> userEmailDomain:(NSString *)<em>emaildomain</em></code></div>
 
     
 	
@@ -328,8 +280,16 @@ detailed information about the of the content-type deserialization of the data.<
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlResponse</em></dt>
-			<dd><p>The <code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
+			<dt><em>clientID</em></dt>
+			<dd><p>The application&rsquo;s clientID for the Gini API.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userEmailDomain:</em></dt>
+			<dd><p>The domain of the email address.</p>
+
+<p>@warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
+clients only.</p></dd>
 		</dl>
 		
 	</div>
@@ -342,7 +302,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Factory to create a new <code>GINIURLResponse</code> where the <a href="#//api/name/data"><code>data</code></a> property is nil.</p>
+		<p>Creates an instance of the GINISDKBuilder where anonymous users are used.</p>
 	</div>
 	
 	
@@ -353,25 +313,25 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINISDKBuilder.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/urlResponseWithResponse:data:" title="urlResponseWithResponse:data:"></a>
-	<h3 class="subsubtitle method-title">urlResponseWithResponse:data:</h3>
+	<a name="//api/name/clientFlowWithClientID:urlScheme:" title="clientFlowWithClientID:urlScheme:"></a>
+	<h3 class="subsubtitle method-title">clientFlowWithClientID:urlScheme:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Factory to create a new <code>GINIURLResponse</code>.</p>
+		<p>Creates an instance of the GINISDKBuilder where the client authorization flow is used.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em> data:(id)<em>urlData</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)clientFlowWithClientID:(NSString *)<em>clientID</em> urlScheme:(NSString *)<em>urlScheme</em></code></div>
 
     
 	
@@ -379,13 +339,15 @@ detailed information about the of the content-type deserialization of the data.<
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlResponse</em></dt>
-			<dd><p>The<code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
+			<dt><em>clientID</em></dt>
+			<dd><p>The application&rsquo;s client ID for the Gini API.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>urlData</em></dt>
-			<dd><p>The interpreted <a href="#//api/name/data">data</a> of the HTTP <a href="#//api/name/response">response</a>. Will be set as the <a href="#//api/name/data"><code>data</code></a> property.</p></dd>
+			<dt><em>urlScheme</em></dt>
+			<dd><p>The custom URL scheme of the application that is used for the authorization flow. It is used
+when the browser redirects back to the app after a login. Must be the same as the custom URL
+you registered with Gini.</p></dd>
 		</dl>
 		
 	</div>
@@ -398,7 +360,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Factory to create a new <code>GINIURLResponse</code>.</p>
+		<p>Creates an instance of the GINISDKBuilder where the client authorization flow is used.</p>
 	</div>
 	
 	
@@ -409,7 +371,70 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINISDKBuilder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/serverFlowWithClientID:clientSecret:urlScheme:" title="serverFlowWithClientID:clientSecret:urlScheme:"></a>
+	<h3 class="subsubtitle method-title">serverFlowWithClientID:clientSecret:urlScheme:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates an instance of the GINISDKBuilder where the server authorization flow is used.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (instancetype)serverFlowWithClientID:(NSString *)<em>clientID</em> clientSecret:(NSString *)<em>clientSecret</em> urlScheme:(NSString *)<em>urlScheme</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clientID</em></dt>
+			<dd><p>The application&rsquo;s client ID for the Gini API.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clientSecret</em></dt>
+			<dd><p>The client secret you received from Gini.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>urlScheme</em></dt>
+			<dd><p>The custom URL scheme of the application that is used for the authorization flow. It is used
+when the browser redirects back to the app after a login. Must be the same as the custom URL
+you registered with Gini.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Creates an instance of the GINISDKBuilder where the server authorization flow is used.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINISDKBuilder.h</code><br />
 	</div>				
 	
 	
@@ -424,30 +449,20 @@ detailed information about the of the content-type deserialization of the data.<
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithResponse:" title="initWithResponse:"></a>
-	<h3 class="subsubtitle method-title">initWithResponse:</h3>
+	<a name="//api/name/build" title="build"></a>
+	<h3 class="subsubtitle method-title">build</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Initializer.</p>
+		<p>Creates and returns the <a href="../Classes/GiniSDK.html">GiniSDK</a> instance.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (GiniSDK *)build</code></div>
 
     
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>urlResponse</em></dt>
-			<dd><p>The <code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
-		</dl>
-		
-	</div>
 	
 	
 	
@@ -457,7 +472,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initializer.</p>
+		<p>Creates and returns the <a href="../Classes/GiniSDK.html">GiniSDK</a> instance.</p>
 	</div>
 	
 	
@@ -468,42 +483,28 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINISDKBuilder.h</code><br />
 	</div>				
 	
 	
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithResponse:data:" title="initWithResponse:data:"></a>
-	<h3 class="subsubtitle method-title">initWithResponse:data:</h3>
+	<a name="//api/name/useSandbox" title="useSandbox"></a>
+	<h3 class="subsubtitle method-title">useSandbox</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The designates initializer.</p>
+		<p>Use the sandbox environment (<a href="https://api-sandbox.gini.net/">https://api-sandbox.gini.net/</a> and <a href="https://user-sandbox.gini.net/">https://user-sandbox.gini.net/)</a>) instead of the
+production environment.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithResponse:(NSHTTPURLResponse *)<em>urlResponse</em> data:(id)<em>responseData</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (instancetype)useSandbox</code></div>
 
     
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>urlResponse</em></dt>
-			<dd><p>The<code>NSHTTPURLResponse</code> which will be the property <a href="#//api/name/response"><code>response</code></a>.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>responseData</em></dt>
-			<dd><p>The interpreted <a href="#//api/name/data">data</a> of the HTTP <a href="#//api/name/response">response</a>. Will be set as the <a href="#//api/name/data"><code>data</code></a> property.</p></dd>
-		</dl>
-		
-	</div>
 	
 	
 	
@@ -513,7 +514,11 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The designates initializer.</p>
+		<p>Use the sandbox environment (<a href="https://api-sandbox.gini.net/">https://api-sandbox.gini.net/</a> and <a href="https://user-sandbox.gini.net/">https://user-sandbox.gini.net/)</a>) instead of the
+production environment.</p>
+
+<p>This method returns the instance on which it is called, so it is possible to chain the configuration via builder
+methods.</p>
 	</div>
 	
 	
@@ -524,7 +529,7 @@ detailed information about the of the content-type deserialization of the data.<
 	
 	<div class="method-subsection declared-in-section">
 		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">GINIURLResponse.h</code><br />
+		<code class="declared-in-ref">GINISDKBuilder.h</code><br />
 	</div>				
 	
 	
