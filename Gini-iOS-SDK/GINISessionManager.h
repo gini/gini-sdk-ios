@@ -15,7 +15,7 @@ extern NSStringEncoding const GINIStringEncoding;
 /**
 * This protocol describes the behaviour of session managers.
 *
-* The session manager is responsible for the OAuth authentication of Gini accounts. The authentication is required to
+* The session manager is responsible for the OAuth authorisation of Gini accounts. The authorisation is required to
 * do requests to the GiniAPI.
 *
 * See http://developer.gini.net/gini-api/html/guides/oauth2.html for details.
@@ -45,8 +45,8 @@ extern NSStringEncoding const GINIStringEncoding;
 @end
 
 /**
-* The session manager is responsible for the authentication against the GINI server whenever is needed.
-* Authentication is required to perform requests to the GiniAPI.
+* The session manager is responsible for the authorization against the GINI server whenever is needed.
+* authorization is required to perform requests to the GiniAPI.
 *
 * @see http://developer.gini.net/gini-api/html/guides/oauth2.html
 *
@@ -59,7 +59,7 @@ extern NSStringEncoding const GINIStringEncoding;
     /// The base URL of the Gini OAuth server
     NSURL *_baseURL;
 
-    /// The application scheme used for the redirection to the app once the on-browser authentication finishes.
+    /// The application scheme used for the redirection to the app once the on-browser authorization finishes.
     NSString *_appScheme;
 
     id<GINIURLSession> _URLSession;
@@ -77,7 +77,7 @@ extern NSStringEncoding const GINIStringEncoding;
 }
 
 /**
-*  Creates a manager that uses client-side authentication flow.
+*  Creates a manager that uses client-side authorization flow.
 *
 *  @param clientID         The clientID you received from Gini.
 *  @param baseURL          The base URL of the Gini OAuth Server.
@@ -92,7 +92,7 @@ extern NSStringEncoding const GINIStringEncoding;
                                     appURLScheme:(NSString *)appURLScheme;
 
 /**
-*  Creates a manager that uses server-side authentication flow.
+*  Creates a manager that uses server-side authorization flow.
 *
 *  @param clientID         The clientID you received from Gini.
 *  @param clientSecret     The client secret you received from Gini.

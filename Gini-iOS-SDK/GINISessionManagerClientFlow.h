@@ -9,15 +9,15 @@
 
 
 /**
-* The `GINISessionManagerClientFlow` implements the client flow oauth authentication flow.
+* The `GINISessionManagerClientFlow` implements the client flow OAuth authorisation flow.
 *
 * @warning Never use this subclass directly. Instead, use the factory methods on the `GINISessionManager` class to
-*          create the correct session manager depending on your application's authentication flow.
+*          create the correct session manager depending on your application's authorisation flow.
 */
 @interface GINISessionManagerClientFlow : GINISessionManager
 
 /**
-*  Initializes the manager to use client-side authentication flow.
+*  Initializes the manager to use client-side authorisation flow.
 *
 *  @param clientID          The clientID you received from Gini.
 *  @param baseURL           The base URL of the Gini OAuth Server.

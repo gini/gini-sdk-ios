@@ -127,7 +127,7 @@
 }
 
 /**
- * Logs-in the app so it gets an authentication token which can be used to do requests to the Gini User Center API.
+ * Logs-in the app so it gets an authorisation token which can be used to do requests to the Gini User Center API.
  *
  * @returns     A `BFTask*` that resolves to a `GINISession` instance.
  *
@@ -164,7 +164,7 @@
 }
 
 /**
- * Creates a MutableURLRequest that has always a valid authentication token.
+ * Creates a MutableURLRequest that has always a valid access token.
  */
 - (BFTask *)createMutableURLRequest:(NSString *)URL httpMethod:(NSString *)httpMethod {
     return [[self getSession] continueWithSuccessBlock:^id(BFTask *task) {

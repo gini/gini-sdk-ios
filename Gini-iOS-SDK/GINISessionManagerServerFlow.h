@@ -9,10 +9,10 @@
 @protocol GINICredentialsStore;
 
 /**
- * The `GINISessionManagerServerFlow` implements the server-side OAuth authentication flow.
+ * The `GINISessionManagerServerFlow` implements the server-side OAuth authorisation flow.
  *
  * @warning Never use this subclass directly. Instead, use the factory methods on the `GINISessionManager` class to
- *          create the correct session manager depending on your application's authentication flow.
+ *          create the correct session manager depending on your application's authorisation flow.
  */
 @interface GINISessionManagerServerFlow : GINISessionManager {
 
@@ -24,7 +24,7 @@
 }
 
 /**
-*  Initializes the manager to use server-side authentication flow.
+*  Initializes the manager to use server-side authorisation flow.
 *
 *  @param clientID         The clientID you received from Gini.
 *  @param clientSecret     The client secret you received from Gini.

@@ -4,7 +4,7 @@
  */
 
 /**
- * This class represents a session of the GINI authentication system.
+ * This class represents a session of the GINI authorisation system.
  */
 @interface GINISession : NSObject
 
