@@ -7,6 +7,7 @@
 #import <Foundation/Foundation.h>
 
 @class GiniSDK;
+@class GINIInjector;
 
 
 /**
@@ -51,6 +52,11 @@
  */
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emaildomain;
 
+
+/**
+ * The GINIInjector instance which is used for the dependency injection.
+ */
+@property GINIInjector *injector;
 
 /**
  * Use the sandbox environment (https://api-sandbox.gini.net/ and https://user-sandbox.gini.net/) instead of the
