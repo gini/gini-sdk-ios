@@ -12,10 +12,11 @@ SPEC_BEGIN(GINIKeychainCredentialsStoreSpec)
 
     describe(@"The GINIKeychainCredentialsStore", ^{
         __block GINIKeychainCredentialsStore *store;
+        __block GINIKeychainManager *keychainManager;
         __block NSString *sampleToken = @"sample_token";
 
         beforeEach(^{
-            GINIKeychainManager *keychainManager = [GINIKeychainManager new];
+            keychainManager = [GINIKeychainManager new];
             store = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
             // Delete all possible entries in the keychain so previous tests won't interfere.
             [keychainManager deleteAllItems];
@@ -23,7 +24,6 @@ SPEC_BEGIN(GINIKeychainCredentialsStoreSpec)
 
         context(@"the factory", ^{
             it(@"should create the proper GINIKeychainCredentialsStore instance", ^{
-                GINIKeychainManager *keychainManager = [GINIKeychainManager new];
                 store = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
 
                 [[store should] beKindOfClass:[GINIKeychainCredentialsStore class]];
@@ -56,6 +56,44 @@ SPEC_BEGIN(GINIKeychainCredentialsStoreSpec)
                 [[[store fetchRefreshToken] should] equal:sampleToken];
             });
 
+        });
+
+        context(@"the fetchCredentials:: method", ^{
+            beforeEach(^{
+                [store storeUserCredentials:@"foobar" password:@"1234"];
+            });
+
+            it(@"should fetch stored credentials", ^{
+                NSString *userName;
+                NSString *password;
+                [store fetchUserCredentials:&userName password:&password];
+                [[userName should] equal:@"foobar"];
+                [[password should] equal:@"1234"];
+            });
+        });
+
+        context(@"The storeCredentials:password: method", ^{
+            it(@"should store credentials", ^{
+                BOOL success = [store storeUserCredentials:@"foobar" password:@"1234"];
+
+                [[theValue(success) should] beYes];
+
+                NSString *username;
+                NSString *password;
+                [store fetchUserCredentials:&username password:&password];
+                [[username should] equal:@"foobar"];
+                [[password should] equal:@"1234"];
+            });
+
+            it(@"should only accept NSString* instances", ^{
+                [[theBlock(^{
+                    [store storeUserCredentials:nil password:nil];
+                }) should] raise];
+
+                [[theBlock(^{
+                    [store storeUserCredentials:@"foobar" password:nil];
+                }) should] raise];
+            });
         });
     });
 

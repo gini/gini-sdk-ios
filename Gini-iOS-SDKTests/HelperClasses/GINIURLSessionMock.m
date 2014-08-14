@@ -6,6 +6,7 @@
 #import "GINIURLSession.h"
 #import "GINIURLSessionMock.h"
 #import "BFTask.h"
+#import "GINIURLResponse.h"
 
 
 @implementation GINIURLSessionMock {
@@ -59,8 +60,14 @@
     [_responses setValue:response forKey:URL];
 }
 
+- (void)createAndSetResponse:(id)data forURL:(NSString *)URL {
+    NSHTTPURLResponse *httpURLResponse = [NSHTTPURLResponse new];
+    GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:httpURLResponse data:data];
+    [self setResponse:[BFTask taskWithResult:response] forURL:URL];
+}
+
 - (BFTask *)responseForURL:(NSString *)URL{
-    BFTask *response = [_responses objectForKey:URL];
+    BFTask *response = _responses[URL];
     if (!response) {
         response = [BFTask taskWithResult:nil];
     }

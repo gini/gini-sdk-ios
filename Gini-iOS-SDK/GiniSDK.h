@@ -18,99 +18,30 @@
 #import "GINIFactoryDescription.h"
 #import "GINIURLResponse.h"
 #import "GINIExtraction.h"
+#import "GINISDKBuilder.h"
+#import "GINIUser.h"
+#import "GINIUserCenterManager.h"
+#import "GINIKeychainManager.h"
 
 
 // Keys used in the injector. See the discussion on keys at `GINIInjector` class.
 
 /// Use this key to identify the base URL of the Gini API in the injector.
-FOUNDATION_EXPORT NSString *const GINIAPIBaseURLKey;
+FOUNDATION_EXPORT NSString *const GINIInjectorAPIBaseURLKey;
 /// Use this key to identify the base URL of the Gini user center in the injector.
-FOUNDATION_EXPORT NSString *const GINIUserBaseURLKey;
+FOUNDATION_EXPORT NSString *const GINIInjectorUserBaseURLKey;
 /// Use this key to identify the application's custom URL scheme in the injector.
-FOUNDATION_EXPORT NSString *const GINIURLSchemeKey;
+FOUNDATION_EXPORT NSString *const GINIInjectorURLSchemeKey;
 /// Use this key to identify the application's client ID in the injector.
-FOUNDATION_EXPORT NSString *const GINIClientIDKey;
+FOUNDATION_EXPORT NSString *const GINIInjectorClientIDKey;
 /// Use this key to identify the application's client secret in the injector.
-FOUNDATION_EXPORT NSString *const GINIClientSecretKey;
-/// Use this key to identify the application's credential store identifier (see the `GINIKeychainCredentialsStore` class for details.
-FOUNDATION_EXPORT NSString *const GINICredentialsStoreIdentifierKey;
-/**
- * Use this key to identify the application's credential (keychain) access group (see the discussion at the
- * `GINIKeychainCredentialsStore` class and
- * https://developer.apple.com/library/ios/documentation/security/Reference/keychainservices/Reference/reference.html#//apple_ref/c/data/kSecAttrAccessGroup
- * for Details.
- */
-FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
-
-
-@interface GINIInjector (DefaultWiring)
-
-/**
- * Returns an instance of the GINIInjector where all dependencies are configured with standard values. The default
- * configuration uses the client authentication flow.
- */
-+ (instancetype) defaultInjector;
-
-@end
+FOUNDATION_EXPORT NSString *const GINIInjectorClientSecretKey;
 
 
 /**
  * The Gini SDK.
  */
 @interface GiniSDK : NSObject
-
-/** @name Factories */
-
-/**
- * Creates an instance of the GiniSDK where the client authentication flow is used.
- *
- * @param urlScheme      The custom URL scheme of the application that is used for the authentication flow. It is used
- *                       when the browser redirects back to the app after a login. Must be the same as the custom URL
- *                       you registered with Gini.
- *
- * @param clientID       The application's client ID for the Gini API.
- */
-+ (instancetype)giniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID;
-
-/**
-* Creates an instance of the GiniSDK where the server authentication flow is used.
-*
-* @param urlScheme       The custom URL scheme of the application that is used for the authentication flow. It is used
-*                        when the browser redirects back to the app after a login. Must be the same as the custom URL
-*                        you registered with Gini.
-*
-* @param clientID        The application's client ID for the Gini API.
-*
-* @param clientSecret    The client secret you received from Gini.
-*/
-+ (instancetype)giniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret;
-
-
-/**
-* Creates an instance of the GiniSDK where the client authentication flow is used but Gini's sandbox environment is
-* used instead of the production environment.
-*
-* @param urlScheme      The custom URL scheme of the application that is used for the authentication flow. It is used
-*                       when the browser redirects back to the app after a login. Must be the same as the custom URL
-*                       you registered with Gini.
-*
-* @param clientID       The application's client ID for the Gini API.
-*/
-+ (instancetype)sandboxGiniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID;
-
-/**
-* Creates an instance of the GiniSDK where the server authentication flow is used but Gini's sandbox environment is
-* used instead of the production environment.
-*
-* @param urlScheme       The custom URL scheme of the application that is used for the authentication flow. It is used
-*                        when the browser redirects back to the app after a login. Must be the same as the custom URL
-*                        you registered with Gini.
-*
-* @param clientID        The application's client ID for the Gini API.
-*
-* @param clientSecret    The client secret you received from Gini.
-*/
-+ (instancetype)sandboxGiniSDKWithAppURLScheme:(NSString *)urlScheme clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret;
 
 
 /** @name initializer */
@@ -121,6 +52,7 @@ FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
  * @param injector       The GINIInjector instance that is used for wiring the app.
  */
 - (instancetype)initWithInjector:(GINIInjector *)injector;
+
 
 /** @name Provided Manager instances */
 
@@ -145,10 +77,5 @@ FOUNDATION_EXPORT NSString *const GINICredentialsStoreAccessGroupKey;
  * level API for the Gini API and it is recommended that you use this class in your application.
  */
 @property (readonly) GINIDocumentTaskManager *documentTaskManager;
-
-/**
- * The injector that is used by the SDK to instantiate the classes.
- */
-@property (readonly) GINIInjector *injector;
 
 @end

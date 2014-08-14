@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, GINIErrorCode) {
      * if you try to access an extraction which does not exist for the document.
      */
     GINIErrorResourceNotFound,
+
+    GINIErrorNoCredentials
 };
 
 

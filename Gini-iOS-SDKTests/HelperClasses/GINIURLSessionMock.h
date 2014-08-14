@@ -39,4 +39,11 @@
  */
 - (void)setResponse:(BFTask *)response forURL:(NSString *)URL;
 
+/**
+ * Shortcut method. Usually, the returned tasks of a `GINIURLSession` method resolve to a `GINIURLResponse` instance.
+ * This shortcut method creates a `GINIURLResponse` instance, sets the given data as its data property, creates a new
+ * `BFTask` of which the result is the previously created `GINIURLResponse` instance.
+ */
+- (void)createAndSetResponse:(id)data forURL:(NSString *)URL;
+
 @end

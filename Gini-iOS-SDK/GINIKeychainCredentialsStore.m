@@ -8,8 +8,9 @@
 #import "GINIKeychainItem.h"
 
 
-/// The identifier of the keychain item for the refresh token.
-NSString *const GINIrefreshTokenKey = @"refreshToken";
+NSString *const GINIRefreshTokenKey = @"refreshToken";
+NSString *const GINIUserNameKey = @"userName";
+NSString *const GINIPasswordKey = @"Password";
 
 
 @implementation GINIKeychainCredentialsStore {
@@ -33,12 +34,28 @@ NSString *const GINIrefreshTokenKey = @"refreshToken";
 - (BOOL)storeRefreshToken:(NSString *)refreshToken {
     NSParameterAssert([refreshToken isKindOfClass:[NSString class]]);
 
-    GINIKeychainItem *refreshTokenItem = [GINIKeychainItem keychainItemWithIdentifier:GINIrefreshTokenKey value:refreshToken];
+    GINIKeychainItem *refreshTokenItem = [GINIKeychainItem keychainItemWithIdentifier:GINIRefreshTokenKey value:refreshToken];
     return [_keychainManager storeItem:refreshTokenItem];
 }
 
 - (NSString *)fetchRefreshToken {
-    return [[_keychainManager getItem:GINIrefreshTokenKey] value];
+    return [[_keychainManager getItem:GINIRefreshTokenKey] value];
 }
+
+- (BOOL)storeUserCredentials:(NSString *)userName password:(NSString *)password {
+    NSParameterAssert([userName isKindOfClass:[NSString class]]);
+    NSParameterAssert([password isKindOfClass:[NSString class]]);
+
+    GINIKeychainItem *userItem = [GINIKeychainItem keychainItemWithIdentifier:GINIUserNameKey value:userName];
+    GINIKeychainItem *passwordItem = [GINIKeychainItem keychainItemWithIdentifier:GINIPasswordKey value:password];
+
+    return [_keychainManager storeItem:userItem] && [_keychainManager storeItem:passwordItem];
+}
+
+- (void)fetchUserCredentials:(NSString **)userName password:(NSString **)password {
+    *userName = [[_keychainManager getItem:GINIUserNameKey] value];
+    *password = [[_keychainManager getItem:GINIPasswordKey] value];
+}
+
 
 @end
