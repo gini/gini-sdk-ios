@@ -45,7 +45,7 @@
  * Creates a new user.
  *
  * @param email         The user's email address. Will also be used as the user's username.
- * @param password      The user's password. Must be at leas 6 characters long.
+ * @param password      The user's password. Must be at least 6 characters long.
  * @returns             A `BFTask *` which will resolve to the user's unique ID.
  */
 - (BFTask *)createUserWithEmail:(NSString *)email password:(NSString *)password;

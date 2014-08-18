@@ -93,13 +93,13 @@ GINIInjector* GINIDefaultInjector() {
     return instance;
 }
 
-+ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emaildomain {
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain {
     NSParameterAssert([clientId isKindOfClass:[NSString class]]);
-    NSParameterAssert([emaildomain isKindOfClass:[NSString class]]);
+    NSParameterAssert([emailDomain isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
 
     GINISDKBuilder *instance = [[GINISDKBuilder alloc] initWithClientID:clientId urlScheme:nil clientSecret:clientSecret];
-    [instance useAnonymousUser:emaildomain];
+    [instance useAnonymousUser:emailDomain];
     return instance;
 }
 

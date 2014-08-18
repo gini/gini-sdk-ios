@@ -50,7 +50,7 @@
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.
  */
-+ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emaildomain;
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain;
 
 
 /**

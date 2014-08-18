@@ -60,7 +60,7 @@ FOUNDATION_EXPORT NSString *const GINIInjectorClientSecretKey;
  * The instance of the `GINIAPIManager` that is used by the SDK.
  *
  * @warning It is not recommended to use the GINIAPIManager directly. The GINIAPIManager is a very low level manager
- *          that handles only the communication with the Gini API and directly returns the data from the server. Usually
+ *          that only handles communication with the Gini API and directly returns the data from the server. Usually
  *          you want to have better abstractions and advanced error handling. Because of that, it is recommended that
  *          you use the higher level abstractions at the `GINIDocumentTaskManager` (see also the `documentTaskManager`
  *          property).

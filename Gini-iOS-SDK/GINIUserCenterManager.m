@@ -110,7 +110,7 @@
 
 #pragma mark - Private methods
 /**
- * Gets a valid `GINISession` instance with a access token that could be used for requests to the Gini User Center API.
+ * Gets a valid `GINISession` instance with an access token that could be used for requests to the Gini User Center API.
  * If the app has not been logged in yet in this `GINIUserManager` instance or the access token has expired, the app is
  * logged in again.
  *
