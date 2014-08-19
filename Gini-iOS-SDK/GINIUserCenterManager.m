@@ -68,6 +68,8 @@
     // This needs an active session with a bearer token.
     return [[self createMutableURLRequest:@"/api/users" httpMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *urlRequest = requestTask.result;
+        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
         NSDictionary *payload = @{
                 @"email" : email,
                 @"password" : password
@@ -99,7 +101,7 @@
     // Login data (x-www-urlencoded).
     NSData *loginData = [[NSString stringWithFormat:@"username=%@&password=%@", stringByEscapingString(userName), stringByEscapingString(password)] dataUsingEncoding:NSUTF8StringEncoding];
     [urlRequest setHTTPBody:loginData];
-    [urlRequest setValue:@"application/x-www-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 
     // Do the request and create the session form the response.
     return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithSuccessBlock:^id(BFTask *loginTask) {

@@ -194,6 +194,14 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 [[user.userId should] equal:@"c1e60c6b-a0a4-4d80-81eb-c1c6de729a0e"];
                 [[user.userEmail should] equal:@"foobar@example.com"];
             });
+
+            it(@"should set the proper HTTP headers", ^{
+                [urlSession setResponse:[BFTask taskWithError:nil] forURL:@"https://user.gini.net/api/users"];
+                BFTask *createTask = [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
+                NSURLRequest *lastRequest = urlSession.lastRequest;
+                [[[lastRequest valueForHTTPHeaderField:@"Content-Type"] should] equal:@"application/json"];
+                [[[lastRequest valueForHTTPHeaderField:@"Accept"] should] equal:@"application/json"];
+            });
         });
 
         context(@"the loginUser:password: method", ^{
