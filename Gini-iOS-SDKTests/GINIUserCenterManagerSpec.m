@@ -261,6 +261,13 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 GINISession *session = loginTask.result;
                 [[session.accessToken should] equal:@"6c470ffa-abf1-41aa-b866-cd3be0ee84f4"];
             });
+
+            it(@"should set the proper HTTP headers", ^{
+                [urlSession setResponse:[BFTask taskWithError:nil] forURL:@"https://user.gini.net/oauth/token?grant_type=password"];
+                BFTask *loginTask = [userCenterManager loginUser:@"foobar@example.com" password:@"1234"];
+                NSURLRequest *lastRequest = urlSession.lastRequest;
+                [[[lastRequest valueForHTTPHeaderField:@"Content-Type"] should] equal:@"application/x-www-form-urlencoded"];
+            });
         });
     });
 
