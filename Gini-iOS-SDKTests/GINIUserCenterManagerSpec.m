@@ -194,6 +194,14 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 [[user.userId should] equal:@"c1e60c6b-a0a4-4d80-81eb-c1c6de729a0e"];
                 [[user.userEmail should] equal:@"foobar@example.com"];
             });
+
+            it(@"should set the proper HTTP headers", ^{
+                [urlSession setResponse:[BFTask taskWithError:nil] forURL:@"https://user.gini.net/api/users"];
+                BFTask *createTask = [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
+                NSURLRequest *lastRequest = urlSession.lastRequest;
+                [[[lastRequest valueForHTTPHeaderField:@"Content-Type"] should] equal:@"application/json"];
+                [[[lastRequest valueForHTTPHeaderField:@"Accept"] should] equal:@"application/json"];
+            });
         });
 
         context(@"the loginUser:password: method", ^{
@@ -252,6 +260,13 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 [[loginTask.result should] beKindOfClass:[GINISession class]];
                 GINISession *session = loginTask.result;
                 [[session.accessToken should] equal:@"6c470ffa-abf1-41aa-b866-cd3be0ee84f4"];
+            });
+
+            it(@"should set the proper HTTP headers", ^{
+                [urlSession setResponse:[BFTask taskWithError:nil] forURL:@"https://user.gini.net/oauth/token?grant_type=password"];
+                BFTask *loginTask = [userCenterManager loginUser:@"foobar@example.com" password:@"1234"];
+                NSURLRequest *lastRequest = urlSession.lastRequest;
+                [[[lastRequest valueForHTTPHeaderField:@"Content-Type"] should] equal:@"application/x-www-form-urlencoded"];
             });
         });
     });
