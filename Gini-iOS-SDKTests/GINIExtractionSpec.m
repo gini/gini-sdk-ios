@@ -13,7 +13,7 @@ describe(@"The GINIExtraction", ^{
     __block GINIExtraction *extraction;
 
     beforeEach(^{
-        extraction = [GINIExtraction extractionWithName:@"foobar" value:@"myValue" entity:@"someEntity" box:nil];
+        extraction = [GINIExtraction extractionWithName:@"amountToPay" value:@"42:EUR" entity:@"someEntity" box:nil];
     });
 
     it(@"should mark the extraction as dirty when changing the value", ^{
@@ -26,6 +26,10 @@ describe(@"The GINIExtraction", ^{
         [[theValue(extraction.isDirty) should] beNo];
         extraction.box = [NSDictionary new];
         [[theValue(extraction.isDirty) should] beYes];
+    });
+
+    it(@"should have a helping description", ^{
+        [[extraction.description should] equal:@"<GINIExtraction amountToPay=42:EUR>"];
     });
 });
 

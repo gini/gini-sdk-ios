@@ -39,4 +39,8 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<GINIUser email=%@, id=%@>", _userEmail, _userId];
+}
+
 @end
