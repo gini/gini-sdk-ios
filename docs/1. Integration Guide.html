@@ -133,14 +133,14 @@ _giniSDK = [[GINISDKBuilder clientFlowWithClientID:@"your-client-id" urlScheme:@
 
 
 // Factory method to create a SDK instance that uses the server-side flow:
-_giniSDK = [[GiniSDKBuilder serverFlowWithClientID:@"your-app-id" clientSecret:@"your-apps-client-secret" urlScheme:@"your-app-scheme"] build];
+_giniSDK = [[GINISDKBuilder serverFlowWithClientID:@"your-app-id" clientSecret:@"your-apps-client-secret" urlScheme:@"your-app-scheme"] build];
 
 
 // Factory method to hide the OAuth authorisation by using anonymous accounts
-_giniSDK = [[GiniSDKBuilder anonymousUserWithClientID:@"your-app-id" clientSecret:@"your-apps-client-secret" userEmailDomain:@"your-domain.com"] build];
+_giniSDK = [[GINISDKBuilder anonymousUserWithClientID:@"your-app-id" clientSecret:@"your-apps-client-secret" userEmailDomain:@"your-domain.com"] build];
 </code></pre>
 
-<p>No matter which of both flows you are using, your app needs to implement a custom URL scheme.</p>
+<p>No matter which of the flows you are using, your app needs to implement a custom URL scheme.</p>
 
 <h2>Implementing the custom URL scheme</h2>
 
@@ -171,7 +171,7 @@ for details.</p>
 &lt;/array&gt;
 </code></pre>
 
-<p>Your app needs to repond on the app delegate to the incoming URL. Do this by implementing the following delegate method
+<p>Your app needs to respond on the app delegate to the incoming URL. Do this by implementing the following delegate method
 in the implementation (.m) file of your AppDelegate:</p>
 
 <pre><code>- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
@@ -199,7 +199,7 @@ GINISDKBuilder *[GINISDKBuilder clientFlowWithClientID:@"your-app-id" urlScheme:
 GiniSDK *sdk = [builder build];
 </code></pre>
 
-<p>Usually, when you try out the Gini iOS SDK, you only get an account for the sandbox environment, so you have to adapt
+<p>Usually, when you evaluate the Gini iOS SDK, you&rsquo;ll get an account for the sandbox environment, so you have to adapt
 your code and create a sandbox instance of the Gini SDK.</p>
 				</div>
 				<div id="footer">

@@ -104,7 +104,7 @@ GINIDocumentTaskManager *manager = sdk.documentTaskManager;
     // And the document has a property extractions, which is another task that resolves to the extractions:
     return document.extractions;
 }] continueWithSuccessBlock:^id(BFTask *extractionsTask){
-    NSDictionary *extractions = task.result;
+    NSDictionary *extractions = extractionsTask.result;
     NSLog(@"extractions: %@", extractions);
     return nil;
 }];

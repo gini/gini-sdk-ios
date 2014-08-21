@@ -113,7 +113,7 @@ server and not via Gini iOS SDK. Your server somehow gets valid access tokens fo
 Please notice that this must be done before(!) you create the SDK instance via the builder&rsquo;s <code>build</code> method.</p>
 
 <pre><code>// Create the "normal" builder instance you use for configuring the SDK.
-GINISDKBuilder *builder = [GiniSDKBuilder clientFlow:@"your-app-scheme" clientID:@"your-app-id"];
+GINISDKBuilder *builder = [GINISDKBuilder clientFlow:@"your-app-scheme" clientID:@"your-app-id"];
 // And then register your implementation in the injector.
 [builder.injector setSingletonFactory:@selector(sessionManager)
                                    on:[MyClass class]
