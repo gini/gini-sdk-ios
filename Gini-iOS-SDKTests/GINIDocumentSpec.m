@@ -77,6 +77,11 @@ describe(@"The GINIDocument", ^{
         instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
         [[theValue(instance.state) should] equal:theValue(GiniDocumentStateError)];
     });
+
+    it(@"should have a nice description", ^{
+        GINIDocument *document = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[[document description] should] equal:@"<GINIDocument id=626626a0-749f-11e2-bfd6-000000000000>"];
+    });
 });
 
 SPEC_END

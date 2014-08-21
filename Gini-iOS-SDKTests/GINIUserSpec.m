@@ -45,6 +45,10 @@ SPEC_BEGIN(GINIUserSpec)
                 [[userFromAPI.userId should] equal:@"1234-5678-9101-2342"];
             });
         });
+
+        it(@"should have a nice description", ^{
+            [[[user description] should] equal:@"<GINIUser email=testdummy@gini.net, id=c1e60c6b-a0a4-4d80-81eb-c1c6de729a0e>"];
+        });
     });
 
 SPEC_END

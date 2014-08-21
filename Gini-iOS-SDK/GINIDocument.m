@@ -114,4 +114,8 @@
     return _layout;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<GINIDocument id=%@>", _documentId];
+}
+
 @end

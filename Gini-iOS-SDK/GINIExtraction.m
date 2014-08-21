@@ -50,4 +50,8 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<GINIExtraction %@=%@>", _name, _value];
+}
+
 @end
