@@ -4,6 +4,7 @@
  */
 
 #import <Kiwi/Kiwi.h>
+#import <Bolts/Bolts.h>
 #import "GINIDocument.h"
 #import "GINIDocumentTaskManager.h"
 #import "GINIAPIManagerMock.h"
@@ -82,6 +83,18 @@ describe(@"The GINIDocument", ^{
         GINIDocument *document = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
         [[[document description] should] equal:@"<GINIDocument id=626626a0-749f-11e2-bfd6-000000000000>"];
     });
+
+    it(@"should have a property to get the extractions", ^{
+        GINIDocument *document = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[document.extractions should] beKindOfClass:[BFTask class]];
+    });
+
+    it(@"should have a property to get the candidates", ^{
+        GINIDocument *document = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[document.candidates should] beKindOfClass:[BFTask class]];
+    });
+
+    // TODO more tests for the document tasks.
 });
 
 SPEC_END

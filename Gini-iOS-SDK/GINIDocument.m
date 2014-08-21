@@ -88,7 +88,10 @@
 #pragma mark - Properties
 - (BFTask *)extractionTask {
     if (!_extractions) {
-        _extractions = [_documentTaskManager getExtractionsForDocument:self];
+        // Ensure that the extractions are really available:
+        _extractions = [[_documentTaskManager pollDocument:self] continueWithBlock:^id(BFTask *task) {
+            return [_documentTaskManager getExtractionsForDocument:self];
+        }];
     }
     return _extractions;
 }
