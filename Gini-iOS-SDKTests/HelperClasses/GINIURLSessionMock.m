@@ -60,8 +60,11 @@
     [_responses setValue:response forKey:URL];
 }
 
-- (void)createAndSetResponse:(id)data forURL:(NSString *)URL {
-    NSHTTPURLResponse *httpURLResponse = [NSHTTPURLResponse new];
+- (void)createAndSetResponse:(id)data httpStatus:(NSInteger)httpStatus forURL:(NSString *)URL {
+    NSHTTPURLResponse *httpURLResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:URL]
+                                                                     statusCode:httpStatus
+                                                                    HTTPVersion:@"1.1"
+                                                                   headerFields:nil];
     GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:httpURLResponse data:data];
     [self setResponse:[BFTask taskWithResult:response] forURL:URL];
 }

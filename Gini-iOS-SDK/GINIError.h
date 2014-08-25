@@ -23,7 +23,9 @@ typedef NS_ENUM(NSInteger, GINIErrorCode) {
      */
     GINIErrorResourceNotFound,
 
-    GINIErrorNoCredentials
+    GINIErrorNoCredentials,
+
+    GINIErrorInvalidCredentials
 };
 
 
