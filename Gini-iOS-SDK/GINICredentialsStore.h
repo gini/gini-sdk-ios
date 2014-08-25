@@ -43,4 +43,9 @@
  */
 - (void)fetchUserCredentials:(NSString **)userName password:(NSString **)password;
 
+/**
+ * Deletes stored user credentials.
+ */
+- (void)removeCredentials;
+
 @end

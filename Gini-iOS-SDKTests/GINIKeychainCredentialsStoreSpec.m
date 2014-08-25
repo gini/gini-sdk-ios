@@ -95,6 +95,20 @@ SPEC_BEGIN(GINIKeychainCredentialsStoreSpec)
                 }) should] raise];
             });
         });
+
+        context(@"the removeCredentials method", ^{
+            it(@"should remove the credentials", ^{
+                [store storeUserCredentials:@"foobar" password:@"1234"];
+
+                [store removeCredentials];
+
+                NSString *userName;
+                NSString *password;
+                [store fetchUserCredentials:&userName password:&password];
+                [[userName should] beNil];
+                [[password should] beNil];
+            });
+        });
     });
 
 SPEC_END
