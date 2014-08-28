@@ -15,5 +15,6 @@
 @property BOOL loginEnabled;
 @property BOOL getInfoEnabled;
 @property BOOL createUserEnabled;
+@property BOOL wrongCredentials;
 
 @end

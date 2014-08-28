@@ -115,6 +115,13 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
                 [[[task result] should] beKindOfClass:[GINISession class]];
             });
 
+            it(@"should resolve to an error if the credentials are wrong", ^{
+                userCenterManagerMock.wrongCredentials = YES;
+                BFTask *task = [sessionManager getSession];
+
+                [[task.error should] beKindOfClass:[GINIError class]];
+            });
+
             it(@"should store and reuse the session", ^{
                 [sessionManager getSession];
                 userCenterManagerMock.loginEnabled = NO;
