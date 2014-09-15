@@ -77,7 +77,7 @@
 
         // Try to avoid infinite login attempts.
         _loginAttempts += 1;
-        if (_loginAttempts > 3) {
+        if (_loginAttempts >= 3) {
             return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorNoCredentials userInfo:nil]];
         }
 

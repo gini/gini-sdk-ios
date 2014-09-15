@@ -12,9 +12,16 @@
 
 @interface GINIUserCenterManagerMock : GINIUserCenterManager
 
+// Features
 @property BOOL loginEnabled;
 @property BOOL getInfoEnabled;
 @property BOOL createUserEnabled;
-@property BOOL wrongCredentials;
+
+// Watchers
+/// Number of times the createUser method was called.
+@property NSUInteger createUserCalled;
+
+/// Whether or not the login method resolves to a login error.
+@property BOOL raiseWrongCredentialsOnLogin;
 
 @end

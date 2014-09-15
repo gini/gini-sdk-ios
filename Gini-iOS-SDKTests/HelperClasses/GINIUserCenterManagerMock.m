@@ -31,7 +31,8 @@
         _createUserEnabled = YES;
         _getInfoEnabled = YES;
         _loginEnabled = YES;
-        _wrongCredentials = NO;
+        _raiseWrongCredentialsOnLogin = NO;
+        _createUserCalled = 0;
     }
     return self;
 }
@@ -47,7 +48,7 @@
     if (!_loginEnabled) {
         [[NSException exceptionWithName:@"Not allowed" reason:@"Disallowed by mock" userInfo:nil] raise];
     }
-    if (_wrongCredentials) {
+    if (_raiseWrongCredentialsOnLogin) {
         return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorInvalidCredentials userInfo:nil]];
     } else {
         return [BFTask taskWithResult:[[GINISession alloc] initWithAccessToken:@"1234-456" refreshToken:nil expirationDate:[NSDate dateWithTimeIntervalSinceNow:600]]];
@@ -55,6 +56,7 @@
 }
 
 - (BFTask *)createUserWithEmail:(NSString *)email password:(NSString *)password {
+    _createUserCalled += 1;
     if (!_createUserEnabled) {
         [[NSException exceptionWithName:@"Not allowed" reason:@"Disallowed by mock" userInfo:nil] raise];
     }
