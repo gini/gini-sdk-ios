@@ -55,7 +55,8 @@
  *
  * @param email         The user's username (usually the email address).
  * @param password      The user's password.
- * @return              A `BFTask *` which will resolve to a `GINISession` instance.
+ * @return              A `BFTask *` which will resolve to a `GINISession` instance in case of success or to a GINIError
+ *                      if the credentials are wrong.
  */
 - (BFTask *)loginUser:(NSString *)userName password:(NSString *)password;
 @end

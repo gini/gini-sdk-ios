@@ -11,6 +11,7 @@
 #import "GINISessionParser.h"
 #import "NSString+GINIAdditions.h"
 #import "GINIUser.h"
+#import "GINIError.h"
 
 
 @implementation GINIUserCenterManager {
@@ -104,8 +105,12 @@
     [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 
     // Do the request and create the session form the response.
-    return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithSuccessBlock:^id(BFTask *loginTask) {
+    return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithBlock:^id(BFTask *loginTask) {
         GINIURLResponse *response = loginTask.result;
+        // Incorrect user credentials.
+        if (response.response.statusCode == 400 && [response.data isKindOfClass:[NSDictionary class]] && [response.data[@"error"] isEqualToString:@"invalid_grant"]) {
+            return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorInvalidCredentials userInfo:nil]];
+        }
         return [GINISessionParser sessionWithJSONDictionary:response.data];
     }];
 }

@@ -57,5 +57,9 @@ NSString *const GINIPasswordKey = @"Password";
     *password = [[_keychainManager getItem:GINIPasswordKey] value];
 }
 
+- (void)removeCredentials {
+    [_keychainManager deleteItem:[GINIKeychainItem keychainItemWithIdentifier:GINIUserNameKey value:nil]];
+    [_keychainManager deleteItem:[GINIKeychainItem keychainItemWithIdentifier:GINIPasswordKey value:nil]];
+}
 
 @end

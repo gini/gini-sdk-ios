@@ -13,7 +13,7 @@ NSString *const GINIErrorDomain = @"net.gini.error";
 @implementation GINIError
 
 + (instancetype)errorWithCode:(NSInteger)code userInfo:(NSDictionary *)userInfo {
-    return [[self alloc] initWithDomain:GINIErrorDomain code:code userInfo:userInfo];
+    return [[GINIError alloc] initWithDomain:GINIErrorDomain code:code userInfo:userInfo];
 }
 
 @end

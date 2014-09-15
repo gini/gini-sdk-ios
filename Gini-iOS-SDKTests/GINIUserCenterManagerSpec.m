@@ -6,6 +6,7 @@
 #import "GINIURLResponse.h"
 #import "GINIUser.h"
 #import "GINISession.h"
+#import "GINIError.h"
 
 
 // Make the private methods of the GINIUserCenterManager visible in the test so it can be used in tests.
@@ -70,7 +71,7 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 @"expires_in": @5000,
                 @"token_type": @"bearer"
             };
-            [urlSession createAndSetResponse:sessionResponse forURL:@"https://user.gini.net/oauth/token?grant_type=client_credentials"];
+            [urlSession createAndSetResponse:sessionResponse httpStatus:0 forURL:@"https://user.gini.net/oauth/token?grant_type=client_credentials"];
         });
 
         it(@"should raise an error if instantiated with the wrong dependencies", ^{
@@ -267,6 +268,19 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 BFTask *loginTask = [userCenterManager loginUser:@"foobar@example.com" password:@"1234"];
                 NSURLRequest *lastRequest = urlSession.lastRequest;
                 [[[lastRequest valueForHTTPHeaderField:@"Content-Type"] should] equal:@"application/x-www-form-urlencoded"];
+            });
+
+            it(@"should fail with a GINIError if the user credentials are incorrect", ^{
+                NSDictionary *responseData = @{
+                    @"error": @"invalid_grant",
+                    @"user_info": @""
+                };
+                [urlSession createAndSetResponse:responseData httpStatus:400 forURL:@"https://user.gini.net/oauth/token?grant_type=password"];
+
+                BFTask *loginTask = [userCenterManager loginUser:@"foo@example.com" password:@"1234"];
+
+                [[loginTask.error should] beKindOfClass:[GINIError class]];
+                [[theValue(loginTask.error.code) should] equal:theValue(GINIErrorInvalidCredentials)];
             });
         });
     });

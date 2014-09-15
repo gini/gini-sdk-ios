@@ -9,12 +9,49 @@
 #import "GINISession.h"
 #import "GINIError.h"
 
+#pragma mark - Test Helpers
+@interface GINIUserCenterManagerTestProxy : NSProxy
+
+@property GINIUserCenterManagerMock *target;
++ (instancetype)proxyForObject:(GINIUserCenterManagerMock *)target;
+
+@end
+
+
+@implementation GINIUserCenterManagerTestProxy
+
++ (id)proxyForObject:(GINIUserCenterManagerMock *)target {
+    GINIUserCenterManagerTestProxy *proxy = [self alloc];
+    proxy->_target = target;
+    return proxy;
+}
+
+- (void)forwardInvocation:(NSInvocation *)invocation {
+    [invocation invokeWithTarget:self.target];
+
+    // Raise login errors only on the first login attempt.
+    if (invocation.selector == @selector(loginUser:password:)) {
+        _target.raiseWrongCredentialsOnLogin = NO;
+    }
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)sel {
+    return [_target methodSignatureForSelector:sel];
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    return [_target respondsToSelector:aSelector];
+}
+
+@end
+
 
 @interface GINISessionManagerAnonymous (TestVisibility)
 - (BFTask *)getUserCredentials;
 @end
 
 
+#pragma mark - Tests
 SPEC_BEGIN(GINISessionManagerAnonymousSpec)
 
     describe(@"The GINISessionManagerAnonymous", ^{
@@ -90,6 +127,7 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
                 BFTask *credentialsTask = [sessionManager getUserCredentials];
                 [[credentialsTask.result should] beNil];
                 [[credentialsTask.error should] beKindOfClass:[GINIError class]];
+                [[theValue(credentialsTask.error.code) should] equal:theValue(GINIErrorNoCredentials)];
             });
         });
 
@@ -130,6 +168,44 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
                 userCenterManagerMock.createUserEnabled = NO;
                 BFTask *task = [sessionManager getSession];
                 [[task.result should] beKindOfClass:[GINISession class]];
+            });
+
+            it(@"should create a new user if there are no stored credentials", ^{
+                // The credentials are deleted before each test, so there are no stored credentials.
+                BFTask *task = [sessionManager getSession];
+
+                [[task.error should] beNil];
+                [[task.result should] beKindOfClass:[GINISession class]];
+                [[theValue(userCenterManagerMock.createUserCalled) should] equal:theValue(1)];
+            });
+
+            it(@"should avoid infinite login attempts", ^{
+                // Create the needed credentials.
+                GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
+                [credentialsStore storeUserCredentials:@"foo@example.com" password:@"1234"];
+                // But the mock will raise an error.
+                userCenterManagerMock.raiseWrongCredentialsOnLogin = YES;
+
+                BFTask *task = [sessionManager getSession];
+                [[task.error should] beKindOfClass:[GINIError class]];
+                // It tried to create a new user two times since each old user caused a login error.
+                [[theValue(userCenterManagerMock.createUserCalled) should] equal:theValue(2)];
+            });
+
+            it(@"should create a new user if the stored user credentials cause a login error.", ^{
+                // Create the needed credentials.
+                GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
+                [credentialsStore storeUserCredentials:@"foo@example.com" password:@"1234"];
+                // But the mock will raise an error.
+                userCenterManagerMock.raiseWrongCredentialsOnLogin = YES;
+
+                GINIUserCenterManagerTestProxy *userCenterProxy = [GINIUserCenterManagerTestProxy proxyForObject:userCenterManagerMock];
+                sessionManager = SessionManagerFactory((id) userCenterProxy);
+
+                BFTask *task = [sessionManager getSession];
+                [[task.error should] beNil];
+                [[task.result should] beKindOfClass:[GINISession class]];
+                [[theValue(userCenterManagerMock.createUserCalled) should] equal:theValue(1)];
             });
         });
 

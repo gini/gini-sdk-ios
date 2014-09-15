@@ -24,6 +24,9 @@
 
     /// The currently active session if there's a logged-in user.
     GINISession *_activeSession;
+
+    /// The number of login requests.
+    NSUInteger _loginAttempts;
 }
 
 + (instancetype)sessionManagerWithCredentialsStore:(id<GINICredentialsStore>)credentialsStore userCenterManager:(GINIUserCenterManager *)userCenterManager emailDomain:(NSString *)emailDomain {
@@ -39,6 +42,7 @@
         _credentialsStore = credentialsStore;
         _userCenterManager = userCenterManager;
         _emailDomain = emailDomain;
+        _loginAttempts = 0;
     }
     return self;
 }
@@ -49,11 +53,13 @@
 }
 
 - (BFTask *)getSession {
+    // Try to reuse an active session.
     if (_activeSession && ![_activeSession hasAlreadyExpired]) {
         return [BFTask taskWithResult:_activeSession];
     }
 
-    return [[[self getUserCredentials] continueWithBlock:^id(BFTask *task) {
+    // First step: Get the user credentials.
+    return [[[[self getUserCredentials] continueWithBlock:^id(BFTask *task) {
         // There are no stored user credentials
         if (task.error) {
             // So create a new user and return the credentials of the new user.
@@ -62,14 +68,35 @@
             }];
         }
         return task.result;
+
+        // Second step: Try to log-in the user.
     }] continueWithSuccessBlock:^id(BFTask *credentialsTask) {
+
+
         NSDictionary *credentials = credentialsTask.result;
-        BFTask *loginTask = [_userCenterManager loginUser:credentials[GINIUserNameKey] password:credentials[GINIPasswordKey]];
-        [loginTask continueWithSuccessBlock:^id(BFTask *task) {
-            _activeSession = task.result;
-            return nil;
+
+        // Try to avoid infinite login attempts.
+        _loginAttempts += 1;
+        if (_loginAttempts >= 3) {
+            return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorNoCredentials userInfo:nil]];
+        }
+
+        return [[_userCenterManager loginUser:credentials[GINIUserNameKey] password:credentials[GINIPasswordKey]] continueWithBlock:^id(BFTask *task) {
+            if (task.error) {
+                // Login error: This means that the stored user credentials are (no longer) valid. We need to create
+                // a new user.
+                if ([task.error isKindOfClass:[GINIError class]] && task.error.code == GINIErrorInvalidCredentials) {
+                    [self removeStoredCredentials];
+                    return [self getSession];
+                }
+                // Transparently pass-through all other errors.
+                return [BFTask taskWithError:task.error];
+            }
+            return task;
         }];
-        return loginTask;
+    }] continueWithBlock:^id(BFTask *task) {
+        _loginAttempts = 0;
+        return task;
     }];
 }
 
@@ -108,6 +135,10 @@
         [_credentialsStore storeUserCredentials:email password:password];
         return nil;
     }];
+}
+
+- (void)removeStoredCredentials {
+    [_credentialsStore removeCredentials];
 }
 
 @end
