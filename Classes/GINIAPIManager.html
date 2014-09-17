@@ -62,7 +62,7 @@
 	
 	<option value="//api/name/getIncubatorExtractionsForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getIncubatorExtractionsForDocument:</option>
 	
-	<option value="//api/name/getLayoutForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getLayoutForDocument:</option>
+	<option value="//api/name/getLayoutForDocument:responseType:">&nbsp;&nbsp;&nbsp;&nbsp;- getLayoutForDocument:responseType:</option>
 	
 	<option value="//api/name/getPagesForDocument:">&nbsp;&nbsp;&nbsp;&nbsp;- getPagesForDocument:</option>
 	
@@ -128,7 +128,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getIncubatorExtractionsForDocument:">getIncubatorExtractionsForDocument:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getLayoutForDocument:">getLayoutForDocument:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getLayoutForDocument:responseType:">getLayoutForDocument:responseType:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getPagesForDocument:">getPagesForDocument:</a></span></li>
 	
@@ -235,7 +235,7 @@ extractions and has advanced error handling and convenience methods.</p>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/getLayoutForDocument:">&ndash;&nbsp;getLayoutForDocument:</a></code>
+		<code><a href="#//api/name/getLayoutForDocument:responseType:">&ndash;&nbsp;getLayoutForDocument:responseType:</a></code>
 	</span>
 	
 	
@@ -795,8 +795,8 @@ the `<a href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerReques
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/getLayoutForDocument:" title="getLayoutForDocument:"></a>
-	<h3 class="subsubtitle method-title">getLayoutForDocument:</h3>
+	<a name="//api/name/getLayoutForDocument:responseType:" title="getLayoutForDocument:responseType:"></a>
+	<h3 class="subsubtitle method-title">getLayoutForDocument:responseType:</h3>
 	
 	
 	
@@ -806,7 +806,7 @@ the `<a href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerReques
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (BFTask *)getLayoutForDocument:(NSString *)<em>documentId</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (BFTask *)getLayoutForDocument:(NSString *)<em>documentId</em> responseType:(GiniAPIResponseType)<em>responseType</em></code></div>
 
     
 	
@@ -816,6 +816,11 @@ the `<a href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerReques
 		<dl class="argument-def parameter-def">
 			<dt><em>documentId</em></dt>
 			<dd><p>The document&rsquo;s id.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>responseType</em></dt>
+			<dd><p>The desired response type.</p></dd>
 		</dl>
 		
 	</div>
