@@ -18,6 +18,15 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
     GiniApiPreviewSizeBig
 };
 
+/**
+ * The type of the Gini API response
+ */
+typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
+    /// The response is of type JSON
+    GiniAPIResponseTypeJSON,
+    /// The response is of type XML
+    GiniAPIResponseTypeXML
+};
 
 /**
  * The GINIAPIManager is responsible for handling the communication with the GINI API.
@@ -85,10 +94,11 @@ typedef NS_ENUM(NSUInteger, GiniApiPreviewSize){
  * Gets the layout of a document.
  *
  * @param documentId        The document's id.
+ * @param responseType      The desired response type.
  *
  * @return                  A `BFTask*` that will resolve to a NSDictionary containing the document layout.
  */
-- (BFTask *)getLayoutForDocument:(NSString *)documentId;
+- (BFTask *)getLayoutForDocument:(NSString *)documentId responseType:(GiniAPIResponseType)responseType;
 
 /**
  * Creates a new document from the given NSData*.

@@ -27,7 +27,7 @@ describe(@"The GINIAPIManager", ^{
      *   - It checks that the request sent the correct credentials.
      *   - It checks that only the expected amount of HTTP requests are done.
      */
-    __block void (^checkRequest)(NSString *URL, NSUInteger requestCount) = ^(NSString *URL, NSUInteger requestCount) {
+    __block void (^checkAPIRequestBasic)(NSString *URL, NSUInteger requestCount) = ^(NSString *URL, NSUInteger requestCount) {
         // Check for the correct URL.
         NSURLRequest *request = urlSessionMock.lastRequest;
         [[request shouldNot] beNil];
@@ -46,12 +46,16 @@ describe(@"The GINIAPIManager", ^{
      *   - It checks that the request sent the correct credentials.
      *   - It checks that only the expected amount of HTTP requests are done.
      */
-    __block void (^checkJSONRequest)(NSString *URL, NSUInteger requestCount) = ^(NSString *URL, NSUInteger requestCount){
-        checkRequest(URL, requestCount);
+    __block void (^checkAPIRequestExtended)(NSString *URL, NSUInteger requestCount, GiniAPIResponseType responseType) = ^(NSString *URL, NSUInteger requestCount, GiniAPIResponseType responseType) {
+        checkAPIRequestBasic(URL, requestCount);
         // Check for the correct URL.
         NSURLRequest *request = urlSessionMock.lastRequest;
         // Check for the correct content type
-        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+json"];
+        if (responseType == GiniAPIResponseTypeJSON) {
+            [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+json"];
+        } else {
+            [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+xml"];
+        }
     };
 
     /**
@@ -101,7 +105,7 @@ describe(@"The GINIAPIManager", ^{
 
         it(@"should do the correct request to the Gini API", ^{
             [apiManager getDocument:documentId];
-            checkJSONRequest(@"https://api.gini.net/documents/Foobar", 1);
+            checkAPIRequestBasic(@"https://api.gini.net/documents/Foobar", 1);
         });
 
         it(@"should return the correct data", ^{
@@ -126,10 +130,10 @@ describe(@"The GINIAPIManager", ^{
 
         it(@"should do the correct request to the Gini API", ^{
             [apiManager getPreviewForPage:1 ofDocument:documentId withSize:GiniApiPreviewSizeMedium];
-            checkRequest(@"https://api.gini.net/documents/Foobar/pages/1/750x900", 1);
+            checkAPIRequestBasic(@"https://api.gini.net/documents/Foobar/pages/1/750x900", 1);
 
             [apiManager getPreviewForPage:1 ofDocument:documentId withSize:GiniApiPreviewSizeBig];
-            checkRequest(@"https://api.gini.net/documents/Foobar/pages/1/1280x1810", 2);
+            checkAPIRequestBasic(@"https://api.gini.net/documents/Foobar/pages/1/1280x1810", 2);
         });
 
         it(@"should return the correct data", ^{
@@ -151,7 +155,7 @@ describe(@"The GINIAPIManager", ^{
         
         it(@"should do the correct request to the Gini API", ^{
             [apiManager getPagesForDocument:documentId];
-            checkJSONRequest(@"https://api.gini.net/documents/Foobar/pages", 1);
+            checkAPIRequestBasic(@"https://api.gini.net/documents/Foobar/pages", 1);
         });
         
         it(@"should do a GET request", ^{
@@ -177,21 +181,26 @@ describe(@"The GINIAPIManager", ^{
     
     context(@"The getLayoutForDocument method", ^{
         it(@"should return a BFTask*", ^{
-            [[[apiManager getLayoutForDocument:documentId] should] beKindOfClass:[BFTask class]];
+            [[[apiManager getLayoutForDocument:documentId responseType:(GiniAPIResponseTypeJSON)] should] beKindOfClass:[BFTask class]];
         });
         
-        it(@"should do the correct request to the Gini API", ^{
-            [apiManager getLayoutForDocument:documentId];
-            checkJSONRequest(@"https://api.gini.net/documents/Foobar/layout", 1);
+        it(@"should do the correct request to the Gini API and return a JSON response", ^{
+            [apiManager getLayoutForDocument:documentId responseType:(GiniAPIResponseTypeJSON)];
+            checkAPIRequestExtended(@"https://api.gini.net/documents/Foobar/layout", 1, (GiniAPIResponseTypeJSON));
+        });
+
+        it(@"should do the correct request to the Gini API and return an XML response", ^{
+            [apiManager getLayoutForDocument:documentId responseType:(GiniAPIResponseTypeXML)];
+            checkAPIRequestExtended(@"https://api.gini.net/documents/Foobar/layout", 1, (GiniAPIResponseTypeXML));
         });
         
         it(@"should do a GET request", ^{
-            [apiManager getLayoutForDocument:documentId];
+            [apiManager getLayoutForDocument:documentId responseType:(GiniAPIResponseTypeJSON)];
             NSURLRequest *request = urlSessionMock.lastRequest;
             [[request.HTTPMethod should] equal:@"GET"];
         });
         
-        it(@"should return the correct data", ^{
+        it(@"should return the correct JSON data", ^{
             NSURL *dataPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"layout" withExtension:@"json"];
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:dataPath]
                                                                  options:NSJSONReadingAllowFragments
@@ -199,10 +208,22 @@ describe(@"The GINIAPIManager", ^{
             GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nil data:json];
             [urlSessionMock setResponse:[BFTask taskWithResult:response]
                                  forURL:@"https://api.gini.net/documents/Foobar/layout"];
-            BFTask *layoutTask = [apiManager getLayoutForDocument:documentId];
+            BFTask *layoutTask = [apiManager getLayoutForDocument:documentId responseType:(GiniAPIResponseTypeJSON)];
             [[layoutTask.error should] beNil];
             [[layoutTask.result should] beKindOfClass:[NSDictionary class]];
             [[layoutTask.result should] equal:json];
+        });
+
+        it(@"should return the correct XML data", ^{
+            NSURL *dataPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"layout" withExtension:@"xml"];
+            NSString *xml = [NSString stringWithContentsOfURL:dataPath encoding:GINIStringEncoding error:nil];
+            GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nil data:xml];
+            [urlSessionMock setResponse:[BFTask taskWithResult:response]
+                                 forURL:@"https://api.gini.net/documents/Foobar/layout"];
+            BFTask *layoutTask = [apiManager getLayoutForDocument:documentId responseType:(GiniAPIResponseTypeXML)];
+            [[layoutTask.error should] beNil];
+            [[layoutTask.result should] beKindOfClass:[NSString class]];
+            [[layoutTask.result should] equal:xml];
         });
     });
     
@@ -224,7 +245,7 @@ describe(@"The GINIAPIManager", ^{
             GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:[NSData new]];
             [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:uploadURL];
             [apiManager uploadDocumentWithData:[NSData new] contentType:@"image/png" fileName:@"foo.png" docType:nil];
-            checkRequest(createdDocumentsURL, 2);
+            checkAPIRequestBasic(createdDocumentsURL, 2);
         });
 
         it(@"should accept a doctype hint", ^{
@@ -240,7 +261,7 @@ describe(@"The GINIAPIManager", ^{
             GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:[NSData new]];
             [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:uploadURL];
             [apiManager uploadDocumentWithData:[NSData new] contentType:@"image/png" fileName:@"foo.png" docType:@"Invoice"];
-            checkRequest(createdDocumentsURL, 2);
+            checkAPIRequestBasic(createdDocumentsURL, 2);
         });
     });
     
@@ -251,7 +272,7 @@ describe(@"The GINIAPIManager", ^{
         
         it(@"should do the correct request to the Gini API", ^{
             [apiManager deleteDocument:documentId];
-            checkRequest(@"https://api.gini.net/documents/Foobar", 1);
+            checkAPIRequestBasic(@"https://api.gini.net/documents/Foobar", 1);
         });
 
         it(@"should do a DELETE request", ^{
@@ -281,7 +302,7 @@ describe(@"The GINIAPIManager", ^{
         
         it(@"should do the correct request to the Gini API", ^{
             [apiManager getDocumentsWithLimit:10 offset:0];
-            checkJSONRequest(@"https://api.gini.net/documents?limit=10&offset=0", 1);
+            checkAPIRequestBasic(@"https://api.gini.net/documents?limit=10&offset=0", 1);
         });
         
         it(@"should do a GET request", ^{
@@ -311,7 +332,7 @@ describe(@"The GINIAPIManager", ^{
         
         it(@"should do the correct request to the Gini API", ^{
             [apiManager getExtractionsForDocument:documentId];
-            checkJSONRequest(@"https://api.gini.net/documents/Foobar/extractions", 1);
+            checkAPIRequestBasic(@"https://api.gini.net/documents/Foobar/extractions", 1);
         });
 
         it(@"should do a GET request", ^{
@@ -352,7 +373,7 @@ describe(@"The GINIAPIManager", ^{
         it(@"should do the correct request to the Gini API", ^{
             [apiManager submitFeedbackForDocument:documentId label:label value:value boundingBox:boundingBox];
             NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/Foobar/extractions/%@", label];
-            checkRequest(urlString, 1);
+            checkAPIRequestBasic(urlString, 1);
         });
         
         it(@"should react correctly on the HTTP response", ^{
@@ -388,7 +409,7 @@ describe(@"The GINIAPIManager", ^{
         it(@"should do the correct request to the Gini API", ^{
             [apiManager deleteFeedbackForDocument:documentId label:label];
             NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/Foobar/extractions/%@", label];
-            checkRequest(urlString, 1);
+            checkAPIRequestBasic(urlString, 1);
         });
         
         it(@"should react correctly on the HTTP response", ^{
@@ -416,7 +437,7 @@ describe(@"The GINIAPIManager", ^{
         it(@"should do the correct request to the Gini API", ^{
             [apiManager search:searchTerm limit:(unsigned long)10 offset:(unsigned long)0 docType:docType];
             NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/search?q=%@&limit=%lu&offset=%lu&docType=%@", searchTerm, (unsigned long)10, (unsigned long)0, docType];
-            checkRequest(urlString, 1);
+            checkAPIRequestBasic(urlString, 1);
         });
         
         it(@"should react correctly on the HTTP response", ^{
@@ -451,7 +472,7 @@ describe(@"The GINIAPIManager", ^{
         it(@"should do the correct request to the Gini API", ^{
             [apiManager reportErrorForDocument:documentId summary:summary description:description];
             NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/%@/errorreport?summary=%@&description=%@", documentId, summaryEncoded, descriptionEncoded];
-            checkRequest(urlString, 1);
+            checkAPIRequestBasic(urlString, 1);
         });
 
         it(@"should react correctly on the HTTP response", ^{
@@ -496,7 +517,7 @@ describe(@"The GINIAPIManager", ^{
         it(@"should do the correct request to the Gini API", ^{
             [apiManager submitBatchFeedbackForDocument:documentId feedback:feedback];
             NSString *urlString = [NSString stringWithFormat:@"https://api.gini.net/documents/%@/extractions", documentId];
-            checkRequest(urlString, 1);
+            checkAPIRequestBasic(urlString, 1);
         });
 
         it(@"should react correctly on the HTTP response", ^{

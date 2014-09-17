@@ -39,6 +39,7 @@
 		59A9641F604A66859873F168 /* GINIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A96A1C40A30D2B13208558 /* GINIUser.m */; };
 		59A9690C3E4F8E47848268A1 /* feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 59A96C6B0754CAD2A1868669 /* feedback.json */; };
 		59A96AE1172BD5FF1C70C63C /* GINIUserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A9614FFB0DC06682809850 /* GINIUserSpec.m */; };
+		59A96D965DF351F797FD85E0 /* layout.xml in Resources */ = {isa = PBXBuildFile; fileRef = 59A96FAD9C6D7C6E686940FD /* layout.xml */; };
 		59A96DC1EF05B7643FBD6471 /* errorreport.json in Resources */ = {isa = PBXBuildFile; fileRef = 59A96CB6369C9F78DE897C7A /* errorreport.json */; };
 		81EE4016DD5977EA419AAB82 /* GINISessionManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE48376DD3F8CEA4908F4D /* GINISessionManagerMock.m */; };
 		81EE40E5B0692EC02D52532A /* GINICredentialsStoreMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EE46B2FC973F21033FBA16 /* GINICredentialsStoreMock.m */; };
@@ -155,6 +156,7 @@
 		59A96A1C40A30D2B13208558 /* GINIUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIUser.m; sourceTree = "<group>"; };
 		59A96C6B0754CAD2A1868669 /* feedback.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = feedback.json; sourceTree = "<group>"; };
 		59A96CB6369C9F78DE897C7A /* errorreport.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = errorreport.json; sourceTree = "<group>"; };
+		59A96FAD9C6D7C6E686940FD /* layout.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = layout.xml; sourceTree = "<group>"; };
 		81EE409560F238177896AAE6 /* session.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = session.json; sourceTree = "<group>"; };
 		81EE41360403FDC922D327D7 /* GINIAPIManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIAPIManagerSpec.m; sourceTree = "<group>"; };
 		81EE418798C94FE64EDC0977 /* GINICredentialsStoreMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINICredentialsStoreMock.h; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				04B754821959ABB600CF6072 /* search.json */,
 				59A96CB6369C9F78DE897C7A /* errorreport.json */,
 				59A96C6B0754CAD2A1868669 /* feedback.json */,
+				59A96FAD9C6D7C6E686940FD /* layout.xml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				04A595B2195869DD00CB8E1B /* documents.json in Resources */,
 				59A96DC1EF05B7643FBD6471 /* errorreport.json in Resources */,
 				59A9690C3E4F8E47848268A1 /* feedback.json in Resources */,
+				59A96D965DF351F797FD85E0 /* layout.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

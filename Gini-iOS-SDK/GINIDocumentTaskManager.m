@@ -246,7 +246,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 - (BFTask *)getLayoutForDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
-    BFTask *layoutTask = [_apiManager getLayoutForDocument:document.documentId];
+    BFTask *layoutTask = [_apiManager getLayoutForDocument:document.documentId responseType:(GiniAPIResponseTypeJSON)];
     return GINIhandleHTTPerrors(layoutTask);
 }
 

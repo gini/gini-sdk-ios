@@ -113,13 +113,17 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     }];
 }
 
-- (BFTask *)getLayoutForDocument:(NSString *)documentId {
+- (BFTask *)getLayoutForDocument:(NSString *)documentId responseType:(GiniAPIResponseType)responseType {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
-    
+
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"documents/%@/layout", documentId] relativeToURL:_baseURL];
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        if (responseType == GiniAPIResponseTypeJSON) {
+            [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        } else {
+            [request setValue:@"application/vnd.gini.v1+xml" forHTTPHeaderField:@"Accept"];
+        }
         return [[_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *layoutTask) {
             GINIURLResponse *response = layoutTask.result;
             return response.data;

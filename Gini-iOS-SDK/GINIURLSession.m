@@ -26,6 +26,18 @@ BOOL GINIIsJSONContent(NSString *contentType) {
 }
 
 /**
+* Helper function that determines if a content type is a valid XML content type.
+*/
+BOOL GINIIsXMLContent(NSString *contentType) {
+    static NSSet *knownContentTypes;
+    if (!knownContentTypes) {
+        knownContentTypes = [NSSet setWithObjects:@"application/xml", @"application/vnd.gini.v1+xml", @"application/vnd.gini.incubator+xml", nil];
+    }
+    NSArray *contentTypeComponents = [contentType componentsSeparatedByString:@";"];
+    return ([knownContentTypes containsObject:contentTypeComponents.firstObject]);
+}
+
+/**
  * Helper function that determines if a content type is a valid image content type.
  */
 BOOL GINIIsImageContent(NSString *contentType) {
@@ -78,7 +90,7 @@ GINIURLResponse* GINIDeserializeResponse(NSURLResponse *response, NSData *rawDat
             httpResult.data = GINIDeserializeJSONResponse(rawData, error);
         } else if (GINIIsImageContent(contentType)) {
             httpResult.data = GINIDeserializeImageResponse(rawData);
-        } else if (GINIIsTextContent(contentType)) {
+        } else if (GINIIsTextContent(contentType) || GINIIsXMLContent(contentType)) {
             httpResult.data = [[NSString alloc] initWithData:rawData encoding:GINI_DEFAULT_ENCODING];
         }
     }
