@@ -39,23 +39,25 @@ describe(@"The GINIAPIManager", ^{
     };
 
     /**
-     * Many tests do requests to the Gini API. This helper function does some tests that all HTTP requests have in
-     * common:
-     *   - It checks that the request is to the given URL.
-     *   - It checks that the request has the correct Accept header for JSON data.
-     *   - It checks that the request sent the correct credentials.
-     *   - It checks that only the expected amount of HTTP requests are done.
+     * In addition to the basic API request checks this helper tests whether the accept header is correct for JSON data.
      */
-    __block void (^checkAPIRequestExtended)(NSString *URL, NSUInteger requestCount, GiniAPIResponseType responseType) = ^(NSString *URL, NSUInteger requestCount, GiniAPIResponseType responseType) {
+    __block void (^checkAPIRequestJSON)(NSString *URL, NSUInteger requestCount) = ^(NSString *URL, NSUInteger requestCount) {
         checkAPIRequestBasic(URL, requestCount);
         // Check for the correct URL.
         NSURLRequest *request = urlSessionMock.lastRequest;
         // Check for the correct content type
-        if (responseType == GiniAPIResponseTypeJSON) {
-            [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+json"];
-        } else {
-            [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+xml"];
-        }
+        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+json"];
+    };
+
+    /**
+     * In addition to the basic API request checks this helper tests whether the accept header is correct for XML data.
+     */
+    __block void (^checkAPIRequestXML)(NSString *URL, NSUInteger requestCount) = ^(NSString *URL, NSUInteger requestCount) {
+        checkAPIRequestBasic(URL, requestCount);
+        // Check for the correct URL.
+        NSURLRequest *request = urlSessionMock.lastRequest;
+        // Check for the correct content type
+        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+xml"];
     };
 
     /**
@@ -186,12 +188,12 @@ describe(@"The GINIAPIManager", ^{
         
         it(@"should do the correct request to the Gini API and return a JSON response", ^{
             [apiManager getLayoutForDocument:documentId responseType:(GiniAPIResponseTypeJSON)];
-            checkAPIRequestExtended(@"https://api.gini.net/documents/Foobar/layout", 1, (GiniAPIResponseTypeJSON));
+            checkAPIRequestJSON(@"https://api.gini.net/documents/Foobar/layout", 1);
         });
 
         it(@"should do the correct request to the Gini API and return an XML response", ^{
             [apiManager getLayoutForDocument:documentId responseType:(GiniAPIResponseTypeXML)];
-            checkAPIRequestExtended(@"https://api.gini.net/documents/Foobar/layout", 1, (GiniAPIResponseTypeXML));
+            checkAPIRequestXML(@"https://api.gini.net/documents/Foobar/layout", 1);
         });
         
         it(@"should do a GET request", ^{
