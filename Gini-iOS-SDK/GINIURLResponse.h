@@ -57,4 +57,11 @@
  */
 @property NSHTTPURLResponse *response;
 
+
+/**
+ * If there has been an error while parsing the response (e.g. invalid JSON or a corrupted image), this property holds
+ * the error which occurred.
+ */
+@property NSError *parseError;
+
 @end

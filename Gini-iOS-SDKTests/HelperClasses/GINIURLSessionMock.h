@@ -48,6 +48,6 @@
  * @param httpStatus    The HTTP status code that will be set as the status code of the NSURLResponse.
  * @param forURL        The URL of the request.
  */
-- (void)createAndSetResponse:(id)data httpStatus:(NSInteger)httpStatus forURL:(NSString *)URL;
+- (void)createAndSetResponse:(id)data httpStatus:(NSInteger)httpStatus forURL:(NSString *)URL error:(BOOL)isError;
 
 @end

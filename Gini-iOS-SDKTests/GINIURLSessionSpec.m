@@ -7,6 +7,7 @@
 #import "GINIURLSession.h"
 #import "BFTask.h"
 #import "GINIURLResponse.h"
+#import "GINIHTTPError.h"
 
 
 // Make the helper functions visible for the tests.
@@ -228,7 +229,7 @@ SPEC_BEGIN(GINIURLSessionSpec)
                 [[taskResponse.data should] equal:@{@"foo": @"bar"}];
             });
 
-            it(@"should pass-through the error if the JSON deserialization fails", ^{
+            it(@"should provide a hint if the JSON deserialization fails", ^{
                 NSURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://api.gini.net"]
                                                                       statusCode:200
                                                                      HTTPVersion:@"1.1"
@@ -239,8 +240,9 @@ SPEC_BEGIN(GINIURLSessionSpec)
                 nsURLSessionMock.data = [@"\"foo\": \"bar\"}" dataUsingEncoding:NSUTF8StringEncoding]; // Note the missing { at the beginning
                 BFTask *task = [giniURLSession BFDataTaskWithRequest:request];
                 [[theValue(task.isCompleted) should] beYes];
-                [[task.result should] beNil];
-                [[task.error should] beNonNil];
+                [[task.result should] beKindOfClass:[GINIURLResponse class]];
+                [[((GINIURLResponse *) task.result).parseError should] beKindOfClass:[NSError class]];
+                [[task.error should] beNil];
             });
 
             it(@"should return a string if the content is text content", ^{
@@ -260,6 +262,37 @@ SPEC_BEGIN(GINIURLSessionSpec)
                 [[httpResponse.data should] equal:@"<html></html>"];
             });
 
+            it(@"should resolve to an error if the HTTP status code indicates an error", ^{
+                NSURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://api.gini.net"]
+                                                                      statusCode:500
+                                                                     HTTPVersion:@"1.1"
+                                                                    headerFields:@{
+                                                                            @"Content-Type" : @"application/json"
+                                                                    }];
+                nsURLSessionMock.response = response;
+                nsURLSessionMock.data = [@"{\"foo\": \"bar\"}" dataUsingEncoding:NSUTF8StringEncoding];
+                BFTask *task = [giniURLSession BFDataTaskWithRequest:request];
+
+                [[task.result should] beNil];
+                [[task.error should] beKindOfClass:[GINIHTTPError class]];
+            });
+
+            it(@"should deserialize HTTP error responses", ^{
+                NSURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://api.gini.net"]
+                                                                      statusCode:500
+                                                                     HTTPVersion:@"1.1"
+                                                                    headerFields:@{
+                                                                            @"Content-Type" : @"application/json"
+                                                                    }];
+                nsURLSessionMock.response = response;
+                nsURLSessionMock.data = [@"{\"foo\": \"bar\"}" dataUsingEncoding:NSUTF8StringEncoding];
+                BFTask *task = [giniURLSession BFDataTaskWithRequest:request];
+
+                GINIHTTPError *httpError = (id)task.error;
+                [[httpError.response.data should] beKindOfClass:[NSDictionary class]];
+                NSDictionary *responseData = httpError.response.data;
+                [[responseData[@"foo"] should] equal:@"bar"];
+            });
         });
 
 
@@ -304,6 +337,38 @@ SPEC_BEGIN(GINIURLSessionSpec)
                 [[theValue(uploadTask.isCompleted) should] beYes];
                 [[uploadTask.result should] beKindOfClass:[GINIURLResponse class]];
                 [[uploadTask.error should] beNil];
+            });
+
+            it(@"should resolve to an error if the HTTP status code indicates an error", ^{
+                NSURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://api.gini.net"]
+                                                                      statusCode:500
+                                                                     HTTPVersion:@"1.1"
+                                                                    headerFields:@{
+                                                                            @"Content-Type" : @"application/json"
+                                                                    }];
+                nsURLSessionMock.response = response;
+                nsURLSessionMock.data = [@"{\"foo\": \"bar\"}" dataUsingEncoding:NSUTF8StringEncoding];
+                BFTask *task = [giniURLSession BFUploadTaskWithRequest:request fromData:[NSData new]];
+
+                [[task.result should] beNil];
+                [[task.error should] beKindOfClass:[GINIHTTPError class]];
+            });
+
+            it(@"should deserialize HTTP error responses", ^{
+                NSURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://api.gini.net"]
+                                                                      statusCode:500
+                                                                     HTTPVersion:@"1.1"
+                                                                    headerFields:@{
+                                                                            @"Content-Type" : @"application/json"
+                                                                    }];
+                nsURLSessionMock.response = response;
+                nsURLSessionMock.data = [@"{\"foo\": \"bar\"}" dataUsingEncoding:NSUTF8StringEncoding];
+                BFTask *task = [giniURLSession BFUploadTaskWithRequest:request fromData:[NSData new]];
+
+                GINIHTTPError *httpError = (id)task.error;
+                [[httpError.response.data should] beKindOfClass:[NSDictionary class]];
+                NSDictionary *responseData = httpError.response.data;
+                [[responseData[@"foo"] should] equal:@"bar"];
             });
         });
 

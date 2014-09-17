@@ -7,6 +7,7 @@
 #import "GINIURLSessionMock.h"
 #import "BFTask.h"
 #import "GINIURLResponse.h"
+#import "GINIHTTPError.h"
 
 
 @implementation GINIURLSessionMock {
@@ -60,13 +61,19 @@
     [_responses setValue:response forKey:URL];
 }
 
-- (void)createAndSetResponse:(id)data httpStatus:(NSInteger)httpStatus forURL:(NSString *)URL {
+- (void)createAndSetResponse:(id)data httpStatus:(NSInteger)httpStatus forURL:(NSString *)URL error:(BOOL)isError {
     NSHTTPURLResponse *httpURLResponse = [[NSHTTPURLResponse alloc] initWithURL:[NSURL URLWithString:URL]
                                                                      statusCode:httpStatus
                                                                     HTTPVersion:@"1.1"
                                                                    headerFields:nil];
     GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:httpURLResponse data:data];
-    [self setResponse:[BFTask taskWithResult:response] forURL:URL];
+
+    if (!isError) {
+        [self setResponse:[BFTask taskWithResult:response] forURL:URL];
+    } else {
+        GINIHTTPError *error = [GINIHTTPError HTTPErrrorWithResponse:response];
+        [self setResponse:[BFTask taskWithError:error] forURL:URL];
+    }
 }
 
 - (BFTask *)responseForURL:(NSString *)URL{
