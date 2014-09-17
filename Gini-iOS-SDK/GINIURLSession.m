@@ -7,6 +7,7 @@
 #import <UIKit/UIImage.h>
 #import "GINIURLSession.h"
 #import "GINIURLResponse.h"
+#import "GINIHTTPError.h"
 
 
 #define GINI_DEFAULT_ENCODING NSUTF8StringEncoding
@@ -40,6 +41,76 @@ BOOL GINIIsTextContent(NSString *contentType) {
     return [[[contentTypeComponents firstObject] substringToIndex:5] isEqualToString:@"text/"];
 }
 
+/**
+* Checks if there has been an error in the HTTP communication and if the HTTP status code is an error.
+*/
+BOOL GINICheckHTTPError(NSURLResponse *response) {
+
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (httpResponse.statusCode < 200 || httpResponse.statusCode > 304) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
+UIImage *GINIDeserializeImageResponse(NSData *rawData) {
+    return [UIImage imageWithData:rawData];
+}
+
+id GINIDeserializeJSONResponse(NSData *rawData, NSError **error) {
+    return [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingAllowFragments error:error];
+}
+
+
+GINIURLResponse* GINIDeserializeResponse(NSURLResponse *response, NSData *rawData, NSError **error) {
+    GINIURLResponse *httpResult = [GINIURLResponse new];
+
+    // Usually the response object is actually an instance of the sub class NSHTTPURLResponse, but we check to be
+    // sure instead of doing a simple downcast.
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+        httpResult.response = (NSHTTPURLResponse *) response;
+        // Fortunately, the Gini API uses correct content types.
+        NSString *contentType = [httpResult.response allHeaderFields][@"Content-Type"];
+        if (GINIIsJSONContent(contentType) && [rawData length] > 0) {
+            httpResult.data = GINIDeserializeJSONResponse(rawData, error);
+        } else if (GINIIsImageContent(contentType)) {
+            httpResult.data = GINIDeserializeImageResponse(rawData);
+        } else if (GINIIsTextContent(contentType)) {
+            httpResult.data = [[NSString alloc] initWithData:rawData encoding:GINI_DEFAULT_ENCODING];
+        }
+    }
+
+    // If the response could not be deserialized, just use the raw data.
+    if (!httpResult.data) {
+        httpResult.data = rawData;
+    }
+
+    // If there was an error during deserialization set the error.
+    if (error) {
+        httpResult.parseError = *error;
+    }
+
+    return httpResult;
+}
+
+void GINIParseResponse(NSData *data, NSURLResponse *response, NSError *error, BFTaskCompletionSource *completionSource) {
+    // If there has been an error in the HTTP communication, transparently pass-through the error.
+    if (error) {
+        return [completionSource setError:error];
+    }
+    // Otherwise try to use the response.
+    GINIURLResponse *parsedResponse = GINIDeserializeResponse(response, data, &error);
+    if (GINICheckHTTPError(response)) {
+        [completionSource setError:[GINIHTTPError HTTPErrrorWithResponse:parsedResponse]];
+    } else {
+        [completionSource setResult:parsedResponse];
+    }
+}
+
+
 @implementation GINIURLSession {
     NSURLSession *_nsURLSession;
 }
@@ -65,11 +136,7 @@ BOOL GINIIsTextContent(NSString *contentType) {
 - (BFTask *)BFDataTaskWithRequest:(NSURLRequest *)request{
     BFTaskCompletionSource *completionSource = [BFTaskCompletionSource taskCompletionSource];
     NSURLSessionDataTask *task = [_nsURLSession dataTaskWithRequest:request completionHandler:^void(NSData *data, NSURLResponse *response, NSError *error) {
-        // If there has been an error in the HTTP communication, transparently pass-through the error.
-        if (error) {
-            return [completionSource setError:error];
-        }
-        [self deserializeResponse:response withData:data completingTaskSource:completionSource];
+        GINIParseResponse(data, response, error, completionSource);
     }];
     [task resume];
     return completionSource.task;
@@ -82,7 +149,12 @@ BOOL GINIIsTextContent(NSString *contentType) {
         if (error) {
             return [completionSource setError:error];
         }
-        [completionSource setResult:[GINIURLResponse urlResponseWithResponse:(NSHTTPURLResponse *)response data:location]]; // TODO: downcast
+        GINIURLResponse *parsedResponse = [GINIURLResponse urlResponseWithResponse:(NSHTTPURLResponse *)response data:location];
+        if (GINICheckHTTPError(response)) {
+            [completionSource setError:[GINIHTTPError HTTPErrrorWithResponse:parsedResponse]];
+        } else {
+            [completionSource setResult:parsedResponse]; // TODO: downcast
+        }
     }];
     [downloadTask resume];
     return completionSource.task;
@@ -91,49 +163,10 @@ BOOL GINIIsTextContent(NSString *contentType) {
 - (BFTask *)BFUploadTaskWithRequest:(NSURLRequest *)request fromData:(NSData *)uploadData {
     BFTaskCompletionSource *completionSource = [BFTaskCompletionSource taskCompletionSource];
     NSURLSessionUploadTask *uploadTask = [_nsURLSession uploadTaskWithRequest:request fromData:uploadData completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error) {
-            return [completionSource setError:error];
-        }
-        [self deserializeResponse:response withData:data completingTaskSource:completionSource];
+        GINIParseResponse(data, response, error, completionSource);
     }];
     [uploadTask resume];
     return completionSource.task;
-}
-
-#pragma mark - Private methods
-- (void)deserializeResponse:(NSURLResponse *)response withData:(NSData *)rawData completingTaskSource:(BFTaskCompletionSource *)completionSource {
-    // TODO: Refactor this method so it is understandable more easily.
-    GINIURLResponse *httpResult = [GINIURLResponse new];
-
-    // Usually the response object is actually an instance of the sub class NSHTTPURLResponse, but we check to be
-    // sure instead of doing a simple downcast.
-    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-        NSError *error;
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-        httpResult.response = httpResponse;
-        NSString *contentType = [[httpResponse allHeaderFields] objectForKey:@"Content-Type"];
-        if (GINIIsJSONContent(contentType) && [rawData length] > 0) {
-            id deserializedData = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingAllowFragments error:&error];
-            if (error) {
-                return [completionSource setError:error];
-            } else {
-                httpResult.data = deserializedData;
-            }
-        } else if (GINIIsImageContent(contentType)) {
-            UIImage *image = [UIImage imageWithData:rawData];
-            if (image) {
-                httpResult.data = image;
-            }
-        } else if (GINIIsTextContent(contentType)) {
-            httpResult.data = [[NSString alloc] initWithData:rawData encoding:GINI_DEFAULT_ENCODING];
-        }
-    }
-    // If the response could not be deserialized, just set the data as the result.
-    if (!httpResult.data) {
-        httpResult.data = rawData;
-    }
-
-    return [completionSource setResult:httpResult];
 }
 
 @end

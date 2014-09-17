@@ -71,7 +71,7 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 @"expires_in": @5000,
                 @"token_type": @"bearer"
             };
-            [urlSession createAndSetResponse:sessionResponse httpStatus:0 forURL:@"https://user.gini.net/oauth/token?grant_type=client_credentials"];
+            [urlSession createAndSetResponse:sessionResponse httpStatus:0 forURL:@"https://user.gini.net/oauth/token?grant_type=client_credentials" error:NO];
         });
 
         it(@"should raise an error if instantiated with the wrong dependencies", ^{
@@ -275,7 +275,7 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                     @"error": @"invalid_grant",
                     @"user_info": @""
                 };
-                [urlSession createAndSetResponse:responseData httpStatus:400 forURL:@"https://user.gini.net/oauth/token?grant_type=password"];
+                [urlSession createAndSetResponse:responseData httpStatus:400 forURL:@"https://user.gini.net/oauth/token?grant_type=password" error:YES];
 
                 BFTask *loginTask = [userCenterManager loginUser:@"foo@example.com" password:@"1234"];
 
