@@ -35,7 +35,7 @@
 }
 
 + (instancetype)extractionWithName:(NSString *)name value:(NSString *)value entity:(NSString *)entity box:(NSDictionary *)box {
-    return [[GINIExtraction alloc] initWithName:name value:value entity:entity box:box];
+    return [[self alloc] initWithName:name value:value entity:entity box:box];
 }
 
 - (instancetype)initWithName:(NSString *)name value:(NSString *)value entity:(NSString *)entity box:(NSDictionary *)box {

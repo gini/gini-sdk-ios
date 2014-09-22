@@ -47,7 +47,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 + (instancetype)documentTaskManagerWithAPIManager:(GINIAPIManager *)apiManager {
     NSParameterAssert([apiManager isKindOfClass:[GINIAPIManager class]]);
 
-    return [[GINIDocumentTaskManager alloc] initWithAPIManager:apiManager];
+    return [[self alloc] initWithAPIManager:apiManager];
 }
 
 #pragma mark - Initializer

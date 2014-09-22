@@ -12,7 +12,7 @@
     NSParameterAssert([email isKindOfClass:[NSString class]]);
     NSParameterAssert([userId isKindOfClass:[NSString class]]);
 
-    return [[GINIUser alloc] initWithEmail:email userId:userId];
+    return [[self alloc] initWithEmail:email userId:userId];
 }
 
 + (id)userFromAPIResponse:(NSDictionary *)response {

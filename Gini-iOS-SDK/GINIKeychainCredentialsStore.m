@@ -18,7 +18,7 @@ NSString *const GINIPasswordKey = @"Password";
 }
 
 + (instancetype)credentialsStoreWithKeychainManager:(GINIKeychainManager *)keychainManager {
-    return [[GINIKeychainCredentialsStore alloc] initWithKeychainManager:keychainManager];
+    return [[self alloc] initWithKeychainManager:keychainManager];
 }
 
 - (instancetype)initWithKeychainManager:(GINIKeychainManager *)keychainManager {
