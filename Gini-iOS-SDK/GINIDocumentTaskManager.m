@@ -188,7 +188,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
             giniCandidates[entity] = [NSMutableArray new];
 
             for (NSUInteger i=0; i < [candidates count]; i++) {
-                NSDictionary *candidate = [candidates objectAtIndex:i];
+                NSDictionary *candidate = candidates[i];
                 GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:nil
                                                                               value:[candidate valueForKey:@"value"]
                                                                              entity:entity

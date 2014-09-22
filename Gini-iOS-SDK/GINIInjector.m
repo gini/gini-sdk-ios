@@ -51,7 +51,7 @@ id GINIInjectorKey(id key) {
     va_end(args);
 
     GINIFactoryDescription *factoryDescription = [GINIFactoryDescription factoryDescriptionForFactory:method on:classOrObject dependencies:dependencies];
-    [_factories setObject:factoryDescription forKey:GINIInjectorKey(key)];
+    _factories[GINIInjectorKey(key)] = factoryDescription;
     return factoryDescription;
 }
 
@@ -70,13 +70,13 @@ id GINIInjectorKey(id key) {
     va_end(args);
 
     GINIFactoryDescription *factoryDescription = [GINIFactoryDescription factoryDescriptionForFactory:method on:classOrObject dependencies:dependencies];
-    [_factories setObject:factoryDescription forKey:GINIInjectorKey(key)];
+    _factories[GINIInjectorKey(key)] = factoryDescription;
     factoryDescription.isSingleton = YES;
     return factoryDescription;
 }
 
 - (id)factoryForKey:(id)key {
-    return [_factories objectForKey:GINIInjectorKey(key)];
+    return _factories[GINIInjectorKey(key)];
 }
 
 - (void)setObject:(id)value forKey:(id)key {
@@ -118,7 +118,7 @@ id GINIInjectorKey(id key) {
     // Get the instances of the dependencies.
     for (NSUInteger i=0; i < [factoryDescription.dependencies count]; i += 1) {
         id dependencyKey = factoryDescription.dependencies[i];
-        id dependencyInstance = [givenDependencies objectForKey:dependencyKey];
+        id dependencyInstance = givenDependencies[dependencyKey];
         if (!dependencyInstance) {
             dependencyInstance = [self getInstanceOf:dependencyKey];
         }

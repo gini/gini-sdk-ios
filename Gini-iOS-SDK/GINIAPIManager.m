@@ -19,7 +19,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     if (!availablePreviewSizes) {
         availablePreviewSizes = @[@"750x900", @"1280x1810"];
     }
-    return [availablePreviewSizes objectAtIndex:previewSize];
+    return availablePreviewSizes[previewSize];
 }
 
 

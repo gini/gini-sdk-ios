@@ -20,7 +20,7 @@
 }
 
 + (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse withDocumentManager:(GINIDocumentTaskManager *)documentManager{
-    NSString *documentId = [apiResponse objectForKey:@"id"];
+    NSString *documentId = apiResponse[@"id"];
     // Documents must have an ID.
     if (!documentId) {
         NSLog(@"Document without id: %@", apiResponse);
