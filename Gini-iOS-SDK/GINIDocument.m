@@ -112,7 +112,9 @@
 
 - (BFTask *)layout {
     if (!_layout) {
-        _layout = [_documentTaskManager getLayoutForDocument:self];
+        _layout = [[_documentTaskManager pollDocument:self] continueWithBlock:^id(BFTask *task) {
+            return [_documentTaskManager getLayoutForDocument:self];
+        }];
     }
     return _layout;
 }
