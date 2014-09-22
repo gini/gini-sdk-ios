@@ -1,9 +1,9 @@
 target 'Gini-iOS-SDK' do
-	platform :ios, '7.0'
+  platform :ios, '7.0'
 
-	pod 'Bolts'
+  pod 'Bolts', '~>1.1.0'
 
-	target 'Gini-iOS-SDKTests', :exclusive => true do
-   		pod 'Kiwi/XCTest', '2.2.4'
-	end
+  target 'Gini-iOS-SDKTests', :exclusive => true do
+    pod 'Kiwi', '~>2.3.0'
+  end
 end
