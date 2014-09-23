@@ -14,7 +14,7 @@
 }
 
 + (instancetype)requestFactoryWithSessionManager:(id <GINISessionManager>)sessionManager {
-    return [[GINIAPIManagerRequestFactory alloc] initWithSessionManager:sessionManager];
+    return [[self alloc] initWithSessionManager:sessionManager];
 }
 
 - (instancetype)initWithSessionManager:(id<GINISessionManager>)sessionManager {

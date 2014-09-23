@@ -12,7 +12,7 @@
 + (instancetype)keychainItemWithIdentifier:(NSString *)identifier value:(NSString *)value {
     NSParameterAssert([identifier isKindOfClass:[NSString class]]);
 
-    return [[GINIKeychainItem alloc] initWithIdentifier:identifier value:value];
+    return [[self alloc] initWithIdentifier:identifier value:value];
 }
 
 #pragma mark - Initializer

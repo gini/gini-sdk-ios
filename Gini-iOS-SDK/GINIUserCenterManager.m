@@ -31,7 +31,7 @@
 }
 
 + (instancetype)userCenterManagerWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL {
-    return [[GINIUserCenterManager alloc] initWithURLSession:urlSession clientID:clientID clientSecret:clientSecret baseURL:baseURL];
+    return [[self alloc] initWithURLSession:urlSession clientID:clientID clientSecret:clientSecret baseURL:baseURL];
 }
 
 - (instancetype)initWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL {

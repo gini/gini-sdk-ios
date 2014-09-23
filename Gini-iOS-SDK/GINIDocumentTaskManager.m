@@ -47,7 +47,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 + (instancetype)documentTaskManagerWithAPIManager:(GINIAPIManager *)apiManager {
     NSParameterAssert([apiManager isKindOfClass:[GINIAPIManager class]]);
 
-    return [[GINIDocumentTaskManager alloc] initWithAPIManager:apiManager];
+    return [[self alloc] initWithAPIManager:apiManager];
 }
 
 #pragma mark - Initializer
@@ -188,7 +188,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
             giniCandidates[entity] = [NSMutableArray new];
 
             for (NSUInteger i=0; i < [candidates count]; i++) {
-                NSDictionary *candidate = [candidates objectAtIndex:i];
+                NSDictionary *candidate = candidates[i];
                 GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:nil
                                                                               value:[candidate valueForKey:@"value"]
                                                                              entity:entity

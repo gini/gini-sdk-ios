@@ -128,11 +128,11 @@ void GINIParseResponse(NSData *data, NSURLResponse *response, NSError *error, BF
 }
 
 + (instancetype)urlSessionWithNSURLSession:(NSURLSession *)urlSession {
-    return [[GINIURLSession alloc] initWithNSURLSession:urlSession];
+    return [[self alloc] initWithNSURLSession:urlSession];
 }
 
 + (instancetype)urlSession {
-    return [GINIURLSession urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]];
+    return [self urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]];
 }
 
 - (instancetype)initWithNSURLSession:(NSURLSession *)urlSession {

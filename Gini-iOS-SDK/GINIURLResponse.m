@@ -9,11 +9,11 @@
 
 #pragma mark - Factories
 + (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)urlResponse {
-    return [[GINIURLResponse alloc] initWithResponse:urlResponse];
+    return [[self alloc] initWithResponse:urlResponse];
 }
 
 + (instancetype)urlResponseWithResponse:(NSHTTPURLResponse *)urlResponse data:(id)urlData {
-    return [[GINIURLResponse alloc] initWithResponse:urlResponse data:urlData];
+    return [[self alloc] initWithResponse:urlResponse data:urlData];
 }
 
 

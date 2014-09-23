@@ -30,7 +30,7 @@
 }
 
 + (instancetype)sessionManagerWithCredentialsStore:(id<GINICredentialsStore>)credentialsStore userCenterManager:(GINIUserCenterManager *)userCenterManager emailDomain:(NSString *)emailDomain {
-    return [[GINISessionManagerAnonymous alloc] initWithCredentialsStore:credentialsStore userCenterManager:userCenterManager emailDomain:emailDomain];
+    return [[self alloc] initWithCredentialsStore:credentialsStore userCenterManager:userCenterManager emailDomain:emailDomain];
 }
 
 - (instancetype)initWithCredentialsStore:(id <GINICredentialsStore>)credentialsStore userCenterManager:(GINIUserCenterManager *)userCenterManager emailDomain:(NSString *)emailDomain {

@@ -19,7 +19,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     if (!availablePreviewSizes) {
         availablePreviewSizes = @[@"750x900", @"1280x1810"];
     }
-    return [availablePreviewSizes objectAtIndex:previewSize];
+    return availablePreviewSizes[previewSize];
 }
 
 
@@ -59,7 +59,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 #pragma mark - Public methods
 + (instancetype)apiManagerWithURLSession:(id <GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory baseURL:(NSURL *)baseURL {
-    return [[GINIAPIManager alloc] initWithURLSession:urlSession requestFactory:requestFactory baseURL:baseURL];
+    return [[self alloc] initWithURLSession:urlSession requestFactory:requestFactory baseURL:baseURL];
 }
 
 - (BFTask *)getDocument:(NSString *)documentId{
