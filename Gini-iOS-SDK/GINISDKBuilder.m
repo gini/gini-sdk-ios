@@ -60,10 +60,13 @@ GINIInjector* GINIDefaultInjector() {
                  withDependencies:[GINIKeychainManager class], nil];
 
     // User Center Manager
-    [injector setSingletonFactory:@selector(userCenterManagerWithURLSession:clientID:clientSecret:baseURL:)
+    [injector setSingletonFactory:@selector(userCenterManagerWithURLSession:clientID:clientSecret:baseURL:notificationCenter:)
                                on:[GINIUserCenterManager class]
                            forKey:[GINIUserCenterManager class]
                  withDependencies:@protocol(GINIURLSession), GINIInjectorClientIDKey, GINIInjectorClientSecretKey, GINIInjectorUserBaseURLKey, nil];
+
+    // Use the default notification center as notification center for the Gini API.
+    [injector setSingletonFactory:@selector(defaultCenter) on:[NSNotificationCenter class] forKey:[NSNotificationCenter class] withDependencies:nil];
 
     return injector;
 }

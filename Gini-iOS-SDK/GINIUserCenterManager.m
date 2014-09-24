@@ -15,11 +15,18 @@
 #import "GINIHTTPError.h"
 
 
+NSString *const GINIUserCreationNotification = @"UserCreationNotification";
+NSString *const GINIUserCreationErrorNotification = @"UserCreationNotification";
+NSString *const GINILoginNotification = @"LoginNotification";
+NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
+
+
 @implementation GINIUserCenterManager {
     id<GINIURLSession> _urlSession;
     NSString *_clientID;
     NSString *_clientSecret;
     NSURL *_baseURL;
+    NSNotificationCenter *_notificationCenter;
 
     /**
      * The active session to use for requests to the Gini User Center API.
@@ -30,21 +37,32 @@
     GINISession *_activeSession;
 }
 
-+ (instancetype)userCenterManagerWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL {
-    return [[self alloc] initWithURLSession:urlSession clientID:clientID clientSecret:clientSecret baseURL:baseURL];
++ (instancetype)userCenterManagerWithURLSession:(id <GINIURLSession>)urlSession
+                                       clientID:(NSString *)clientID
+                                   clientSecret:(NSString *)clientSecret
+                                        baseURL:(NSURL *)baseURL
+                             notificationCenter:(NSNotificationCenter *)notificationCenter {
+
+    return [[self alloc] initWithURLSession:urlSession
+                                   clientID:clientID
+                               clientSecret:clientSecret
+                                    baseURL:baseURL
+                         notificationCenter:notificationCenter];
 }
 
-- (instancetype)initWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL {
+- (instancetype)initWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL notificationCenter:(NSNotificationCenter *)notificationCenter {
     NSParameterAssert([urlSession conformsToProtocol:@protocol(GINIURLSession)]);
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
     NSParameterAssert([baseURL isKindOfClass:[NSURL class]]);
+    NSParameterAssert(notificationCenter == nil ||[notificationCenter isKindOfClass:[NSNotificationCenter class]]);
 
     if (self = [super init]) {
         _urlSession = urlSession;
         _clientID = clientID;
         _clientSecret = clientSecret;
         _baseURL = baseURL;
+        _notificationCenter = notificationCenter;
     }
     return self;
 }
@@ -81,11 +99,17 @@
         if (serializationError) {
             return serializationError;
         }
-        return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithSuccessBlock:^id(BFTask *createTask) {
+        return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithBlock:^id(BFTask *createTask) {
+            if (createTask.error || createTask.exception) {
+                [_notificationCenter postNotificationName:GINIUserCreationErrorNotification object:nil];
+                return createTask;
+            }
             GINIURLResponse *urlResponse = createTask.result;
             NSString *location = [urlResponse.response.allHeaderFields valueForKey:@"Location"];
             NSString *userId = [[location componentsSeparatedByString:@"/"] lastObject];
-            return [GINIUser userWithEmail:email userId:userId];
+            GINIUser *user = [GINIUser userWithEmail:email userId:userId];
+            [_notificationCenter postNotificationName:GINIUserCreationNotification object:user];
+            return user;
         }];
     }];
 }
@@ -111,14 +135,19 @@
         if (loginTask.error && [loginTask.error isKindOfClass:[GINIHTTPError class]]) {
             GINIHTTPError *error = (GINIHTTPError *) loginTask.error;
             if ([error.response.data[@"error"] isEqualToString:@"invalid_grant"]) {
+                [_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
                 return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorInvalidCredentials userInfo:nil]];
             }
         }
 
         // Pass-through all other errors.
         if (loginTask.error || loginTask.exception) {
+            // TODO (maybe discriminable notifications)
+            [_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
             return loginTask;
         }
+
+        [_notificationCenter postNotificationName:GINILoginNotification object:nil];
 
         return [GINISessionParser sessionWithJSONDictionary:((GINIURLResponse *)loginTask.result).data];
     }];

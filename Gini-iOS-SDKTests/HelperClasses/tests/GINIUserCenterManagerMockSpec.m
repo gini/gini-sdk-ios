@@ -15,10 +15,7 @@ SPEC_BEGIN(GINIUserCenterManagerMockSpec)
         it(@"should raise an exception when the original factory is used to prevent accidental misuses", ^{
             GINIURLSession *giniurlSession = [GINIURLSession urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]];
             [[theBlock(^{
-                [GINIUserCenterManagerMock userCenterManagerWithURLSession:giniurlSession
-                                                                  clientID:@"gini-ios-sdk"
-                                                              clientSecret:@"1234"
-                                                                   baseURL:[NSURL URLWithString:@"https://user.gini.net"]];
+                [GINIUserCenterManagerMock userCenterManagerWithURLSession:giniurlSession clientID:@"gini-ios-sdk" clientSecret:@"1234" baseURL:[NSURL URLWithString:@"https://user.gini.net"] notificationCenter:nil];
             }) should] raise];
         });
 

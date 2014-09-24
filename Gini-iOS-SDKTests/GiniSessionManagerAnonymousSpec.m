@@ -60,10 +60,7 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
         __block GINISessionManagerAnonymous *(^SessionManagerFactory)(GINIUserCenterManager *) = ^GINISessionManagerAnonymous * (GINIUserCenterManager *userCenterManager){
             if (userCenterManager == nil) {
                 GINIURLSession *giniurlSession = [GINIURLSession urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]];
-                userCenterManager = [GINIUserCenterManager userCenterManagerWithURLSession:giniurlSession
-                                                                                  clientID:@"gini-sdk-ios"
-                                                                              clientSecret:@"1234"
-                                                                                   baseURL:[NSURL URLWithString:@"https://user.gini.net"]];
+                userCenterManager = [GINIUserCenterManager userCenterManagerWithURLSession:giniurlSession clientID:@"gini-sdk-ios" clientSecret:@"1234" baseURL:[NSURL URLWithString:@"https://user.gini.net"] notificationCenter:nil];
 
             }
             GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];

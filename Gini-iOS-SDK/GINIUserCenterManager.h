@@ -9,6 +9,23 @@
 @class GINIURLSession, GINIAPIManager, BFTask;
 @protocol GINIURLSession;
 
+
+/**
+ * The name of the notification which is posted when a user was created. The notification's object is a `GINIUser`
+ * instance representing the newly created user.
+ **/
+extern NSString *const GINIUserCreationNotification;
+
+/** The name of the notification which is posted when there was an error during user creation. */
+extern NSString *const GINIUserCreationErrorNotification;
+
+/** The name of the notification which is posted when a user was logged in. */
+extern NSString *const GINILoginNotification;
+
+/** The name of the notification when there was an error during login */
+extern NSString *const GINILoginErrorNotification;
+
+
 /**
  * The `GINIUserCenterManager` handles the communication with the Gini User Center via the Gini User Center API
  * (see http://developer.gini.net/gini-api/html/user_center_api.html for details). It can be used to create new users,
@@ -24,13 +41,13 @@
  *
  * @param urlSession    The `GINIURLSession` instance that will be used to do the HTTP requests to the Gini User Center.
  */
-+ (instancetype)userCenterManagerWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL;
++ (instancetype)userCenterManagerWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL notificationCenter:(NSNotificationCenter *)notificationCenter;
 
 /** @name initializer */
 /**
  * The designated initializer.
  */
-- (instancetype)initWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL;
+- (instancetype)initWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL notificationCenter:(NSNotificationCenter *)notificationCenter;
 
 /** @name Methods */
 /**

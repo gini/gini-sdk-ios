@@ -16,11 +16,11 @@
 }
 
 
-+ (instancetype)userCenterManagerWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL {
-    return [[GINIUserCenterManagerMock alloc] initWithURLSession:urlSession clientID:clientID clientSecret:clientSecret baseURL:baseURL];
++ (instancetype)userCenterManagerWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL notificationCenter:(NSNotificationCenter *)notificationCenter {
+    return [[GINIUserCenterManagerMock alloc] initWithURLSession:urlSession clientID:clientID clientSecret:clientSecret baseURL:baseURL notificationCenter:nil];
 }
 
-- (instancetype)initWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL {
+- (instancetype)initWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL notificationCenter:(NSNotificationCenter *)notificationCenter {
     // Raise an exception to prevent that someone accidentally uses the mock instead of the real thing.
     @throw [NSException exceptionWithName:@"invalid initializer" reason:@"mock" userInfo:nil];
     return nil;
