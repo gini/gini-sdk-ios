@@ -162,10 +162,10 @@ GINIInjector* GINIDefaultInjector() {
 
 - (void)useAnonymousUser:(NSString *)emailDomain {
     [_injector setObject:emailDomain forKey:GINIEmailDomainKey];
-    [_injector setSingletonFactory:@selector(sessionManagerWithCredentialsStore:userCenterManager:emailDomain:)
+    [_injector setSingletonFactory:@selector(sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:)
                                 on:[GINISessionManagerAnonymous class]
                             forKey:@protocol(GINISessionManager)
-                  withDependencies:@protocol(GINICredentialsStore), [GINIUserCenterManager class], GINIEmailDomainKey, nil];
+                  withDependencies:@protocol(GINICredentialsStore), [GINIUserCenterManager class], GINIEmailDomainKey, [NSNotificationCenter class], nil];
 }
 
 @end

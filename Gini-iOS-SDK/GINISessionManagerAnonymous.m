@@ -12,6 +12,9 @@
 #import "GINIError.h"
 
 
+NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotification";
+
+
 @implementation GINISessionManagerAnonymous {
     /// The credentials store which is used to store the user accounts.
     id<GINICredentialsStore> _credentialsStore;
@@ -27,22 +30,37 @@
 
     /// The number of login requests.
     NSUInteger _loginAttempts;
+
+    /// The notification center which is used to post notifications.
+    NSNotificationCenter *_notificationCenter;
 }
 
-+ (instancetype)sessionManagerWithCredentialsStore:(id<GINICredentialsStore>)credentialsStore userCenterManager:(GINIUserCenterManager *)userCenterManager emailDomain:(NSString *)emailDomain {
-    return [[self alloc] initWithCredentialsStore:credentialsStore userCenterManager:userCenterManager emailDomain:emailDomain];
++ (instancetype)sessionManagerWithCredentialsStore:(id <GINICredentialsStore>)credentialsStore
+                                 userCenterManager:(GINIUserCenterManager *)userCenterManager
+                                       emailDomain:(NSString *)emailDomain
+                                notificationCenter:(NSNotificationCenter *)notificationCenter {
+
+    return [[self alloc] initWithCredentialsStore:credentialsStore
+                                userCenterManager:userCenterManager
+                                      emailDomain:emailDomain
+                               notificationCenter:notificationCenter];
 }
 
-- (instancetype)initWithCredentialsStore:(id <GINICredentialsStore>)credentialsStore userCenterManager:(GINIUserCenterManager *)userCenterManager emailDomain:(NSString *)emailDomain {
+- (instancetype)initWithCredentialsStore:(id <GINICredentialsStore>)credentialsStore
+                       userCenterManager:(GINIUserCenterManager *)userCenterManager
+                             emailDomain:(NSString *)emailDomain
+                      notificationCenter:(NSNotificationCenter *)notificationCenter {
     NSParameterAssert([credentialsStore conformsToProtocol:@protocol(GINICredentialsStore)]);
     NSParameterAssert([userCenterManager isKindOfClass:[GINIUserCenterManager class]]);
     NSParameterAssert([emailDomain isKindOfClass:[NSString class]]);
+    NSParameterAssert(notificationCenter == nil ||[notificationCenter isKindOfClass:[NSNotificationCenter class]]);
 
     if (self = [super init]) {
         _credentialsStore = credentialsStore;
         _userCenterManager = userCenterManager;
         _emailDomain = emailDomain;
         _loginAttempts = 0;
+        _notificationCenter = notificationCenter;
     }
     return self;
 }
@@ -67,6 +85,9 @@
                 return [self getUserCredentials];
             }];
         }
+        NSDictionary *userData = task.result;
+        [_notificationCenter postNotificationName:GINIUsingExistingUserNotification
+                                           object:userData[GINIUserNameKey]];
         return task.result;
 
         // Second step: Try to log-in the user.

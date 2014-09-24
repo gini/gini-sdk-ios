@@ -12,6 +12,13 @@
 
 
 /**
+ * The name of the notification which is posted when the stored credentials of an existing user are used for the login
+ * attempt. The object of the notification will be the user's email address.
+ **/
+extern NSString *const GINIUsingExistingUserNotification;
+
+
+/**
  * An implementation for the <GINISessionManager> protocol. Instead of using the OAuth authorization flow where the
  * user has to sign in, this session manager implementation uses the Gini User Center API to create new users on the
  * fly. The created account is stored in the keychain. This completely hides the user accounts from the user and has the
@@ -31,10 +38,12 @@
  *                              User Center API.
  * @param emailDomain           The domain part of the created user emails. The created user names are in the form
  *                              "<random>@<emailDomain>" and have a random password.
+ * @param notificationCenter    The `NSNotificationCenter` instance which is used to post notifications.
  */
 + (instancetype)sessionManagerWithCredentialsStore:(id <GINICredentialsStore>)credentialsStore
                                  userCenterManager:(GINIUserCenterManager *)userCenterManager
-                                       emailDomain:(NSString *)emailDomain;
+                                       emailDomain:(NSString *)emailDomain
+                                notificationCenter:(NSNotificationCenter *)notificationCenter;
 
 /**
  * The designated initializer.
@@ -45,9 +54,11 @@
  *                              User Center API.
  * @param emailDomain           The domain part of the created user emails. The created user names are in the form
  *                              "<random>@<emailDomain>" and have a random password.
+ * @param notificationCenter    The `NSNotificationCenter` instance which is used to post notifications.
  */
 - (instancetype)initWithCredentialsStore:(id <GINICredentialsStore>)credentialsStore
                        userCenterManager:(GINIUserCenterManager *)userCenterManager
-                             emailDomain:(NSString *)emailDomain;
+                             emailDomain:(NSString *)emailDomain
+                      notificationCenter:(NSNotificationCenter *)notificationCenter;
 
 @end
