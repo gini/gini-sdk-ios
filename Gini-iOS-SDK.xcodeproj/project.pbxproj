@@ -59,6 +59,7 @@
 		C753E11D15E4F0638124672C /* GINIErrorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EB2A264F10B5B521A43F /* GINIErrorSpec.m */; };
 		C753E17053FE943544163E96 /* GINIDocumentTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E3DEEFB9F9E65CEABEBA /* GINIDocumentTaskManager.m */; };
 		C753E1B6E6C30079A17F654C /* GINIKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E6D56C72A94E5C131EF6 /* GINIKeychainManager.m */; };
+		C753E1D1F9044ED1215A3BE1 /* GININSNotificationCenterMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E51E0C870474ADACAC6A /* GININSNotificationCenterMock.m */; };
 		C753E4024AB5984429995A94 /* GINIError.m in Sources */ = {isa = PBXBuildFile; fileRef = C753ED40D89759A5357CD45A /* GINIError.m */; };
 		C753E52AB79C7FE6A0E4E417 /* GINIDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C753EFC0A1550610FBBADD7E /* GINIDocument.m */; };
 		C753E55AA73D96CF5DF00932 /* GINIUserCenterManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E988D87DD1037B2E1418 /* GINIUserCenterManagerSpec.m */; };
@@ -191,6 +192,7 @@
 		C753E44CC53661043ECD8447 /* GINIUserCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIUserCenterManager.h; sourceTree = "<group>"; };
 		C753E472D4AB8FC415550551 /* GINIAPIManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIAPIManagerMock.h; sourceTree = "<group>"; };
 		C753E4F6D2458342AD2D6ABD /* GINISessionManagerAnonymous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINISessionManagerAnonymous.h; sourceTree = "<group>"; };
+		C753E51E0C870474ADACAC6A /* GININSNotificationCenterMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GININSNotificationCenterMock.m; sourceTree = "<group>"; };
 		C753E53B8C22E153B25057B8 /* GINIHTTPError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIHTTPError.m; sourceTree = "<group>"; };
 		C753E686DF27657E36F02570 /* GINISDKBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINISDKBuilder.h; sourceTree = "<group>"; };
 		C753E68A8EF1189B69F4FE7F /* GINIDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIDocument.h; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		C753E6D6A28612A1D4B422B7 /* GINIUserCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIUserCenterManager.m; sourceTree = "<group>"; };
 		C753E7056A2CCC68D74446E8 /* GINIExtraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIExtraction.h; sourceTree = "<group>"; };
 		C753E76FA3457063AA6BB732 /* GINISessionManagerAnonymous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISessionManagerAnonymous.m; sourceTree = "<group>"; };
+		C753E83ABF6B96E6EAC1B14D /* GININSNotificationCenterMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GININSNotificationCenterMock.h; sourceTree = "<group>"; };
 		C753E988D87DD1037B2E1418 /* GINIUserCenterManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIUserCenterManagerSpec.m; sourceTree = "<group>"; };
 		C753E9AEB99CB89FBAE99C96 /* GINIKeychainItemSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIKeychainItemSpec.m; sourceTree = "<group>"; };
 		C753EA24DB27F2E6F0F6EB64 /* GINIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIError.h; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				C753EF46D98CAE6A24AFE363 /* GINIUserCenterManagerMock.m */,
 				C753E0831DDAEF5DD21CF6C4 /* GINIUserCenterManagerMock.h */,
 				C753E05D798245924B8A2651 /* tests */,
+				C753E51E0C870474ADACAC6A /* GININSNotificationCenterMock.m */,
+				C753E83ABF6B96E6EAC1B14D /* GININSNotificationCenterMock.h */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -656,6 +661,7 @@
 				C753E924A22F604B7FBBBC68 /* GINISessionManagerAnonymous.m in Sources */,
 				C753E030C527CDBDDF1CB75A /* GINISDKBuilder.m in Sources */,
 				C753ED720D34029FC086B8EE /* GINIHTTPError.m in Sources */,
+				C753E1D1F9044ED1215A3BE1 /* GININSNotificationCenterMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

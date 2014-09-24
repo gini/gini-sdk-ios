@@ -67,6 +67,13 @@
  */
 - (instancetype)useSandbox;
 
+/**
+ * Set the `NSNotificationCenter` instance which is used for the notifications.
+ *
+ * This method returns the instance on which it is called, so it is possible to chain the configuration via builder
+ * methods.
+ */
+- (instancetype)useNotificationCenter:(NSNotificationCenter *)notificationCenter;
 
 /**
  * Creates and returns the GiniSDK instance.

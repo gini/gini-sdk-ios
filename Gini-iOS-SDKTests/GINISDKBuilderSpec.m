@@ -147,6 +147,23 @@ SPEC_BEGIN(GINISDKBuilderSpec)
             });
         });
 
+        context(@"The useNotificationCenter: method", ^{
+            it(@"should set the notification center", ^{
+
+                GINISDKBuilder *builder = [GINISDKBuilder anonymousUserWithClientID:@"foobar"
+                                                                       clientSecret:@"1234"
+                                                                    userEmailDomain:@"@example.com"];
+                NSNotificationCenter *notificationCenter = [NSNotificationCenter new];
+
+                [builder useNotificationCenter:notificationCenter];
+
+                // TODO
+                 GiniSDK *sdk = [builder build];
+                 GINISessionManagerAnonymous *sessionManager = (id) sdk.sessionManager;
+                [[[[sessionManager valueForKey:@"_userCenterManager"] valueForKey:@"_notificationCenter"] should] equal:notificationCenter];
+            });
+        });
+
     });
 
 SPEC_END

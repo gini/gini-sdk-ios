@@ -8,6 +8,7 @@
 #import "GINIUserCenterManagerMock.h"
 #import "GINISession.h"
 #import "GINIError.h"
+#import "GININSNotificationCenterMock.h"
 
 #pragma mark - Test Helpers
 @interface GINIUserCenterManagerTestProxy : NSProxy
@@ -57,19 +58,24 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
     describe(@"The GINISessionManagerAnonymous", ^{
         __block GINIKeychainManager *keychainManager;
 
+        __block GININSNotificationCenterMock *notificationCenter;
+
         __block GINISessionManagerAnonymous *(^SessionManagerFactory)(GINIUserCenterManager *) = ^GINISessionManagerAnonymous * (GINIUserCenterManager *userCenterManager){
             if (userCenterManager == nil) {
                 GINIURLSession *giniurlSession = [GINIURLSession urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]];
                 userCenterManager = [GINIUserCenterManager userCenterManagerWithURLSession:giniurlSession
                                                                                   clientID:@"gini-sdk-ios"
                                                                               clientSecret:@"1234"
-                                                                                   baseURL:[NSURL URLWithString:@"https://user.gini.net"]];
+                                                                                   baseURL:[NSURL URLWithString:@"https://user.gini.net"]
+                                                                        notificationCenter:nil];
 
             }
+            notificationCenter = [GININSNotificationCenterMock new];
             GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
             return [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:credentialsStore
                                                                  userCenterManager:userCenterManager
-                                                                       emailDomain:@"example.com"];
+                                                                       emailDomain:@"example.com"
+                                                                notificationCenter:notificationCenter];
         };
 
         beforeEach(^{
@@ -80,17 +86,17 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
         context(@"The factory", ^{
             it(@"should raise an exception if called with skipped arguments", ^{
                 [[theBlock(^{
-                    [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:nil userCenterManager:nil emailDomain:nil];
+                    [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:nil userCenterManager:nil emailDomain:nil notificationCenter:nil];
                 }) should] raise];
 
                 [[theBlock(^{
                     GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:[GINIKeychainManager new]];
-                    [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:credentialsStore userCenterManager:nil emailDomain:nil];
+                    [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:credentialsStore userCenterManager:nil emailDomain:nil notificationCenter:nil];
                 }) should] raise];
 
                 [[theBlock(^{
                     GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:[GINIKeychainManager new]];
-                    [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:credentialsStore userCenterManager:nil emailDomain:@"example.com"];
+                    [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:credentialsStore userCenterManager:nil emailDomain:@"example.com" notificationCenter:nil];
                 }) should] raise];
             });
 
@@ -206,6 +212,24 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
                 [[task.error should] beNil];
                 [[task.result should] beKindOfClass:[GINISession class]];
                 [[theValue(userCenterManagerMock.createUserCalled) should] equal:theValue(1)];
+            });
+
+            it(@"should post a notification if the credentials of an existing user are used", ^{
+                // Create the needed credentials.
+                GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
+                [credentialsStore storeUserCredentials:@"foo@example.com" password:@"1234"];
+
+                [sessionManager getSession];
+
+                [[[notificationCenter lastNotification] shouldNot] beNil];
+                [[notificationCenter.lastNotification.name should] equal:GINIUsingExistingUserNotification];
+                [[notificationCenter.lastNotification.object should] equal:@"foo@example.com"];
+            });
+
+            it(@"should not post a notification if there is no existing user", ^{
+                [sessionManager getSession];
+
+                [notificationCenter.lastNotification.name shouldBeNil];
             });
         });
 

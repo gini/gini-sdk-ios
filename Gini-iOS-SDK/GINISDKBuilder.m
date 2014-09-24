@@ -60,10 +60,13 @@ GINIInjector* GINIDefaultInjector() {
                  withDependencies:[GINIKeychainManager class], nil];
 
     // User Center Manager
-    [injector setSingletonFactory:@selector(userCenterManagerWithURLSession:clientID:clientSecret:baseURL:)
+    [injector setSingletonFactory:@selector(userCenterManagerWithURLSession:clientID:clientSecret:baseURL:notificationCenter:)
                                on:[GINIUserCenterManager class]
                            forKey:[GINIUserCenterManager class]
-                 withDependencies:@protocol(GINIURLSession), GINIInjectorClientIDKey, GINIInjectorClientSecretKey, GINIInjectorUserBaseURLKey, nil];
+                 withDependencies:@protocol(GINIURLSession), GINIInjectorClientIDKey, GINIInjectorClientSecretKey, GINIInjectorUserBaseURLKey, [NSNotificationCenter class], nil];
+
+    // Use the default notification center as notification center for the Gini API.
+    [injector setSingletonFactory:@selector(defaultCenter) on:[NSNotificationCenter class] forKey:[NSNotificationCenter class] withDependencies:nil];
 
     return injector;
 }
@@ -132,6 +135,12 @@ GINIInjector* GINIDefaultInjector() {
     return self;
 }
 
+- (instancetype)useNotificationCenter:(NSNotificationCenter *)notificationCenter {
+    [_injector setObject:notificationCenter forKey:[NSNotificationCenter class]];
+    return self;
+}
+
+
 - (GiniSDK *)build {
     return [[GiniSDK alloc] initWithInjector:_injector];
 }
@@ -153,10 +162,10 @@ GINIInjector* GINIDefaultInjector() {
 
 - (void)useAnonymousUser:(NSString *)emailDomain {
     [_injector setObject:emailDomain forKey:GINIEmailDomainKey];
-    [_injector setSingletonFactory:@selector(sessionManagerWithCredentialsStore:userCenterManager:emailDomain:)
+    [_injector setSingletonFactory:@selector(sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:)
                                 on:[GINISessionManagerAnonymous class]
                             forKey:@protocol(GINISessionManager)
-                  withDependencies:@protocol(GINICredentialsStore), [GINIUserCenterManager class], GINIEmailDomainKey, nil];
+                  withDependencies:@protocol(GINICredentialsStore), [GINIUserCenterManager class], GINIEmailDomainKey, [NSNotificationCenter class], nil];
 }
 
 @end

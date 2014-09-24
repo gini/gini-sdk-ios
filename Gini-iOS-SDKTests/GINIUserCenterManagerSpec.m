@@ -7,6 +7,7 @@
 #import "GINIUser.h"
 #import "GINISession.h"
 #import "GINIError.h"
+#import "GININSNotificationCenterMock.h"
 
 
 // Make the private methods of the GINIUserCenterManager visible in the test so it can be used in tests.
@@ -22,7 +23,8 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
         __block GINIUserCenterManager *userCenterManager;
         /** The `GINIURLSession` instance used in the tests as the dependency of the userCenterManager. */
         __block GINIURLSessionMock *urlSession;
-
+        /** The mock for NSNotificationCenter which is used in the tests as the dependency of the userCenterManager */
+        __block GININSNotificationCenterMock *notificationCenter;
 
         /**
          * Helper function which checks that the last request the GINIURLSessionMock received was to the correct URL and
@@ -59,10 +61,12 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
 
         beforeEach(^{
             urlSession = [GINIURLSessionMock new];
+            notificationCenter = [GININSNotificationCenterMock defaultCenter];
             userCenterManager = [GINIUserCenterManager userCenterManagerWithURLSession:urlSession
                                                                               clientID:@"foo"
                                                                           clientSecret:@"bar"
-                                                                               baseURL:[NSURL URLWithString:@"https://user.gini.net/"]];
+                                                                               baseURL:[NSURL URLWithString:@"https://user.gini.net/"]
+                                                                    notificationCenter:notificationCenter];
 
             // Set the response for an authorization request, so the tests can receive an access token and can create
             // a `GINISession` instance.
@@ -76,15 +80,15 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
 
         it(@"should raise an error if instantiated with the wrong dependencies", ^{
             [[theBlock(^{
-                [GINIUserCenterManager userCenterManagerWithURLSession:nil clientID:nil clientSecret:nil baseURL:nil];
+                [GINIUserCenterManager userCenterManagerWithURLSession:nil clientID:nil clientSecret:nil baseURL:nil notificationCenter:nil];
             }) should] raise];
 
             [[theBlock(^{
-                [GINIUserCenterManager userCenterManagerWithURLSession:nil clientID:nil clientSecret:@"foo" baseURL:nil];
+                [GINIUserCenterManager userCenterManagerWithURLSession:nil clientID:nil clientSecret:@"foo" baseURL:nil notificationCenter:nil];
             }) should] raise];
 
             [[theBlock(^{
-                [GINIUserCenterManager userCenterManagerWithURLSession:nil clientID:@"foo" clientSecret:@"bar" baseURL:nil];
+                [GINIUserCenterManager userCenterManagerWithURLSession:nil clientID:@"foo" clientSecret:@"bar" baseURL:nil notificationCenter:nil];
             }) should] raise];
         });
 
@@ -196,6 +200,35 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 [[user.userEmail should] equal:@"foobar@example.com"];
             });
 
+            it(@"should trigger a notification when the user was created", ^{
+                NSURL *responseURL = [NSURL URLWithString:@"https://user.gini.net/api/users"];
+                NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:responseURL
+                                                                          statusCode:201
+                                                                         HTTPVersion:@"1.1"
+                                                                        headerFields:@{
+                                                                                @"Location": @"https://user.gini.net/api/users/c1e60c6b-a0a4-4d80-81eb-c1c6de729a0e"
+                                                                        }];
+                GINIURLResponse *giniResponse = [GINIURLResponse urlResponseWithResponse:response];
+                [urlSession setResponse:[BFTask taskWithResult:giniResponse] forURL:@"https://user.gini.net/api/users"];
+
+                [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
+
+                [[notificationCenter.lastNotification shouldNot] beNil];
+                [[notificationCenter.lastNotification.name should] equal:GINIUserCreationNotification];
+                [[notificationCenter.lastNotification.object should] beKindOfClass:[GINIUser class]];
+                GINIUser *user = notificationCenter.lastNotification.object;
+                [[user.userEmail should] equal:@"foobar@example.com"];
+            });
+
+            it(@"should post a notification when there was an error", ^{
+                [urlSession createAndSetResponse:nil httpStatus:500 forURL:@"https://user.gini.net/api/users" error:YES];
+
+                [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
+
+                [[notificationCenter.lastNotification shouldNot] beNil];
+                [[notificationCenter.lastNotification.name should] equal:GINIUserCreationErrorNotification];
+            });
+
             it(@"should set the proper HTTP headers", ^{
                 [urlSession setResponse:[BFTask taskWithError:nil] forURL:@"https://user.gini.net/api/users"];
                 BFTask *createTask = [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
@@ -281,6 +314,33 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
 
                 [[loginTask.error should] beKindOfClass:[GINIError class]];
                 [[theValue(loginTask.error.code) should] equal:theValue(GINIErrorInvalidCredentials)];
+            });
+
+            it(@"should post a notification when the login was successful", ^{
+                NSDictionary *responseData = @{
+                        @"access_token": @"6c470ffa-abf1-41aa-b866-cd3be0ee84f4",
+                        @"token_type":   @"bearer",
+                        @"expires_in":   @3599
+                };
+                [urlSession createAndSetResponse:responseData httpStatus:201 forURL:@"https://user.gini.net/oauth/token?grant_type=password" error:NO];
+
+                [userCenterManager loginUser:@"foo@example.com" password:@"1234"];
+
+                [[notificationCenter.lastNotification shouldNot] beNil];
+                [[notificationCenter.lastNotification.name should] equal:GINILoginNotification];
+            });
+
+            it(@"should post a notification when there was a login error", ^{
+                NSDictionary *responseData = @{
+                        @"error": @"invalid_grant",
+                        @"user_info": @""
+                };
+                [urlSession createAndSetResponse:responseData httpStatus:400 forURL:@"https://user.gini.net/oauth/token?grant_type=password" error:YES];
+
+                [userCenterManager loginUser:@"foo@example.com" password:@"1234"];
+
+                [[notificationCenter.lastNotification shouldNot] beNil];
+                [[notificationCenter.lastNotification.name should] equal:GINILoginErrorNotification];
             });
         });
     });
