@@ -41,14 +41,14 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/sessionManagerWithCredentialsStore:userCenterManager:emailDomain:">&nbsp;&nbsp;&nbsp;&nbsp;+ sessionManagerWithCredentialsStore:userCenterManager:emailDomain:</option>
+	<option value="//api/name/sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:">&nbsp;&nbsp;&nbsp;&nbsp;+ sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:</option>
 	
 	
 	
 	
 	<option value="instance_methods">Instance Methods</option>
 	
-	<option value="//api/name/initWithCredentialsStore:userCenterManager:emailDomain:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithCredentialsStore:userCenterManager:emailDomain:</option>
+	<option value="//api/name/initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:</option>
 	
 	
 	
@@ -76,7 +76,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sessionManagerWithCredentialsStore:userCenterManager:emailDomain:">sessionManagerWithCredentialsStore:userCenterManager:emailDomain:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:">sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:</a></span></li>
 	
 </ul></li>
 
@@ -84,7 +84,7 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithCredentialsStore:userCenterManager:emailDomain:">initWithCredentialsStore:userCenterManager:emailDomain:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:">initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:</a></span></li>
 	
 </ul></li>
 
@@ -147,13 +147,13 @@ effect of anonymous accounts.</p><div class="warning"><p><strong>Warning:</stron
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/sessionManagerWithCredentialsStore:userCenterManager:emailDomain:">+&nbsp;sessionManagerWithCredentialsStore:userCenterManager:emailDomain:</a></code>
+		<code><a href="#//api/name/sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:">+&nbsp;sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithCredentialsStore:userCenterManager:emailDomain:">&ndash;&nbsp;initWithCredentialsStore:userCenterManager:emailDomain:</a></code>
+		<code><a href="#//api/name/initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:">&ndash;&nbsp;initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:</a></code>
 	</span>
 	
 	
@@ -173,8 +173,8 @@ effect of anonymous accounts.</p><div class="warning"><p><strong>Warning:</stron
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/sessionManagerWithCredentialsStore:userCenterManager:emailDomain:" title="sessionManagerWithCredentialsStore:userCenterManager:emailDomain:"></a>
-	<h3 class="subsubtitle method-title">sessionManagerWithCredentialsStore:userCenterManager:emailDomain:</h3>
+	<a name="//api/name/sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:" title="sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:"></a>
+	<h3 class="subsubtitle method-title">sessionManagerWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:</h3>
 	
 	
 	
@@ -184,7 +184,7 @@ effect of anonymous accounts.</p><div class="warning"><p><strong>Warning:</stron
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (instancetype)sessionManagerWithCredentialsStore:(id&lt;GINICredentialsStore&gt;)<em>credentialsStore</em> userCenterManager:(GINIUserCenterManager *)<em>userCenterManager</em> emailDomain:(NSString *)<em>emailDomain</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)sessionManagerWithCredentialsStore:(id&lt;GINICredentialsStore&gt;)<em>credentialsStore</em> userCenterManager:(GINIUserCenterManager *)<em>userCenterManager</em> emailDomain:(NSString *)<em>emailDomain</em> notificationCenter:(NSNotificationCenter *)<em>notificationCenter</em></code></div>
 
     
 	
@@ -207,6 +207,11 @@ User Center API.</p></dd>
 			<dt><em>emailDomain</em></dt>
 			<dd><p>The domain part of the created user emails. The created user names are in the form
 &ldquo;<random>@<emailDomain>&rdquo; and have a random password.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>notificationCenter</em></dt>
+			<dd><p>The <code>NSNotificationCenter</code> instance which is used to post notifications.</p></dd>
 		</dl>
 		
 	</div>
@@ -245,8 +250,8 @@ User Center API.</p></dd>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithCredentialsStore:userCenterManager:emailDomain:" title="initWithCredentialsStore:userCenterManager:emailDomain:"></a>
-	<h3 class="subsubtitle method-title">initWithCredentialsStore:userCenterManager:emailDomain:</h3>
+	<a name="//api/name/initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:" title="initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:"></a>
+	<h3 class="subsubtitle method-title">initWithCredentialsStore:userCenterManager:emailDomain:notificationCenter:</h3>
 	
 	
 	
@@ -256,7 +261,7 @@ User Center API.</p></dd>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithCredentialsStore:(id&lt;GINICredentialsStore&gt;)<em>credentialsStore</em> userCenterManager:(GINIUserCenterManager *)<em>userCenterManager</em> emailDomain:(NSString *)<em>emailDomain</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (instancetype)initWithCredentialsStore:(id&lt;GINICredentialsStore&gt;)<em>credentialsStore</em> userCenterManager:(GINIUserCenterManager *)<em>userCenterManager</em> emailDomain:(NSString *)<em>emailDomain</em> notificationCenter:(NSNotificationCenter *)<em>notificationCenter</em></code></div>
 
     
 	
@@ -279,6 +284,11 @@ User Center API.</p></dd>
 			<dt><em>emailDomain</em></dt>
 			<dd><p>The domain part of the created user emails. The created user names are in the form
 &ldquo;<random>@<emailDomain>&rdquo; and have a random password.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>notificationCenter</em></dt>
+			<dd><p>The <code>NSNotificationCenter</code> instance which is used to post notifications.</p></dd>
 		</dl>
 		
 	</div>
@@ -323,7 +333,7 @@ User Center API.</p></dd>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-09-22)</span><br />
+						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-09-24)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
