@@ -65,7 +65,7 @@
  * This method returns the instance on which it is called, so it is possible to chain the configuration via builder
  * methods.
  */
-- (instancetype)useSandbox;
+- (instancetype)useSandbox DEPRECATED_ATTRIBUTE;
 
 /**
  * Set the `NSNotificationCenter` instance which is used for the notifications.
