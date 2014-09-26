@@ -37,9 +37,16 @@
 	
 	
 	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/cause">&nbsp;&nbsp;&nbsp;&nbsp;cause</option>
+	
+	
 	
 	
 	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/errorWithCode:cause:userInfo:">&nbsp;&nbsp;&nbsp;&nbsp;+ errorWithCode:cause:userInfo:</option>
 	
 	<option value="//api/name/errorWithCode:userInfo:">&nbsp;&nbsp;&nbsp;&nbsp;+ errorWithCode:userInfo:</option>
 	
@@ -69,9 +76,17 @@
 
 
 
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cause">cause</a></span></li>
+	
+</ul></li>
+
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/errorWithCode:cause:userInfo:">errorWithCode:cause:userInfo:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/errorWithCode:userInfo:">errorWithCode:userInfo:</a></span></li>
 	
@@ -142,6 +157,18 @@ always possible to upcast to NSError.</p>
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/errorWithCode:cause:userInfo:">+&nbsp;errorWithCode:cause:userInfo:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/cause">&nbsp;&nbsp;cause</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
 </li>
 						</ul>
 						
@@ -151,11 +178,119 @@ always possible to upcast to NSError.</p>
 					
 					
 					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/cause" title="cause"></a>
+	<h3 class="subsubtitle method-title">cause</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The original error which caused the error.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (readonly) NSError *cause</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>The original error which caused the error.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIError.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
 					
 					
 					<div class="section section-methods">
 						<a title="Class Methods" name="class_methods"></a>
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/errorWithCode:cause:userInfo:" title="errorWithCode:cause:userInfo:"></a>
+	<h3 class="subsubtitle method-title">errorWithCode:cause:userInfo:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Factory to create a new GINIError instance. Usually to collect low-level errors into a high-level error.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (instancetype)errorWithCode:(NSInteger)<em>code</em> cause:(NSError *)<em>cause</em> userInfo:(NSDictionary *)<em>dict</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>code</em></dt>
+			<dd><p>The error code for the error.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>cause</em></dt>
+			<dd><p>The underlying (low-level) error which caused the error.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userInfo</em></dt>
+			<dd><p>The userInfo for the error.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Factory to create a new GINIError instance. Usually to collect low-level errors into a high-level error.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIError.h</code><br />
+	</div>				
+	
+	
+</div>
 						
 						<div class="section-method">
 	<a name="//api/name/errorWithCode:userInfo:" title="errorWithCode:userInfo:"></a>
@@ -230,7 +365,7 @@ always possible to upcast to NSError.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-09-24)</span><br />
+						<p><span class="copyright">&copy; 2014 Gini GmbH. All rights reserved. (Last updated: 2014-09-26)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
