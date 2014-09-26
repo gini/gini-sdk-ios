@@ -5,7 +5,7 @@
 
 #import <Kiwi.h>
 #import <UIKit/UIKit.h>
-#import <Bolts.h>
+#import <Bolts/Bolts.h>
 #import "GINISessionManager.h"
 #import "GINISession.h"
 #import "GINIURLSessionMock.h"
