@@ -24,4 +24,8 @@
 /// Whether or not the login method resolves to a login error.
 @property BOOL raiseWrongCredentialsOnLogin;
 
+
+/// Whether or not the create user method should fail.
+@property BOOL raiseHTTPErrorOnCreateUser;
+
 @end

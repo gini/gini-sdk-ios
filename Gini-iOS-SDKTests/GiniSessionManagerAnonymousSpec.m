@@ -231,6 +231,15 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
 
                 [notificationCenter.lastNotification.name shouldBeNil];
             });
+
+            it(@"should resolve to a user creation error", ^{
+                userCenterManagerMock.createUserEnabled = YES;
+                userCenterManagerMock.raiseHTTPErrorOnCreateUser = YES;
+
+                BFTask *sessionTask = [sessionManager getSession];
+                [[sessionTask.error should] beKindOfClass:[GINIError class]];
+                [[theValue(sessionTask.error.code) should] equal:theValue(GINIErrorUserCreationError)];
+            });
         });
 
         context(@"The login method", ^{
