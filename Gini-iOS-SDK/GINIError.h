@@ -9,6 +9,8 @@
 /** The default error domain for GINI Errors. */
 extern NSString * const GINIErrorDomain;
 
+extern NSString *const GINIErrorKeyCause;
+
 typedef NS_ENUM(NSInteger, GINIErrorCode) {
     /** The error code when the Gini iOS SDK can't get a new valid session without user interaction. */
     GINIErrorNoValidSession,
@@ -25,7 +27,13 @@ typedef NS_ENUM(NSInteger, GINIErrorCode) {
 
     GINIErrorNoCredentials,
 
-    GINIErrorInvalidCredentials
+    GINIErrorInvalidCredentials,
+
+    /** The error code when the creation of a new user was not successful. */
+    GINIErrorUserCreationError,
+
+    /** The error code when the login of an existing user failed. */
+    GINIErrorLoginError
 };
 
 
@@ -49,5 +57,18 @@ typedef NS_ENUM(NSInteger, GINIErrorCode) {
  * @param userInfo  The userInfo for the error.
  */
 + (instancetype)errorWithCode:(NSInteger)code userInfo:(NSDictionary *)userInfo;
+
+/**
+ * Factory to create a new GINIError instance. Usually to collect low-level errors into a high-level error.
+ *
+ * @param code      The error code for the error.
+ * @param cause     The underlying (low-level) error which caused the error.
+ * @param userInfo  The userInfo for the error.
+ */
++ (instancetype)errorWithCode:(NSInteger)code cause:(NSError *)cause userInfo:(NSDictionary *)dict;
+
+
+/** The original error which caused the error. */
+@property (readonly) NSError *cause;
 
 @end

@@ -60,6 +60,10 @@
     if (!_createUserEnabled) {
         [[NSException exceptionWithName:@"Not allowed" reason:@"Disallowed by mock" userInfo:nil] raise];
     }
+    if (_raiseHTTPErrorOnCreateUser) {
+        // Connection lost error.
+        return [BFTask taskWithError:[NSError errorWithDomain:NSURLErrorDomain code:-1005 userInfo:nil]];
+    }
     GINIUser *user = [GINIUser userWithEmail:email userId:@"1234-5678-9012"];
     return [BFTask taskWithResult:user];
 }

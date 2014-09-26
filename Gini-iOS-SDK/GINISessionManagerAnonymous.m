@@ -117,6 +117,12 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
         }];
     }] continueWithBlock:^id(BFTask *task) {
         _loginAttempts = 0;
+
+        // TODO.
+        if (task.error && !task.error.userInfo[GINIErrorKeyCause]) {
+            return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorLoginError cause:task.error userInfo:nil]];
+        }
+
         return task;
     }];
 }
@@ -152,7 +158,12 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
     // another random UUID.
     NSString *email = [NSString stringWithFormat:@"%@@%@", [[NSUUID UUID] UUIDString], _emailDomain];
     NSString *password = [[NSUUID UUID] UUIDString];
-    return [[_userCenterManager createUserWithEmail:email password:password] continueWithSuccessBlock:^id(BFTask *task) {
+    return [[_userCenterManager createUserWithEmail:email password:password] continueWithBlock:^id(BFTask *task) {
+        if (task.error) {
+            return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorUserCreationError cause:task.error userInfo:nil]];
+        } else if (task.exception) {
+            return task;
+        }
         [_credentialsStore storeUserCredentials:email password:password];
         return nil;
     }];
