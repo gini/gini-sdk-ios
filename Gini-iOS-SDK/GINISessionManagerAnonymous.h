@@ -61,4 +61,9 @@ extern NSString *const GINIUsingExistingUserNotification;
                              emailDomain:(NSString *)emailDomain
                       notificationCenter:(NSNotificationCenter *)notificationCenter;
 
+/**
+ * The credentials store which is used to store the user credentials.
+ */
+@property id<GINICredentialsStore> credentialsStore;
+
 @end
