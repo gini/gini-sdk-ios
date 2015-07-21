@@ -151,7 +151,7 @@
 		23D53C051934BC85001A957E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		23D53C0F1934BC85001A957E /* Gini-iOS-SDKTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gini-iOS-SDKTests-Info.plist"; sourceTree = "<group>"; };
 		23D53C111934BC85001A957E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3BE557B4E7EF4995B164009C /* Pods-Gini-iOS-SDKTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDKTests.xcconfig"; path = "Pods/Pods-Gini-iOS-SDKTests.xcconfig"; sourceTree = "<group>"; };
+		30B9227D3614DAC09BD5C8A1 /* Pods-Gini-iOS-SDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gini-iOS-SDKTests/Pods-Gini-iOS-SDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		59A960D0F28295DA233AF7F6 /* GINIUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIUser.h; sourceTree = "<group>"; };
 		59A9614FFB0DC06682809850 /* GINIUserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIUserSpec.m; sourceTree = "<group>"; };
 		59A96A1C40A30D2B13208558 /* GINIUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIUser.m; sourceTree = "<group>"; };
@@ -180,7 +180,8 @@
 		81EE4E20884B3E4BB789E91D /* GINISession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISession.m; sourceTree = "<group>"; };
 		81EE4E6A486CD98E99B37CF5 /* GINIURLResponseSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIURLResponseSpec.m; sourceTree = "<group>"; };
 		81EE4FC272A3BC02720C26F5 /* document.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = document.json; sourceTree = "<group>"; };
-		B7CCF32889824032B0CDD0C8 /* Pods-Gini-iOS-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDK.xcconfig"; path = "Pods/Pods-Gini-iOS-SDK.xcconfig"; sourceTree = "<group>"; };
+		BD0005698BCD7B4DC8124C4A /* Pods-Gini-iOS-SDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gini-iOS-SDK/Pods-Gini-iOS-SDK.debug.xcconfig"; sourceTree = "<group>"; };
+		BE5A2B2B832A2573F253030E /* Pods-Gini-iOS-SDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gini-iOS-SDKTests/Pods-Gini-iOS-SDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		C753E0381A47293548A3E444 /* GINIHTTPError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIHTTPError.h; sourceTree = "<group>"; };
 		C753E0831DDAEF5DD21CF6C4 /* GINIUserCenterManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIUserCenterManagerMock.h; sourceTree = "<group>"; };
 		C753E14CEE34C4191333A19E /* GINIKeychainManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIKeychainManagerSpec.m; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 		C753EF46D98CAE6A24AFE363 /* GINIUserCenterManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIUserCenterManagerMock.m; sourceTree = "<group>"; };
 		C753EF65B40AD9DC5F253C0B /* GINIKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIKeychainManager.h; sourceTree = "<group>"; };
 		C753EFC0A1550610FBBADD7E /* GINIDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIDocument.m; sourceTree = "<group>"; };
+		C936F096664D6E69ED29C4B8 /* Pods-Gini-iOS-SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gini-iOS-SDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gini-iOS-SDK/Pods-Gini-iOS-SDK.release.xcconfig"; sourceTree = "<group>"; };
 		E2088DC71940652400B2742E /* GINIIncomingURLDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GINIIncomingURLDelegate.h; sourceTree = "<group>"; };
 		E22C41601935FB8E00A0CAFA /* GINISessionManagerSpecs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINISessionManagerSpecs.m; sourceTree = "<group>"; };
 		E2529A4F194763C900FE8527 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -273,8 +275,7 @@
 				23D53C0D1934BC85001A957E /* Gini-iOS-SDKTests */,
 				23D53BF61934BC85001A957E /* Frameworks */,
 				23D53BF51934BC85001A957E /* Products */,
-				B7CCF32889824032B0CDD0C8 /* Pods-Gini-iOS-SDK.xcconfig */,
-				3BE557B4E7EF4995B164009C /* Pods-Gini-iOS-SDKTests.xcconfig */,
+				798CDB9FAE73309F17E1C724 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -405,6 +406,17 @@
 				23D53C101934BC85001A957E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		798CDB9FAE73309F17E1C724 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD0005698BCD7B4DC8124C4A /* Pods-Gini-iOS-SDK.debug.xcconfig */,
+				C936F096664D6E69ED29C4B8 /* Pods-Gini-iOS-SDK.release.xcconfig */,
+				30B9227D3614DAC09BD5C8A1 /* Pods-Gini-iOS-SDKTests.debug.xcconfig */,
+				BE5A2B2B832A2573F253030E /* Pods-Gini-iOS-SDKTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		81EE4592F87A8832554A84AD /* HelperClasses */ = {
@@ -597,7 +609,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Gini-iOS-SDK-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gini-iOS-SDK/Pods-Gini-iOS-SDK-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9FCE6A51D6974C6AB1541A9F /* Copy Pods Resources */ = {
@@ -612,7 +624,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Gini-iOS-SDKTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gini-iOS-SDKTests/Pods-Gini-iOS-SDKTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E2B1841C195465030080FF40 /* Create Documentation */ = {
@@ -789,7 +801,7 @@
 		};
 		23D53C181934BC85001A957E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7CCF32889824032B0CDD0C8 /* Pods-Gini-iOS-SDK.xcconfig */;
+			baseConfigurationReference = BD0005698BCD7B4DC8124C4A /* Pods-Gini-iOS-SDK.debug.xcconfig */;
 			buildSettings = {
 				DSTROOT = "/tmp/Gini-iOS-SDK.dst";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -803,7 +815,7 @@
 		};
 		23D53C191934BC85001A957E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7CCF32889824032B0CDD0C8 /* Pods-Gini-iOS-SDK.xcconfig */;
+			baseConfigurationReference = C936F096664D6E69ED29C4B8 /* Pods-Gini-iOS-SDK.release.xcconfig */;
 			buildSettings = {
 				DSTROOT = "/tmp/Gini-iOS-SDK.dst";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -817,7 +829,7 @@
 		};
 		23D53C1B1934BC85001A957E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BE557B4E7EF4995B164009C /* Pods-Gini-iOS-SDKTests.xcconfig */;
+			baseConfigurationReference = 30B9227D3614DAC09BD5C8A1 /* Pods-Gini-iOS-SDKTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -838,7 +850,7 @@
 		};
 		23D53C1C1934BC85001A957E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BE557B4E7EF4995B164009C /* Pods-Gini-iOS-SDKTests.xcconfig */;
+			baseConfigurationReference = BE5A2B2B832A2573F253030E /* Pods-Gini-iOS-SDKTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

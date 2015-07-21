@@ -37,7 +37,7 @@ describe(@"The GINIDocument", ^{
         GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
         [[theValue(instance.pageCount) should] equal:theValue(1)];
 
-        jsonData[@"pageCount"] = @"23";
+        jsonData[@"pageCount"] = @23;
         GINIDocument *secondInstance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
         [[theValue(secondInstance.pageCount) should] equal:theValue(23)];
     });

@@ -171,7 +171,7 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 [urlSession setResponse:[BFTask taskWithError:nil] forURL:@"https://user.gini.net/api/users"];
                 [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
                 NSURLRequest *lastRequest = urlSession.lastRequest;
-                NSString *expectedData = @"{\"password\":\"1234\",\"email\":\"foobar@example.com\"}";
+                NSString *expectedData = @"{\"email\":\"foobar@example.com\",\"password\":\"1234\"}";
                 NSString *actualData = [[NSString alloc] initWithData:lastRequest.HTTPBody encoding:NSUTF8StringEncoding];
                 [[expectedData should] equal:actualData];
             });
