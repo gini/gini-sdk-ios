@@ -172,8 +172,10 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
                 NSURLRequest *lastRequest = urlSession.lastRequest;
                 NSString *expectedData = @"{\"email\":\"foobar@example.com\",\"password\":\"1234\"}";
+                NSDictionary *expectedJSON = [NSJSONSerialization JSONObjectWithData:[expectedData dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
                 NSString *actualData = [[NSString alloc] initWithData:lastRequest.HTTPBody encoding:NSUTF8StringEncoding];
-                [[expectedData should] equal:actualData];
+                NSDictionary *actualJSON = [NSJSONSerialization JSONObjectWithData:[actualData dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
+                [[expectedJSON should] equal:actualJSON];
             });
 
             it(@"should return a BFTask instance", ^{
