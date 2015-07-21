@@ -51,7 +51,7 @@
         return nil;
     }
 
-    NSUInteger pageCount = [[apiResponse valueForKey:@"pageCount"] unsignedIntValue];
+    NSUInteger pageCount = [apiResponse[@"pageCount"] unsignedIntValue];
 
     GINIDocument *document = [[GINIDocument alloc] initWithId:documentId state:documentState pageCount:pageCount sourceClassification:(GiniDocumentSourceClassification) sourceClassification documentManager:documentManager];
     document.filename = [apiResponse valueForKey:@"name"];
