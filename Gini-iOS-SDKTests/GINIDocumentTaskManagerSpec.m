@@ -82,8 +82,7 @@ describe(@"The GINIDocumentTaskManager", ^{
             BFTask *task = [documentTaskManager updateDocument:document];
             [[task should] beKindOfClass:[BFTask class]];
         });
-
-
+        // TODO: more tests
     });
 
     context(@"The createDocumentWithFilename:fromImage: method", ^{
