@@ -204,7 +204,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     // The HTTP basic authorization is a base64 encoded string with "username:password"
     NSString *loginString = [NSString stringWithFormat:@"%@:%@", _clientID, _clientSecret];
     NSData *loginData = [loginString dataUsingEncoding:NSUTF8StringEncoding];
-    NSData *base64LoginData = [loginData base64EncodedDataWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSData *base64LoginData = [loginData base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
     return [NSString stringWithFormat:@"Basic %@", [[NSString alloc] initWithData:base64LoginData encoding:NSUTF8StringEncoding]];
 }
 
