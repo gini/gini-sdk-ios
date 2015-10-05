@@ -87,4 +87,11 @@ An example of a username created with this configuration would be ``550e8400-e29
 
     ...
 
+Whenever you need the Gini SDK, for example in a view controller, you can now access your AppDelegate and get the ``GiniSDK`` instance:
+
+.. code-block:: obj-c
+
+    GiniSDK *sdk = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).giniSDK;
+
 Congratulations, you successfully integrated the Gini SDK. 
+
