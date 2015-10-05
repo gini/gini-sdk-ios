@@ -80,8 +80,9 @@ The code example below shows how to correct extractions and send feedback.
 
 .. code-block:: obj-c
 
-    // Assuming `retrievedExtractions` is an instance of the `BFTask` class as returned by `extractions` and
-    // `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`.
+    // Assuming `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`,
+    // `retrievedExtractions` is an instance of the `BFTask` class as returned by ``[document extractions]`` and
+    // `gini` is an instance of the `GiniSDK` facade class.
     
     NSMutableDictionary *extractions = retrievedExtractions.result;
     
@@ -101,9 +102,8 @@ The code example below shows how to send the error report to Gini.
 
 .. code-block:: obj-c
 
-    // Assuming `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`,
-    // `retrievedExtractions` is an instance of the `BFTask` class as returned by ``[document extractions]`` and
-    // `gini` is an instance of the `GiniSDK` facade class.
+    // Assuming that `gini` is an instance of the `GiniSDK` facade class and
+    // `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`. 
 
     GINIAPIManager *apiManager = gini.APIManager;
     BFTask *reportTask = [apiManager reportErrorForDocument:document.documentId summary:@"short summary" description:@"detailed description"];
