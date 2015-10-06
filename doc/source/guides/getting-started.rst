@@ -8,8 +8,8 @@ Getting started
 First of all: Add the Library to your Build
 ===========================================
 
-The gini sdk is provided via `Cocoapods <http://www.cocoapods.org>`_.
-To install the gini sdk simply add the following repository to your Cocoapods installation
+The Gini iOS SDK is provided via `Cocoapods <http://www.cocoapods.org>`_.
+To install the Gini iOS SDK simply add the following repository to your Cocoapods installation
 
 .. code-block:: none
 
@@ -34,20 +34,20 @@ Integrating the Gini SDK
 ========================
 
 
-The Gini SDK provides the ``GiniSDK`` class which is a façade to all functionality of the Gini SDK. We recommend using an
+The Gini SDK provides the ``GiniSDK`` class which is a facade to all functionality of the Gini SDK. We recommend using an
 instance of this class singleton-like. By saying singleton-like we mean that you somehow manage to create and keep
-one instance at application start. Instead of creating a new instance every time when you need to interact with the
-Gini API, you reuse this instance. This has the benefits that the SDK can reuse sessions between requests to the
-Gini API which may save a noteworthy number of HTTP requests.
+one instance at application start. Instead of creating a new instance every time you need to interact with the
+Gini API, you reuse this instance. This has the benefit that the SDK can reuse sessions between requests to the
+Gini API, which may save a significant number of HTTP requests.
 
 Creating the Gini SDK instance
 ------------------------------
 
 In order to create an instance of the ``GiniSDK`` class, you need both your client id and your client secret. If you don't
 have a client id and client secret yet, you need to register your application with Gini. `See the Gini API documentation
-to find out how to register your Application with Gini <http://developer.gini.net/gini-api/html/guides/oauth2.html#first-of-all-register-your-application-with-gini>`_.
+to find out how to register your application with Gini <http://developer.gini.net/gini-api/html/guides/oauth2.html#first-of-all-register-your-application-with-gini>`_.
 
-All requests to the Gini API are made on behalf of a user. This means particularly that all created documents are bound
+All requests to the Gini API are made on behalf of a user. This means in particular that all created documents are bound
 to a specific user account. But since you are most likely only interested in the results of the semantic document
 analysis and not in a cloud document storage system, the Gini API has the feature of "anonymous users". This means that
 user accounts are created on the fly and the user account is unknown to your application's user.
@@ -93,5 +93,5 @@ Whenever you need the Gini SDK, for example in a view controller, you can now ac
 
     GiniSDK *sdk = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).giniSDK;
 
-Congratulations, you successfully integrated the Gini SDK. 
+Congratulations, you have now successfully integrated the Gini SDK. 
 

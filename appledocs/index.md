@@ -22,7 +22,7 @@ between the managers and makes those manager instances available as properties.
 How to start
 ------------
 
-We recommend that you read the [integration guide](http://developer.gini.net/gini-sdk-ios/) for more details how to
+We recommend you read the [integration guide](http://developer.gini.net/gini-sdk-ios/) for more details on how to
 integrate the SDK.
 
 

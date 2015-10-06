@@ -29,7 +29,7 @@ document from an image.
 
     ...
 
-    // Assuming that `gini` is an instance of the `GiniSDK` facade class and `image` is an `UIImage` instance,
+    // Assuming that `gini` is an instance of the `GiniSDK` facade class and `image` is a `UIImage` instance,
     // e.g. from a picture taken by the camera.
 
     GINIDocumentTaskManager *documentTaskManager = gini.documentTaskManager;
@@ -50,7 +50,7 @@ After you have successfully created a new document, you most likely want to get 
 the document. Gini needs to process your document first before you can fetch the document's
 extractions. Effectively this means that you won't get any extractions before the document is fully
 processed. The processing time may vary, usually it is in the range of a couple of seconds, but
-blurred or slightly rotated images are known to drasticly increase the processing time. 
+blurred or slightly rotated images are known to drastically increase the processing time. 
 
 The ``GINIDocument`` class provides the ``extractions`` method which can be used
 to fetch the extractions. The method waits until the processing of the document is completed. The following example shows 
@@ -62,7 +62,7 @@ how to achieve this in detail.
 
     [[document extractions] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *extractions = task.result;
-        // Do somethin with the extractions.
+        // Do something with the extractions.
         return nil;
     }];
 
@@ -71,12 +71,12 @@ how to achieve this in detail.
 Sending feedback
 ================
 
-Depending on your use case your app probably presents the extractions to the user and give her the opportunity to correct them. Yes, there *could be errors*.
-We do our best to prevent them - but it's more unlikely to happen if your app is sending us feedback for the extractions we have delivered. Your app should send feedback
-only for the extractions the *user has seen and accepted*. Feedback should be send for corrected extractions **and** for *correct extractions*.
+Depending on your use case your app probably presents the extractions to the user and gives them the opportunity to correct them. Yes, there *could be errors*.
+We do our best to prevent them - but it's more unlikely to happen if your app sends us feedback for the extractions we have delivered. Your app should send feedback
+only for the extractions the *user has seen and accepted*. Feedback should be sent for corrected extractions **and** for *correct extractions*.
 The code example below shows how to correct extractions and send feedback.
 
-.. hint:: Feedback should only be send for extractions which were seen and accepted.
+.. hint:: Feedback should only be sent for extractions which were seen and accepted.
 
 .. code-block:: obj-c
 
@@ -96,8 +96,8 @@ The code example below shows how to correct extractions and send feedback.
 Report an extraction error to Gini
 ==================================
 
-If the processing result for a document was not satisfactory for the user, your app can give her the opportunity to report an error directly to Gini. Gini will return
-an error identifier which can be used to refer to it towards the Gini support. The user must agree that Gini can use this document for debugging and error analysis.
+If the processing result for a document was not satisfactory for the user, your app can give them the opportunity to report an error directly to Gini. Gini will return
+an error identifier which can be used to refer to it when communicating with the Gini support. The user must agree that Gini can use this document for debugging and error analysis.
 The code example below shows how to send the error report to Gini.
 
 .. code-block:: obj-c
