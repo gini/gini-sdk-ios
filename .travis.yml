@@ -14,6 +14,7 @@ env:
 script:
   - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Gini-iOS-SDK -sdk iphonesimulator test
   - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Documentation -sdk iphonesimulator build
+  - ./scripts/createIntegrationGuide.sh
 
 after_success:
   - ./scripts/publish_docs.sh

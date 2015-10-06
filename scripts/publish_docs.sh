@@ -18,7 +18,12 @@ git clone --branch=gh-pages https://$GH_TOKEN@github.com/gini/gini-sdk-ios.git g
 
 cd gh-pages
 git rm -rf *
-cp -Rf $TRAVIS_BUILD_DIR/docs/html/* .
+cp -Rf $TRAVIS_BUILD_DIR/integration_guide/build/html/* .
+
+mkdir appledocs
+cp -Rf $TRAVIS_BUILD_DIR/docs/html/* appledocs/
+
+touch .nojekyll
 git add -f .
 git commit -m "Update SDK documentation (Travis build $TRAVIS_BUILD_NUMBER)"
 git push -fq origin gh-pages > /dev/null
