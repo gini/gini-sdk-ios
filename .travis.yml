@@ -18,5 +18,3 @@ script:
 
 after_success:
   - ./scripts/publish_docs.sh
-  - ./scripts/cleanup.sh
-
