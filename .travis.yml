@@ -8,7 +8,7 @@ before_script:
 env:
   global:
     - GH_REF: github.com/gini/gini-sdk-ios.git
-    - secure: ETbfkLJhiUwSGWNoQwPxCRycRzNKYU9Mlf2yn1hosFqAXonHnmzbvL2OnCP4hwCJTmF1ZSs+mVA2jXgR6bR16+HCvHagc0O68q5AokGTuN+ViIyrAvdv+jXpotJlEOVEBvHjv8UR8ubt8WnVKfkhviXrJRk1x/WYPxSPoncQBKM=
+    - secure: "mmTWT0WBaAMKNxnPD/Nyxj1sXPZxCMxEaGN4iTg/bxXokrFe4EOnuMGxN2nNWJJmyEKqmZ2VCMJJxqDbmz1xwsI5RgC0Ylywt/nD0oEiKyS0avigyzjG8tqsOY78yl6wJwbsOePKSJq2BniKjpCRN8mfwVoiczwtXjQAKMqAbRA="
 script:
   - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Gini-iOS-SDK -sdk iphonesimulator test
   - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Documentation -sdk iphonesimulator build
