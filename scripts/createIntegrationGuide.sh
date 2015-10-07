@@ -16,7 +16,6 @@ mkdir -p $TRAVIS_BUILD_DIR/integration-guide
 cd $TRAVIS_BUILD_DIR/integration-guide
 cp -r $TRAVIS_BUILD_DIR/doc/* .
 
-
 virtualenv ./virtualenv
 source virtualenv/bin/activate
 pip install -r requirements.txt
