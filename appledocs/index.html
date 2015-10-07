@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Gini-iOS-SDK Reference</title>
+		<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="index.html">Gini-iOS-SDK </a></h1>
+				<a id="developerHome" href="index.html">Gini GmbH</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">Gini-iOS-SDK Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar"></ul>
+		</header>
+		<article>
+			<div id="overview_contents" role="main">
+				<div class="main-navigation navigation-top">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">Gini-iOS-SDK Reference</h1>
+					</div>		
+				</div>
+				<div id="container">
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h2>Architecture</h2>
+
+<p>The Gini iOS SDK provides several managers that are used to interact with the
+<a href="http://developer.gini.net/gini-api/html/index.html">Gini API</a>. Those are:</p>
+
+<ul>
+<li><a href="Classes/GINIDocumentTaskManager.html"><code>GINIDocumentTaskManager</code></a>: A high-level manager for document-related tasks. Use this manager to integrate the Gini
+magic into your application. It is built upon the <a href="Classes/GINIAPIManager.html"><code>GINIAPIManager</code></a> and the <a href="Classes/GINISessionManager.html"><code>GINISessionManager</code></a>.</li>
+<li><a href="Classes/GINIAPIManager.html"><code>GINIAPIManager</code></a>: A low-level manager which interacts with the Gini API and which directly returns the API responses
+without much interpretation of the response. Because of that, it is not recommended that you use this manager
+directly. Instead use the <a href="Classes/GINIDocumentTaskManager.html"><code>GINIDocumentTaskManager</code></a> which offers much more sophisticated methods for dealing with
+documents and extractions.</li>
+<li><a href="Classes/GINISessionManager.html"><code>GINISessionManager</code></a>: Handles login-related tasks.</li>
+</ul>
+
+
+<p>You don&rsquo;t need to create those manager instances yourself (and it is not recommended to try it, since the managers have
+non-trivial dependencies). Instead, create and use an instance of the <a href="Classes/GiniSDK.html"><code>GiniSDK</code></a> class (as
+described in the <a href="http://developer.gini.net/gini-sdk-ios/">integration guide</a>). The <a href="Classes/GiniSDK.html"><code>GiniSDK</code></a> instance uses an injector (which
+is provided at the instance&rsquo;s <code>injector</code> property) to create the manager instances and to manage the dependencies
+between the managers and makes those manager instances available as properties.</p>
+
+<h2>How to start</h2>
+
+<p>We recommend you read the <a href="http://developer.gini.net/gini-sdk-ios/">integration guide</a> for more details on how to
+integrate the SDK.</p>
+
+<h2>Support and Feedback</h2>
+
+<p>We are happy to hear from you. The SDK&rsquo;s source files are <a href="https://github.com/gini/gini-sdk-ios">hosted at github</a>. Feel
+free to contact Gini at hello@gini.net (you can write in German or English) if you have questions, experience problems
+or need support.</p>
+						
+						
+					</div>
+					
+                        
+                    
+					
+					
+					<div class="index-column">
+						<h2 class="index-title">Class References</h2>
+						<ul>
+							
+							<li><a href="Classes/GINIAPIManager.html">GINIAPIManager</a></li>
+							
+							<li><a href="Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a></li>
+							
+							<li><a href="Classes/GINIDocument.html">GINIDocument</a></li>
+							
+							<li><a href="Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a></li>
+							
+							<li><a href="Classes/GINIError.html">GINIError</a></li>
+							
+							<li><a href="Classes/GINIExtraction.html">GINIExtraction</a></li>
+							
+							<li><a href="Classes/GINIFactoryDescription.html">GINIFactoryDescription</a></li>
+							
+							<li><a href="Classes/GINIHTTPError.html">GINIHTTPError</a></li>
+							
+							<li><a href="Classes/GINIInjector.html">GINIInjector</a></li>
+							
+							<li><a href="Classes/GINIKeychainCredentialsStore.html">GINIKeychainCredentialsStore</a></li>
+							
+							<li><a href="Classes/GINIKeychainItem.html">GINIKeychainItem</a></li>
+							
+							<li><a href="Classes/GINIKeychainManager.html">GINIKeychainManager</a></li>
+							
+							<li><a href="Classes/GINISDKBuilder.html">GINISDKBuilder</a></li>
+							
+							<li><a href="Classes/GINISession.html">GINISession</a></li>
+							
+							<li><a href="Classes/GINISessionManager.html">GINISessionManager</a></li>
+							
+							<li><a href="Classes/GINISessionManagerAnonymous.html">GINISessionManagerAnonymous</a></li>
+							
+							<li><a href="Classes/GINISessionManagerClientFlow.html">GINISessionManagerClientFlow</a></li>
+							
+							<li><a href="Classes/GINISessionManagerServerFlow.html">GINISessionManagerServerFlow</a></li>
+							
+							<li><a href="Classes/GINISessionParser.html">GINISessionParser</a></li>
+							
+							<li><a href="Classes/GINIURLResponse.html">GINIURLResponse</a></li>
+							
+							<li><a href="Classes/GINIURLSession.html">GINIURLSession</a></li>
+							
+							<li><a href="Classes/GINIUser.html">GINIUser</a></li>
+							
+							<li><a href="Classes/GINIUserCenterManager.html">GINIUserCenterManager</a></li>
+							
+							<li><a href="Classes/GiniSDK.html">GiniSDK</a></li>
+							
+						</ul>
+					</div>
+					
+					
+						
+					<div class="index-column">
+						
+						<h2 class="index-title">Protocol References</h2>
+						<ul>
+							
+							<li><a href="Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a></li>
+							
+							<li><a href="Protocols/GINICredentialsStore.html">GINICredentialsStore</a></li>
+							
+							<li><a href="Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a></li>
+							
+							<li><a href="Protocols/GINISessionManager.html">GINISessionManager</a></li>
+							
+							<li><a href="Protocols/GINIURLSession.html">GINIURLSession</a></li>
+							
+						</ul>
+						
+                        
+						<h2 class="index-title">Constant References</h2>
+						<ul>
+                        
+                        <li><a href="Constants/GINIErrorCode.html">GINIErrorCode</a></li>
+                        
+                        <li><a href="Constants/GiniAPIResponseType.html">GiniAPIResponseType</a></li>
+                        
+                        <li><a href="Constants/GiniApiPreviewSize.html">GiniApiPreviewSize</a></li>
+                        
+                        <li><a href="Constants/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a></li>
+                        
+                        <li><a href="Constants/GiniDocumentState.html">GiniDocumentState</a></li>
+                        
+						</ul>
+						
+						
+					</div>
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<a href="hierarchy.html">Next</a>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2015 Gini GmbH. All rights reserved. (Last updated: 2015-10-07)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+	
+					</div>
+				</div>
+			</div>
+		</article>		
+	</body>
+</html>

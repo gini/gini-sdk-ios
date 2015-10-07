@@ -1,0 +1,484 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>GINIURLSession Protocol Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 963)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Gini-iOS-SDK </a></h1>
+				<a id="developerHome" href="../index.html">Gini GmbH</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">GINIURLSession Protocol Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/BFDataTaskWithRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- BFDataTaskWithRequest:</option>
+	
+	<option value="//api/name/BFDownloadTaskWithRequest:">&nbsp;&nbsp;&nbsp;&nbsp;- BFDownloadTaskWithRequest:</option>
+	
+	<option value="//api/name/BFUploadTaskWithRequest:fromData:">&nbsp;&nbsp;&nbsp;&nbsp;- BFUploadTaskWithRequest:fromData:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/BFDataTaskWithRequest:">BFDataTaskWithRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/BFDownloadTaskWithRequest:">BFDownloadTaskWithRequest:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/BFUploadTaskWithRequest:fromData:">BFUploadTaskWithRequest:fromData:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="GINIURLSession Protocol Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">GINIURLSession Protocol Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">GINIURLSession.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The GINIURLSession is a small wrapper around Apple&rsquo;s NSURLSession. It wraps the Apple&rsquo;s HTTP tasks into BFTask* so
+it can easily be used inside Managers. It also provides some higher level error handling than the default methods.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/BFDataTaskWithRequest:">&ndash;&nbsp;BFDataTaskWithRequest:</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/BFDownloadTaskWithRequest:">&ndash;&nbsp;BFDownloadTaskWithRequest:</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/BFUploadTaskWithRequest:fromData:">&ndash;&nbsp;BFUploadTaskWithRequest:fromData:</a></code>
+	</span>
+	
+	<span class="task-item-suffix">required method</span>
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/BFDataTaskWithRequest:" title="BFDataTaskWithRequest:"></a>
+	<h3 class="subsubtitle method-title">BFDataTaskWithRequest:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method wraps a BFTask around Apple&rsquo;s dataTaskWithRequest:. The BFTask* resolves to a <a href="../Classes/GINIURLResponse.html"><code>GINIURLResponse</code></a> object
+of which the <code>data</code> property is the result of some advanced handling of the result of the HTTP communication
+(based on the Content-Type HTTP header of the response):</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)BFDataTaskWithRequest:(NSURLRequest *)<em>request</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The HTTP request that should be done to get the data.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method wraps a BFTask around Apple&rsquo;s dataTaskWithRequest:. The BFTask* resolves to a <code>GINIURLResponse</code> object
+of which the <code>data</code> property is the result of some advanced handling of the result of the HTTP communication
+(based on the Content-Type HTTP header of the response):</p>
+
+<ul>
+<li>If the response has JSON contents, the data property is either a NSDictionary<em> or a NSArray</em> (or NSString<em> and
+NSNumber</em> if the response are &ldquo;JSON fragments&rdquo;).</li>
+<li>If the response has text contents, the data property is a NSString* with the contents of the HTTP body.</li>
+<li>If the response has image contents, the data property is an UIImage*.</li>
+</ul>
+
+
+<p>In all other cases, the data property is a NSData* object containing the response&rsquo;s HTTP body.
+If there have benn errors in the HTTP communication or in the response deserialization (e.g. due to an invalid JSON
+response), the error property of the task is set accordingly.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIURLSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/BFDownloadTaskWithRequest:" title="BFDownloadTaskWithRequest:"></a>
+	<h3 class="subsubtitle method-title">BFDownloadTaskWithRequest:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method wraps a BFTask around Apple&rsquo;s downloadTaskWithRequest: method. The BFTask<em> resolves to a
+<code>GINIURLResponse</code> object where the <code>data</code> property is an NSURL</em> representing the file system path of the downloaded
+file.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)BFDownloadTaskWithRequest:(NSURLRequest *)<em>request</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The HTTP request that should be done to download the data.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method wraps a BFTask around Apple&rsquo;s downloadTaskWithRequest: method. The BFTask<em> resolves to a
+<code>GINIURLResponse</code> object where the <code>data</code> property is an NSURL</em> representing the file system path of the downloaded
+file.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIURLSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/BFUploadTaskWithRequest:fromData:" title="BFUploadTaskWithRequest:fromData:"></a>
+	<h3 class="subsubtitle method-title">BFUploadTaskWithRequest:fromData:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>This method wraps a BFTask around Apple&rsquo;s <code>uploadTaskWithRequest:fromData</code> method. The BFTask* resolves to a
+<a href="../Classes/GINIURLResponse.html"><code>GINIURLResponse</code></a> object where the data property is the interpreted result of the HTTP communication (based on the
+Content-Type HTTP header of the response):</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)BFUploadTaskWithRequest:(NSURLRequest *)<em>request</em> fromData:(NSData *)<em>uploadData</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>request</em></dt>
+			<dd><p>The HTTP request that should be done to upload the data.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>uploadData</em></dt>
+			<dd><p>The data that should be uploaded.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This method wraps a BFTask around Apple&rsquo;s <code>uploadTaskWithRequest:fromData</code> method. The BFTask* resolves to a
+<code>GINIURLResponse</code> object where the data property is the interpreted result of the HTTP communication (based on the
+Content-Type HTTP header of the response):</p>
+
+<ul>
+<li>If the response has JSON contents, the BFTask<em> resolves to either a NSDictionary</em> or a NSArray<em> (or NSString</em> and
+NSNumber* if the response are &ldquo;JSON fragments&rdquo;).</li>
+<li>If the response has text contents, the BFTask<em> resolves to a NSString</em> with the contents of the HTTP body.</li>
+<li>If the response has image contents, the BFTask<em> resolves to a UIImage</em>.</li>
+</ul>
+
+
+<p>In all other cases, the task resolves to a NSData* object containing the response&rsquo;s HTTP body.
+If there are errors in the HTTP communication or in the response deserialization (e.g. due to an invalid JSON
+response), the error property of the task is set accordingly.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIURLSession.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2015 Gini GmbH. All rights reserved. (Last updated: 2015-10-07)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

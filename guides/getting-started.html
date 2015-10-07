@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting started &mdash; Gini SDK for iOS 1.0.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|Source+Code+Pro|Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'1.0.0',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+    <script type="text/javascript">
+        jQuery(function () {
+            SphinxRtdTheme.StickyNav.enable();
+        });
+    </script>
+  
+
+  
+    <link rel="top" title="Gini SDK for iOS 1.0.0 documentation" href="../index.html"/>
+        <link rel="next" title="Working with Tasks" href="common-tasks.html"/>
+        <link rel="prev" title="Gini iOS SDK Documentation" href="../index.html"/> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" id="gini-logo">gini API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first-of-all-add-the-library-to-your-build">First of all: Add the Library to your Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrating-the-gini-sdk">Integrating the Gini SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-gini-sdk-instance">Creating the Gini SDK instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-tasks.html">Working with Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#upload-a-document">Upload a document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#getting-extractions">Getting extractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#sending-feedback">Sending feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#report-an-extraction-error-to-gini">Report an extraction error to Gini</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#handling-sdk-errors">Handling SDK errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swift.html">Swift Integration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swift.html#bridging-header">Bridging header</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../see-also.html">See also</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Gini SDK for iOS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="getting-started">
+<span id="guide-getting-started"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="first-of-all-add-the-library-to-your-build">
+<h2>First of all: Add the Library to your Build<a class="headerlink" href="#first-of-all-add-the-library-to-your-build" title="Permalink to this headline">¶</a></h2>
+<p>The Gini iOS SDK is provided via <a class="reference external" href="http://www.cocoapods.org">Cocoapods</a>.
+To install the Gini iOS SDK simply add the following repository to your Cocoapods installation</p>
+<div class="highlight-none"><div class="highlight"><pre>$ pod repo add gini-podspecs https://github.com/gini/gini-podspecs.git
+</pre></div>
+</div>
+<p>and include the pod in your Podfile</p>
+<div class="highlight-none"><div class="highlight"><pre>pod &#39;Gini-iOS-SDK&#39;
+</pre></div>
+</div>
+<p>Then run</p>
+<div class="highlight-none"><div class="highlight"><pre>$ pod install
+</pre></div>
+</div>
+<p>in your project directory and open the generated Xcode workspace.</p>
+</div>
+<div class="section" id="integrating-the-gini-sdk">
+<h2>Integrating the Gini SDK<a class="headerlink" href="#integrating-the-gini-sdk" title="Permalink to this headline">¶</a></h2>
+<p>The Gini SDK provides the <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> class which is a facade to all functionality of the Gini SDK. We recommend using an
+instance of this class singleton-like. By saying singleton-like we mean that you somehow manage to create and keep
+one instance at application start. Instead of creating a new instance every time you need to interact with the
+Gini API, you reuse this instance. This has the benefit that the SDK can reuse sessions between requests to the
+Gini API, which may save a significant number of HTTP requests.</p>
+<div class="section" id="creating-the-gini-sdk-instance">
+<h3>Creating the Gini SDK instance<a class="headerlink" href="#creating-the-gini-sdk-instance" title="Permalink to this headline">¶</a></h3>
+<p>In order to create an instance of the <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> class, you need both your client id and your client secret. If you don&#8217;t
+have a client id and client secret yet, you need to register your application with Gini. <a class="reference external" href="http://developer.gini.net/gini-api/html/guides/oauth2.html#first-of-all-register-your-application-with-gini">See the Gini API documentation
+to find out how to register your application with Gini</a>.</p>
+<p>All requests to the Gini API are made on behalf of a user. This means in particular that all created documents are bound
+to a specific user account. But since you are most likely only interested in the results of the semantic document
+analysis and not in a cloud document storage system, the Gini API has the feature of &#8220;anonymous users&#8221;. This means that
+user accounts are created on the fly and the user account is unknown to your application&#8217;s user.</p>
+<p>The following example describes how to use the Gini API in your application with such anonymous user accounts. To use
+the Gini API, you must create an instance of the <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> class. The <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> instance is configured and created with the
+help of the <tt class="docutils literal"><span class="pre">GINISDKBuilder</span></tt> class. In this example, the anonymous users are created with the email domain &#8220;example.com&#8221;.
+An example of a username created with this configuration would be <tt class="docutils literal"><span class="pre">550e8400-e29b-11d4-a716-446655440000&#64;example.com</span></tt></p>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="c1">// AppDelegate.h</span>
+
+<span class="cp">#import &lt;Gini-iOS-SDK/GiniSDK.h&gt;</span>
+
+<span class="k">@interface</span> <span class="nc">AppDelegate</span>
+
+<span class="k">@property</span> <span class="n">GiniSDK</span> <span class="o">*</span><span class="n">giniSDK</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="k">strong</span><span class="p">,</span> <span class="k">nonatomic</span><span class="p">)</span> <span class="bp">UIWindow</span> <span class="o">*</span><span class="n">window</span><span class="p">;</span>
+
+<span class="k">@end</span>
+</pre></div>
+</div>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="c1">// AppDelegate.m</span>
+
+<span class="p">...</span>
+
+<span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">application</span><span class="p">:(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nl">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">launchOptions</span>
+<span class="p">{</span>
+    <span class="n">_giniSDK</span> <span class="o">=</span> <span class="p">[[</span><span class="n">GINISDKBuilder</span> <span class="nl">anonymousUserWithClientID</span><span class="p">:</span><span class="s">@&quot;your-client-id&quot;</span> <span class="nl">clientSecret</span><span class="p">:</span><span class="s">@&quot;your-client-secret&quot;</span> <span class="nl">userEmailDomain</span><span class="p">:</span><span class="s">@&quot;example.com&quot;</span><span class="p">]</span> <span class="n">build</span><span class="p">];</span>
+    <span class="c1">// The DocumentTaskManager provides the high-level API to work with documents.</span>
+    <span class="n">GINIDocumentTaskManager</span> <span class="o">*</span><span class="n">documentManager</span> <span class="o">=</span> <span class="n">_giniSDK</span><span class="p">.</span><span class="n">documentTaskManager</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>Whenever you need the Gini SDK, for example in a view controller, you can now access your AppDelegate and get the <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> instance:</p>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="n">GiniSDK</span> <span class="o">*</span><span class="n">sdk</span> <span class="o">=</span> <span class="p">((</span><span class="n">AppDelegate</span> <span class="o">*</span><span class="p">)[[</span><span class="bp">UIApplication</span> <span class="n">sharedApplication</span><span class="p">]</span> <span class="n">delegate</span><span class="p">]).</span><span class="n">giniSDK</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Congratulations, you have now successfully integrated the Gini SDK.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-tasks.html" class="btn btn-neutral float-right" title="Working with Tasks">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Gini iOS SDK Documentation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+</body>
+</html>
