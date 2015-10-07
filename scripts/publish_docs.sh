@@ -19,6 +19,7 @@ git clone --branch=gh-pages https://$GH_TOKEN@github.com/gini/gini-sdk-ios.git g
 cd gh-pages
 git rm -rf *
 cp -Rf $TRAVIS_BUILD_DIR/integration_guide/build/html/* .
+rm -rf $TRAVIS_BUILD_DIR/integration_guide
 
 mkdir appledocs
 cp -Rf $TRAVIS_BUILD_DIR/docs/html/* appledocs/
