@@ -12,9 +12,9 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   exit 0
 fi
 
-cd $TRAVIS_BUILD_DIR 
+cd $TRAVIS_BUILD_DIR
 
-git clone --branch=gh-pages https://$GH_TOKEN@github.com/gini/gini-sdk-ios.git gh-pages > /dev/null > /dev/null
+git clone --branch=gh-pages https://${GH_TOKEN}@${GH_REF} gh-pages > /dev/null > /dev/null
 
 cd gh-pages
 git rm -rf *
@@ -27,4 +27,3 @@ touch .nojekyll
 git add -f .
 git commit -m "Update SDK documentation (Travis build $TRAVIS_BUILD_NUMBER)"
 git push -fq origin gh-pages > /dev/null
-

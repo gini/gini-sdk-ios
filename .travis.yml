@@ -1,20 +1,17 @@
 language: objective-c
-
 before_install:
   - export LANG=en_US.UTF-8
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet 
-
+  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
 before_script:
   - ./scripts/install_appledoc.sh
   - export PATH=$PATH:$TRAVIS_BUILD_DIR/appledoc
-
 env:
-  - secure: "jeItygaqVAUjxXk6wO2cvXlw/AY6LiXOkB5GEkZr6FTTCsPDGxW8+r2pDI5DBF+QOFSyMQVx5m5+8tcXsRjeb8TriJ82B0NHGbWfNfIzL/PChilEfDYdexsLWAYuU/l2GGTrlm8uAK7uYUk9B2wtqU5LWaV2rMx9i/+xE81NbCk="
-
+  global:
+    - GH_REF: github.com/gini/gini-sdk-ios.git
+    - secure: ETbfkLJhiUwSGWNoQwPxCRycRzNKYU9Mlf2yn1hosFqAXonHnmzbvL2OnCP4hwCJTmF1ZSs+mVA2jXgR6bR16+HCvHagc0O68q5AokGTuN+ViIyrAvdv+jXpotJlEOVEBvHjv8UR8ubt8WnVKfkhviXrJRk1x/WYPxSPoncQBKM=
 script:
   - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Gini-iOS-SDK -sdk iphonesimulator test
   - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Documentation -sdk iphonesimulator build
   - ./scripts/createIntegrationGuide.sh
-
 after_success:
   - ./scripts/publish_docs.sh
