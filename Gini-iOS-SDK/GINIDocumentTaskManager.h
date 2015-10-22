@@ -79,6 +79,18 @@
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType;
 
 /**
+ * Creates a new document from the given image data.
+ *
+ * @param fileName      The file name of the document.
+ * @param imageData     Image data representing the document.
+ *
+ * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
+ *                      Please notice that it is very unlikely that the created document is already fully processed, so
+ *                      the extractions may not already exist.
+ */
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImageData:(NSData *)imageData;
+
+/**
  * Saves updates on the extractions.
  *
  * Updating extractions is called "Submitting feedback" in the Gini API documentation.
