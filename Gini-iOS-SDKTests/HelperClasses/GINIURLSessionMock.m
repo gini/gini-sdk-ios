@@ -71,7 +71,7 @@
     if (!isError) {
         [self setResponse:[BFTask taskWithResult:response] forURL:URL];
     } else {
-        GINIHTTPError *error = [GINIHTTPError HTTPErrrorWithResponse:response];
+        GINIHTTPError *error = [GINIHTTPError HTTPErrrorWithResponse:response code:GINIHTTPErrorURLSessionError userInfo:nil];
         [self setResponse:[BFTask taskWithError:error] forURL:URL];
     }
 }

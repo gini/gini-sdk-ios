@@ -116,7 +116,7 @@ void GINIParseResponse(NSData *data, NSURLResponse *response, NSError *error, BF
     // Otherwise try to use the response.
     GINIURLResponse *parsedResponse = GINIDeserializeResponse(response, data, &error);
     if (GINICheckHTTPError(response)) {
-        [completionSource setError:[GINIHTTPError HTTPErrrorWithResponse:parsedResponse]];
+        [completionSource setError:[GINIHTTPError HTTPErrrorWithResponse:parsedResponse code:GINIHTTPErrorURLSessionError userInfo:nil]];
     } else {
         [completionSource setResult:parsedResponse];
     }
@@ -163,7 +163,7 @@ void GINIParseResponse(NSData *data, NSURLResponse *response, NSError *error, BF
         }
         GINIURLResponse *parsedResponse = [GINIURLResponse urlResponseWithResponse:(NSHTTPURLResponse *)response data:location];
         if (GINICheckHTTPError(response)) {
-            [completionSource setError:[GINIHTTPError HTTPErrrorWithResponse:parsedResponse]];
+            [completionSource setError:[GINIHTTPError HTTPErrrorWithResponse:parsedResponse code:GINIHTTPErrorURLSessionError userInfo:nil]];
         } else {
             [completionSource setResult:parsedResponse]; // TODO: downcast
         }

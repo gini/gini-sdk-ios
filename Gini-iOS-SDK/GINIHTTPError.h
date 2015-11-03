@@ -8,6 +8,11 @@
 
 @class GINIURLResponse;
 
+typedef NS_ENUM(NSInteger, GINIHTTPErrorCode) {
+    GINIHTTPErrorURLSessionError
+};
+
+// TODO: edit and add comments
 
 /**
  * The GINIHTTPError is an error with extra information and is used to represent the result of an HTTP request that
@@ -15,7 +20,7 @@
  */
 @interface GINIHTTPError : NSError
 
-+ (instancetype)HTTPErrrorWithResponse:(GINIURLResponse *)response;
++ (instancetype)HTTPErrrorWithResponse:(GINIURLResponse *)response code:(NSInteger)code userInfo:(NSDictionary *)dict;
 
 
 /**
@@ -23,12 +28,12 @@
  *
  * @param response      The `GINIURLResponse` object with the parsed HTTP response.
  */
-- (instancetype)initWithResponse:(GINIURLResponse *)response;
+- (instancetype)initWithCode:(NSInteger)code userInfo:(NSDictionary *)userInfo;
 
 
 /**
  * The `GINIURLResponse` object with the parsed HTTP response.
  */
-@property GINIURLResponse *response;
+@property (readonly) GINIURLResponse *response;
 
 @end
