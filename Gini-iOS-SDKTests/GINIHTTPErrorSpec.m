@@ -27,12 +27,10 @@ describe(@"the GINIHTTPError class", ^{
     it(@"should set the properties correctly", ^{
         NSDictionary *userInfo = @{@"foo": @"bar"};
         NSInteger errorCode = 23;
-        GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nil];
-        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithResponse:nil code:errorCode userInfo:userInfo];
+        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithCode:errorCode userInfo:userInfo];
         [[theValue(httpError.code) should] equal:theValue(errorCode)];
         [[httpError.userInfo should] equal:userInfo];
         [[httpError.domain should] equal:GINIErrorDomain];
-        [[httpError.response should] equal:response];
     });
 });
 

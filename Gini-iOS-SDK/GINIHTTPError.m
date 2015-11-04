@@ -10,6 +10,9 @@
 NSString *const GINIHTTPErrorKeyResponse = @"response";
 
 @implementation GINIHTTPError
++ (instancetype)HTTPErrrorWithCode:(NSInteger)code userInfo:(NSDictionary *)userInfo {
+    return [[self alloc] initWithDomain:GINIErrorDomain code:code userInfo:userInfo];
+}
 
 + (instancetype)HTTPErrrorWithResponse:(GINIURLResponse *)response code:(NSInteger)code userInfo:(NSDictionary *)dict {
     if (!dict) {

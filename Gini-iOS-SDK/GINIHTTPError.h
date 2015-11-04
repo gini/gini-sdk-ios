@@ -22,7 +22,15 @@ typedef NS_ENUM(NSInteger, GINIHTTPErrorCode) {
 /** @name Factories */
 
 /**
- * Factory to create a new GINIHTTPError instance.
+* Factory to create a new GINIHTTPError instance.
+*
+* @param code      The error code for the error.
+* @param userInfo  The userInfo for the error.
+*/
++ (instancetype)HTTPErrrorWithCode:(NSInteger)code userInfo:(NSDictionary *)userInfo;
+
+/**
+ * Factory to create a new GINIHTTPError instance with deeper custom information.
  *
  * @param response  The response for the error.
  * @param code      The error code for the error.
