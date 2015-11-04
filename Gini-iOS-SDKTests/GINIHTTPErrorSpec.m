@@ -15,12 +15,12 @@ SPEC_BEGIN(GINIHTTPErrorSpec)
 
 describe(@"the GINIHTTPError class", ^{
     it(@"should provide a factory for http errors", ^{
-        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithResponse:nil code:1 userInfo:nil];
+        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithCode:1 userInfo:nil];
         [[httpError should] beKindOfClass:[GINIHTTPError class]];
     });
     
     it(@"should be a subclass of NSError", ^{
-        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithResponse:nil code:1 userInfo:nil];
+        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithCode:1 userInfo:nil];
         [[httpError should] beKindOfClass:[NSError class]];
     });
     
