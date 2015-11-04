@@ -9,10 +9,9 @@
 @class GINIURLResponse;
 
 typedef NS_ENUM(NSInteger, GINIHTTPErrorCode) {
-    GINIHTTPErrorURLSessionError
+    /** The error code when the HTTP request fails. */
+    GINIHTTPErrorRequestError
 };
-
-// TODO: edit and add comments
 
 /**
  * The GINIHTTPError is an error with extra information and is used to represent the result of an HTTP request that
@@ -20,16 +19,16 @@ typedef NS_ENUM(NSInteger, GINIHTTPErrorCode) {
  */
 @interface GINIHTTPError : NSError
 
-+ (instancetype)HTTPErrrorWithResponse:(GINIURLResponse *)response code:(NSInteger)code userInfo:(NSDictionary *)dict;
-
+/** @name Factories */
 
 /**
- * The designated initializer.
+ * Factory to create a new GINIHTTPError instance.
  *
- * @param response      The `GINIURLResponse` object with the parsed HTTP response.
+ * @param response  The response for the error.
+ * @param code      The error code for the error.
+ * @param userInfo  The userInfo for the error.
  */
-- (instancetype)initWithCode:(NSInteger)code userInfo:(NSDictionary *)userInfo;
-
++ (instancetype)HTTPErrrorWithResponse:(GINIURLResponse *)response code:(NSInteger)code userInfo:(NSDictionary *)dict;
 
 /**
  * The `GINIURLResponse` object with the parsed HTTP response.
