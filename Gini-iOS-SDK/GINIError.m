@@ -18,9 +18,7 @@ NSString *const GINIErrorKeyCause = @"cause";
     return [self errorWithCode:code cause:nil userInfo:userInfo];
 }
 
-+ (instancetype)errorWithCode:(NSInteger)code cause:(NSError *)cause userInfo:(NSDictionary *)dict {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:dict];
-    userInfo[GINIErrorKeyCause] = cause;
++ (instancetype)errorWithCode:(NSInteger)code cause:(NSError *)cause userInfo:(NSDictionary *)userInfo {
     return [[self alloc] initWithCode:code cause:cause userInfo:userInfo];
 }
 
