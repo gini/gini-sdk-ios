@@ -15,21 +15,19 @@ SPEC_BEGIN(GINIHTTPErrorSpec)
 
 describe(@"the GINIHTTPError class", ^{
     it(@"should provide a factory for http errors", ^{
-        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithCode:1 userInfo:nil];
+        GINIHTTPError *httpError = [GINIHTTPError errorWithResponse:[GINIURLResponse urlResponseWithResponse:nil]];
         [[httpError should] beKindOfClass:[GINIHTTPError class]];
     });
     
-    it(@"should be a subclass of NSError", ^{
-        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithCode:1 userInfo:nil];
-        [[httpError should] beKindOfClass:[NSError class]];
+    it(@"should be a subclass of GINIError", ^{
+        GINIHTTPError *httpError = [GINIHTTPError errorWithResponse:[GINIURLResponse urlResponseWithResponse:nil]];
+        [[httpError should] beKindOfClass:[GINIError class]];
     });
     
     it(@"should set the properties correctly", ^{
-        NSDictionary *userInfo = @{@"foo": @"bar"};
-        NSInteger errorCode = 23;
-        GINIHTTPError *httpError = [GINIHTTPError HTTPErrrorWithCode:errorCode userInfo:userInfo];
-        [[theValue(httpError.code) should] equal:theValue(errorCode)];
-        [[httpError.userInfo should] equal:userInfo];
+        GINIHTTPError *httpError = [GINIHTTPError errorWithResponse:[GINIURLResponse urlResponseWithResponse:nil]];
+        [[httpError.response should] beNonNil];
+        [[theValue(httpError.code) should] equal:theValue(GINIHTTPErrorRequestError)];
         [[httpError.domain should] equal:GINIErrorDomain];
     });
 });
