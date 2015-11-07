@@ -14,6 +14,7 @@ To install the Gini iOS SDK simply add our podspec repo and the Gini SDK pod to 
 .. code-block:: none
 
     source 'https://github.com/gini/gini-podspecs.git'
+    source 'https://github.com/CocoaPods/Specs.git'
 
     pod 'Gini-iOS-SDK'
 
