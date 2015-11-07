@@ -7,11 +7,10 @@ The Gini iOS SDK works for both Objective-C and Swift apps.
 ## Installation
 
 For maximum convenience we rely on the excellent dependency manager [Cocoapods](http://www.cocoapods.org).
-To install the Gini iOS SDK simply add the following repository to your Cocoapods installation
+To install the Gini iOS SDK simply add our podspec repo and the Gini SDK pod to your Podfile
 
-    $ pod repo add gini-podspecs https://github.com/gini/gini-podspecs.git
-
-and include the pod in your Podfile
+    source 'https://github.com/gini/gini-podspecs.git'
+    source 'https://github.com/CocoaPods/Specs.git'
 
     pod 'Gini-iOS-SDK'
 
