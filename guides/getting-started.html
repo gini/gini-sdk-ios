@@ -139,12 +139,10 @@
 <div class="section" id="first-of-all-add-the-library-to-your-build">
 <h2>First of all: Add the Library to your Build<a class="headerlink" href="#first-of-all-add-the-library-to-your-build" title="Permalink to this headline">¶</a></h2>
 <p>The Gini iOS SDK is provided via <a class="reference external" href="http://www.cocoapods.org">Cocoapods</a>.
-To install the Gini iOS SDK simply add the following repository to your Cocoapods installation</p>
-<div class="highlight-none"><div class="highlight"><pre>$ pod repo add gini-podspecs https://github.com/gini/gini-podspecs.git
-</pre></div>
-</div>
-<p>and include the pod in your Podfile</p>
-<div class="highlight-none"><div class="highlight"><pre>pod &#39;Gini-iOS-SDK&#39;
+To install the Gini iOS SDK simply add our podspec repo and the Gini SDK pod to your Podfile</p>
+<div class="highlight-none"><div class="highlight"><pre>source &#39;https://github.com/gini/gini-podspecs.git&#39;
+
+pod &#39;Gini-iOS-SDK&#39;
 </pre></div>
 </div>
 <p>Then run</p>
