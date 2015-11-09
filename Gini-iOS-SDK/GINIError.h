@@ -67,6 +67,15 @@ typedef NS_ENUM(NSInteger, GINIErrorCode) {
  */
 + (instancetype)errorWithCode:(NSInteger)code cause:(NSError *)cause userInfo:(NSDictionary *)dict;
 
+/**
+ * The designated initializer.
+ *
+ * @param code      The error code for the error.
+ * @param cause     The underlying (low-level) error which caused the error.
+ * @param userInfo  The userInfo for the error.
+ */
+- (instancetype)initWithCode:(NSInteger)code cause:(NSError *)cause userInfo:(NSDictionary *)dict;
+
 
 /** The original error which caused the error. */
 @property (readonly) NSError *cause;
