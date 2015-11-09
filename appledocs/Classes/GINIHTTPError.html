@@ -44,11 +44,11 @@
 	
 	
 	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/errorWithResponse:">&nbsp;&nbsp;&nbsp;&nbsp;+ errorWithResponse:</option>
 	
 	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/initWithResponse:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithResponse:</option>
 	
 	
 	
@@ -66,6 +66,8 @@
 
 <li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Factories">Factories</a></span></li>
+	
 </ul></li>
 
 
@@ -80,13 +82,13 @@
 
 
 
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithResponse:">initWithResponse:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/errorWithResponse:">errorWithResponse:</a></span></li>
 	
 </ul></li>
+
+
 
 
 			</ul>
@@ -110,7 +112,7 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<td class="specification-title">Inherits from</td>
-	<td class="specification-value">NSError</td>
+	<td class="specification-value"><a href="../Classes/GINIError.html">GINIError</a> : NSError</td>
 </tr><tr>
 	<td class="specification-title">Declared in</td>
 	<td class="specification-value">GINIHTTPError.h</td>
@@ -136,13 +138,13 @@ returned an HTTP status code which implies that the requested action did not suc
 						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
 						
+						<a title="Factories" name="task_Factories"></a>
 						
-						
-
+<h3 class="subsubtitle task-title">Factories</h3>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/initWithResponse:">&ndash;&nbsp;initWithResponse:</a></code>
+		<code><a href="#//api/name/errorWithResponse:">+&nbsp;errorWithResponse:</a></code>
 	</span>
 	
 	
@@ -177,7 +179,7 @@ returned an HTTP status code which implies that the requested action did not suc
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property GINIURLResponse *response</code></div>
+	<div class="method-subsection method-declaration"><code>@property (readonly) GINIURLResponse *response</code></div>
 
     
 	
@@ -210,25 +212,23 @@ returned an HTTP status code which implies that the requested action did not suc
 					
 					
 					
-					
-					
 					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/initWithResponse:" title="initWithResponse:"></a>
-	<h3 class="subsubtitle method-title">initWithResponse:</h3>
+	<a name="//api/name/errorWithResponse:" title="errorWithResponse:"></a>
+	<h3 class="subsubtitle method-title">errorWithResponse:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>The designated initializer.</p>
+		<p>Factory to create a new GINIHTTPError instance with deeper custom information.</p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (instancetype)initWithResponse:(GINIURLResponse *)<em>response</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (instancetype)errorWithResponse:(GINIURLResponse *)<em>response</em></code></div>
 
     
 	
@@ -237,7 +237,17 @@ returned an HTTP status code which implies that the requested action did not suc
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>response</em></dt>
-			<dd><p>The <a href="../Classes/GINIURLResponse.html"><code>GINIURLResponse</code></a> object with the parsed HTTP <a href="#//api/name/response">response</a>.</p></dd>
+			<dd><p>The <a href="#//api/name/response">response</a> for the error.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>code</em></dt>
+			<dd><p>The error code for the error.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userInfo</em></dt>
+			<dd><p>The userInfo for the error.</p></dd>
 		</dl>
 		
 	</div>
@@ -250,7 +260,7 @@ returned an HTTP status code which implies that the requested action did not suc
 	
 	<div class="method-subsection discussion-section">
 		<h4 class="method-subtitle">Discussion</h4>
-		<p>The designated initializer.</p>
+		<p>Factory to create a new GINIHTTPError instance with deeper custom information.</p>
 	</div>
 	
 	
@@ -270,6 +280,8 @@ returned an HTTP status code which implies that the requested action did not suc
 					</div>
 					
 					
+					
+					
                     
                     
 				</div>
@@ -282,7 +294,7 @@ returned an HTTP status code which implies that the requested action did not suc
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2015 Gini GmbH. All rights reserved. (Last updated: 2015-11-07)</span><br />
+						<p><span class="copyright">&copy; 2015 Gini GmbH. All rights reserved. (Last updated: 2015-11-09)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
