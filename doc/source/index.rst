@@ -22,6 +22,7 @@ Table of contents
    guides/getting-started
    guides/common-tasks
    guides/swift
+   guides/adding-licenses
    see-also
 
 .. todolist::
