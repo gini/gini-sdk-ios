@@ -13,5 +13,5 @@ cd `dirname "$1"`
 
 filename=`basename "$1"`
 
-cat $filename | sed "s/{{version_and_date}}/${version_and_date}§$(printf '=%.0s' `seq 1 ${#version_and_date}`)/" | tr '§' '\n' > ${filename}.tmp && mv ${filename}.tmp ${filename}
+cat $filename | sed "s/{{version_and_date}}/${version_and_date}\n$(printf '=%.0s' `seq 1 ${#version_and_date}`)/" > ${filename}.tmp && mv ${filename}.tmp ${filename}
 
