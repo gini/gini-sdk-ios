@@ -3,7 +3,15 @@
 # Copyright (c) 2014-present Gini GmbH
 #
 
-version_and_date="$1 (`date '+%d-%m-%Y'`)"
+if [ "$#" != "2" ]; then
+    echo "Usage: insert_release_version.sh <changelog> <version>"
+fi
 
-cat changelog.rst | sed "s/{{version_and_date}}/${version_and_date}§$(printf '=%.0s' `seq 1 ${#version_and_date}`)/" | tr '§' '\n' > changelog.rst.tmp && mv changelog.rst.tmp changelog.rst
+version_and_date="$2 (`date '+%d-%m-%Y'`)"
+
+cd `dirname "$1"`
+
+filename=`basename "$1"`
+
+cat $filename | sed "s/{{version_and_date}}/${version_and_date}§$(printf '=%.0s' `seq 1 ${#version_and_date}`)/" | tr '§' '\n' > ${filename}.tmp && mv ${filename}.tmp ${filename}
 
