@@ -23,6 +23,7 @@ Table of contents
    guides/common-tasks
    guides/swift
    changelog
+   license
    see-also
 
 .. todolist::
