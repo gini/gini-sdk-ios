@@ -508,6 +508,7 @@
 				23D53C011934BC85001A957E /* Frameworks */,
 				23D53C021934BC85001A957E /* Resources */,
 				9FCE6A51D6974C6AB1541A9F /* Copy Pods Resources */,
+				9A39FD4093AB22C19AB6A133 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -613,6 +614,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gini-iOS-SDK/Pods-Gini-iOS-SDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A39FD4093AB22C19AB6A133 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gini-iOS-SDKTests/Pods-Gini-iOS-SDKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9FCE6A51D6974C6AB1541A9F /* Copy Pods Resources */ = {
