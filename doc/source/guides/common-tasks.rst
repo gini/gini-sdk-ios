@@ -33,13 +33,33 @@ document from an image.
     // e.g. from a picture taken by the camera.
 
     GINIDocumentTaskManager *documentTaskManager = gini.documentTaskManager;
-    [[documentTaskManager createDocumentWithFilename:@"myFirstDocument" fromImage:image] continueWithSuccessBlock:^id(BFTask *task) {
+    [[documentTaskManager createDocumentWithFilename:@"myDocument" fromImage:image] continueWithSuccessBlock:^id(BFTask *task) {
         GINIDocument *document = task.result;
         NSLog(@"Created document with ID %@", document.documentId);
         return nil;
     }];
 
     ...
+
+.. code-block:: swift
+    
+    import Gini_iOS_SDK
+
+    ...
+
+    // Assuming that `gini` is an instance of the `GiniSDK` facade class and `image` is a `UIImage` instance,
+    // e.g. from a picture taken by the camera.
+
+    let documentTaskManager = gini.documentTaskManager
+    documentTaskManager.createDocumentWithFilename("myDocument", fromImage: image).continueWithSuccessBlock { (task: BFTask!) -> AnyObject! in
+        let document = task.result as! GINIDocument
+        print("Created document with ID \(document.documentId)")
+        return nil
+    }
+
+    ...
+
+
 
 Read on to find out how to get the extractions from a document.
 
@@ -65,6 +85,22 @@ how to achieve this in detail.
         // Do something with the extractions.
         return nil;
     }];
+
+.. code-block:: swift
+    
+    import Gini_iOS_SDK
+
+    ...
+
+    // Assuming `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`.
+
+    document.extractions.continueWithSuccessBlock { (task: BFTask!) -> AnyObject! in
+        let extractions = task.result as! Dictionary<String, GINIExtraction>
+        // Do something with the extractions.
+        return nil
+    }
+
+    ...
 
 .. _feedback-task:
 
@@ -93,6 +129,23 @@ The code example below shows how to correct extractions and send feedback.
     GINIDocumentTaskManager *documentTaskManager = gini.documentTaskManager;
     BFTask *feedbackTask = [documentTaskManager updateDocument:document];
 
+.. code-block:: swift
+
+    // Assuming `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`,
+    // `retrievedExtractions` is an instance of the `BFTask` class as returned by ``document.extractions`` and
+    // `gini` is an instance of the `GiniSDK` facade class.
+
+    // NOTE: Because we want to modify exactly the extractions from the document we use the `NSMutableDictionary` class. When assigned it passes it`s reference rather than being copied like `Dictionary`.
+    let extractions = retrievedExtractions.result as! NSMutableDictionary
+
+    // 'amountToPay' was wrong, we'll correct it.
+    let amountToPay = extractions["amountToPay"] as! GINIExtraction
+    amountToPay.value = "31:00"
+
+    let documentTaskManager = gini.documentTaskManager
+    let feedbackTask = documentTaskManager.updateDocument(document)
+
+
 Report an extraction error to Gini
 ==================================
 
@@ -107,6 +160,14 @@ The code example below shows how to send the error report to Gini.
 
     GINIAPIManager *apiManager = gini.APIManager;
     BFTask *reportTask = [apiManager reportErrorForDocument:document.documentId summary:@"short summary" description:@"detailed description"];
+
+.. code-block:: swift
+    
+    // Assuming that `gini` is an instance of the `GiniSDK` facade class and
+    // `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`.
+
+    let apiManager = gini.APIManager
+    let reportTask = apiManager?.reportErrorForDocument(document.documentId, summary: "short summary", description: "detailed description")
 
 Handling SDK errors
 ===================
