@@ -1,7 +1,8 @@
 language: objective-c
 before_install:
   - export LANG=en_US.UTF-8
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+  - rvm install 2.2.2
+  - gem install cocoapods -v '0.39.0'
 before_script:
   - ./scripts/install_appledoc.sh
   - export PATH=$PATH:$TRAVIS_BUILD_DIR/appledoc
