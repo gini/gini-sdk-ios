@@ -1,4 +1,4 @@
-Gini SDK for Android documentation
+Gini SDK for iOS documentation
 ==================================
 
 How to build from source

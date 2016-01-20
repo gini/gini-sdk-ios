@@ -4,10 +4,10 @@
 Working with Tasks
 ==================
 
-The Gini iOS SDK makes heavy use of the concept of tasks. Tasks are convenient when you want to
+The Gini SDK makes heavy use of the concept of tasks. Tasks are convenient when you want to
 do a series of tasks in a row, each one waiting waiting for the previous to finish (comparable to
 Promises in JavaScript). This is a common pattern when working with Gini's remote API.
-The Gini iOS SDK uses `facebook's task implementation, which is called bolts <https://github.com/BoltsFramework/Bolts-iOS>`_.
+The Gini SDK uses `facebook's task implementation, which is called bolts <https://github.com/BoltsFramework/Bolts-iOS>`_.
 Before you continue reading this guide, we strongly encourage you to read the `short guide for the Bolts
 framework <https://github.com/BoltsFramework/Bolts-iOS/blob/master/README.md#tasks>`_.
 
@@ -18,7 +18,7 @@ As the key aspect of the Gini API is to provide information extraction for analy
 API is mainly built around the concept of documents. A document can be any written representation
 of information, usually such as invoices, reminders, contracts and so on.
 
-The Gini iOS SDK supports creating documents from images, usually a picture of a paper document
+The Gini SDK supports creating documents from images, usually a picture of a paper document
 which was taken with the device's camera. The following example shows how to create a new
 document from an image.
 
@@ -172,6 +172,6 @@ The code example below shows how to send the error report to Gini.
 Handling SDK errors
 ===================
 
-Currently, the Gini iOS SDK doesn't have intelligent error-handling mechanisms. All errors that
-occure during executing a task are handed over transparently. You can react on those errors by checking ``task.error`` in the block of the task. 
+Currently, the Gini SDK doesn't have intelligent error-handling mechanisms. All errors that
+occur during executing a task are handed over transparently. You can react to those errors by checking ``task.error`` in the block of the task. 
 We may add better error-handling mechanisms in the future. At the moment we recommend checking the network status when a task failed and retrying the task.
