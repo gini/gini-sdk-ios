@@ -8,10 +8,10 @@ Getting started
 First of all: Add the Library to your Build
 ===========================================
 
-The Gini iOS SDK is provided via `Cocoapods <http://www.cocoapods.org>`_.
-To install the Gini iOS SDK simply add our podspec repo and the Gini SDK pod to your Podfile
+The Gini SDK is provided via `Cocoapods <http://www.cocoapods.org>`_.
+To install the Gini SDK simply add our podspec repo and the Gini SDK pod to your Podfile
 
-.. code-block:: none
+.. code-block:: ruby
 
     source 'https://github.com/gini/gini-podspecs.git'
     source 'https://github.com/CocoaPods/Specs.git'
@@ -20,7 +20,7 @@ To install the Gini iOS SDK simply add our podspec repo and the Gini SDK pod to 
 
 Then run
 
-.. code-block:: none
+.. code-block:: sh
 
     $ pod install
     
@@ -55,8 +55,10 @@ help of the ``GINISDKBuilder`` class. In this example, the anonymous users are c
 An example of a username created with this configuration would be ``550e8400-e29b-11d4-a716-446655440000@example.com``
 
 .. code-block:: obj-c
-
+    
+    //
     // AppDelegate.h
+    //
 
     #import <Gini-iOS-SDK/GiniSDK.h>
 
@@ -68,14 +70,17 @@ An example of a username created with this configuration would be ``550e8400-e29
     @end
 
 .. code-block:: obj-c
-
-    // AppDelegate.m
     
+    //
+    // AppDelegate.m
+    //
+
     ...
 
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     {
-        _giniSDK = [[GINISDKBuilder anonymousUserWithClientID:@"your-client-id" clientSecret:@"your-client-secret" userEmailDomain:@"example.com"] build];
+        _giniSDK = [[GINISDKBuilder anonymousUserWithClientID:@"your_gini_client_id" clientSecret:@"your_gini_client_secret" userEmailDomain:@"example.com"] build];
+
         // The DocumentTaskManager provides the high-level API to work with documents.
         GINIDocumentTaskManager *documentManager = _giniSDK.documentTaskManager;
 
@@ -84,11 +89,41 @@ An example of a username created with this configuration would be ``550e8400-e29
 
     ...
 
+.. code-block:: swift
+
+    //
+    // AppDelegate.swift
+    //
+
+    import UIKit
+    import Gini_iOS_SDK
+
+    @UIApplicationMain
+    class AppDelegate: UIResponder, UIApplicationDelegate {
+
+        var giniSDK: GiniSDK?
+
+        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+            
+            self.giniSDK = GINISDKBuilder.anonymousUserWithClientID("your_gini_client_id", clientSecret: "your_gini_client_secret", userEmailDomain: "example.com").build()
+
+            // The DocumentTaskManager provides the high-level API to work with documents.
+            let documentManager = self.giniSDK?.documentTaskManager
+            
+            return true
+        }
+
+    }
+
 Whenever you need the Gini SDK, for example in a view controller, you can now access your AppDelegate and get the ``GiniSDK`` instance:
 
 .. code-block:: obj-c
 
     GiniSDK *sdk = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).giniSDK;
+
+.. code-block:: swift
+
+    let sdk = (UIApplication.sharedApplication().delegate as! AppDelegate).giniSDK
 
 Congratulations, you have now successfully integrated the Gini SDK. 
 

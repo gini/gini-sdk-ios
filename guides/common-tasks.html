@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Working with Tasks &mdash; Gini SDK for iOS 1.0.0 documentation</title>
+  <title>Working with Tasks &mdash; Gini SDK for iOS 1.1.0 documentation</title>
   
 
   
@@ -22,7 +22,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'../',
-        VERSION:'1.0.0',
+        VERSION:'1.1.0',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
         HAS_SOURCE:  true
@@ -52,7 +52,7 @@
   
 
   
-    <link rel="top" title="Gini SDK for iOS 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Gini SDK for iOS 1.1.0 documentation" href="../index.html"/>
         <link rel="next" title="Swift Integration Guide" href="swift.html"/>
         <link rel="prev" title="Getting started" href="getting-started.html"/> 
 
@@ -98,7 +98,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="swift.html">Swift Integration Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="swift.html#bridging-header">Bridging header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swift.html#module-import">Module import</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
@@ -148,10 +148,10 @@
             
   <div class="section" id="working-with-tasks">
 <span id="guide-common-tasks"></span><h1>Working with Tasks<a class="headerlink" href="#working-with-tasks" title="Permalink to this headline">¶</a></h1>
-<p>The Gini iOS SDK makes heavy use of the concept of tasks. Tasks are convenient when you want to
+<p>The Gini SDK makes heavy use of the concept of tasks. Tasks are convenient when you want to
 do a series of tasks in a row, each one waiting waiting for the previous to finish (comparable to
 Promises in JavaScript). This is a common pattern when working with Gini&#8217;s remote API.
-The Gini iOS SDK uses <a class="reference external" href="https://github.com/BoltsFramework/Bolts-iOS">facebook&#8217;s task implementation, which is called bolts</a>.
+The Gini SDK uses <a class="reference external" href="https://github.com/BoltsFramework/Bolts-iOS">facebook&#8217;s task implementation, which is called bolts</a>.
 Before you continue reading this guide, we strongly encourage you to read the <a class="reference external" href="https://github.com/BoltsFramework/Bolts-iOS/blob/master/README.md#tasks">short guide for the Bolts
 framework</a>.</p>
 <div class="section" id="upload-a-document">
@@ -159,7 +159,7 @@ framework</a>.</p>
 <p>As the key aspect of the Gini API is to provide information extraction for analyzing documents, the
 API is mainly built around the concept of documents. A document can be any written representation
 of information, usually such as invoices, reminders, contracts and so on.</p>
-<p>The Gini iOS SDK supports creating documents from images, usually a picture of a paper document
+<p>The Gini SDK supports creating documents from images, usually a picture of a paper document
 which was taken with the device&#8217;s camera. The following example shows how to create a new
 document from an image.</p>
 <div class="highlight-obj-c"><div class="highlight"><pre><span class="cp">#import &lt;Gini-iOS-SDK/GiniSDK.h&gt;</span>
@@ -170,11 +170,28 @@ document from an image.</p>
 <span class="c1">// e.g. from a picture taken by the camera.</span>
 
 <span class="n">GINIDocumentTaskManager</span> <span class="o">*</span><span class="n">documentTaskManager</span> <span class="o">=</span> <span class="n">gini</span><span class="p">.</span><span class="n">documentTaskManager</span><span class="p">;</span>
-<span class="p">[[</span><span class="n">documentTaskManager</span> <span class="nl">createDocumentWithFilename</span><span class="p">:</span><span class="s">@&quot;myFirstDocument&quot;</span> <span class="nl">fromImage</span><span class="p">:</span><span class="n">image</span><span class="p">]</span> <span class="nl">continueWithSuccessBlock</span><span class="p">:</span><span class="o">^</span><span class="kt">id</span><span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="n">task</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">[[</span><span class="n">documentTaskManager</span> <span class="nl">createDocumentWithFilename</span><span class="p">:</span><span class="s">@&quot;myDocument&quot;</span> <span class="nl">fromImage</span><span class="p">:</span><span class="n">image</span><span class="p">]</span> <span class="nl">continueWithSuccessBlock</span><span class="p">:</span><span class="o">^</span><span class="kt">id</span><span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="n">task</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">GINIDocument</span> <span class="o">*</span><span class="n">document</span> <span class="o">=</span> <span class="n">task</span><span class="p">.</span><span class="n">result</span><span class="p">;</span>
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;Created document with ID %@&quot;</span><span class="p">,</span> <span class="n">document</span><span class="p">.</span><span class="n">documentId</span><span class="p">);</span>
     <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
 <span class="p">}];</span>
+
+<span class="p">...</span>
+</pre></div>
+</div>
+<div class="highlight-swift"><div class="highlight"><pre><span class="kd">import</span> <span class="nc">Gini_iOS_SDK</span>
+
+<span class="p">...</span>
+
+<span class="c1">// Assuming that `gini` is an instance of the `GiniSDK` facade class and `image` is a `UIImage` instance,</span>
+<span class="c1">// e.g. from a picture taken by the camera.</span>
+
+<span class="kd">let</span> <span class="nv">documentTaskManager</span> <span class="p">=</span> <span class="n">gini</span><span class="p">.</span><span class="n">documentTaskManager</span>
+<span class="n">documentTaskManager</span><span class="p">.</span><span class="n">createDocumentWithFilename</span><span class="p">(</span><span class="s">&quot;myDocument&quot;</span><span class="p">,</span> <span class="n">fromImage</span><span class="p">:</span> <span class="n">image</span><span class="p">).</span><span class="n">continueWithSuccessBlock</span> <span class="p">{</span> <span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">BFTask</span><span class="p">!)</span> <span class="p">-&gt;</span> <span class="nb">AnyObject</span><span class="p">!</span> <span class="k">in</span>
+    <span class="kd">let</span> <span class="nv">document</span> <span class="p">=</span> <span class="n">task</span><span class="p">.</span><span class="n">result</span> <span class="kc">as</span><span class="p">!</span> <span class="n">GINIDocument</span>
+    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Created document with ID </span><span class="si">\(</span><span class="n">document</span><span class="p">.</span><span class="n">documentId</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
 
 <span class="p">...</span>
 </pre></div>
@@ -198,6 +215,21 @@ how to achieve this in detail.</p>
     <span class="c1">// Do something with the extractions.</span>
     <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
 <span class="p">}];</span>
+</pre></div>
+</div>
+<div class="highlight-swift"><div class="highlight"><pre><span class="kd">import</span> <span class="nc">Gini_iOS_SDK</span>
+
+<span class="p">...</span>
+
+<span class="c1">// Assuming `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`.</span>
+
+<span class="n">document</span><span class="p">.</span><span class="n">extractions</span><span class="p">.</span><span class="n">continueWithSuccessBlock</span> <span class="p">{</span> <span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">BFTask</span><span class="p">!)</span> <span class="p">-&gt;</span> <span class="nb">AnyObject</span><span class="p">!</span> <span class="k">in</span>
+    <span class="kd">let</span> <span class="nv">extractions</span> <span class="p">=</span> <span class="n">task</span><span class="p">.</span><span class="n">result</span> <span class="kc">as</span><span class="p">!</span> <span class="nb">Dictionary</span><span class="p">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="n">GINIExtraction</span><span class="p">&gt;</span>
+    <span class="c1">// Do something with the extractions.</span>
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="p">...</span>
 </pre></div>
 </div>
 </div>
@@ -225,6 +257,21 @@ The code example below shows how to correct extractions and send feedback.</p>
 <span class="n">BFTask</span> <span class="o">*</span><span class="n">feedbackTask</span> <span class="o">=</span> <span class="p">[</span><span class="n">documentTaskManager</span> <span class="nl">updateDocument</span><span class="p">:</span><span class="n">document</span><span class="p">];</span>
 </pre></div>
 </div>
+<div class="highlight-swift"><div class="highlight"><pre><span class="c1">// Assuming `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`,</span>
+<span class="c1">// `retrievedExtractions` is an instance of the `BFTask` class as returned by ``document.extractions`` and</span>
+<span class="c1">// `gini` is an instance of the `GiniSDK` facade class.</span>
+
+<span class="c1">// NOTE: Because we want to modify exactly the extractions from the document we use the `NSMutableDictionary` class. When assigned it passes it`s reference rather than being copied like `Dictionary`.</span>
+<span class="kd">let</span> <span class="nv">extractions</span> <span class="p">=</span> <span class="n">retrievedExtractions</span><span class="p">.</span><span class="n">result</span> <span class="kc">as</span><span class="p">!</span> <span class="bp">NSMutableDictionary</span>
+
+<span class="c1">// &#39;amountToPay&#39; was wrong, we&#39;ll correct it.</span>
+<span class="kd">let</span> <span class="nv">amountToPay</span> <span class="p">=</span> <span class="n">extractions</span><span class="p">[</span><span class="s">&quot;amountToPay&quot;</span><span class="p">]</span> <span class="kc">as</span><span class="p">!</span> <span class="n">GINIExtraction</span>
+<span class="n">amountToPay</span><span class="p">.</span><span class="n">value</span> <span class="p">=</span> <span class="s">&quot;31:00&quot;</span>
+
+<span class="kd">let</span> <span class="nv">documentTaskManager</span> <span class="p">=</span> <span class="n">gini</span><span class="p">.</span><span class="n">documentTaskManager</span>
+<span class="kd">let</span> <span class="nv">feedbackTask</span> <span class="p">=</span> <span class="n">documentTaskManager</span><span class="p">.</span><span class="n">updateDocument</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="report-an-extraction-error-to-gini">
 <h2>Report an extraction error to Gini<a class="headerlink" href="#report-an-extraction-error-to-gini" title="Permalink to this headline">¶</a></h2>
@@ -238,11 +285,18 @@ The code example below shows how to send the error report to Gini.</p>
 <span class="n">BFTask</span> <span class="o">*</span><span class="n">reportTask</span> <span class="o">=</span> <span class="p">[</span><span class="n">apiManager</span> <span class="nl">reportErrorForDocument</span><span class="p">:</span><span class="n">document</span><span class="p">.</span><span class="n">documentId</span> <span class="nl">summary</span><span class="p">:</span><span class="s">@&quot;short summary&quot;</span> <span class="nl">description</span><span class="p">:</span><span class="s">@&quot;detailed description&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
+<div class="highlight-swift"><div class="highlight"><pre><span class="c1">// Assuming that `gini` is an instance of the `GiniSDK` facade class and</span>
+<span class="c1">// `document` is an instance of the `GINIDocument` class as returned by `createDocumentWithFilename:fromImage:`.</span>
+
+<span class="kd">let</span> <span class="nv">apiManager</span> <span class="p">=</span> <span class="n">gini</span><span class="p">.</span><span class="n">APIManager</span>
+<span class="kd">let</span> <span class="nv">reportTask</span> <span class="p">=</span> <span class="n">apiManager</span><span class="p">?.</span><span class="n">reportErrorForDocument</span><span class="p">(</span><span class="n">document</span><span class="p">.</span><span class="n">documentId</span><span class="p">,</span> <span class="n">summary</span><span class="p">:</span> <span class="s">&quot;short summary&quot;</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="s">&quot;detailed description&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="handling-sdk-errors">
 <h2>Handling SDK errors<a class="headerlink" href="#handling-sdk-errors" title="Permalink to this headline">¶</a></h2>
-<p>Currently, the Gini iOS SDK doesn&#8217;t have intelligent error-handling mechanisms. All errors that
-occure during executing a task are handed over transparently. You can react on those errors by checking <tt class="docutils literal"><span class="pre">task.error</span></tt> in the block of the task.
+<p>Currently, the Gini SDK doesn&#8217;t have intelligent error-handling mechanisms. All errors that
+occur during executing a task are handed over transparently. You can react to those errors by checking <tt class="docutils literal"><span class="pre">task.error</span></tt> in the block of the task.
 We may add better error-handling mechanisms in the future. At the moment we recommend checking the network status when a task failed and retrying the task.</p>
 </div>
 </div>

@@ -2,7 +2,7 @@
 
 This application makes use of the following third party libraries:
 
-## Gini iOS SDK
+## Gini SDK
 
 The MIT License (MIT)
 

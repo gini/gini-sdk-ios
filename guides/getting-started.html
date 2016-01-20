@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting started &mdash; Gini SDK for iOS 1.0.0 documentation</title>
+  <title>Getting started &mdash; Gini SDK for iOS 1.1.0 documentation</title>
   
 
   
@@ -22,7 +22,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:'../',
-        VERSION:'1.0.0',
+        VERSION:'1.1.0',
         COLLAPSE_INDEX:false,
         FILE_SUFFIX:'.html',
         HAS_SOURCE:  true
@@ -52,9 +52,9 @@
   
 
   
-    <link rel="top" title="Gini SDK for iOS 1.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="Gini SDK for iOS 1.1.0 documentation" href="../index.html"/>
         <link rel="next" title="Working with Tasks" href="common-tasks.html"/>
-        <link rel="prev" title="Gini iOS SDK Documentation" href="../index.html"/> 
+        <link rel="prev" title="Gini SDK Documentation" href="../index.html"/> 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
@@ -98,7 +98,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="swift.html">Swift Integration Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="swift.html#bridging-header">Bridging header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swift.html#module-import">Module import</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
@@ -150,16 +150,16 @@
 <span id="guide-getting-started"></span><h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="first-of-all-add-the-library-to-your-build">
 <h2>First of all: Add the Library to your Build<a class="headerlink" href="#first-of-all-add-the-library-to-your-build" title="Permalink to this headline">¶</a></h2>
-<p>The Gini iOS SDK is provided via <a class="reference external" href="http://www.cocoapods.org">Cocoapods</a>.
-To install the Gini iOS SDK simply add our podspec repo and the Gini SDK pod to your Podfile</p>
-<div class="highlight-none"><div class="highlight"><pre>source &#39;https://github.com/gini/gini-podspecs.git&#39;
-source &#39;https://github.com/CocoaPods/Specs.git&#39;
+<p>The Gini SDK is provided via <a class="reference external" href="http://www.cocoapods.org">Cocoapods</a>.
+To install the Gini SDK simply add our podspec repo and the Gini SDK pod to your Podfile</p>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="n">source</span> <span class="s1">&#39;https://github.com/gini/gini-podspecs.git&#39;</span>
+<span class="n">source</span> <span class="s1">&#39;https://github.com/CocoaPods/Specs.git&#39;</span>
 
-pod &#39;Gini-iOS-SDK&#39;
+<span class="n">pod</span> <span class="s1">&#39;Gini-iOS-SDK&#39;</span>
 </pre></div>
 </div>
 <p>Then run</p>
-<div class="highlight-none"><div class="highlight"><pre>$ pod install
+<div class="highlight-sh"><div class="highlight"><pre><span class="nv">$ </span>pod install
 </pre></div>
 </div>
 <p>in your project directory and open the generated Xcode workspace.</p>
@@ -184,7 +184,9 @@ user accounts are created on the fly and the user account is unknown to your app
 the Gini API, you must create an instance of the <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> class. The <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> instance is configured and created with the
 help of the <tt class="docutils literal"><span class="pre">GINISDKBuilder</span></tt> class. In this example, the anonymous users are created with the email domain &#8220;example.com&#8221;.
 An example of a username created with this configuration would be <tt class="docutils literal"><span class="pre">550e8400-e29b-11d4-a716-446655440000&#64;example.com</span></tt></p>
-<div class="highlight-obj-c"><div class="highlight"><pre><span class="c1">// AppDelegate.h</span>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="c1">//</span>
+<span class="c1">// AppDelegate.h</span>
+<span class="c1">//</span>
 
 <span class="cp">#import &lt;Gini-iOS-SDK/GiniSDK.h&gt;</span>
 
@@ -196,13 +198,16 @@ An example of a username created with this configuration would be <tt class="doc
 <span class="k">@end</span>
 </pre></div>
 </div>
-<div class="highlight-obj-c"><div class="highlight"><pre><span class="c1">// AppDelegate.m</span>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="c1">//</span>
+<span class="c1">// AppDelegate.m</span>
+<span class="c1">//</span>
 
 <span class="p">...</span>
 
 <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nl">application</span><span class="p">:(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span> <span class="nl">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">launchOptions</span>
 <span class="p">{</span>
-    <span class="n">_giniSDK</span> <span class="o">=</span> <span class="p">[[</span><span class="n">GINISDKBuilder</span> <span class="nl">anonymousUserWithClientID</span><span class="p">:</span><span class="s">@&quot;your-client-id&quot;</span> <span class="nl">clientSecret</span><span class="p">:</span><span class="s">@&quot;your-client-secret&quot;</span> <span class="nl">userEmailDomain</span><span class="p">:</span><span class="s">@&quot;example.com&quot;</span><span class="p">]</span> <span class="n">build</span><span class="p">];</span>
+    <span class="n">_giniSDK</span> <span class="o">=</span> <span class="p">[[</span><span class="n">GINISDKBuilder</span> <span class="nl">anonymousUserWithClientID</span><span class="p">:</span><span class="s">@&quot;your_gini_client_id&quot;</span> <span class="nl">clientSecret</span><span class="p">:</span><span class="s">@&quot;your_gini_client_secret&quot;</span> <span class="nl">userEmailDomain</span><span class="p">:</span><span class="s">@&quot;example.com&quot;</span><span class="p">]</span> <span class="n">build</span><span class="p">];</span>
+
     <span class="c1">// The DocumentTaskManager provides the high-level API to work with documents.</span>
     <span class="n">GINIDocumentTaskManager</span> <span class="o">*</span><span class="n">documentManager</span> <span class="o">=</span> <span class="n">_giniSDK</span><span class="p">.</span><span class="n">documentTaskManager</span><span class="p">;</span>
 
@@ -212,8 +217,36 @@ An example of a username created with this configuration would be <tt class="doc
 <span class="p">...</span>
 </pre></div>
 </div>
+<div class="highlight-swift"><div class="highlight"><pre><span class="c1">//</span>
+<span class="c1">// AppDelegate.swift</span>
+<span class="c1">//</span>
+
+<span class="kd">import</span> <span class="nc">UIKit</span>
+<span class="kd">import</span> <span class="nc">Gini_iOS_SDK</span>
+
+<span class="kr">@UIApplicationMain</span>
+<span class="kd">class</span> <span class="nc">AppDelegate</span><span class="p">:</span> <span class="bp">UIResponder</span><span class="p">,</span> <span class="bp">UIApplicationDelegate</span> <span class="p">{</span>
+
+    <span class="kd">var</span> <span class="nv">giniSDK</span><span class="p">:</span> <span class="n">GiniSDK</span><span class="p">?</span>
+
+    <span class="kd">func</span> <span class="nf">application</span><span class="p">(</span><span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="bp">NSObject</span><span class="p">:</span> <span class="nb">AnyObject</span><span class="p">]?)</span> <span class="p">-&gt;</span> <span class="nb">Bool</span> <span class="p">{</span>
+
+        <span class="kc">self</span><span class="p">.</span><span class="n">giniSDK</span> <span class="p">=</span> <span class="n">GINISDKBuilder</span><span class="p">.</span><span class="n">anonymousUserWithClientID</span><span class="p">(</span><span class="s">&quot;your_gini_client_id&quot;</span><span class="p">,</span> <span class="n">clientSecret</span><span class="p">:</span> <span class="s">&quot;your_gini_client_secret&quot;</span><span class="p">,</span> <span class="n">userEmailDomain</span><span class="p">:</span> <span class="s">&quot;example.com&quot;</span><span class="p">).</span><span class="n">build</span><span class="p">()</span>
+
+        <span class="c1">// The DocumentTaskManager provides the high-level API to work with documents.</span>
+        <span class="kd">let</span> <span class="nv">documentManager</span> <span class="p">=</span> <span class="kc">self</span><span class="p">.</span><span class="n">giniSDK</span><span class="p">?.</span><span class="n">documentTaskManager</span>
+
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>Whenever you need the Gini SDK, for example in a view controller, you can now access your AppDelegate and get the <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> instance:</p>
 <div class="highlight-obj-c"><div class="highlight"><pre><span class="n">GiniSDK</span> <span class="o">*</span><span class="n">sdk</span> <span class="o">=</span> <span class="p">((</span><span class="n">AppDelegate</span> <span class="o">*</span><span class="p">)[[</span><span class="bp">UIApplication</span> <span class="n">sharedApplication</span><span class="p">]</span> <span class="n">delegate</span><span class="p">]).</span><span class="n">giniSDK</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-swift"><div class="highlight"><pre><span class="kd">let</span> <span class="nv">sdk</span> <span class="p">=</span> <span class="p">(</span><span class="bp">UIApplication</span><span class="p">.</span><span class="n">sharedApplication</span><span class="p">().</span><span class="n">delegate</span> <span class="kc">as</span><span class="p">!</span> <span class="n">AppDelegate</span><span class="p">).</span><span class="n">giniSDK</span>
 </pre></div>
 </div>
 <p>Congratulations, you have now successfully integrated the Gini SDK.</p>
@@ -230,7 +263,7 @@ An example of a username created with this configuration would be <tt class="doc
         <a href="common-tasks.html" class="btn btn-neutral float-right" title="Working with Tasks">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Gini iOS SDK Documentation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Gini SDK Documentation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
