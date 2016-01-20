@@ -4,7 +4,7 @@
 See also
 ========
 
-This section collects useful resources around the Gini iOS SDK.
+This section collects useful resources around the Gini SDK.
 
 * `Gini SDK for iOS API reference <appledocs/index.html>`_
 * `Gini API Documentation <http://developer.gini.net/gini-api/html/index.html>`_
