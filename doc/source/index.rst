@@ -1,5 +1,5 @@
-Gini iOS SDK Documentation
-==============================
+Gini SDK Documentation
+======================
 
 Introduction
 ------------
@@ -7,11 +7,8 @@ Introduction
 Gini provides an information extraction system for analyzing documents (e. g. invoices or
 contracts), specifically information such as the document sender or the amount to pay in an invoice.
 
-The Gini iOS SDK library encapsulates the Gini API and makes the integration into your app a
-breeze. 
-
-.. hint:: Code examples in this tutorial are in Objective-C but the Gini iOS SDK can easily be integrated in applications written in **Swift**. To learn more about it see the :ref:`notes on Swift <guide-swift>`.
-
+The Gini SDK library encapsulates the Gini API and makes the integration into your app a
+breeze.
 
 Table of contents
 -----------------
@@ -22,6 +19,8 @@ Table of contents
    guides/getting-started
    guides/common-tasks
    guides/swift
+   changelog
+   license
    see-also
 
 .. todolist::

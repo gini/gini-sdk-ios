@@ -17,13 +17,11 @@ cd $TRAVIS_BUILD_DIR
 git clone --branch=gh-pages https://${GH_TOKEN}@${GH_REF} gh-pages > /dev/null > /dev/null
 
 cd gh-pages
-git rm -rf *
-cp -Rf $TRAVIS_BUILD_DIR/integration-guide/build/html/* .
 
 mkdir appledocs
 cp -Rf $TRAVIS_BUILD_DIR/docs/html/* appledocs/
 
 touch .nojekyll
 git add -f .
-git commit -m "Update SDK documentation (Travis build $TRAVIS_BUILD_NUMBER)"
+git commit -m "Appledoc documentation updated (Travis build $TRAVIS_BUILD_NUMBER)"
 git push -fq origin gh-pages > /dev/null

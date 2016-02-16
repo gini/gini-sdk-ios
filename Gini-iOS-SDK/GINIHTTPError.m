@@ -3,23 +3,22 @@
  *  All rights reserved.
  */
 
-
 #import "GINIHTTPError.h"
 #import "GINIURLResponse.h"
+#import "GINIError.h"
 
+NSString *const GINIHTTPErrorKeyResponse = @"response";
 
-@implementation GINIHTTPError {
+@implementation GINIHTTPError
 
++ (instancetype)errorWithResponse:(GINIURLResponse *)response {
+    NSMutableDictionary *userInfo = [NSMutableDictionary new];
+    userInfo[GINIHTTPErrorKeyResponse] = response;
+    return [[self alloc] initWithCode:GINIHTTPErrorRequestError cause:nil userInfo:userInfo];
 }
-+ (instancetype)HTTPErrrorWithResponse:(GINIURLResponse *)response {
-    return [[self alloc] initWithResponse:response];
-}
 
-- (instancetype)initWithResponse:(GINIURLResponse *)response {
-    if (self = [super init]) {
-        self.response = response;
-    }
-    return self;
+- (GINIURLResponse *)response {
+    return self.userInfo[GINIHTTPErrorKeyResponse];
 }
 
 @end

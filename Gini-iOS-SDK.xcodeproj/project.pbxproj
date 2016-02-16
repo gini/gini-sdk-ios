@@ -29,6 +29,7 @@
 		04A595C419599E6A00CB8E1B /* layout.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A595C319599E6A00CB8E1B /* layout.json */; };
 		04B754831959ABB600CF6072 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B754821959ABB600CF6072 /* search.json */; };
 		04B75485195AAC5000CF6072 /* extractions.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B75484195AAC5000CF6072 /* extractions.json */; };
+		0ADEEE6D1BEA0549002BB08E /* GINIHTTPErrorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEEE6C1BEA0549002BB08E /* GINIHTTPErrorSpec.m */; };
 		23D53BF81934BC85001A957E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53BF71934BC85001A957E /* Foundation.framework */; };
 		23D53BFD1934BC85001A957E /* GiniSDK.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 23D53BFC1934BC85001A957E /* GiniSDK.h */; };
 		23D53BFF1934BC85001A957E /* GiniSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D53BFE1934BC85001A957E /* GiniSDK.m */; };
@@ -141,6 +142,7 @@
 		04A595C319599E6A00CB8E1B /* layout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = layout.json; sourceTree = "<group>"; };
 		04B754821959ABB600CF6072 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		04B75484195AAC5000CF6072 /* extractions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = extractions.json; sourceTree = "<group>"; };
+		0ADEEE6C1BEA0549002BB08E /* GINIHTTPErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIHTTPErrorSpec.m; sourceTree = "<group>"; };
 		2056985987664BD8B2381A5A /* libPods-Gini-iOS-SDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gini-iOS-SDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D53BF41934BC85001A957E /* libGini-iOS-SDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libGini-iOS-SDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D53BF71934BC85001A957E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -356,8 +358,8 @@
 				C753E4F6D2458342AD2D6ABD /* GINISessionManagerAnonymous.h */,
 				C753EEFAC407E9D97940F937 /* GINISDKBuilder.m */,
 				C753E686DF27657E36F02570 /* GINISDKBuilder.h */,
-				C753E53B8C22E153B25057B8 /* GINIHTTPError.m */,
 				C753E0381A47293548A3E444 /* GINIHTTPError.h */,
+				C753E53B8C22E153B25057B8 /* GINIHTTPError.m */,
 			);
 			path = "Gini-iOS-SDK";
 			sourceTree = "<group>";
@@ -388,6 +390,7 @@
 				C753EE42B727F1D19C196505 /* GINIDocumentSpec.m */,
 				C753ED9AB7A88297B3CF63A3 /* GINIExtractionSpec.m */,
 				C753EB2A264F10B5B521A43F /* GINIErrorSpec.m */,
+				0ADEEE6C1BEA0549002BB08E /* GINIHTTPErrorSpec.m */,
 				C753E9AEB99CB89FBAE99C96 /* GINIKeychainItemSpec.m */,
 				C753E14CEE34C4191333A19E /* GINIKeychainManagerSpec.m */,
 				C753ECA47058756178576D14 /* GINIKeychainCredentialsStoreSpec.m */,
@@ -505,6 +508,7 @@
 				23D53C011934BC85001A957E /* Frameworks */,
 				23D53C021934BC85001A957E /* Resources */,
 				9FCE6A51D6974C6AB1541A9F /* Copy Pods Resources */,
+				9A39FD4093AB22C19AB6A133 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -522,7 +526,7 @@
 		23D53BEC1934BC85001A957E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Gini GmbH";
 			};
 			buildConfigurationList = 23D53BEF1934BC85001A957E /* Build configuration list for PBXProject "Gini-iOS-SDK" */;
@@ -612,6 +616,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gini-iOS-SDK/Pods-Gini-iOS-SDK-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9A39FD4093AB22C19AB6A133 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gini-iOS-SDKTests/Pods-Gini-iOS-SDKTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9FCE6A51D6974C6AB1541A9F /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -693,6 +712,7 @@
 				81EE4F7C1974ACC44C8E2228 /* GINIUIApplicationMock.m in Sources */,
 				81EE40E5B0692EC02D52532A /* GINICredentialsStoreMock.m in Sources */,
 				C753E8F5185BB49A2704BC47 /* GINIDocumentTaskManagerSpec.m in Sources */,
+				0ADEEE6D1BEA0549002BB08E /* GINIHTTPErrorSpec.m in Sources */,
 				C753E077835616EB9E2FBEBB /* GINIDocumentSpec.m in Sources */,
 				C753E99B2C97D3DE8CF0F9B8 /* GINIAPIManagerMock.m in Sources */,
 				C753EDDE1BCC050D75A32D0F /* GINIExtractionSpec.m in Sources */,
