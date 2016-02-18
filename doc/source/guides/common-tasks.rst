@@ -4,6 +4,7 @@
 Working with Tasks
 ==================
 
+
 The Gini SDK makes heavy use of the concept of tasks. Tasks are convenient when you want to
 do a series of tasks in a row, each one waiting waiting for the previous to finish (comparable to
 Promises in JavaScript). This is a common pattern when working with Gini's remote API.
@@ -19,9 +20,9 @@ API is mainly built around the concept of documents. A document can be any writt
 of information, usually such as invoices, reminders, contracts and so on.
 
 The Gini SDK supports creating documents from images, usually a picture of a paper document
-which was taken with the device's camera. The following example shows how to create a new
-document from an image.
+which was taken with the device's camera. The following example shows how to create a new document from an image.
 
+In order to improve our service we are sending meta information along with the image.
 
 .. code-block:: obj-c
 
@@ -29,11 +30,12 @@ document from an image.
 
     ...
 
-    // Assuming that `gini` is an instance of the `GiniSDK` facade class and `image` is a `UIImage` instance,
-    // e.g. from a picture taken by the camera.
+    // Assuming that `gini` is an instance of the `GiniSDK` facade class, 
+    // `docType` is a string containing a hint about the type of document and `image` is a `NSData` instance,
+    // containing an image and meta information about the image.
 
     GINIDocumentTaskManager *documentTaskManager = gini.documentTaskManager;
-    [[documentTaskManager createDocumentWithFilename:@"myDocument" fromImage:image] continueWithSuccessBlock:^id(BFTask *task) {
+    [[documentTaskManager createDocumentWithFilename:@"myDocument" fromImageData:image docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
         GINIDocument *document = task.result;
         NSLog(@"Created document with ID %@", document.documentId);
         return nil;
@@ -47,11 +49,12 @@ document from an image.
 
     ...
 
-    // Assuming that `gini` is an instance of the `GiniSDK` facade class and `image` is a `UIImage` instance,
-    // e.g. from a picture taken by the camera.
+    // Assuming that `gini` is an instance of the `GiniSDK` facade class, 
+    // `docType` is a string containing a hint about the type of document and `image` is a `NSData` instance,
+    // containing an image and meta information about the image.
 
     let documentTaskManager = gini.documentTaskManager
-    documentTaskManager.createDocumentWithFilename("myDocument", fromImage: image).continueWithSuccessBlock { (task: BFTask!) -> AnyObject! in
+    documentTaskManager.createDocumentWithFilename("myDocument", fromImageData: image, docType: docType).continueWithSuccessBlock { (task: BFTask!) -> AnyObject! in
         let document = task.result as! GINIDocument
         print("Created document with ID \(document.documentId)")
         return nil
@@ -59,9 +62,10 @@ document from an image.
 
     ...
 
+Upload a document without meta information
+==========================================
 
-
-Read on to find out how to get the extractions from a document.
+To create a document from an image without sending meta infromation use the ``createDocumentWithFilename:fromImage:docType:`` method instead. This method takes a filename, an instance of `UIImage` and a hint to the type of document which is to be analyzed as parameters. 
 
 Getting extractions
 ===================
@@ -144,7 +148,6 @@ The code example below shows how to correct extractions and send feedback.
 
     let documentTaskManager = gini.documentTaskManager
     let feedbackTask = documentTaskManager.updateDocument(document)
-
 
 Report an extraction error to Gini
 ==================================
