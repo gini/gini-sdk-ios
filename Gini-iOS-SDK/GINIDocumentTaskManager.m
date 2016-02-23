@@ -138,7 +138,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
         NSDictionary *polledDocument = task.result;
         // If the document is not fully processed yet, wait a second and then poll again.
         if ([polledDocument[@"progress"] isEqualToString:@"PENDING"]) {
-            return [[BFTask taskWithDelay:self.pollingInterval * 1000] continueWithSuccessBlock:^id(BFTask *waitTask) {
+            return [[BFTask taskWithDelay:(int)self.pollingInterval * 1000] continueWithSuccessBlock:^id(BFTask *waitTask) {
                 return [self privatePollDocumentWithId:documentId];
             }];
             // Otherwise return the document.

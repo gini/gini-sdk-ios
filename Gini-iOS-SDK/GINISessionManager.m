@@ -75,14 +75,13 @@ NSStringEncoding const GINIStringEncoding = NSUTF8StringEncoding;
 #pragma mark - Abstract methods
 
 - (BFTask *)getSession {
-
-    [NSException raise:@"GINISessionManager 'getSession' method must never be accessed directly. Use any of the subclasses instead." format:nil];
+    [NSException raise:@"GINISession 'getSession' accessed directly" format:@"GINISessionManager 'getSession' method must never be accessed directly. Use any of the subclasses instead."];
     return nil;
 }
 
 - (BFTask *)logIn {
 
-    [NSException raise:@"GINISessionManager 'logIn' method must never be accessed directly. Use any of the subclasses instead." format:nil];
+    [NSException raise:@"GINISession 'logIn' accessed directly" format:@"GINISessionManager 'logIn' method must never be accessed directly. Use any of the subclasses instead."];
     return nil;
 }
 
