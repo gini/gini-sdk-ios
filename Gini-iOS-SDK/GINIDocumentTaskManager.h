@@ -62,7 +62,7 @@
  *
  * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
  *                      Please notice that it is very unlikely that the created document is already fully processed, so
- *                      the extractions may not already exist.
+ *                      the extractions may not yet exist.
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image;
 
@@ -92,7 +92,7 @@
  *
  * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
  *                      Please notice that it is very unlikely that the created document is already fully processed, so
- *                      the extractions may not already exist.
+ *                      the extractions may not yet exist.
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType;
 

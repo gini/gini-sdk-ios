@@ -19,7 +19,7 @@ As the key aspect of the Gini API is to provide information extraction for analy
 API is mainly built around the concept of documents. A document can be any written representation
 of information, usually such as invoices, reminders, contracts and so on.
 
-The Gini SDK supports creating documents from PDFs, UTF-8 texts and images, usually pictures of paper documents
+The Gini SDK supports creating documents from PDFs, UTF-8 text and images, usually pictures of paper documents
 which were taken with the device's camera. The following example shows how to create a new document from an image.
 
 In order to improve our service we are sending meta information along with the image.
@@ -31,7 +31,7 @@ In order to improve our service we are sending meta information along with the i
     ...
 
     // Assuming that `gini` is an instance of the `GiniSDK` facade class, 
-    // `docType` is a string containing a hint about the type of document and `image` is a `NSData` instance,
+    // `docType` is a string containing a hint about the type of document and `image` is an `NSData` instance,
     // containing an image and meta information about the image.
 
     GINIDocumentTaskManager *documentTaskManager = gini.documentTaskManager;
@@ -50,7 +50,7 @@ In order to improve our service we are sending meta information along with the i
     ...
 
     // Assuming that `gini` is an instance of the `GiniSDK` facade class, 
-    // `docType` is a string containing a hint about the type of document and `image` is a `NSData` instance,
+    // `docType` is a string containing a hint about the type of document and `image` is an `NSData` instance,
     // containing an image and meta information about the image.
 
     let documentTaskManager = gini.documentTaskManager
@@ -65,7 +65,7 @@ In order to improve our service we are sending meta information along with the i
 Upload a document without meta information
 ==========================================
 
-To create a document from an image without sending meta infromation use the ``createDocumentWithFilename:fromImage:docType:`` method instead. This method takes a filename, an instance of `UIImage` and a hint to the type of document which is to be analyzed as parameters. 
+To create a document from an image without sending meta information use the ``createDocumentWithFilename:fromImage:docType:`` method instead. This method takes as parameters a filename, an instance of UIImage and a hint for the type of document to be analyzed. 
 
 Getting extractions
 ===================
