@@ -72,29 +72,18 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image {
-    return [self createDocumentWithFilename:fileName fromImageData:UIImageJPEGRepresentation(image, 0.2)];
+    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:nil];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType {
-    return [self createDocumentWithFilename:fileName fromImageData:UIImageJPEGRepresentation(image, 0.2) docType:docType];
+    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:docType];
 }
 
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImageData:(NSData *)imageData {
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
-    NSParameterAssert([imageData isKindOfClass:[NSData class]]);
+    NSParameterAssert([data isKindOfClass:[NSData class]]);
     
-    BFTask *createTask = [[_apiManager uploadDocumentWithData:imageData contentType:@"image/jpeg" fileName:fileName docType:nil] continueWithSuccessBlock:^id(BFTask *task) {
-        return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
-    }];
-    return GINIhandleHTTPerrors(createTask);
-}
-
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImageData:(NSData *)imageData docType:(NSString *)docType {
-    NSParameterAssert([fileName isKindOfClass:[NSString class]]);
-    NSParameterAssert([imageData isKindOfClass:[NSData class]]);
-    NSParameterAssert([docType isKindOfClass:[NSString class]]);
-    
-    BFTask *createTask = [[_apiManager uploadDocumentWithData:imageData contentType:@"image/jpeg" fileName:fileName docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *createTask = [[_apiManager uploadDocumentWithData:data contentType:@"image/jpeg" fileName:fileName docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
     return GINIhandleHTTPerrors(createTask);

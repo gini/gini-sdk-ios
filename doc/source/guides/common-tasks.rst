@@ -19,8 +19,8 @@ As the key aspect of the Gini API is to provide information extraction for analy
 API is mainly built around the concept of documents. A document can be any written representation
 of information, usually such as invoices, reminders, contracts and so on.
 
-The Gini SDK supports creating documents from images, usually a picture of a paper document
-which was taken with the device's camera. The following example shows how to create a new document from an image.
+The Gini SDK supports creating documents from PDFs, UTF-8 texts and images, usually pictures of paper documents
+which were taken with the device's camera. The following example shows how to create a new document from an image.
 
 In order to improve our service we are sending meta information along with the image.
 
@@ -35,7 +35,7 @@ In order to improve our service we are sending meta information along with the i
     // containing an image and meta information about the image.
 
     GINIDocumentTaskManager *documentTaskManager = gini.documentTaskManager;
-    [[documentTaskManager createDocumentWithFilename:@"myDocument" fromImageData:image docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
+    [[documentTaskManager createDocumentWithFilename:@"myDocument" fromData:image docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
         GINIDocument *document = task.result;
         NSLog(@"Created document with ID %@", document.documentId);
         return nil;
@@ -54,7 +54,7 @@ In order to improve our service we are sending meta information along with the i
     // containing an image and meta information about the image.
 
     let documentTaskManager = gini.documentTaskManager
-    documentTaskManager.createDocumentWithFilename("myDocument", fromImageData: image, docType: docType).continueWithSuccessBlock { (task: BFTask!) -> AnyObject! in
+    documentTaskManager.createDocumentWithFilename("myDocument", fromData: image, docType: docType).continueWithSuccessBlock { (task: BFTask!) -> AnyObject! in
         let document = task.result as! GINIDocument
         print("Created document with ID \(document.documentId)")
         return nil

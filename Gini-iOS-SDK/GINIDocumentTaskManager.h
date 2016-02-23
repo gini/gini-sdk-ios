@@ -79,28 +79,22 @@
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType;
 
 /**
- * Creates a new document from the given image data.
+ * Creates a new document with the given `doctype` from the given data. 
+ * Data can be in the format of a PDF, UTF-8 text or image representation.
+ * By providing the doctype, Gini's document processing is optimized in many ways.
+ *
+ * See the [Gini API documentation](http://developer.gini.net/gini-api/html/documents.html#document-type-hints) for
+ * details and [a list of available doctypes](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
  *
  * @param fileName      The file name of the document.
- * @param imageData     Image data representing the document.
+ * @param data          Data representing the document.
+ * @param docType       The doctype hint for the document.
  *
  * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
  *                      Please notice that it is very unlikely that the created document is already fully processed, so
  *                      the extractions may not already exist.
  */
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImageData:(NSData *)imageData;
-
-/**
- * Creates a new document with the given `doctype` from the given image data. By providing the doctype, Gini's document
- * processing is optimized in many ways.
- *
- * See the [Gini API documentation](http://developer.gini.net/gini-api/html/documents.html#document-type-hints) for
- * details and [a list of available doctypes](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
- *
- * @warning Some incubating extractions are only available if you create the document with this method, so the Gini API
- * knows the doctype.
- */
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImageData:(NSData *)imageData docType:(NSString *)docType;
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType;
 
 /**
  * Saves updates on the extractions.
