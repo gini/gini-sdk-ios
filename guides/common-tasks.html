@@ -91,6 +91,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Working with Tasks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#upload-a-document">Upload a document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-a-document-without-meta-information">Upload a document without meta information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-extractions">Getting extractions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sending-feedback">Sending feedback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#report-an-extraction-error-to-gini">Report an extraction error to Gini</a></li>
@@ -102,7 +103,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.2.10 (20-11-2015)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.3.0 (24-02-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.2.10 (20-11-2015)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a></li>
 </ul>
 </li>
@@ -159,18 +164,19 @@ framework</a>.</p>
 <p>As the key aspect of the Gini API is to provide information extraction for analyzing documents, the
 API is mainly built around the concept of documents. A document can be any written representation
 of information, usually such as invoices, reminders, contracts and so on.</p>
-<p>The Gini SDK supports creating documents from images, usually a picture of a paper document
-which was taken with the device&#8217;s camera. The following example shows how to create a new
-document from an image.</p>
+<p>The Gini SDK supports creating documents from PDFs, UTF-8 text and images, usually pictures of paper documents
+which were taken with the device&#8217;s camera. The following example shows how to create a new document from an image.</p>
+<p>In order to improve our service we are sending meta information along with the image.</p>
 <div class="highlight-obj-c"><div class="highlight"><pre><span class="cp">#import &lt;Gini-iOS-SDK/GiniSDK.h&gt;</span>
 
 <span class="p">...</span>
 
-<span class="c1">// Assuming that `gini` is an instance of the `GiniSDK` facade class and `image` is a `UIImage` instance,</span>
-<span class="c1">// e.g. from a picture taken by the camera.</span>
+<span class="c1">// Assuming that `gini` is an instance of the `GiniSDK` facade class,</span>
+<span class="c1">// `docType` is a string containing a hint about the type of document and `image` is an `NSData` instance,</span>
+<span class="c1">// containing an image and meta information about the image.</span>
 
 <span class="n">GINIDocumentTaskManager</span> <span class="o">*</span><span class="n">documentTaskManager</span> <span class="o">=</span> <span class="n">gini</span><span class="p">.</span><span class="n">documentTaskManager</span><span class="p">;</span>
-<span class="p">[[</span><span class="n">documentTaskManager</span> <span class="nl">createDocumentWithFilename</span><span class="p">:</span><span class="s">@&quot;myDocument&quot;</span> <span class="nl">fromImage</span><span class="p">:</span><span class="n">image</span><span class="p">]</span> <span class="nl">continueWithSuccessBlock</span><span class="p">:</span><span class="o">^</span><span class="kt">id</span><span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="n">task</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">[[</span><span class="n">documentTaskManager</span> <span class="nl">createDocumentWithFilename</span><span class="p">:</span><span class="s">@&quot;myDocument&quot;</span> <span class="nl">fromData</span><span class="p">:</span><span class="n">image</span> <span class="nl">docType</span><span class="p">:</span><span class="n">docType</span><span class="p">]</span> <span class="nl">continueWithSuccessBlock</span><span class="p">:</span><span class="o">^</span><span class="kt">id</span><span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="n">task</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">GINIDocument</span> <span class="o">*</span><span class="n">document</span> <span class="o">=</span> <span class="n">task</span><span class="p">.</span><span class="n">result</span><span class="p">;</span>
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;Created document with ID %@&quot;</span><span class="p">,</span> <span class="n">document</span><span class="p">.</span><span class="n">documentId</span><span class="p">);</span>
     <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
@@ -183,11 +189,12 @@ document from an image.</p>
 
 <span class="p">...</span>
 
-<span class="c1">// Assuming that `gini` is an instance of the `GiniSDK` facade class and `image` is a `UIImage` instance,</span>
-<span class="c1">// e.g. from a picture taken by the camera.</span>
+<span class="c1">// Assuming that `gini` is an instance of the `GiniSDK` facade class,</span>
+<span class="c1">// `docType` is a string containing a hint about the type of document and `image` is an `NSData` instance,</span>
+<span class="c1">// containing an image and meta information about the image.</span>
 
 <span class="kd">let</span> <span class="nv">documentTaskManager</span> <span class="p">=</span> <span class="n">gini</span><span class="p">.</span><span class="n">documentTaskManager</span>
-<span class="n">documentTaskManager</span><span class="p">.</span><span class="n">createDocumentWithFilename</span><span class="p">(</span><span class="s">&quot;myDocument&quot;</span><span class="p">,</span> <span class="n">fromImage</span><span class="p">:</span> <span class="n">image</span><span class="p">).</span><span class="n">continueWithSuccessBlock</span> <span class="p">{</span> <span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">BFTask</span><span class="p">!)</span> <span class="p">-&gt;</span> <span class="nb">AnyObject</span><span class="p">!</span> <span class="k">in</span>
+<span class="n">documentTaskManager</span><span class="p">.</span><span class="n">createDocumentWithFilename</span><span class="p">(</span><span class="s">&quot;myDocument&quot;</span><span class="p">,</span> <span class="n">fromData</span><span class="p">:</span> <span class="n">image</span><span class="p">,</span> <span class="n">docType</span><span class="p">:</span> <span class="n">docType</span><span class="p">).</span><span class="n">continueWithSuccessBlock</span> <span class="p">{</span> <span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">BFTask</span><span class="p">!)</span> <span class="p">-&gt;</span> <span class="nb">AnyObject</span><span class="p">!</span> <span class="k">in</span>
     <span class="kd">let</span> <span class="nv">document</span> <span class="p">=</span> <span class="n">task</span><span class="p">.</span><span class="n">result</span> <span class="kc">as</span><span class="p">!</span> <span class="n">GINIDocument</span>
     <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Created document with ID </span><span class="si">\(</span><span class="n">document</span><span class="p">.</span><span class="n">documentId</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">nil</span>
@@ -196,7 +203,10 @@ document from an image.</p>
 <span class="p">...</span>
 </pre></div>
 </div>
-<p>Read on to find out how to get the extractions from a document.</p>
+</div>
+<div class="section" id="upload-a-document-without-meta-information">
+<h2>Upload a document without meta information<a class="headerlink" href="#upload-a-document-without-meta-information" title="Permalink to this headline">¶</a></h2>
+<p>To create a document from an image without sending meta information use the <tt class="docutils literal"><span class="pre">createDocumentWithFilename:fromImage:docType:</span></tt> method instead. This method takes as parameters a filename, an instance of UIImage and a hint for the type of document to be analyzed.</p>
 </div>
 <div class="section" id="getting-extractions">
 <h2>Getting extractions<a class="headerlink" href="#getting-extractions" title="Permalink to this headline">¶</a></h2>
