@@ -53,6 +53,8 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/createDocumentWithFilename:fromData:docType:">&nbsp;&nbsp;&nbsp;&nbsp;- createDocumentWithFilename:fromData:docType:</option>
+	
 	<option value="//api/name/createDocumentWithFilename:fromImage:">&nbsp;&nbsp;&nbsp;&nbsp;- createDocumentWithFilename:fromImage:</option>
 	
 	<option value="//api/name/createDocumentWithFilename:fromImage:docType:">&nbsp;&nbsp;&nbsp;&nbsp;- createDocumentWithFilename:fromImage:docType:</option>
@@ -120,6 +122,8 @@
 
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createDocumentWithFilename:fromData:docType:">createDocumentWithFilename:fromData:docType:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createDocumentWithFilename:fromImage:">createDocumentWithFilename:fromImage:</a></span></li>
 	
@@ -243,6 +247,12 @@ into the usage of tasks in the Gini SDK.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/createDocumentWithFilename:fromImage:docType:">&ndash;&nbsp;createDocumentWithFilename:fromImage:docType:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createDocumentWithFilename:fromData:docType:">&ndash;&nbsp;createDocumentWithFilename:fromData:docType:</a></code>
 	</span>
 	
 	
@@ -428,6 +438,81 @@ into the usage of tasks in the Gini SDK.</p>
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/createDocumentWithFilename:fromData:docType:" title="createDocumentWithFilename:fromData:docType:"></a>
+	<h3 class="subsubtitle method-title">createDocumentWithFilename:fromData:docType:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates a new document with the given <code>doctype</code> from the given data.
+Data can be in the format of a PDF, UTF-8 text or image representation.
+By providing the doctype, Gini&rsquo;s document processing is optimized in many ways.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (BFTask *)createDocumentWithFilename:(NSString *)<em>fileName</em> fromData:(NSData *)<em>data</em> docType:(NSString *)<em>docType</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fileName</em></dt>
+			<dd><p>The file name of the document.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>data</em></dt>
+			<dd><p>Data representing the document.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>docType</em></dt>
+			<dd><p>The doctype hint for the document.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>A <code>BFTask*</code> that will resolve to a <a href="../Classes/GINIDocument.html"><code>GINIDocument</code></a> instance representing the created document.
+Please notice that it is very unlikely that the created document is already fully processed, so
+the extractions may not yet exist.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Creates a new document with the given <code>doctype</code> from the given data.
+Data can be in the format of a PDF, UTF-8 text or image representation.
+By providing the doctype, Gini&rsquo;s document processing is optimized in many ways.</p>
+
+<p>See the <a href="http://developer.gini.net/gini-api/html/documents.html#document-type-hints">Gini API documentation</a> for
+details and <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">a list of available doctypes</a>.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">GINIDocumentTaskManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/createDocumentWithFilename:fromImage:" title="createDocumentWithFilename:fromImage:"></a>
 	<h3 class="subsubtitle method-title">createDocumentWithFilename:fromImage:</h3>
 	
@@ -464,7 +549,7 @@ into the usage of tasks in the Gini SDK.</p>
 		<h4 class="method-subtitle parameter-title">Return Value</h4>
 		<p>A <code>BFTask*</code> that will resolve to a <a href="../Classes/GINIDocument.html"><code>GINIDocument</code></a> instance representing the created document.
 Please notice that it is very unlikely that the created document is already fully processed, so
-the extractions may not already exist.</p>
+the extractions may not yet exist.</p>
 	</div>
 	
 	
@@ -1222,7 +1307,7 @@ available.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2016 Gini GmbH. All rights reserved. (Last updated: 2016-01-20)</span><br />
+						<p><span class="copyright">&copy; 2016 Gini GmbH. All rights reserved. (Last updated: 2016-02-24)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
