@@ -72,21 +72,18 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image {
-    NSParameterAssert([fileName isKindOfClass:[NSString class]]);
-    NSParameterAssert([image isKindOfClass:[UIImage class]]);
-
-    BFTask *createTask = [[_apiManager uploadDocumentWithData:UIImageJPEGRepresentation(image, 0.2) contentType:@"image/jpeg" fileName:fileName docType:nil] continueWithSuccessBlock:^id(BFTask *task) {
-        return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
-    }];
-    return GINIhandleHTTPerrors(createTask);
+    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:nil];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType {
-    NSParameterAssert([fileName isKindOfClass:[NSString class]]);
-    NSParameterAssert([image isKindOfClass:[UIImage class]]);
-    NSParameterAssert([docType isKindOfClass:[NSString class]]);
+    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:docType];
+}
 
-    BFTask *createTask = [[_apiManager uploadDocumentWithData:UIImageJPEGRepresentation(image, 0.2) contentType:@"image/jpeg" fileName:fileName docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType {
+    NSParameterAssert([fileName isKindOfClass:[NSString class]]);
+    NSParameterAssert([data isKindOfClass:[NSData class]]);
+    
+    BFTask *createTask = [[_apiManager uploadDocumentWithData:data contentType:@"image/jpeg" fileName:fileName docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
     return GINIhandleHTTPerrors(createTask);
@@ -141,7 +138,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
         NSDictionary *polledDocument = task.result;
         // If the document is not fully processed yet, wait a second and then poll again.
         if ([polledDocument[@"progress"] isEqualToString:@"PENDING"]) {
-            return [[BFTask taskWithDelay:self.pollingInterval * 1000] continueWithSuccessBlock:^id(BFTask *waitTask) {
+            return [[BFTask taskWithDelay:(int)self.pollingInterval * 1000] continueWithSuccessBlock:^id(BFTask *waitTask) {
                 return [self privatePollDocumentWithId:documentId];
             }];
             // Otherwise return the document.
