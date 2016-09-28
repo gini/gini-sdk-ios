@@ -1,20 +1,27 @@
 language: objective-c
-osx_image: xcode7.2
+osx_image: xcode7.3
 cache: 
   - cocoapods
 before_install:
   - pod install --repo-update --verbose
 env:
   global:
-    - GH_REF: github.com/gini/gini-sdk-ios.git
+    - WORKSPACE="Gini-iOS-SDK.xcworkspace"
+    - SCHEME="Gini-iOS-SDK"
+    - SDK=iphonesimulator9.3
+    - DESTINATION="OS=9.3,name=iPhone 6S"
+    - GH_REF=github.com/gini/gini-sdk-ios.git
     - secure: "mmTWT0WBaAMKNxnPD/Nyxj1sXPZxCMxEaGN4iTg/bxXokrFe4EOnuMGxN2nNWJJmyEKqmZ2VCMJJxqDbmz1xwsI5RgC0Ylywt/nD0oEiKyS0avigyzjG8tqsOY78yl6wJwbsOePKSJq2BniKjpCRN8mfwVoiczwtXjQAKMqAbRA="
 script:
   - set -o pipefail 
   - xcodebuild -version
   - xcodebuild -showsdks
-  - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Gini-iOS-SDK -sdk iphonesimulator test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test | xcpretty -c;
   - ./scripts/createIntegrationGuide.sh
 after_success:
   - ./scripts/publish_docs.sh
   - slather
   - bash <(curl -s https://codecov.io/bash) -f Build/Coverage/cobertura.xml 
+
+
+
