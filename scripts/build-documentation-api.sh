@@ -8,8 +8,8 @@ jazzy \
   --objc \
   --clean \
   --sdk iphonesimulator \
-  --umbrella-header Gini-iOS-SDK/GiniSDK.h \
-  --framework-root . \
+  --umbrella-header $TRAVIS_BUILD_DIR/Gini-iOS-SDK/GiniSDK.h \
+  --framework-root $TRAVIS_BUILD_DIR \
   --author Gini \
   --author_url https://gini.net \
   --github_url https://github.com/gini/gini-sdk-ios \
