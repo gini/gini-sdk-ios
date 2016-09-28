@@ -1,68 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIAPIManager.h",
-      "line": 19,
-      "symbol": "",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIAPIManager.h",
-      "line": 29,
-      "symbol": "",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIKeychainManager.h",
-      "line": 12,
-      "symbol": "GINIKeychainManager",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINISessionManager.h",
-      "line": 12,
-      "symbol": "GINIStringEncoding",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINISessionManager.h",
-      "line": 65,
-      "symbol": "GINISessionManager._URLSession",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINISessionParser.h",
-      "line": 8,
-      "symbol": "GINISessionParser",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
-      "line": 9,
-      "symbol": "GINIUser",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
-      "line": 11,
-      "symbol": "GINIUser.userId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
-      "line": 12,
-      "symbol": "GINIUser.userEmail",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/travis/build/gini/gini-sdk-ios/gh-pages"
 }
