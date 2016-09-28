@@ -10,6 +10,7 @@ jazzy \
   --sdk iphonesimulator \
   --umbrella-header $TRAVIS_BUILD_DIR/Gini-iOS-SDK/GiniSDK.h \
   --framework-root $TRAVIS_BUILD_DIR \
+  --readme $TRAVIS_BUILD_DIR/README.md
   --author Gini \
   --author_url https://gini.net \
   --github_url https://github.com/gini/gini-sdk-ios \
