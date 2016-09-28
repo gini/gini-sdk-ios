@@ -18,10 +18,10 @@ git clone --branch=gh-pages https://${GH_TOKEN}@${GH_REF} gh-pages > /dev/null >
 
 cd gh-pages
 
-mkdir 
+mkdir api
 
 # Create and copy api documentation
-sh scripts/build-documentation-api.sh
+sh $TRAVIS_BUILD_DIR/scripts/build-documentation-api.sh
 cp -Rf $TRAVIS_BUILD_DIR/docs/api/* api/
 
 touch .nojekyll
