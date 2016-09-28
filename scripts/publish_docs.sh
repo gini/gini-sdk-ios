@@ -18,10 +18,13 @@ git clone --branch=gh-pages https://${GH_TOKEN}@${GH_REF} gh-pages > /dev/null >
 
 cd gh-pages
 
-mkdir appledocs
-cp -Rf $TRAVIS_BUILD_DIR/docs/html/* appledocs/
+mkdir 
+
+# Create and copy api documentation
+sh scripts/build-documentation-api.sh
+cp -Rf $TRAVIS_BUILD_DIR/docs/api/* api/
 
 touch .nojekyll
 git add -f .
-git commit -m "Appledoc documentation updated (Travis build $TRAVIS_BUILD_NUMBER)"
+git commit -m "API documentation updated (Travis build $TRAVIS_BUILD_NUMBER)"
 git push -fq origin gh-pages > /dev/null

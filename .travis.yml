@@ -1,18 +1,18 @@
 language: objective-c
+osx_image: xcode7.2
 before_install:
   - export LANG=en_US.UTF-8
   - rvm install 2.2.2
-  - gem install cocoapods -v '0.39.0'
-before_script:
-  - ./scripts/install_appledoc.sh
-  - export PATH=$PATH:$TRAVIS_BUILD_DIR/appledoc
+  - pod install --repo-update --verbose
 env:
   global:
     - GH_REF: github.com/gini/gini-sdk-ios.git
     - secure: "mmTWT0WBaAMKNxnPD/Nyxj1sXPZxCMxEaGN4iTg/bxXokrFe4EOnuMGxN2nNWJJmyEKqmZ2VCMJJxqDbmz1xwsI5RgC0Ylywt/nD0oEiKyS0avigyzjG8tqsOY78yl6wJwbsOePKSJq2BniKjpCRN8mfwVoiczwtXjQAKMqAbRA="
 script:
+  - set -o pipefail 
+  - xcodebuild -version
+  - xcodebuild -showsdks
   - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Gini-iOS-SDK -sdk iphonesimulator test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
-  - xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme Documentation -sdk iphonesimulator build
   - ./scripts/createIntegrationGuide.sh
 after_success:
   - ./scripts/publish_docs.sh
