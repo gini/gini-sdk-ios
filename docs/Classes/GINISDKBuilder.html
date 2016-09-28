@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GINISDKBuilder Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/GINISDKBuilder" class="dashAnchor"></a>
+    <a title="GINISDKBuilder Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (95% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GINISDKBuilder Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GINIAPIManager.html">GINIAPIManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIDocument.html">GINIDocument</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIExtraction.html">GINIExtraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIFactoryDescription.html">GINIFactoryDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIInjector.html">GINIInjector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIKeychainCredentialsStore.html">GINIKeychainCredentialsStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIKeychainManager.html">GINIKeychainManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISDKBuilder.html">GINISDKBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISession.html">GINISession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISessionManager.html">GINISessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISessionParser.html">GINISessionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIURLResponse.html">GINIURLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIURLSession.html">GINIURLSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIUser.html">GINIUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIUserCenterManager.html">GINIUserCenterManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GiniSDK.html">GiniSDK</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorClientSecretKey">GINIInjectorClientSecretKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorURLSchemeKey">GINIInjectorURLSchemeKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorUserBaseURLKey">GINIInjectorUserBaseURLKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINILoginErrorNotification">GINILoginErrorNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINILoginNotification">GINILoginNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIPasswordKey">GINIPasswordKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIRefreshTokenKey">GINIRefreshTokenKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIStringEncoding">GINIStringEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserCreationErrorNotification">GINIUserCreationErrorNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserCreationNotification">GINIUserCreationNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserNameKey">GINIUserNameKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GiniDocumentState.html">GiniDocumentState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINICredentialsStore.html">GINICredentialsStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINISessionManager.html">GINISessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIURLSession.html">GINIURLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@GINIInjectorKey">GINIInjectorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@NS_ENUM">NS_ENUM</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GINISDKBuilder</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINISDKBuilder</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>The GINISDKBuilder is used to create and configure new instances of the Gini SDK.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)clientFlowWithClientID:urlScheme:"></a>
+                    <a name="//apple_ref/objc/Method/+clientFlowWithClientID:urlScheme:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)clientFlowWithClientID:urlScheme:">+clientFlowWithClientID:urlScheme:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of the GINISDKBuilder where the client authorization flow is used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">clientFlowWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientID</span>
+                             <span class="nf">urlScheme</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">urlScheme</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">clientFlowWithClientID</span><span class="p">(</span><span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">urlScheme</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlScheme</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The custom URL scheme of the application that is used for the authorization flow. It is used
+                 when the browser redirects back to the app after a login. Must be the same as the custom URL
+                 you registered with Gini.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The application&rsquo;s client ID for the Gini API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)serverFlowWithClientID:clientSecret:urlScheme:"></a>
+                    <a name="//apple_ref/objc/Method/+serverFlowWithClientID:clientSecret:urlScheme:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)serverFlowWithClientID:clientSecret:urlScheme:">+serverFlowWithClientID:clientSecret:urlScheme:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of the GINISDKBuilder where the server authorization flow is used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">serverFlowWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientID</span>
+                          <span class="nf">clientSecret</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
+                             <span class="nf">urlScheme</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">urlScheme</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">serverFlowWithClientID</span><span class="p">(</span><span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">urlScheme</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlScheme</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The custom URL scheme of the application that is used for the authorization flow. It is used
+                 when the browser redirects back to the app after a login. Must be the same as the custom URL
+                 you registered with Gini.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The application&rsquo;s client ID for the Gini API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientSecret</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The client secret you received from Gini.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)anonymousUserWithClientID:clientSecret:userEmailDomain:"></a>
+                    <a name="//apple_ref/objc/Method/+anonymousUserWithClientID:clientSecret:userEmailDomain:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)anonymousUserWithClientID:clientSecret:userEmailDomain:">+anonymousUserWithClientID:clientSecret:userEmailDomain:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of the GINISDKBuilder where anonymous users are used.</p>
+
+<p>@warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
+ clients only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">anonymousUserWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientId</span>
+                             <span class="nf">clientSecret</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
+                          <span class="nf">userEmailDomain</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">emailDomain</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">anonymousUserWithClientID</span><span class="p">(</span><span class="nv">clientId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">userEmailDomain</span> <span class="nv">emailDomain</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The application&rsquo;s clientID for the Gini API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userEmailDomain:</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The domain of the email address.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(py)injector"></a>
+                    <a name="//apple_ref/objc/Property/injector" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(py)injector">injector</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The GINIInjector instance which is used for the dependency injection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Classes/GINIInjector.html">GINIInjector</a></span> <span class="o">*</span><span class="n">injector</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">injector</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIInjector.html">GINIInjector</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(im)useSandbox"></a>
+                    <a name="//apple_ref/objc/Method/-useSandbox" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(im)useSandbox">-useSandbox</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Use the sandbox environment (<a href="https://api-sandbox.gini.net/">https://api-sandbox.gini.net/</a> and <a href="https://user-sandbox.gini.net/">https://user-sandbox.gini.net/</a>) instead of the
+ production environment.</p>
+
+<p>This method returns the instance on which it is called, so it is possible to chain the configuration via builder
+ methods.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">useSandbox</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">useSandbox</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(im)useNotificationCenter:"></a>
+                    <a name="//apple_ref/objc/Method/-useNotificationCenter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(im)useNotificationCenter:">-useNotificationCenter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the <code>NSNotificationCenter</code> instance which is used for the notifications.</p>
+
+<p>This method returns the instance on which it is called, so it is possible to chain the configuration via builder
+ methods.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">useNotificationCenter</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">NSNotificationCenter</span> <span class="o">*</span><span class="p">)</span><span class="nv">notificationCenter</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">useNotificationCenter</span><span class="p">(</span><span class="nv">notificationCenter</span><span class="p">:</span> <span class="kt">NSNotificationCenter</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(im)build"></a>
+                    <a name="//apple_ref/objc/Method/-build" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(im)build">-build</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates and returns the GiniSDK instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/GiniSDK.html">GiniSDK</a></span> <span class="o">*</span><span class="p">)</span><span class="n">build</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">build</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GiniSDK.html">GiniSDK</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-09-28)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

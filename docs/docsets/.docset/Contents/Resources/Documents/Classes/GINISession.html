@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GINISession Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/GINISession" class="dashAnchor"></a>
+    <a title="GINISession Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (95% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GINISession Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GINIAPIManager.html">GINIAPIManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIDocument.html">GINIDocument</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIExtraction.html">GINIExtraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIFactoryDescription.html">GINIFactoryDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIInjector.html">GINIInjector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIKeychainCredentialsStore.html">GINIKeychainCredentialsStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIKeychainManager.html">GINIKeychainManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISDKBuilder.html">GINISDKBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISession.html">GINISession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISessionManager.html">GINISessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISessionParser.html">GINISessionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIURLResponse.html">GINIURLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIURLSession.html">GINIURLSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIUser.html">GINIUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIUserCenterManager.html">GINIUserCenterManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GiniSDK.html">GiniSDK</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorClientSecretKey">GINIInjectorClientSecretKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorURLSchemeKey">GINIInjectorURLSchemeKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorUserBaseURLKey">GINIInjectorUserBaseURLKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINILoginErrorNotification">GINILoginErrorNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINILoginNotification">GINILoginNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIPasswordKey">GINIPasswordKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIRefreshTokenKey">GINIRefreshTokenKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIStringEncoding">GINIStringEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserCreationErrorNotification">GINIUserCreationErrorNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserCreationNotification">GINIUserCreationNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserNameKey">GINIUserNameKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GiniDocumentState.html">GiniDocumentState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINICredentialsStore.html">GINICredentialsStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINISessionManager.html">GINISessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIURLSession.html">GINIURLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@GINIInjectorKey">GINIInjectorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@NS_ENUM">NS_ENUM</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GINISession</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINISession</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>This class represents a session of the GINI authorisation system.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISession(py)refreshToken"></a>
+                    <a name="//apple_ref/objc/Property/refreshToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISession(py)refreshToken">refreshToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The refresh token of the session. Used to get a new access token when the latter has expired.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">refreshToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">refreshToken</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISession(py)accessToken"></a>
+                    <a name="//apple_ref/objc/Property/accessToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISession(py)accessToken">accessToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The access token of the session. Used to access resources of the Gini API.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">accessToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">accessToken</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISession(py)expirationDate"></a>
+                    <a name="//apple_ref/objc/Property/expirationDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISession(py)expirationDate">expirationDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The expiration date of the validity of the access token.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">expirationDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">expirationDate</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISession(im)initWithAccessToken:refreshToken:expirationDate:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithAccessToken:refreshToken:expirationDate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISession(im)initWithAccessToken:refreshToken:expirationDate:">-initWithAccessToken:refreshToken:expirationDate:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the session with the access token, refresh token and expiration date. The refresh token can be nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAccessToken</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">accessToken</span>
+                       <span class="nf">refreshToken</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">refreshToken</span>
+                     <span class="nf">expirationDate</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">expirationDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">,</span> <span class="nv">refreshToken</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">,</span> <span class="nv">expirationDate</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>accessToken</code> used to create the session instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>refreshToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>refreshToken</code> used to create the session instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expirationDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The expiration date of the <code>accessToken</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISession(im)refreshWithAccessToken:refreshToken:expirationDate:"></a>
+                    <a name="//apple_ref/objc/Method/-refreshWithAccessToken:refreshToken:expirationDate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISession(im)refreshWithAccessToken:refreshToken:expirationDate:">-refreshWithAccessToken:refreshToken:expirationDate:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Refreshes the session with new tokens.</p>
+
+<p>It gives the same result as in the init method but its existence makes sense semantically when a new pair of tokens
+ is received and the current session just needs to be updated.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">refreshWithAccessToken</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">accessToken</span>
+                  <span class="nf">refreshToken</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">refreshToken</span>
+                <span class="nf">expirationDate</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">expirationDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">refreshWithAccessToken</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">,</span> <span class="nv">refreshToken</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">,</span> <span class="nv">expirationDate</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>accessToken</code> used to create the session instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>refreshToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>refreshToken</code> used to create the session instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expirationDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The expiration date of the <code>accessToken</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISession(im)hasAlreadyExpired"></a>
+                    <a name="//apple_ref/objc/Method/-hasAlreadyExpired" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISession(im)hasAlreadyExpired">-hasAlreadyExpired</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A convenient check on whether the access token has expired.</p>
+
+<p>@returns True if the <code><a href="../Classes/GINISession.html#/c:objc(cs)GINISession(py)accessToken">accessToken</a></code> has expired, False otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">hasAlreadyExpired</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">hasAlreadyExpired</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AnyObject</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-09-28)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

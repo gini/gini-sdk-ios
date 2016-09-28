@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GINIDocumentTaskManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/GINIDocumentTaskManager" class="dashAnchor"></a>
+    <a title="GINIDocumentTaskManager Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (95% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        GINIDocumentTaskManager Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/GINIAPIManager.html">GINIAPIManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIDocument.html">GINIDocument</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIExtraction.html">GINIExtraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIFactoryDescription.html">GINIFactoryDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIInjector.html">GINIInjector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIKeychainCredentialsStore.html">GINIKeychainCredentialsStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIKeychainManager.html">GINIKeychainManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISDKBuilder.html">GINISDKBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISession.html">GINISession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISessionManager.html">GINISessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINISessionParser.html">GINISessionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIURLResponse.html">GINIURLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIURLSession.html">GINIURLSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIUser.html">GINIUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GINIUserCenterManager.html">GINIUserCenterManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GiniSDK.html">GiniSDK</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorClientSecretKey">GINIInjectorClientSecretKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorURLSchemeKey">GINIInjectorURLSchemeKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIInjectorUserBaseURLKey">GINIInjectorUserBaseURLKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINILoginErrorNotification">GINILoginErrorNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINILoginNotification">GINILoginNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIPasswordKey">GINIPasswordKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIRefreshTokenKey">GINIRefreshTokenKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIStringEncoding">GINIStringEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserCreationErrorNotification">GINIUserCreationErrorNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserCreationNotification">GINIUserCreationNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@GINIUserNameKey">GINIUserNameKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GiniDocumentState.html">GiniDocumentState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINICredentialsStore.html">GINICredentialsStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINISessionManager.html">GINISessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/GINIURLSession.html">GINIURLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@GINIInjectorKey">GINIInjectorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@NS_ENUM">NS_ENUM</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>GINIDocumentTaskManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIDocumentTaskManager</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>GINIDocumentTaskManager</code> is a high level API on top of the Gini API. It provides high level methods to easily
+ handle document related tasks.</p>
+
+<p>Usage of promises/tasks</p>
+
+<p><hr></p>
+
+<p>This manager makes heavy use of the concept of tasks (also known as promises in other languages). The Gini SDK uses
+ <a href="https://github.com/BoltsFramework/Bolts-iOS#tasks">Facebook&rsquo;s Bolts task implementation</a>. See the
+ <a href="../docs/2.%20Working%20with%20tasks.html">programming guide for tasks</a> for a detailed introduction
+ into the usage of tasks in the Gini SDK.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(cm)documentTaskManagerWithAPIManager:"></a>
+                    <a name="//apple_ref/objc/Method/+documentTaskManagerWithAPIManager:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(cm)documentTaskManagerWithAPIManager:">+documentTaskManagerWithAPIManager:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Factory to create a new instance of the document task manager.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">documentTaskManagerWithAPIManager</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">apiManager</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>apiManager</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of <code>GINIAPIManager</code> which will be used to communicate with the Gini API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)initWithAPIManager:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithAPIManager:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)initWithAPIManager:">-initWithAPIManager:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The designated initializer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithAPIManager</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">apiManager</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="kt">APIManager</span> <span class="nv">apiManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>apiManager</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An instance of <code>GINIAPIManager</code> which will be used to communicate with the Gini API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(py)pollingInterval"></a>
+                    <a name="//apple_ref/objc/Property/pollingInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(py)pollingInterval">pollingInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time in seconds between HTTP requests when polling documents.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">pollingInterval</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">pollingInterval</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)getDocumentWithId:"></a>
+                    <a name="//apple_ref/objc/Method/-getDocumentWithId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)getDocumentWithId:">-getDocumentWithId:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the document with the given id.</p>
+
+<p>@returns             A <code>BFTask</code> that will resolve to a <code><a href="../Classes/GINIDocument.html">GINIDocument</a></code> instance representing the document.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">getDocumentWithId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">documentId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getDocumentWithId</span><span class="p">(</span><span class="nv">documentId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>documentId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document&rsquo;s unique identifier.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:"></a>
+                    <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromImage:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:">-createDocumentWithFilename:fromImage:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new document from the given image.</p>
+
+<p>@returns             A <code>BFTask*</code> that will resolve to a <code><a href="../Classes/GINIDocument.html">GINIDocument</a></code> instance representing the created document.
+                      Please notice that it is very unlikely that the created document is already fully processed, so
+                      the extractions may not yet exist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">createDocumentWithFilename</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
+                             <span class="nf">fromImage</span><span class="p">:(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocumentWithFilename</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromImage</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The file name of the document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>image</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An image representing the document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:docType:"></a>
+                    <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromImage:docType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:docType:">-createDocumentWithFilename:fromImage:docType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new document with the given <code>doctype</code> from the given image. By providing the doctype, Gini&rsquo;s document
+ processing is optimized in many ways.</p>
+
+<p>See the <a href="http://developer.gini.net/gini-api/html/documents.html#document-type-hints">Gini API documentation</a> for
+ details and <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">a list of available doctypes</a>.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Some incubating extractions are only available if you create the document with this method, so the Gini API
+knows the doctype.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">createDocumentWithFilename</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
+                             <span class="nf">fromImage</span><span class="p">:(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span>
+                               <span class="nf">docType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">docType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocumentWithFilename</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromImage</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromData:docType:"></a>
+                    <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromData:docType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromData:docType:">-createDocumentWithFilename:fromData:docType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new document with the given <code>doctype</code> from the given data. 
+ Data can be in the format of a PDF, UTF-8 text or image representation.
+ By providing the doctype, Gini&rsquo;s document processing is optimized in many ways.</p>
+
+<p>See the <a href="http://developer.gini.net/gini-api/html/documents.html#document-type-hints">Gini API documentation</a> for
+ details and <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">a list of available doctypes</a>.</p>
+
+<p>@returns             A <code>BFTask*</code> that will resolve to a <code><a href="../Classes/GINIDocument.html">GINIDocument</a></code> instance representing the created document.
+                      Please notice that it is very unlikely that the created document is already fully processed, so
+                      the extractions may not yet exist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">createDocumentWithFilename</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
+                              <span class="nf">fromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+                               <span class="nf">docType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">docType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocumentWithFilename</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromData</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The file name of the document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Data representing the document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>docType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The doctype hint for the document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)updateDocument:"></a>
+                    <a name="//apple_ref/objc/Method/-updateDocument:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)updateDocument:">-updateDocument:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Saves updates on the extractions.</p>
+
+<p>Updating extractions is called <q>Submitting feedback</q> in the Gini API documentation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">updateDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)deleteDocument:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteDocument:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)deleteDocument:">-deleteDocument:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes the given document.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">deleteDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">deleteDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document that will be deleted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)pollDocument:"></a>
+                    <a name="//apple_ref/objc/Method/-pollDocument:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)pollDocument:">-pollDocument:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Continually checks the document status until the document is fully processed.</p>
+
+<p>If the document is in the error state, this method also does not continue polling, but the extractions won&rsquo;t be
+ available.</p>
+
+<p>To avoid flooding the network, there is a pause of at least the number of seconds that is set in the
+ <code><a href="../Classes/GINIDocumentTaskManager.html#/c:objc(cs)GINIDocumentTaskManager(py)pollingInterval">pollingInterval</a></code> property of this class.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>This method returns a <code>BFTask*</code> resolving to a <code><a href="../Classes/GINIDocument.html">GINIDocument</a></code> instance representing the
+                  document. Please notice that the task&rsquo;s result will not be the same document object as the given
+                  document instance and the given document instance will not be updated with the polled results!</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">pollDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">pollDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document that will be polled.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)pollDocumentWithId:"></a>
+                    <a name="//apple_ref/objc/Method/-pollDocumentWithId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)pollDocumentWithId:">-pollDocumentWithId:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Continually checks the document status until the document is fully processed.</p>
+
+<p>If the document is in the error state, this method also does not continue polling, but the extractions won&rsquo;t be
+ available.</p>
+
+<p>To avoid flooding the network, there is a pause of at least the number of seconds that is set in the
+ <code><a href="../Classes/GINIDocumentTaskManager.html#/c:objc(cs)GINIDocumentTaskManager(py)pollingInterval">pollingInterval</a></code> property of this class.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">pollDocumentWithId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">documentId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">pollDocumentWithId</span><span class="p">(</span><span class="nv">documentId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>documentId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The unique identifier of the document which will be polled.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)getPreviewForPage:ofDocument:withSize:"></a>
+                    <a name="//apple_ref/objc/Method/-getPreviewForPage:ofDocument:withSize:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)getPreviewForPage:ofDocument:withSize:">-getPreviewForPage:ofDocument:withSize:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the preview image for the given page of the given document.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">getPreviewForPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                   <span class="nf">ofDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span>
+                     <span class="nf">withSize</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">size</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getPreviewForPage</span><span class="p">(</span><span class="nv">page</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="n">ofDocument</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">,</span> <span class="n">withSize</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GiniApiPreviewSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>page</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The page number of the document (starting from 1, not 0!).</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>size</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The size in which the document will be rendered. Please notice that this is the maximum size,
+            meaning that the images dimensions will not exceeding this limit but the rendered image can
+            actually have a little smaller dimensions.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)getExtractionsForDocument:"></a>
+                    <a name="//apple_ref/objc/Method/-getExtractionsForDocument:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)getExtractionsForDocument:">-getExtractionsForDocument:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the extractions for the given document.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">getExtractionsForDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getExtractionsForDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)getIncubatorExtractionsForDocument:"></a>
+                    <a name="//apple_ref/objc/Method/-getIncubatorExtractionsForDocument:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)getIncubatorExtractionsForDocument:">-getIncubatorExtractionsForDocument:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the extractions for the specific document, including the incubation extractions (see
+ <a href="http://developer.gini.net/gini-api/html/incubator.html">http://developer.gini.net/gini-api/html/incubator.html</a> for details on incubating extractions).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">getIncubatorExtractionsForDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getIncubatorExtractionsForDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)updateExtraction:forDocument:"></a>
+                    <a name="//apple_ref/objc/Method/-updateExtraction:forDocument:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)updateExtraction:forDocument:">-updateExtraction:forDocument:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Saves the new values for the given extraction of the given document.</p>
+
+<p>Please note that updating an extraction is called <q>Submitting feedback</q> in the Gini API documentation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">updateExtraction</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIExtraction.html">GINIExtraction</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">extraction</span>
+                 <span class="nf">forDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateExtraction</span><span class="p">(</span><span class="nv">extraction</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIExtraction.html">GINIExtraction</a></span><span class="o">!</span><span class="p">,</span> <span class="n">forDocument</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>extraction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The extraction.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)getLayoutForDocument:"></a>
+                    <a name="//apple_ref/objc/Method/-getLayoutForDocument:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)getLayoutForDocument:">-getLayoutForDocument:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the layout for the given document.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">getLayoutForDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getLayoutForDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)errorReportForDocument:summary:description:"></a>
+                    <a name="//apple_ref/objc/Method/-errorReportForDocument:summary:description:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)errorReportForDocument:summary:description:">-errorReportForDocument:summary:description:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Report an error for a specific document. If the processing result for a document was not satisfactory (e.g.
+ extractions where empty or incorrect), you can create an error report for a document. This allows Gini to analyze and
+ correct the problem that was found. The returned errorId can be used to refer to the reported error towards the Gini
+ support.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The owner of this document must agree that Gini can use this document for debugging and error analysis.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">errorReportForDocument</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocument.html">GINIDocument</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">document</span>
+                           <span class="nf">summary</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">summary</span>
+                       <span class="nf">description</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">description</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">errorReportForDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">summary</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>document</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The document for which the error is reported.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>summary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A summary for the error (optional).</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>description</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A detailed description for the error (optional).</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-09-28)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
