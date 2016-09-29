@@ -18,9 +18,8 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   # - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test | xcpretty -c;
-  - ./scripts/createIntegrationGuide.sh
 after_success:
-  - ./scripts/publish_docs.sh
+  - ./scripts/push-documentation.sh
   - slather
   - bash <(curl -s https://codecov.io/bash) -f docs/Coverage/cobertura.xml 
 
