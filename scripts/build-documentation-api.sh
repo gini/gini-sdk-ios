@@ -16,5 +16,5 @@ jazzy \
   --github_url https://github.com/gini/gini-sdk-ios \
   --root-url http://developer.gini.net/gini-sdk-ios/api/ \
   --module Gini-iOS-SDK \
-  --output $TRAVIS_BUILD_DIR/docs/api/ \
+  --output $TRAVIS_BUILD_DIR/docs/Api/ \
   --theme fullwidth \

@@ -12,3 +12,10 @@ docset-installed.txt
 Gini-iOS-SDK.xcworkspace
 *.xcuserdatad
 *.xccheckout
+
+virtualenv/
+venv/
+virtualenv.*
+
+# Docs builds
+docs/
