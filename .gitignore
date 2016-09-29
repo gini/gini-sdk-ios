@@ -1,0 +1,8 @@
+# Ignore all files and folders in same directory as .gitignore
+/*
+
+!Documentation/
+!Api/
+!.gitignore
+!.gitattributes
+!.travis.yml
