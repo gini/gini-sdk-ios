@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-  echo "This is a pull request. Not publishing documentation."
-  exit 0
-fi
-if [[ "$TRAVIS_BRANCH" != "master" ]]; then
-  echo "Testing on a branch other than master. Not publishing documentation."
-  exit 0
-fi
+# if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
+#   echo "This is a pull request. Not publishing documentation."
+#   exit 0
+# fi
+# if [[ "$TRAVIS_BRANCH" != "master" ]]; then
+#   echo "Testing on a branch other than master. Not publishing documentation."
+#   exit 0
+# fi
 
 cd Documentation
 virtualenv ./virtualenv
