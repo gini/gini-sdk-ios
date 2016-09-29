@@ -15,4 +15,4 @@ Gini-iOS-SDK.xcworkspace
 
 virtualenv/
 venv/
-virtualenv.py
+virtualenv.*
