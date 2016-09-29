@@ -200,13 +200,41 @@
             
             <a href='#gini-ios-sdk' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='gini-ios-sdk'>Gini iOS SDK</h1>
 
+<p><a href="https://travis-ci.org/gini/gini-sdk-ios"><img src="https://travis-ci.org/gini/gini-sdk-ios.svg?branch=master" alt="CI Status"></a></p>
+
 <p>An SDK for integrating Gini technology into other apps. With this SDK you will be able to extract semantic information from various types of documents.</p>
 
 <p>The Gini iOS SDK works for both Objective-C and Swift apps.</p>
 <a href='#register-your-app-with-gini' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='register-your-app-with-gini'>Register your App with Gini</h2>
 
 <p>See the <a href="http://developer.gini.net/gini-api/html/guides/oauth2.html#first-of-all-register-your-application-with-gini">API Documentation</a>.</p>
-<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+<a href='#architecture' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='architecture'>Architecture</h2>
+
+<p>The Gini iOS SDK provides several managers that are used to interact with the 
+<a href="http://developer.gini.net/gini-api/html/index.html">Gini API</a>. Those are:</p>
+
+<ul>
+<li><code>GINIDocumentTaskManager</code>: A high-level manager for document-related tasks. Use this manager to integrate the Gini
+magic into your application. It is built upon the <code>GINIAPIManager</code> and the <code>GINISessionManager</code>.</li>
+<li><code>GINIAPIManager</code>: A low-level manager which interacts with the Gini API and which directly returns the API responses
+without much interpretation of the response. Because of that, it is not recommended that you use this manager
+directly. Instead use the <code>GINIDocumentTaskManager</code> which offers much more sophisticated methods for dealing with
+documents and extractions.</li>
+<li><code>GINISessionManager</code>: Handles login-related tasks.</li>
+</ul>
+
+<p>You don&rsquo;t need to create those manager instances yourself (and it is not recommended to try it, since the managers have
+non-trivial dependencies). Instead, create and use an instance of the <code>GiniSDK</code> class (as
+described in the <a href="http://developer.gini.net/gini-sdk-ios/">integration guide</a>). The <code>GiniSDK</code> instance uses an injector (which
+is provided at the instance&rsquo;s <code>injector</code> property) to create the manager instances and to manage the dependencies
+between the managers and makes those manager instances available as properties.</p>
+<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+
+<ul>
+<li>iOS 7.1+</li>
+<li>Xcode 7.0+</li>
+</ul>
+<a href='#documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='documentation'>Documentation</h2>
 
 <p>Learn how to use the Gini API at the <a href="http://developer.gini.net">Gini Developer Portal</a>:</p>
 
@@ -214,8 +242,16 @@
 <li><a href="http://developer.gini.net/gini-sdk-ios/">Gini iOS SDK Documentation</a></li>
 <li><a href="http://developer.gini.net/gini-api/">Gini API Documentation</a></li>
 </ul>
+<a href='#how-to-start' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='how-to-start'>How to start</h2>
 
-<p>Copyright &copy; 2014-2016, <a href="http://www.gini.net">Gini GmbH</a></p>
+<p>We recommend you read the <a href="http://developer.gini.net/gini-sdk-ios/">integration guide</a> for more details on how to
+integrate the SDK.</p>
+<a href='#author' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='author'>Author</h2>
+
+<p>Gini GmbH, <a href="mailto:hello@gini.net">hello@gini.net</a></p>
+<a href='#license' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='license'>License</h2>
+
+<p>Gini iOS SDK is released under the MIT license. See LICENSE for details.</p>
 
           </div>
         </section>
