@@ -12,13 +12,12 @@
 #   exit 0
 # fi
 
-curl -L -o virtualenv.py https://raw.github.com/pypa/virtualenv/master/virtualenv.py
-python virtualenv.py virtualenv
 
 mkdir -p $TRAVIS_BUILD_DIR/integration-guide
 cd $TRAVIS_BUILD_DIR/integration-guide
 cp -r $TRAVIS_BUILD_DIR/doc/* .
 
+curl -L -o virtualenv.py https://raw.github.com/pypa/virtualenv/master/virtualenv.py
 virtualenv ./virtualenv
 source virtualenv/bin/activate
 pip install -r requirements.txt
