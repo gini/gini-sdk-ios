@@ -25,7 +25,7 @@ The Gini iOS SDK provides several managers that are used to interact with the
 
 You don't need to create those manager instances yourself (and it is not recommended to try it, since the managers have
 non-trivial dependencies). Instead, create and use an instance of the `GiniSDK` class (as
-described in the [integration guide](http://developer.gini.net/gini-sdk-ios/)). The `GiniSDK` instance uses an injector (which
+described in the [integration guide](http://developer.gini.net/gini-sdk-ios/docs/guides/getting-started.html)). The `GiniSDK` instance uses an injector (which
 is provided at the instance's `injector` property) to create the manager instances and to manage the dependencies
 between the managers and makes those manager instances available as properties.
 
@@ -38,12 +38,12 @@ between the managers and makes those manager instances available as properties.
 
 Learn how to use the Gini API at the [Gini Developer Portal](http://developer.gini.net):
 
-- [Gini iOS SDK Documentation](http://developer.gini.net/gini-sdk-ios/)
+- [Gini iOS SDK Documentation](http://developer.gini.net/gini-sdk-ios/docs/)
 - [Gini API Documentation](http://developer.gini.net/gini-api/)
 
 ## How to start
 
-We recommend you read the [integration guide](http://developer.gini.net/gini-sdk-ios/) for more details on how to
+We recommend you read the [integration guide](http://developer.gini.net/gini-sdk-ios/docs/guides/getting-started.html) for more details on how to
 integrate the SDK.
 
 ## Author
