@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		E2B18418195464FC0080FF40 /* Documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = E2B1841B195464FC0080FF40 /* Build configuration list for PBXAggregateTarget "Documentation" */;
-			buildPhases = (
-				E2B1841C195465030080FF40 /* Create Documentation */,
-			);
-			dependencies = (
-			);
-			name = Documentation;
-			productName = Documentation;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		04A595B2195869DD00CB8E1B /* documents.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A595B1195869DD00CB8E1B /* documents.json */; };
 		04A595B7195962E900CB8E1B /* GINIFactoryDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A595B4195962E900CB8E1B /* GINIFactoryDescription.m */; };
@@ -543,7 +529,6 @@
 			targets = (
 				23D53BF31934BC85001A957E /* Gini-iOS-SDK */,
 				23D53C031934BC85001A957E /* Gini-iOS-SDKTests */,
-				E2B18418195464FC0080FF40 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -645,20 +630,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gini-iOS-SDK/Pods-Gini-iOS-SDK-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E2B1841C195465030080FF40 /* Create Documentation */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Create Documentation";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "programmingguides=`python -c \"import os;print('--include \\\"appledocs/' + '\\\" --include \\\"appledocs/'.join([dirname for dirname in os.listdir('appledocs')]) + '\\\"')\"`\necho \"$programmingguides\"\n\nif [ \"$TRAVIS\" = true ]; then\necho \"running on Travis\"\n\nif [ ! -d $TRAVIS_BUILD_DIR/docs ]; then\nmkdir $TRAVIS_BUILD_DIR/docs\nfi\ncommand=\"`which appledoc` --project-name \\\"$PROJECT_NAME\\\" --project-company \\\"Gini GmbH\\\" --company-id \\\"net.gini\\\" --output \\\"$TRAVIS_BUILD_DIR/docs\\\" --index-desc $PROJECT_DIR/appledocs/index.md $programmingguides --ignore \\\"*.m\\\" --exit-threshold 2 --create-html --no-create-docset \\\"$PROJECT_DIR/$PROJECT_NAME\\\"\"\n                                                                                                                                                                                                            \neval $command\n\nelse\necho \"running on workstation\"\nPATH=$PATH:/usr/local/bin\n\nif hash appledoc 2>/dev/null; then\necho \"appledoc is installed\"\nif [ ! -d \"$BUILD_DIR/docs\" ]; then\nmkdir \"$BUILD_DIR/docs\"\nfi\ncommand=\"`which appledoc` --project-name \\\"$PROJECT_NAME\\\" --project-company \\\"Gini GmbH\\\" --company-id \\\"net.gini\\\" --output \\\"$BUILD_DIR/docs\\\" --index-desc $PROJECT_DIR/appledocs/index.md $programmingguides --ignore \\\"*.m\\\" --exit-threshold 2 --finalize-docset \\\"$PROJECT_DIR/$PROJECT_NAME\\\"\"\necho ${command}\neval $command\n                                                                                                                                                                                                    else\necho \"appledoc is not installed. No API documentation generated.\"\nfi\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -885,20 +856,6 @@
 			};
 			name = Release;
 		};
-		E2B18419195464FC0080FF40 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		E2B1841A195464FC0080FF40 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -925,15 +882,6 @@
 			buildConfigurations = (
 				23D53C1B1934BC85001A957E /* Debug */,
 				23D53C1C1934BC85001A957E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E2B1841B195464FC0080FF40 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E2B18419195464FC0080FF40 /* Debug */,
-				E2B1841A195464FC0080FF40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
