@@ -22,7 +22,7 @@ script:
 after_success:
   - ./scripts/publish_docs.sh
   - slather
-  - bash <(curl -s https://codecov.io/bash) -f Build/Coverage/cobertura.xml 
+  - bash <(curl -s https://codecov.io/bash) -f docs/Coverage/cobertura.xml 
 
 
 

@@ -16,3 +16,6 @@ Gini-iOS-SDK.xcworkspace
 virtualenv/
 venv/
 virtualenv.*
+
+# Docs builds
+docs/

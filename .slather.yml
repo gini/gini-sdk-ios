@@ -3,7 +3,7 @@ xcodeproj: Gini-iOS-SDK.xcodeproj
 workspace: Gini-iOS-SDK.xcworkspace
 scheme: Gini-iOS-SDK
 source_directory: Gini-iOS-SDK/
-output_directory: Build/Coverage
+output_directory: docs/Coverage
 ignore:
   - ../*
   - Pods/*
