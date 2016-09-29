@@ -5,9 +5,6 @@ cache:
 before_install:
   - gem install slather
   - pod install --repo-update --verbose
-install: 
-  - brew update
-  - brew install python
 env:
   global:
     - WORKSPACE="Gini-iOS-SDK.xcworkspace"
