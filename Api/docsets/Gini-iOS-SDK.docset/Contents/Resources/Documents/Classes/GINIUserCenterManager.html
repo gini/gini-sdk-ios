@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GINIUserCenterManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+
+    <a name="//apple_ref/objc/Class/GINIUserCenterManager" class="dashAnchor"></a>
+
+    <a title="GINIUserCenterManager Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Gini-iOS-SDK Docs
+        </a>
+         (95% documented)
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/gini/gini-sdk-ios">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Fdeveloper%2Egini%2Enet%2Fgini%2Dsdk%2Dios%2Fapi%2Fdocsets%2FGini%2DiOS%2DSDK%2Exml">
+            <img class="header-icon" src="../img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Gini-iOS-SDK Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      GINIUserCenterManager Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIAPIManager.html">GINIAPIManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIDocument.html">GINIDocument</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIExtraction.html">GINIExtraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIFactoryDescription.html">GINIFactoryDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIInjector.html">GINIInjector</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIKeychainCredentialsStore.html">GINIKeychainCredentialsStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIKeychainManager.html">GINIKeychainManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINISDKBuilder.html">GINISDKBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINISession.html">GINISession</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINISessionManager.html">GINISessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINISessionParser.html">GINISessionParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIURLResponse.html">GINIURLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIURLSession.html">GINIURLSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIUser.html">GINIUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIUserCenterManager.html">GINIUserCenterManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GiniSDK.html">GiniSDK</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorClientSecretKey">GINIInjectorClientSecretKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorURLSchemeKey">GINIInjectorURLSchemeKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorUserBaseURLKey">GINIInjectorUserBaseURLKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINILoginErrorNotification">GINILoginErrorNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINILoginNotification">GINILoginNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIPasswordKey">GINIPasswordKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIRefreshTokenKey">GINIRefreshTokenKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIStringEncoding">GINIStringEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIUserCreationErrorNotification">GINIUserCreationErrorNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIUserCreationNotification">GINIUserCreationNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIUserNameKey">GINIUserNameKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/GiniDocumentState.html">GiniDocumentState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/GINICredentialsStore.html">GINICredentialsStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/GINISessionManager.html">GINISessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/GINIURLSession.html">GINIURLSession</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/c:@F@GINIInjectorKey">GINIInjectorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/c:@F@NS_ENUM">NS_ENUM</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>GINIUserCenterManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIUserCenterManager</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>GINIUserCenterManager</code> handles the communication with the Gini User Center via the Gini User Center API
+ (see <a href="http://developer.gini.net/gini-api/html/user_center_api.html">http://developer.gini.net/gini-api/html/user_center_api.html</a> for details). It can be used to create new users,
+ log in a user or to get information on a user.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Access to the User Center API is restricted to selected clients only.
+
+</div>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Factory%20*/"></a>
+                <a name="//apple_ref/objc/Section/Factory */" class="dashAnchor"></a>
+                <a href="#/Factory%20*/">
+                  <h3 class="section-name">Factory */</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIUserCenterManager(cm)userCenterManagerWithURLSession:clientID:clientSecret:baseURL:notificationCenter:"></a>
+                    <a name="//apple_ref/objc/Method/+userCenterManagerWithURLSession:clientID:clientSecret:baseURL:notificationCenter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIUserCenterManager(cm)userCenterManagerWithURLSession:clientID:clientSecret:baseURL:notificationCenter:">+userCenterManagerWithURLSession:clientID:clientSecret:baseURL:notificationCenter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Factory to create a new <code>GINIUserCenterManager</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">userCenterManagerWithURLSession</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/GINIURLSession.html">GINIURLSession</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">urlSession</span>
+                                       <span class="nf">clientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientID</span>
+                                   <span class="nf">clientSecret</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
+                                        <span class="nf">baseURL</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">baseURL</span>
+                             <span class="nf">notificationCenter</span><span class="p">:</span>
+                                 <span class="p">(</span><span class="n">NSNotificationCenter</span> <span class="o">*</span><span class="p">)</span><span class="nv">notificationCenter</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlSession</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>GINIURLSession</code> instance that will be used to do the HTTP requests to the Gini User Center.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/initializer%20*/"></a>
+                <a name="//apple_ref/objc/Section/initializer */" class="dashAnchor"></a>
+                <a href="#/initializer%20*/">
+                  <h3 class="section-name">initializer */</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIUserCenterManager(im)initWithURLSession:clientID:clientSecret:baseURL:notificationCenter:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithURLSession:clientID:clientSecret:baseURL:notificationCenter:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIUserCenterManager(im)initWithURLSession:clientID:clientSecret:baseURL:notificationCenter:">-initWithURLSession:clientID:clientSecret:baseURL:notificationCenter:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The designated initializer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithURLSession</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/GINIURLSession.html">GINIURLSession</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">urlSession</span>
+                          <span class="nf">clientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientID</span>
+                      <span class="nf">clientSecret</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
+                           <span class="nf">baseURL</span><span class="p">:(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">baseURL</span>
+                <span class="nf">notificationCenter</span><span class="p">:(</span><span class="n">NSNotificationCenter</span> <span class="o">*</span><span class="p">)</span><span class="nv">notificationCenter</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Methods%20*/"></a>
+                <a name="//apple_ref/objc/Section/Methods */" class="dashAnchor"></a>
+                <a href="#/Methods%20*/">
+                  <h3 class="section-name">Methods */</h3>
+                </a>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIUserCenterManager(im)getUserInfo:"></a>
+                    <a name="//apple_ref/objc/Method/-getUserInfo:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIUserCenterManager(im)getUserInfo:">-getUserInfo:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the information on the user with the given unique ID.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">getUserInfo</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userID</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getUserInfo</span><span class="p">(</span><span class="nv">userID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user&rsquo;s unique ID.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIUserCenterManager(im)createUserWithEmail:password:"></a>
+                    <a name="//apple_ref/objc/Method/-createUserWithEmail:password:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIUserCenterManager(im)createUserWithEmail:password:">-createUserWithEmail:password:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">createUserWithEmail</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">email</span> <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createUserWithEmail</span><span class="p">(</span><span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>email</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user&rsquo;s email address. Will also be used as the user&rsquo;s username.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user&rsquo;s password. Must be at least 6 characters long.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIUserCenterManager(im)loginUser:password:"></a>
+                    <a name="//apple_ref/objc/Method/-loginUser:password:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIUserCenterManager(im)loginUser:password:">-loginUser:password:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Logs in the user with the given username and password.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">loginUser</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userName</span> <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loginUser</span><span class="p">(</span><span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>email</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user&rsquo;s username (usually the email address).</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user&rsquo;s password.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>BFTask *</code> which will resolve to a <code><a href="../Classes/GINISession.html">GINISession</a></code> instance in case of success or to a GINIError
+        if the credentials are wrong.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2016 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2016-09-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
