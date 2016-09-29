@@ -20,7 +20,7 @@ make html
 
 cd build
 rm -rf gh-pages
-git clone -b gh-pages https://${GH_TOKEN}@${GH_REF} gh-pages
+git clone -b gh-pages git@github.com:gini/gini-sdk-ios.git gh-pages
 
 rm -rf gh-pages/*
 mkdir gh-pages/docs
