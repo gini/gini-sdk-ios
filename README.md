@@ -16,4 +16,4 @@ Learn how to use the Gini API at the [Gini Developer Portal](http://developer.gi
 - [Gini API Documentation](http://developer.gini.net/gini-api/)
 
 
-Copyright (c) 2014-2015, [Gini GmbH](http://www.gini.net)
+Copyright (c) 2014-2016, [Gini GmbH](http://www.gini.net)
