@@ -5,16 +5,16 @@ PODS:
   - Bolts/AppLinks (1.2.2):
     - Bolts/Tasks
   - Bolts/Tasks (1.2.2)
-  - Kiwi (2.3.1)
+  - Kiwi (2.4.0)
 
 DEPENDENCIES:
   - Bolts (~> 1.2.0)
-  - Kiwi (~> 2.3.0)
+  - Kiwi (~> 2.4.0)
 
 SPEC CHECKSUMS:
   Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
-  Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
 
-PODFILE CHECKSUM: 76678c3e480a878c07a8a20b6f7e755bbf592424
+PODFILE CHECKSUM: e874ab421267f0b2f82681e27409cc872cc45919
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2

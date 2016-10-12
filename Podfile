@@ -8,7 +8,7 @@ end
 
 def testing_pods
     pod 'Bolts', '~>1.2.0'
-    pod 'Kiwi', '~>2.3.0'
+    pod 'Kiwi', '~>2.4.0'
 end
 
 target 'Gini-iOS-SDK' do
