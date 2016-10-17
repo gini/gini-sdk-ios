@@ -28,4 +28,10 @@
  */
 - (void)fakeIncomingURL:(NSURL *)URL;
 
+
+// Mock selectors for testing
+
+- (BOOL)_isClassic;
++ (id)displayIdentifier;
+
 @end
