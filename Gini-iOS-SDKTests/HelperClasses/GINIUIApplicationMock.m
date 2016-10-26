@@ -7,6 +7,7 @@
 #import "GINIUIApplicationMock.h"
 #import "GINISessionManager.h"
 #import "NSString+GINIAdditions.h"
+#import <UIKit/UIKit.h>
 
 @implementation GINIUIApplicationMock {
     BOOL(^_openURLBlock)(NSURL *URL);
@@ -67,6 +68,14 @@
     if ([_sessionManager handleURL:URL]) {
         return;
     }
+}
+
+- (BOOL)_isClassic {
+    return NO;
+}
+
++ (id)displayIdentifier {
+    return nil;
 }
 
 @end

@@ -33,7 +33,7 @@ NSString *GINIDecodeURLString(NSString *string) {
         if ([parameters[key] isKindOfClass:[NSString class]]) {
             value = parameters[key];
         } else {
-            value = [NSString stringWithFormat:@"%@", value];
+            value = [NSString stringWithFormat:@"%@", parameters[key]];
         }
 
         if (value) {
