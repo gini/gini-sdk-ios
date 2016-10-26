@@ -1,13 +1,11 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
-  echo "This is a pull request. Not publishing documentation."
-  exit 0
-fi
-if [[ "$TRAVIS_BRANCH" != "master" ]]; then
-  echo "Testing on a branch other than master. Not publishing documentation."
-  exit 0
+# Pull requests and non-tagged commits shouldn't try to deploy
+if [ "$TRAVIS_PULL_REQUEST" != "false" -o -z "$TRAVIS_TAG" ]; then
+	echo "branch:$TRAVIS_BRANCH;tag:$TRAVIS_TAG;pullRequest:$TRAVIS_PULL_REQUEST"
+    echo "Skipping documentation deploy."
+    exit 0
 fi
 
 # Clean up

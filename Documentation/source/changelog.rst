@@ -2,6 +2,14 @@
 Changelog
 =========
 
+{{version_and_date}}
+
+Bugfixes
+--------
+
+- Fix tests to run in iOS 10.
+- Minor bugfixes.
+
 0.3.0 (24-02-2016)
 ==================
 
