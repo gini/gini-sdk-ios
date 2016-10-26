@@ -32,7 +32,7 @@ between the managers and makes those manager instances available as properties.
 ## Requirements
 
 - iOS 7.1+
-- Xcode 7.0+
+- Xcode 8.0+
 
 ## Documentation
 
