@@ -296,7 +296,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="kt">APIManager</span> <span class="nv">apiManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">apiManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -382,7 +382,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getDocumentWithId</span><span class="p">(</span><span class="nv">documentId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getDocumentWithId</span><span class="p">(</span><span class="n">_</span> <span class="nv">documentId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -439,7 +439,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocumentWithFilename</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromImage</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromImage</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -517,7 +517,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocumentWithFilename</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromImage</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromImage</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -560,7 +560,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocumentWithFilename</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromData</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">NSData</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">from</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -640,7 +640,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">_</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -692,7 +692,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">deleteDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -758,7 +758,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">pollDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">pollDocument</span><span class="p">(</span><span class="n">_</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -816,7 +816,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">pollDocumentWithId</span><span class="p">(</span><span class="nv">documentId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">pollDocument</span><span class="p">(</span><span class="n">withId</span> <span class="nv">documentId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -870,7 +870,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getPreviewForPage</span><span class="p">(</span><span class="nv">page</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="n">ofDocument</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">,</span> <span class="n">withSize</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GiniApiPreviewSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getPreviewForPage</span><span class="p">(</span><span class="n">_</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="n">of</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">GiniApiPreviewSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -950,7 +950,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getExtractionsForDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getExtractionsFor</span><span class="p">(</span><span class="n">_</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1003,7 +1003,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getIncubatorExtractionsForDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getIncubatorExtractions</span><span class="p">(</span><span class="k">for</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1058,7 +1058,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateExtraction</span><span class="p">(</span><span class="nv">extraction</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIExtraction.html">GINIExtraction</a></span><span class="o">!</span><span class="p">,</span> <span class="n">forDocument</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">_</span> <span class="nv">extraction</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIExtraction.html">GINIExtraction</a></span><span class="o">!</span><span class="p">,</span> <span class="k">for</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1123,7 +1123,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getLayoutForDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getLayoutFor</span><span class="p">(</span><span class="n">_</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1186,7 +1186,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">errorReportForDocument</span><span class="p">(</span><span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">summary</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">errorReport</span><span class="p">(</span><span class="k">for</span> <span class="nv">document</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocument.html">GINIDocument</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">summary</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1247,7 +1247,7 @@ knows the doctype.
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2016-09-30)</p>
+      <p>&copy; 2016 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2016-10-31)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
