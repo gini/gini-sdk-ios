@@ -1,9 +1,10 @@
 coverage_service: cobertura_xml
 xcodeproj: Gini-iOS-SDK.xcodeproj
 workspace: Gini-iOS-SDK.xcworkspace
-scheme: Gini-iOS-SDK
+scheme: GiniSDK Example
 source_directory: Gini-iOS-SDK/
 output_directory: docs/Coverage
 ignore:
   - ../*
   - Pods/*
+  - GiniSDK\ Example/*

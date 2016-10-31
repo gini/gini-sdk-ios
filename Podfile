@@ -18,3 +18,7 @@ end
 target 'Gini-iOS-SDKTests' do
     testing_pods
 end
+
+target 'GiniSDK Example' do
+    production_pods
+end
