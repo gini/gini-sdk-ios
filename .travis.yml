@@ -21,4 +21,4 @@ script:
 after_success:
   - ./scripts/push-documentation.sh
   - slather
-  - bash <(curl -s https://codecov.io/bash) -f docs/Coverage/cobertura.xml 
+  - bash <(curl -s https://codecov.io/bash) -f docs/Coverage/cobertura.xml

@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
+gem uninstall json
+gem uninstall jazzy
 gem install jazzy
 jazzy -v
 
