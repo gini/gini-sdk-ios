@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
+# Start with a "cleaner" sheet
 gem uninstall json
 gem uninstall jazzy
 gem install jazzy
