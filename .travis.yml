@@ -4,7 +4,7 @@ cache:
   - cocoapods
 before_install:
   - gem install slather
-  # - pod install --repo-update --verbose
+  - pod install --repo-update --verbose
 env:
   global:
     - WORKSPACE="Gini-iOS-SDK.xcworkspace"
@@ -17,7 +17,7 @@ script:
   - set -o pipefail 
   - xcodebuild -version
   - xcodebuild -showsdks
-  # - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test | xcpretty -c;
+  - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test | xcpretty -c;
 after_success:
   - ./scripts/push-documentation.sh
   - slather
