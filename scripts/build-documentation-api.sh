@@ -2,8 +2,8 @@
 set -e # Exit with nonzero exit code if anything fails
 
 # Start with a "cleaner" sheet
-gem uninstall json
-gem uninstall jazzy
+gem cleanup json
+gem cleanup jazzy
 gem install jazzy
 jazzy -v
 
