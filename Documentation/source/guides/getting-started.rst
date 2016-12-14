@@ -30,12 +30,13 @@ in your project directory and open the generated Xcode workspace.
 Integrating the Gini SDK
 ========================
 
-
 The Gini SDK provides the ``GiniSDK`` class which is a facade to all functionality of the Gini SDK. We recommend using an
 instance of this class singleton-like. By saying singleton-like we mean that you somehow manage to create and keep
 one instance at application start. Instead of creating a new instance every time you need to interact with the
 Gini API, you reuse this instance. This has the benefit that the SDK can reuse sessions between requests to the
 Gini API, which may save a significant number of HTTP requests.
+
+.. note:: When using Xcode 8+ and iOS 10+ you need to add support for "Keychain Sharing" in your application because the Gini SDK saves (anonymous) account data securely and locally in the keychain. You can enable "Keychain Sharing" by adding a ``keychain-access-groups`` value to your entitlements file.
 
 Creating the Gini SDK instance
 ------------------------------
