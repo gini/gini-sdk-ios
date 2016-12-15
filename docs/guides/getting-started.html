@@ -103,18 +103,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.3.1 (26-10-2016)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">0.3.1 (26-10-2016)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.3.0 (24-02-2016)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">0.3.0 (24-02-2016)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id3">0.2.10 (20-11-2015)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">Bugfixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id3">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">0.2.10 (20-11-2015)</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id5">Bugfixes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a><ul>
@@ -180,6 +181,10 @@ instance of this class singleton-like. By saying singleton-like we mean that you
 one instance at application start. Instead of creating a new instance every time you need to interact with the
 Gini API, you reuse this instance. This has the benefit that the SDK can reuse sessions between requests to the
 Gini API, which may save a significant number of HTTP requests.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When using Xcode 8+ and iOS 10+ you need to add support for &#8220;Keychain Sharing&#8221; in your application because the Gini SDK saves (anonymous) account data securely and locally in the keychain. You can enable &#8220;Keychain Sharing&#8221; by adding a <tt class="docutils literal"><span class="pre">keychain-access-groups</span></tt> value to your entitlements file.</p>
+</div>
 <div class="section" id="creating-the-gini-sdk-instance">
 <h3>Creating the Gini SDK instance<a class="headerlink" href="#creating-the-gini-sdk-instance" title="Permalink to this headline">¶</a></h3>
 <p>In order to create an instance of the <tt class="docutils literal"><span class="pre">GiniSDK</span></tt> class, you need both your client id and your client secret. If you don&#8217;t

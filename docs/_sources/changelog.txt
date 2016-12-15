@@ -2,6 +2,14 @@
 Changelog
 =========
 
+{{version_and_date}}
+
+Features
+--------
+
+- Add note to documentation regarding integration with Xcode 8.
+
+
 0.3.1 (26-10-2016)
 ==================
 
