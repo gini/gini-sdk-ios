@@ -39,6 +39,15 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "23D53C031934BC85001A957E"
+            BuildableName = "Gini-iOS-SDKTests.xctest"
+            BlueprintName = "Gini-iOS-SDKTests"
+            ReferencedContainer = "container:Gini-iOS-SDK.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

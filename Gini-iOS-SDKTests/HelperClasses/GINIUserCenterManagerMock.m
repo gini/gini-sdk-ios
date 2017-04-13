@@ -68,4 +68,10 @@
     return [BFTask taskWithResult:user];
 }
 
+- (BFTask *)updateEmail:(NSString *)newEmail
+               oldEmail:(NSString *)oldEmail
+         giniApiSession:(GINISession *)giniApiSession {
+    return [BFTask taskWithResult:nil];
+   }
+
 @end

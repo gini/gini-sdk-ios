@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class GINIURLSession, GINIAPIManager, BFTask;
+@class GINIURLSession, GINIAPIManager, BFTask, GINISession;
 @protocol GINIURLSession;
 
 
@@ -76,4 +76,13 @@ extern NSString *const GINILoginErrorNotification;
  *                      if the credentials are wrong.
  */
 - (BFTask *)loginUser:(NSString *)userName password:(NSString *)password;
+
+- (BFTask *)getAccessTokenInfoForGiniApiSession:(GINISession *)giniApiSession;
+
+- (BFTask *)getUserIdForGiniApiSession:(GINISession *)giniApiSession;
+
+- (BFTask *)updateEmail:(NSString *)newEmail
+               oldEmail:(NSString *)oldEmail
+         giniApiSession:(GINISession *)giniApiSession;
+
 @end

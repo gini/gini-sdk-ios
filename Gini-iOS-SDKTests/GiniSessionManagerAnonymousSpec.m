@@ -59,8 +59,8 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
         __block GINIKeychainManager *keychainManager;
 
         __block GININSNotificationCenterMock *notificationCenter;
-
-        __block GINISessionManagerAnonymous *(^SessionManagerFactory)(GINIUserCenterManager *) = ^GINISessionManagerAnonymous * (GINIUserCenterManager *userCenterManager){
+        
+        __block GINISessionManagerAnonymous *(^SessionManagerFactoryWithEmailDomain)(GINIUserCenterManager *, NSString *) = ^GINISessionManagerAnonymous * (GINIUserCenterManager *userCenterManager, NSString *emailDomain){
             if (userCenterManager == nil) {
                 GINIURLSession *giniurlSession = [GINIURLSession urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]];
                 userCenterManager = [GINIUserCenterManager userCenterManagerWithURLSession:giniurlSession
@@ -68,14 +68,18 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
                                                                               clientSecret:@"1234"
                                                                                    baseURL:[NSURL URLWithString:@"https://user.gini.net"]
                                                                         notificationCenter:nil];
-
+                
             }
             notificationCenter = [GININSNotificationCenterMock new];
             GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
             return [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:credentialsStore
                                                                  userCenterManager:userCenterManager
-                                                                       emailDomain:@"example.com"
+                                                                       emailDomain:emailDomain
                                                                 notificationCenter:notificationCenter];
+        };
+        
+        __block GINISessionManagerAnonymous *(^SessionManagerFactory)(GINIUserCenterManager *) = ^GINISessionManagerAnonymous * (GINIUserCenterManager *userCenterManager){
+            return SessionManagerFactoryWithEmailDomain(userCenterManager, @"example.com");
         };
 
         beforeEach(^{
@@ -239,6 +243,24 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
                 BFTask *sessionTask = [sessionManager getSession];
                 [[sessionTask.error should] beKindOfClass:[GINIError class]];
                 [[theValue(sessionTask.error.code) should] equal:theValue(GINIErrorUserCreationError)];
+            });
+            
+            it(@"should update email domain if changed", ^{
+                NSString *newEmailDomain = @"beispiel.com";
+                NSString *oldEmailDomain = @"example.com";
+                GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
+                [credentialsStore storeUserCredentials:[NSString stringWithFormat:@"1234@%@", oldEmailDomain] password:@"5678"];
+                
+                userCenterManagerMock = [GINIUserCenterManagerMock new];
+                sessionManager = SessionManagerFactoryWithEmailDomain(userCenterManagerMock, newEmailDomain);
+                
+                [sessionManager getSession];
+                
+                NSString *username;
+                NSString *password;
+                [credentialsStore fetchUserCredentials:&username password:&password];
+                
+                [[username should] endWithString:[NSString stringWithFormat:@"@%@",newEmailDomain]];
             });
         });
 

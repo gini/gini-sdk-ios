@@ -77,7 +77,7 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
     }
 
     // First step: Get the user credentials.
-    return [[[[self getUserCredentials] continueWithBlock:^id(BFTask *task) {
+    return [[[[[self getUserCredentials] continueWithBlock:^id(BFTask *task) {
         // There are no stored user credentials
         if (task.error) {
             // So create a new user and return the credentials of the new user.
@@ -90,10 +90,8 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
                                            object:userData[GINIUserNameKey]];
         return task.result;
 
-        // Second step: Try to log-in the user.
+        // Second step: Try to log-in the user
     }] continueWithSuccessBlock:^id(BFTask *credentialsTask) {
-
-
         NSDictionary *credentials = credentialsTask.result;
 
         // Try to avoid infinite login attempts.
@@ -114,6 +112,24 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
                 return [BFTask taskWithError:task.error];
             }
             return task;
+        }];
+        // Third step: Update the email if email domain changed
+    }] continueWithSuccessBlock:^id(BFTask *loginTask) {
+        return [[self getUserCredentials] continueWithSuccessBlock:^id(BFTask *credentialsTask) {
+            NSDictionary *credentials = credentialsTask.result;
+            
+            if ([self userCredentials:credentials hasEmailDomain:_emailDomain]) {
+                // Email domain is the same and return the login task containing the session
+                return loginTask;
+            }
+            
+            // Try to update the email and return the login task containing the session
+            NSString *newEmail = [self generateUsername];
+            return [[_userCenterManager updateEmail:newEmail oldEmail:credentials[GINIUserNameKey] giniApiSession:loginTask.result] continueWithSuccessBlock:^id(BFTask *task) {
+                [_credentialsStore removeCredentials];
+                [_credentialsStore storeUserCredentials:newEmail password:credentials[GINIPasswordKey]];
+                return loginTask;
+            }];
         }];
     }] continueWithBlock:^id(BFTask *task) {
         _loginAttempts = 0;
@@ -156,8 +172,8 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
 - (BFTask *)createUser {
     // Creates a new "anonymous" user, where the email address is a random UUID@emailDomain and the password is
     // another random UUID.
-    NSString *email = [NSString stringWithFormat:@"%@@%@", [[NSUUID UUID] UUIDString], _emailDomain];
-    NSString *password = [[NSUUID UUID] UUIDString];
+    NSString *email = [self generateUsername];
+    NSString *password = [self generatePassword];
     return [[_userCenterManager createUserWithEmail:email password:password] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorUserCreationError cause:task.error userInfo:nil]];
@@ -169,8 +185,24 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
     }];
 }
 
+- (NSString *)generateUsername {
+    return [NSString stringWithFormat:@"%@@%@", [[NSUUID UUID] UUIDString], _emailDomain];
+}
+
+- (NSString *)generatePassword {
+    return [[NSUUID UUID] UUIDString];
+}
+
 - (void)removeStoredCredentials {
     [_credentialsStore removeCredentials];
+}
+
+- (BOOL)userCredentials:(NSDictionary *)credentials hasEmailDomain:(NSString *)emailDomain {
+    NSString *email = credentials[GINIUserNameKey];
+    if (email) {
+        return [email hasSuffix:[NSString stringWithFormat:@"@%@", emailDomain]];
+    }
+    return NO;
 }
 
 @end
