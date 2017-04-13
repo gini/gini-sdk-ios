@@ -255,38 +255,6 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     }];
 }
 
-- (BFTask *)updateEmailForUserId:(NSString *)userId
-                        newEmail:(NSString *)newEmail
-                        oldEmail:(NSString *)oldEmail {
-    NSParameterAssert([userId isKindOfClass:[NSString class]]);
-    NSParameterAssert([newEmail isKindOfClass:[NSString class]]);
-    NSParameterAssert([oldEmail isKindOfClass:[NSString class]]);
-    
-    NSString *url = [NSString stringWithFormat:@"/api/users/%@", userId];
-    
-    // This needs an active session with a bearer token.
-    return [[self createMutableURLRequest:url httpMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
-        NSMutableURLRequest *urlRequest = requestTask.result;
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        NSDictionary *payload = @{
-                                  @"oldEmail" : oldEmail,
-                                  @"email" : newEmail
-                                  };
-        NSError *serializationError;
-        [urlRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:payload options:0 error:&serializationError]];
-        if (serializationError) {
-            return serializationError;
-        }
-        return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithBlock:^id(BFTask *emailUploadTask) {
-            if (emailUploadTask.error || emailUploadTask.exception) {
-                return emailUploadTask;
-            }
-            return [BFTask taskWithResult:nil];
-        }];
-    }];
-}
-
 /**
  * Creates a new `NSString` that can be used as the HTTP Authorization header in a login request (HTTP Basic
  * Authorization).
