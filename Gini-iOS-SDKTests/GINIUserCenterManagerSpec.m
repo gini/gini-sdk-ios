@@ -441,7 +441,7 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 NSString *url = setResponsesForUpdateEmail(session);
                 
                 [userCenterManager updateEmail:@"" oldEmail:@"" giniApiSession:session];
-                checkRequest(url, @"POST");
+                checkRequest(url, @"PUT");
             });
             
             it(@"should set the correct authentication headers", ^{

@@ -190,7 +190,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
         NSString *url = [NSString stringWithFormat:@"/api/users/%@", userId];
         
         // This needs an active session with a bearer token.
-        return [[self createMutableURLRequest:url httpMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        return [[self createMutableURLRequest:url httpMethod:@"PUT"] continueWithSuccessBlock:^id(BFTask *requestTask) {
             NSMutableURLRequest *urlRequest = requestTask.result;
             [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -203,12 +203,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
             if (serializationError) {
                 return serializationError;
             }
-            return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithBlock:^id(BFTask *emailUploadTask) {
-                if (emailUploadTask.error || emailUploadTask.exception) {
-                    return emailUploadTask;
-                }
-                return nil;
-            }];
+            return [_urlSession BFDataTaskWithRequest:urlRequest];
         }];
     }];
 }
