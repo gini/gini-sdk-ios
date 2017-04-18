@@ -138,6 +138,10 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
         if (task.error && !task.error.userInfo[GINIErrorKeyCause]) {
             return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorLoginError cause:task.error userInfo:nil]];
         }
+        
+        if (!task.faulted) {
+            _activeSession = (GINISession *) task.result;
+        }
 
         return task;
     }];

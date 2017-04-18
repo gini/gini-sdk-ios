@@ -50,6 +50,10 @@
     }
     if (_raiseWrongCredentialsOnLogin) {
         return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorInvalidCredentials userInfo:nil]];
+    } if (_sessionForNextLogin) {
+        BFTask *task = [BFTask taskWithResult:_sessionForNextLogin];
+        _sessionForNextLogin = nil;
+        return task;
     } else {
         return [BFTask taskWithResult:[[GINISession alloc] initWithAccessToken:@"1234-456" refreshToken:nil expirationDate:[NSDate dateWithTimeIntervalSinceNow:600]]];
     }
