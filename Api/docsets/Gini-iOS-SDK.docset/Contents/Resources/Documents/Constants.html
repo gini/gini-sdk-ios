@@ -8,6 +8,9 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
 
@@ -19,7 +22,13 @@
         <a class="header-link" href="index.html">
           Gini-iOS-SDK Docs
         </a>
-         (95% documented)
+         (55% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -49,6 +58,51 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFAppLink.html">BFAppLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFAppLinkNavigation.html">BFAppLinkNavigation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFAppLinkReturnToRefererController.html">BFAppLinkReturnToRefererController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFAppLinkReturnToRefererView.html">BFAppLinkReturnToRefererView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFAppLinkTarget.html">BFAppLinkTarget</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFCancellationToken.html">BFCancellationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFCancellationTokenRegistration.html">BFCancellationTokenRegistration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFCancellationTokenSource.html">BFCancellationTokenSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFExecutor.html">BFExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes.html#/c:objc(cs)BFMeasurementEvent">BFMeasurementEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFTask.html">BFTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFTaskCompletionSource.html">BFTaskCompletionSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFURL.html">BFURL</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/BFWebViewAppLinkResolver.html">BFWebViewAppLinkResolver</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/Bolts.html">Bolts</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/GINIAPIManager.html">GINIAPIManager</a>
               </li>
@@ -109,6 +163,36 @@
             <a class="nav-group-name-link" href="Constants.html">Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFAppLinkNavigateBackToReferrerEventName">BFAppLinkNavigateBackToReferrerEventName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFAppLinkNavigateInEventName">BFAppLinkNavigateInEventName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFAppLinkNavigateOutEventName">BFAppLinkNavigateOutEventName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFAppLinkParseEventName">BFAppLinkParseEventName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFAppLinkVersion">BFAppLinkVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFMeasurementEventArgsKey">BFMeasurementEventArgsKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFMeasurementEventNameKey">BFMeasurementEventNameKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFMeasurementEventNotificationName">BFMeasurementEventNotificationName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFTaskErrorDomain">BFTaskErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@BFTaskMultipleExceptionsException">BFTaskMultipleExceptionsException</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
@@ -147,11 +231,26 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Constants.html#/c:@GINIUserNameKey">GINIUserNameKey</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@kBFMultipleErrorsError">kBFMultipleErrorsError</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/BFAppLinkNavigationType.html">BFAppLinkNavigationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/BFIncludeStatusBarInSize.html">BFIncludeStatusBarInSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/GiniAPIResponseType.html">GiniAPIResponseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/GiniApiPreviewSize.html">GiniApiPreviewSize</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a>
               </li>
@@ -163,6 +262,15 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/BFAppLinkResolving.html">BFAppLinkResolving</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/BFAppLinkReturnToRefererControllerDelegate.html">BFAppLinkReturnToRefererControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/BFAppLinkReturnToRefererViewDelegate.html">BFAppLinkReturnToRefererViewDelegate</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
               </li>
@@ -181,13 +289,21 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Type Definitions.html#/c:BFCancellationToken.h@T@BFCancellationBlock">BFCancellationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/c:@F@GINIInjectorKey">GINIInjectorKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions.html#/c:@F@NS_ENUM">NS_ENUM</a>
               </li>
             </ul>
           </li>
@@ -610,14 +726,239 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFAppLinkVersion"></a>
+                    <a name="//apple_ref/objc/Constant/BFAppLinkVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFAppLinkVersion">BFAppLinkVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFMeasurementEventNotificationName"></a>
+                    <a name="//apple_ref/objc/Constant/BFMeasurementEventNotificationName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFMeasurementEventNotificationName">BFMeasurementEventNotificationName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFMeasurementEventNameKey"></a>
+                    <a name="//apple_ref/objc/Constant/BFMeasurementEventNameKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFMeasurementEventNameKey">BFMeasurementEventNameKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFMeasurementEventArgsKey"></a>
+                    <a name="//apple_ref/objc/Constant/BFMeasurementEventArgsKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFMeasurementEventArgsKey">BFMeasurementEventArgsKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFAppLinkParseEventName"></a>
+                    <a name="//apple_ref/objc/Constant/BFAppLinkParseEventName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFAppLinkParseEventName">BFAppLinkParseEventName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFAppLinkNavigateInEventName"></a>
+                    <a name="//apple_ref/objc/Constant/BFAppLinkNavigateInEventName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFAppLinkNavigateInEventName">BFAppLinkNavigateInEventName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFAppLinkNavigateOutEventName"></a>
+                    <a name="//apple_ref/objc/Constant/BFAppLinkNavigateOutEventName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFAppLinkNavigateOutEventName">BFAppLinkNavigateOutEventName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFAppLinkNavigateBackToReferrerEventName"></a>
+                    <a name="//apple_ref/objc/Constant/BFAppLinkNavigateBackToReferrerEventName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFAppLinkNavigateBackToReferrerEventName">BFAppLinkNavigateBackToReferrerEventName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFTaskErrorDomain"></a>
+                    <a name="//apple_ref/objc/Constant/BFTaskErrorDomain" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFTaskErrorDomain">BFTaskErrorDomain</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@BFTaskMultipleExceptionsException"></a>
+                    <a name="//apple_ref/objc/Constant/BFTaskMultipleExceptionsException" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@BFTaskMultipleExceptionsException">BFTaskMultipleExceptionsException</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@kBFMultipleErrorsError"></a>
+                    <a name="//apple_ref/objc/Constant/kBFMultipleErrorsError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@kBFMultipleErrorsError">kBFMultipleErrorsError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2016-12-15)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-04-19)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

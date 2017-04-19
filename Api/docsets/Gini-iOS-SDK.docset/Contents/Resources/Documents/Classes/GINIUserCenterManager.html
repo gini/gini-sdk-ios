@@ -8,6 +8,9 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
@@ -20,7 +23,13 @@
         <a class="header-link" href="../index.html">
           Gini-iOS-SDK Docs
         </a>
-         (95% documented)
+         (55% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -50,6 +59,51 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFAppLink.html">BFAppLink</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFAppLinkNavigation.html">BFAppLinkNavigation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFAppLinkReturnToRefererController.html">BFAppLinkReturnToRefererController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFAppLinkReturnToRefererView.html">BFAppLinkReturnToRefererView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFAppLinkTarget.html">BFAppLinkTarget</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFCancellationToken.html">BFCancellationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFCancellationTokenRegistration.html">BFCancellationTokenRegistration</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFCancellationTokenSource.html">BFCancellationTokenSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFExecutor.html">BFExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes.html#/c:objc(cs)BFMeasurementEvent">BFMeasurementEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFTask.html">BFTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFTaskCompletionSource.html">BFTaskCompletionSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFURL.html">BFURL</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BFWebViewAppLinkResolver.html">BFWebViewAppLinkResolver</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Bolts.html">Bolts</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/GINIAPIManager.html">GINIAPIManager</a>
               </li>
@@ -110,6 +164,36 @@
             <a class="nav-group-name-link" href="../Constants.html">Constants</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFAppLinkNavigateBackToReferrerEventName">BFAppLinkNavigateBackToReferrerEventName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFAppLinkNavigateInEventName">BFAppLinkNavigateInEventName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFAppLinkNavigateOutEventName">BFAppLinkNavigateOutEventName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFAppLinkParseEventName">BFAppLinkParseEventName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFAppLinkVersion">BFAppLinkVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFMeasurementEventArgsKey">BFMeasurementEventArgsKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFMeasurementEventNameKey">BFMeasurementEventNameKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFMeasurementEventNotificationName">BFMeasurementEventNotificationName</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFTaskErrorDomain">BFTaskErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@BFTaskMultipleExceptionsException">BFTaskMultipleExceptionsException</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
@@ -148,11 +232,26 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIUserNameKey">GINIUserNameKey</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@kBFMultipleErrorsError">kBFMultipleErrorsError</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BFAppLinkNavigationType.html">BFAppLinkNavigationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/BFIncludeStatusBarInSize.html">BFIncludeStatusBarInSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/GiniAPIResponseType.html">GiniAPIResponseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/GiniApiPreviewSize.html">GiniApiPreviewSize</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a>
               </li>
@@ -164,6 +263,15 @@
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/BFAppLinkResolving.html">BFAppLinkResolving</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/BFAppLinkReturnToRefererControllerDelegate.html">BFAppLinkReturnToRefererControllerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/BFAppLinkReturnToRefererViewDelegate.html">BFAppLinkReturnToRefererViewDelegate</a>
+              </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/GINIAPIManagerRequestFactory.html">GINIAPIManagerRequestFactory</a>
               </li>
@@ -182,13 +290,21 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Type Definitions.html#/c:BFCancellationToken.h@T@BFCancellationBlock">BFCancellationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/c:@F@GINIInjectorKey">GINIInjectorKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/c:@F@NS_ENUM">NS_ENUM</a>
               </li>
             </ul>
           </li>
@@ -354,12 +470,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">getUserInfo</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userID</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">getUserInfo</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userID</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getUserInfo</span><span class="p">(</span><span class="n">_</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getUserInfo</span><span class="p">(</span><span class="n">_</span> <span class="nv">userID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -406,12 +522,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">createUserWithEmail</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">email</span> <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">createUserWithEmail</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">email</span> <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createUser</span><span class="p">(</span><span class="n">withEmail</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createUser</span><span class="p">(</span><span class="n">withEmail</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -471,12 +587,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BFTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">loginUser</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userName</span> <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">loginUser</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userName</span> <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loginUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loginUser</span><span class="p">(</span><span class="n">_</span> <span class="nv">userName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -522,6 +638,211 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIUserCenterManager(im)getAccessTokenInfoForGiniApiSession:"></a>
+                    <a name="//apple_ref/objc/Method/-getAccessTokenInfoForGiniApiSession:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIUserCenterManager(im)getAccessTokenInfoForGiniApiSession:">-getAccessTokenInfoForGiniApiSession:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns information about the Gini API session.</p>
+
+<p>Although you may use this method with any session (for Gini API or User Center API) the
+ purpose of this method is to retrieve information about Gini API sessions.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">getAccessTokenInfoForGiniApiSession</span><span class="p">:(</span><span class="n"><a href="../Classes/GINISession.html">GINISession</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">giniApiSession</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getAccessTokenInfo</span><span class="p">(</span><span class="n">forGiniApiSession</span> <span class="nv">giniApiSession</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINISession.html">GINISession</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>giniApiSession</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A valid session for the Gini API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>BFTask *</code> which will resolve to an NSDictionary containing information
+        about the session.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIUserCenterManager(im)getUserIdForGiniApiSession:"></a>
+                    <a name="//apple_ref/objc/Method/-getUserIdForGiniApiSession:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIUserCenterManager(im)getUserIdForGiniApiSession:">-getUserIdForGiniApiSession:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the user id of the logged in user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">getUserIdForGiniApiSession</span><span class="p">:(</span><span class="n"><a href="../Classes/GINISession.html">GINISession</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">giniApiSession</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getUserId</span><span class="p">(</span><span class="n">forGiniApiSession</span> <span class="nv">giniApiSession</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINISession.html">GINISession</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>giniApiSession</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The session for the Gini API, which was returned when the
+                      user was logged in.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>BFTask *</code> which will resolve to a String containing the user id.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIUserCenterManager(im)updateEmail:oldEmail:giniApiSession:"></a>
+                    <a name="//apple_ref/objc/Method/-updateEmail:oldEmail:giniApiSession:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIUserCenterManager(im)updateEmail:oldEmail:giniApiSession:">-updateEmail:oldEmail:giniApiSession:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update the email of a user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">updateEmail</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">newEmail</span>
+               <span class="nf">oldEmail</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">oldEmail</span>
+         <span class="nf">giniApiSession</span><span class="p">:(</span><span class="n"><a href="../Classes/GINISession.html">GINISession</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">giniApiSession</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateEmail</span><span class="p">(</span><span class="n">_</span> <span class="nv">newEmail</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">oldEmail</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">giniApiSession</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINISession.html">GINISession</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newEmail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A new email address.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>oldEmail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The previous email address of the user.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>giniApiSession</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The session for the Gini API which was returned when
+                      the user was logged in.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>BFTask *</code> with empty result as the response contains no data.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
@@ -530,8 +851,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2016-12-15)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-04-19)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
