@@ -169,8 +169,8 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     NSParameterAssert([giniApiSession isKindOfClass:[GINISession class]]);
     
     return [[self getAccessTokenInfoForGiniApiSession:giniApiSession] continueWithSuccessBlock:^id(BFTask *task) {
-        NSDictionary *tokeInfo = ((GINIURLResponse *) task.result).data;
-        NSString *userId = tokeInfo[@"user_name"];
+        NSDictionary *tokenInfo = ((GINIURLResponse *) task.result).data;
+        NSString *userId = tokenInfo[@"user_name"];
         if (userId) {
             return userId;
         }
