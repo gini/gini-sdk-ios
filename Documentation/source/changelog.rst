@@ -2,6 +2,14 @@
 Changelog
 =========
 
+{{version_and_date}}
+
+Bugfixes
+--------
+
+- Changing the email domain will update the email address of the existing anonymous user.
+- Gini API session is cached until expiration.
+
 0.3.2 (15-12-2016)
 ==================
 
