@@ -28,4 +28,6 @@
 /// Whether or not the create user method should fail.
 @property BOOL raiseHTTPErrorOnCreateUser;
 
+@property (nonatomic, strong) GINISession *sessionForNextLogin;
+
 @end

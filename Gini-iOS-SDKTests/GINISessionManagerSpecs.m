@@ -96,6 +96,7 @@ SPEC_BEGIN(GINISessionManagerSpecs)
             context(@"getSession", ^{
 
                 it(@"should return a task", ^{
+                    mockApplicationResponderForClientFlow(sessionManager, @"", @"", 0, NO);
                     [[[sessionManager getSession] should] beKindOfClass:[BFTask class]];
                 });
 
@@ -133,6 +134,7 @@ SPEC_BEGIN(GINISessionManagerSpecs)
             context(@"logIn", ^{
 
                 it(@"should return a task", ^{
+                    mockApplicationResponderForClientFlow(sessionManager, @"", @"", 0, NO);
                     [[[sessionManager logIn] should] beKindOfClass:[BFTask class]];
                 });
 
@@ -199,6 +201,7 @@ SPEC_BEGIN(GINISessionManagerSpecs)
             context(@"getSession", ^{
 
                 it(@"should return a task", ^{
+                    mockApplicationResponderForServerFlow(sessionManager, @"", NO);
                     [[[sessionManager getSession] should] beKindOfClass:[BFTask class]];
                 });
 
@@ -255,6 +258,7 @@ SPEC_BEGIN(GINISessionManagerSpecs)
             context(@"logIn", ^{
 
                 it(@"should return a task", ^{
+                    mockApplicationResponderForServerFlow(sessionManager, @"", NO);
                     [[[sessionManager logIn] should] beKindOfClass:[BFTask class]];
                 });
 
@@ -270,7 +274,7 @@ SPEC_BEGIN(GINISessionManagerSpecs)
                         [[@"foo" should] beNil];
                         return nil;
                     }];
-
+                    
                     [[expectFutureValue(theValue([login isCompleted])) shouldAfterWaitOf(2)] beNo];
                 });
             });

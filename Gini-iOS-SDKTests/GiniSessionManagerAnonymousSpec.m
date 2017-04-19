@@ -59,8 +59,8 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
         __block GINIKeychainManager *keychainManager;
 
         __block GININSNotificationCenterMock *notificationCenter;
-
-        __block GINISessionManagerAnonymous *(^SessionManagerFactory)(GINIUserCenterManager *) = ^GINISessionManagerAnonymous * (GINIUserCenterManager *userCenterManager){
+        
+        __block GINISessionManagerAnonymous *(^SessionManagerFactoryWithEmailDomain)(GINIUserCenterManager *, NSString *) = ^GINISessionManagerAnonymous * (GINIUserCenterManager *userCenterManager, NSString *emailDomain){
             if (userCenterManager == nil) {
                 GINIURLSession *giniurlSession = [GINIURLSession urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]];
                 userCenterManager = [GINIUserCenterManager userCenterManagerWithURLSession:giniurlSession
@@ -68,14 +68,18 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
                                                                               clientSecret:@"1234"
                                                                                    baseURL:[NSURL URLWithString:@"https://user.gini.net"]
                                                                         notificationCenter:nil];
-
+                
             }
             notificationCenter = [GININSNotificationCenterMock new];
             GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
             return [GINISessionManagerAnonymous sessionManagerWithCredentialsStore:credentialsStore
                                                                  userCenterManager:userCenterManager
-                                                                       emailDomain:@"example.com"
+                                                                       emailDomain:emailDomain
                                                                 notificationCenter:notificationCenter];
+        };
+        
+        __block GINISessionManagerAnonymous *(^SessionManagerFactory)(GINIUserCenterManager *) = ^GINISessionManagerAnonymous * (GINIUserCenterManager *userCenterManager){
+            return SessionManagerFactoryWithEmailDomain(userCenterManager, @"example.com");
         };
 
         beforeEach(^{
@@ -160,11 +164,29 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
             });
 
             it(@"should store and reuse the session", ^{
-                [sessionManager getSession];
+                BFTask *initialTask = [sessionManager getSession];
+                GINISession *initialSession = (GINISession *) initialTask.result;
+                
+                // Disable login and user creation to make sure no new session is created
                 userCenterManagerMock.loginEnabled = NO;
                 userCenterManagerMock.createUserEnabled = NO;
-
+                
+                BFTask *task = [sessionManager getSession];
+                [[[task result] should] beKindOfClass:[GINISession class]];
+                GINISession *session = (GINISession *) task.result;
+                [[session should] equal:initialSession];
+            });
+            
+            it(@"should create a new session if existing one expired", ^{
+                GINISession *expiredSession = [[GINISession alloc] initWithAccessToken:@"1234-456" refreshToken:nil expirationDate:[NSDate dateWithTimeIntervalSince1970:0]];
+                userCenterManagerMock.sessionForNextLogin = expiredSession;
+                // Let the expired session be the current session
                 [sessionManager getSession];
+                
+                // Request the session again to verify that a new session will be created
+                BFTask *task = [sessionManager getSession];
+                GINISession *actualSession = (GINISession *) task.result;
+                [[actualSession shouldNot] equal:expiredSession];
             });
 
             it(@"should use stored user credentials", ^{
@@ -239,6 +261,24 @@ SPEC_BEGIN(GINISessionManagerAnonymousSpec)
                 BFTask *sessionTask = [sessionManager getSession];
                 [[sessionTask.error should] beKindOfClass:[GINIError class]];
                 [[theValue(sessionTask.error.code) should] equal:theValue(GINIErrorUserCreationError)];
+            });
+            
+            it(@"should update email domain if changed", ^{
+                NSString *newEmailDomain = @"beispiel.com";
+                NSString *oldEmailDomain = @"example.com";
+                GINIKeychainCredentialsStore *credentialsStore = [GINIKeychainCredentialsStore credentialsStoreWithKeychainManager:keychainManager];
+                [credentialsStore storeUserCredentials:[NSString stringWithFormat:@"1234@%@", oldEmailDomain] password:@"5678"];
+                
+                userCenterManagerMock = [GINIUserCenterManagerMock new];
+                sessionManager = SessionManagerFactoryWithEmailDomain(userCenterManagerMock, newEmailDomain);
+                
+                [sessionManager getSession];
+                
+                NSString *username;
+                NSString *password;
+                [credentialsStore fetchUserCredentials:&username password:&password];
+                
+                [[username should] endWithString:[NSString stringWithFormat:@"@%@",newEmailDomain]];
             });
         });
 

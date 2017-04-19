@@ -58,6 +58,27 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
             [[request shouldNot] beNil];
             [[request.allHTTPHeaderFields[@"Authorization"] should] equal:@"Basic Zm9vOmJhcg=="];
         };
+        
+        __block NSString *(^setResponsesForUpdateEmail)(GINISession *) = ^(GINISession *session) {
+            NSString *tokenInfoUrl = [NSString stringWithFormat:@"https://user.gini.net/oauth/check_token?token=%@", session.accessToken];
+            
+            NSURL *tokenInfoResponseURL = [NSURL URLWithString:tokenInfoUrl];
+            NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:tokenInfoResponseURL
+                                                                      statusCode:201
+                                                                     HTTPVersion:@"1.1"
+                                                                    headerFields:nil];
+            
+            NSString *userId = @"JohnDoe";
+            GINIURLResponse *tokenInfoResponse = [GINIURLResponse urlResponseWithResponse:response data:@{
+                                                                                                          @"user_name": userId
+                                                                                                          }];
+            [urlSession setResponse:[BFTask taskWithResult:tokenInfoResponse] forURL:tokenInfoUrl];
+            
+            NSString *url = [NSString stringWithFormat:@"https://user.gini.net/api/users/%@", userId];
+            [urlSession setResponse:[BFTask taskWithError:nil] forURL:url];
+            return url;
+
+        };
 
         beforeEach(^{
             urlSession = [GINIURLSessionMock new];
@@ -233,7 +254,7 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
 
             it(@"should set the proper HTTP headers", ^{
                 [urlSession setResponse:[BFTask taskWithError:nil] forURL:@"https://user.gini.net/api/users"];
-                BFTask *createTask = [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
+                [userCenterManager createUserWithEmail:@"foobar@example.com" password:@"1234"];
                 NSURLRequest *lastRequest = urlSession.lastRequest;
                 [[[lastRequest valueForHTTPHeaderField:@"Content-Type"] should] equal:@"application/json"];
                 [[[lastRequest valueForHTTPHeaderField:@"Accept"] should] equal:@"application/json"];
@@ -300,7 +321,7 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
 
             it(@"should set the proper HTTP headers", ^{
                 [urlSession setResponse:[BFTask taskWithError:nil] forURL:@"https://user.gini.net/oauth/token?grant_type=password"];
-                BFTask *loginTask = [userCenterManager loginUser:@"foobar@example.com" password:@"1234"];
+                [userCenterManager loginUser:@"foobar@example.com" password:@"1234"];
                 NSURLRequest *lastRequest = urlSession.lastRequest;
                 [[[lastRequest valueForHTTPHeaderField:@"Content-Type"] should] equal:@"application/x-www-form-urlencoded"];
             });
@@ -345,6 +366,122 @@ SPEC_BEGIN(GINIUserCenterManagerSpec)
                 [[notificationCenter.lastNotification.name should] equal:GINILoginErrorNotification];
             });
         });
+        
+        context(@"the getAccessTokenInfoForGiniApiSession: method", ^{
+            it(@"should throw an error if getting the wrong arguments", ^{
+                [[theBlock(^{
+                    [userCenterManager getUserInfo:nil];
+                }) should] raise];
+            });
+            
+            it(@"should do the HTTP request to the correct URL", ^{
+                NSString *accessToken = @"exampleToken";
+                GINISession *session = [[GINISession alloc] initWithAccessToken:accessToken refreshToken:@"" expirationDate:[NSDate date]];
+                NSString *url = [NSString stringWithFormat:@"https://user.gini.net/oauth/check_token?token=%@", accessToken];
+                [urlSession setResponse:[BFTask taskWithError:nil] forURL:url];
+                [userCenterManager getAccessTokenInfoForGiniApiSession:session];
+                checkRequest(url, @"GET");
+            });
+            
+            it(@"should return a BFTask instance", ^{
+                NSString *accessToken = @"exampleToken";
+                GINISession *session = [[GINISession alloc] initWithAccessToken:accessToken refreshToken:@"" expirationDate:[NSDate date]];
+                BFTask *task = [userCenterManager getAccessTokenInfoForGiniApiSession:session];
+                [[task should] beKindOfClass:[BFTask class]];
+            });
+        });
+        
+        context(@"the getUserIdForGiniApiSession: method", ^{
+            it(@"should throw an error if getting the wrong arguments", ^{
+                [[theBlock(^{
+                    [userCenterManager getUserIdForGiniApiSession:nil];
+                }) should] raise];
+            });
+            
+            it(@"should extract the user id from the response", ^{
+                NSString *accessToken = @"exampleToken";
+                GINISession *session = [[GINISession alloc] initWithAccessToken:accessToken refreshToken:@"" expirationDate:[NSDate date]];
+                NSString *url = [NSString stringWithFormat:@"https://user.gini.net/oauth/check_token?token=%@", accessToken];
+
+                NSURL *responseURL = [NSURL URLWithString:url];
+                NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:responseURL
+                                                                          statusCode:201
+                                                                         HTTPVersion:@"1.1"
+                                                                        headerFields:nil];
+                
+                NSString *userId = @"JohnDoe";
+                GINIURLResponse *giniResponse = [GINIURLResponse urlResponseWithResponse:response data:@{
+                                                                                                         @"user_name": userId
+                                                                                                         }];
+                [urlSession setResponse:[BFTask taskWithResult:giniResponse] forURL:url];
+                
+                BFTask *userIdTask = [userCenterManager getUserIdForGiniApiSession:session];
+                [[userIdTask.result should] beKindOfClass:[NSString class]];
+                [[userIdTask.result should] equal:userId];
+            });
+        });
+        
+        context(@"the updateEmail:oldEmail:giniApiSession: method", ^{
+            it(@"should throw an error if getting the wrong arguments", ^{
+                [[theBlock(^{
+                    [userCenterManager updateEmail:nil oldEmail:nil giniApiSession:nil];
+                }) should] raise];
+                
+                [[theBlock(^{
+                    [userCenterManager updateEmail:@"" oldEmail:nil giniApiSession:nil];
+                }) should] raise];
+                
+                [[theBlock(^{
+                    [userCenterManager updateEmail:@"" oldEmail:@"" giniApiSession:nil];
+                }) should] raise];
+            });
+            
+            it(@"should do the HTTP request to the correct URL", ^{
+                GINISession *session = [[GINISession alloc] initWithAccessToken:@"exampleToken" refreshToken:@"" expirationDate:[NSDate date]];
+                NSString *url = setResponsesForUpdateEmail(session);
+                
+                [userCenterManager updateEmail:@"" oldEmail:@"" giniApiSession:session];
+                checkRequest(url, @"PUT");
+            });
+            
+            it(@"should set the correct authentication headers", ^{
+                GINISession *session = [[GINISession alloc] initWithAccessToken:@"exampleToken" refreshToken:@"" expirationDate:[NSDate date]];
+                setResponsesForUpdateEmail(session);
+                
+                [userCenterManager updateEmail:@"" oldEmail:@"" giniApiSession:session];
+                checkAccessToken();
+            });
+            
+            it(@"should submit the correct data", ^{
+                GINISession *session = [[GINISession alloc] initWithAccessToken:@"exampleToken" refreshToken:@"" expirationDate:[NSDate date]];
+                setResponsesForUpdateEmail(session);
+                
+                NSString *oldEmail = @"oldEmail@example.com";
+                NSString *newEmail = @"newEmail@beispiel.com";
+                
+                [userCenterManager updateEmail:newEmail oldEmail:oldEmail giniApiSession:session];
+                NSURLRequest *lastRequest = urlSession.lastRequest;
+                NSDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:lastRequest.HTTPBody options:NSJSONReadingAllowFragments error:nil];
+                
+                NSString *sentOldEmail = dataDict[@"oldEmail"];
+                NSString *sentNewEmail = dataDict[@"email"];
+                [[sentOldEmail should] equal:oldEmail];
+                [[sentNewEmail should] equal:newEmail];
+            });
+            
+            it(@"should return a BFTask instance", ^{
+                GINISession *session = [[GINISession alloc] initWithAccessToken:@"exampleToken" refreshToken:@"" expirationDate:[NSDate date]];
+                setResponsesForUpdateEmail(session);
+                
+                BFTask *updateEmailTask = [userCenterManager updateEmail:@"" oldEmail:@"" giniApiSession:session];
+                [[updateEmailTask should] beKindOfClass:[BFTask class]];
+            });
+            
+        });
+
+
     });
+
+
 
 SPEC_END

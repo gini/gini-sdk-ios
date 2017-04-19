@@ -153,6 +153,61 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     }];
 }
 
+- (BFTask *)getAccessTokenInfoForGiniApiSession:(GINISession *)giniApiSession {
+    NSParameterAssert([giniApiSession isKindOfClass:[GINISession class]]);
+    
+    NSString *endpointPath = [NSString stringWithFormat:@"/oauth/check_token?token=%@", giniApiSession.accessToken];
+    NSURL *URL = [NSURL URLWithString:endpointPath relativeToURL:_baseURL];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:URL];
+    [urlRequest setHTTPMethod:@"GET"];
+    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+
+    return [_urlSession BFDataTaskWithRequest:urlRequest];
+}
+
+- (BFTask *)getUserIdForGiniApiSession:(GINISession *)giniApiSession {
+    NSParameterAssert([giniApiSession isKindOfClass:[GINISession class]]);
+    
+    return [[self getAccessTokenInfoForGiniApiSession:giniApiSession] continueWithSuccessBlock:^id(BFTask *task) {
+        NSDictionary *tokenInfo = ((GINIURLResponse *) task.result).data;
+        NSString *userId = tokenInfo[@"user_name"];
+        if (userId) {
+            return userId;
+        }
+        return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorResourceNotFound userInfo:nil]];
+    }];
+}
+
+- (BFTask *)updateEmail:(NSString *)newEmail
+               oldEmail:(NSString *)oldEmail
+         giniApiSession:(GINISession *)giniApiSession {
+    NSParameterAssert([newEmail isKindOfClass:[NSString class]]);
+    NSParameterAssert([oldEmail isKindOfClass:[NSString class]]);
+    NSParameterAssert([giniApiSession isKindOfClass:[GINISession class]]);
+    
+    return [[self getUserIdForGiniApiSession:giniApiSession] continueWithSuccessBlock:^id(BFTask *task) {
+        NSString *userId = (NSString *) task.result;
+        NSString *url = [NSString stringWithFormat:@"/api/users/%@", userId];
+        
+        // This needs an active session with a bearer token.
+        return [[self createMutableURLRequest:url httpMethod:@"PUT"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+            NSMutableURLRequest *urlRequest = requestTask.result;
+            [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+            NSDictionary *payload = @{
+                                      @"oldEmail" : oldEmail,
+                                      @"email" : newEmail
+                                      };
+            NSError *serializationError;
+            [urlRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:payload options:0 error:&serializationError]];
+            if (serializationError) {
+                return serializationError;
+            }
+            return [_urlSession BFDataTaskWithRequest:urlRequest];
+        }];
+    }];
+}
+
 #pragma mark - Private methods
 /**
  * Gets a valid `GINISession` instance with an access token that could be used for requests to the Gini User Center API.
