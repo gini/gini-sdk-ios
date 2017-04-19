@@ -77,10 +77,37 @@ extern NSString *const GINILoginErrorNotification;
  */
 - (BFTask *)loginUser:(NSString *)userName password:(NSString *)password;
 
+/**
+ * Returns information about the Gini API session.
+ *
+ * Although you may use this method with any session (for Gini API or User Center API) the
+ * purpose of this method is to retrieve information about Gini API sessions.
+ *
+ *
+ * @param giniApiSession            A valid session for the Gini API.
+ * @return                          A `BFTask *` which will resolve to an NSDictionary containing information
+ *                                  about the session.
+ */
 - (BFTask *)getAccessTokenInfoForGiniApiSession:(GINISession *)giniApiSession;
 
+/**
+ * Returns the user id of the logged in user.
+ *
+ * @param giniApiSession            The session for the Gini API, which was returned when the
+ *                                  user was logged in.
+ * @return                          A `BFTask *` which will resolve to a String containing the user id.
+ */
 - (BFTask *)getUserIdForGiniApiSession:(GINISession *)giniApiSession;
 
+/**
+ * Update the email of a user.
+ *
+ * @param newEmail                  A new email address.
+ * @param oldEmail                  The previous email address of the user.
+ * @param giniApiSession            The session for the Gini API which was returned when
+ *                                  the user was logged in.
+ * @return                          A `BFTask *` with empty result as the response contains no data.
+ */
 - (BFTask *)updateEmail:(NSString *)newEmail
                oldEmail:(NSString *)oldEmail
          giniApiSession:(GINISession *)giniApiSession;
