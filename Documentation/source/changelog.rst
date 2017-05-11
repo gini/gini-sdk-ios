@@ -2,6 +2,13 @@
 Changelog
 =========
 
+{{version_and_date}}
+
+Bugfixes
+--------
+
+- Added "paymentPurpose" as an acceptable feedback field in GINIDocumentTaskManager
+
 0.4.0 (19-04-2017)
 ==================
 
