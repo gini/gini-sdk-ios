@@ -96,7 +96,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
         NSDictionary *extractions = task.result;
         NSMutableDictionary *updateExtractions = [NSMutableDictionary new];
         
-        NSArray *keys = @[@"paymentReference", @"iban", @"bic", @"amountToPay", @"paymentRecipient"];
+        NSArray *keys = @[@"paymentReference", @"iban", @"bic", @"amountToPay", @"paymentRecipient", @"paymentPurpose"];
         for (NSString *key in extractions) {
             if ([keys containsObject:key]) {
                 GINIExtraction *extraction = extractions[key];
