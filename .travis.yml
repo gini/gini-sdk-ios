@@ -1,6 +1,6 @@
 language: objective-c
 osx_image: xcode8.3
-cache: 
+cache:
   - cocoapods
 before_install:
   - gem install slather
@@ -13,8 +13,10 @@ env:
     - DESTINATION="OS=10.3,name=iPhone 6S"
     - GH_REF=github.com/gini/gini-sdk-ios.git
     - secure: "mmTWT0WBaAMKNxnPD/Nyxj1sXPZxCMxEaGN4iTg/bxXokrFe4EOnuMGxN2nNWJJmyEKqmZ2VCMJJxqDbmz1xwsI5RgC0Ylywt/nD0oEiKyS0avigyzjG8tqsOY78yl6wJwbsOePKSJq2BniKjpCRN8mfwVoiczwtXjQAKMqAbRA="
+    # The write GitHub token for pushing the docs
+    - secure: "D0uG6G8tSDyiSbXHp5kI+NjG8CMPkE/1job6dTkMbiXwFJSbUkJsa7tXR0M3T08gKlmIFaQe0CUI3+0p1BndaxsA6YkV+7O+GWzGPTx2up7jCbk3QpZSbP+ROWXmwYBiHtJNjpN7A3aSQEXkZuc6rgIgAeWwC8KNMypsV+isQSaGJIIFuW5z9qa6YoZlR/pkuwkc70PaKhphpol7un7OFLGnPKAoxS8VWTGXIZtXYMTIkKyUX2wwlHixYSX7BcjAc6Xi+BFvIYhuLKvaJhe4+SpRfvUX4x+RQvD8LMXKI8WwIp2LvMYYJ0IE3Hfxz/LceybyKaf7eaI3xmO1ZAL989wo2MYAEhcicvBHfRMWhgngVjqnfurIO9fs609aznk9NGuHoIp0A/5bHAPTALbINLeSto2DJhwRPlxhuWIDNmyuspgHMJKnCz4XWOTyUxXfxB9soPE9eHnSJiP/e716wgdI6RRl5y0HsDud6oTovawuuuHohst0wsw6rVjN2Ax6Z/jx4cTL7BlrYaBBN98jEI3ObfMUD56xpeONYDHPhpb9eZVf5P05kTEpXMt7JwQ7JLxxs/PMk+3UsMwhO4hGE2zh7gYxvGW7kooAduS6SlMl83aCHs7kOOEZnowcOLyPdUL0mTuVN1rBXDHTKLnQFeb+Faxv+kS11dOFRmr3/gk="
 script:
-  - set -o pipefail 
+  - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
   - xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES test | xcpretty -c;
