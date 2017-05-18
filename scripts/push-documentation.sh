@@ -10,7 +10,7 @@ fi
 
 # Clean up
 rm -rf docs
-git clone -b docs https://${GH_TOKEN}@${GH_REF} docs
+git clone -b docs https://${DOC_PUSH_TOKEN}@${GH_REF} docs
 rm -rf docs/*
 
 # Copy integration guide source files
