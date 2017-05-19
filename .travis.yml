@@ -14,7 +14,7 @@ env:
     - GH_REF=github.com/gini/gini-sdk-ios.git
     - secure: "mmTWT0WBaAMKNxnPD/Nyxj1sXPZxCMxEaGN4iTg/bxXokrFe4EOnuMGxN2nNWJJmyEKqmZ2VCMJJxqDbmz1xwsI5RgC0Ylywt/nD0oEiKyS0avigyzjG8tqsOY78yl6wJwbsOePKSJq2BniKjpCRN8mfwVoiczwtXjQAKMqAbRA="
     # The write GitHub token for pushing the docs
-    secure: "rAfV3cuCa+giZEeTGa+dMutKTqdx03lgcDLN4Dt062l6m4gG+mHKJCWPGrywP44qlvcVAN64947T3y/OxDtzBK91ZrpRyYCRgv0QQGwm5hnSpTh5p7Am5kABfZOhD2kpS3H4Haw48DzUaaCNlcXIs9xj1aWhvnnY0+Ky5j0nt4M="
+    - secure: "rAfV3cuCa+giZEeTGa+dMutKTqdx03lgcDLN4Dt062l6m4gG+mHKJCWPGrywP44qlvcVAN64947T3y/OxDtzBK91ZrpRyYCRgv0QQGwm5hnSpTh5p7Am5kABfZOhD2kpS3H4Haw48DzUaaCNlcXIs9xj1aWhvnnY0+Ky5j0nt4M="
 script:
   - set -o pipefail
   - xcodebuild -version
