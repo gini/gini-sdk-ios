@@ -51,6 +51,7 @@
  * clients only.
  */
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain;
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain certPath:(NSString *)certPath;
 
 
 /**

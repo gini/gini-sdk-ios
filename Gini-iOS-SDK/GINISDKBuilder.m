@@ -26,7 +26,7 @@ GINIInjector* GINIDefaultInjector() {
     [injector setFactory:@selector(urlSession:)
                       on:[GINIURLSession class]
                   forKey:@protocol(GINIURLSession)
-        withDependencies:GINIInjectorCertPathKey];
+        withDependencies:GINIInjectorCertPathKey, nil];
 
     // APIRequestFactory
     [injector setSingletonFactory:@selector(requestFactoryWithSessionManager:)

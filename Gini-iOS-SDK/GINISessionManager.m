@@ -66,7 +66,7 @@ NSStringEncoding const GINIStringEncoding = NSUTF8StringEncoding;
         if (!_URLSession) {
             NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
             NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
-            _URLSession = [[GINIURLSession alloc] initWithNSURLSession:session];
+            _URLSession = [[GINIURLSession alloc] initWithNSURLSession:session certPath:@""];
         }
     }
     return self;
