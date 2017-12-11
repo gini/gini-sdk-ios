@@ -23,10 +23,10 @@ GINIInjector* GINIDefaultInjector() {
                  withDependencies:@protocol(GINIURLSession), @protocol(GINIAPIManagerRequestFactory), GINIInjectorAPIBaseURLKey, nil];
 
     // URLSession
-    [injector setFactory:@selector(urlSession:)
+    [injector setFactory:@selector(urlSession)
                       on:[GINIURLSession class]
                   forKey:@protocol(GINIURLSession)
-        withDependencies:GINIInjectorCertPathKey, nil];
+        withDependencies: nil];
 
     // APIRequestFactory
     [injector setSingletonFactory:@selector(requestFactoryWithSessionManager:)

@@ -128,20 +128,20 @@ void GINIParseResponse(NSData *data, NSURLResponse *response, NSError *error, BF
     NSString *_nsCertPath;
 }
 
-+ (instancetype)urlSessionWithNSURLSession:(NSURLSession *)urlSession certPath:(NSString *)certPath {
-    return [[self alloc] initWithNSURLSession:urlSession certPath:certPath];
++ (instancetype)urlSessionWithNSURLSession:(NSURLSession *)urlSession {
+    return [[self alloc] initWithNSURLSession:urlSession];
 }
 
-+ (instancetype)urlSession:(NSString *)certPath {
-    return [self urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]
-                                   certPath:certPath];
++ (instancetype)urlSession:(id<NSURLSessionDelegate>)delegate {
+    return [self urlSessionWithNSURLSession:[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+                                                                          delegate:delegate
+                                                                     delegateQueue:nil]];
 }
 
-- (instancetype)initWithNSURLSession:(NSURLSession *)urlSession certPath:(NSString *)certPath {
+- (instancetype)initWithNSURLSession:(NSURLSession *)urlSession {
     self = [super init];
     if (self) {
         _nsURLSession = urlSession;
-        _nsCertPath = certPath;
     }
     return self;
 }
