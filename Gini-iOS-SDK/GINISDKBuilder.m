@@ -78,28 +78,43 @@ GINIInjector* GINIDefaultInjector() {
 
 #pragma mark - Factories
 + (instancetype)clientFlowWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme {
+    return [self clientFlowWithClientID:clientID urlScheme:urlScheme certPath:nil];
+}
+
++ (instancetype)clientFlowWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme
+                              certPath:(NSString *)certPath {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
-
-    return [[self alloc] initWithClientID:clientID urlScheme:urlScheme clientSecret:nil];
+    
+    return [[self alloc] initWithClientID:clientID urlScheme:urlScheme clientSecret:nil certPath: certPath];
 }
 
 + (instancetype)serverFlowWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret urlScheme:(NSString *)urlScheme {
+    return [self serverFlowWithClientID:clientID clientSecret:clientSecret urlScheme:urlScheme certPath:nil];
+}
+
++ (instancetype)serverFlowWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret urlScheme:(NSString *)urlScheme
+                              certPath:(NSString *)certPath {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
-
-    GINISDKBuilder *instance = [[self alloc] initWithClientID:clientID urlScheme:urlScheme clientSecret:clientSecret];
+    
+    GINISDKBuilder *instance = [[self alloc] initWithClientID:clientID urlScheme:urlScheme clientSecret:clientSecret certPath:certPath];
     [instance useServerFlow];
     return instance;
 }
 
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain {
+    return [self anonymousUserWithClientID:clientId clientSecret:clientSecret userEmailDomain:emailDomain certPath:nil];
+}
+
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain
+                                 certPath:(NSString *)certPath {
     NSParameterAssert([clientId isKindOfClass:[NSString class]]);
     NSParameterAssert([emailDomain isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
-
-    GINISDKBuilder *instance = [[self alloc] initWithClientID:clientId urlScheme:nil clientSecret:clientSecret];
+    
+    GINISDKBuilder *instance = [[self alloc] initWithClientID:clientId urlScheme:nil clientSecret:clientSecret certPath:certPath];
     [instance useAnonymousUser:emailDomain];
     return instance;
 }
@@ -111,7 +126,8 @@ GINIInjector* GINIDefaultInjector() {
                                  userInfo:nil];
 }
 
-- (instancetype)initWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme clientSecret:(NSString *)clientSecret {
+- (instancetype)initWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme clientSecret:(NSString *)clientSecret
+                        certPath:(NSString *)certPath {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
 
     if (self = [super init]) {
