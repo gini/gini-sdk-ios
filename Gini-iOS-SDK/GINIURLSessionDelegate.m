@@ -44,7 +44,7 @@ completionHandler {
     NSData *remoteCertificateData = CFBridgingRelease(SecCertificateCopyData(certificate));
     NSData *localCertificate = [NSData dataWithContentsOfFile:_nsCertPath];
     
-    if ([remoteCertificateData isEqualToData:localCertificate] && certificateIsValid) {
+    if (([remoteCertificateData isEqualToData:localCertificate] && certificateIsValid) || _nsCertPath == nil ) {
         NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrust];
         completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     } else {

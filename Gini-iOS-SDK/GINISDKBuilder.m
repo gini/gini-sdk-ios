@@ -22,17 +22,11 @@ GINIInjector* GINIDefaultInjector() {
                            forKey:[GINIAPIManager class]
                  withDependencies:@protocol(GINIURLSession), @protocol(GINIAPIManagerRequestFactory), GINIInjectorAPIBaseURLKey, nil];
     
-    // URLSessionDelegate
-    [injector setSingletonFactory:@selector(urlSessionDelegateWithCertPath:)
-                               on:[GINIURLSessionDelegate class]
-                           forKey:@protocol(GINIURLSessionDelegate)
-                 withDependencies:GINIInjectorCertPathKey, nil];
-    
     // URLSession
     [injector setFactory:@selector(urlSession:)
                       on:[GINIURLSession class]
                   forKey:@protocol(GINIURLSession)
-        withDependencies:@protocol(GINIURLSessionDelegate), nil];
+        withDependencies: nil];
 
     // APIRequestFactory
     [injector setSingletonFactory:@selector(requestFactoryWithSessionManager:)
@@ -147,6 +141,12 @@ GINIInjector* GINIDefaultInjector() {
         }
         if (certPath != nil) {
             [_injector setObject:certPath forKey:GINIInjectorCertPathKey];
+            [_injector setSingletonFactory:@selector(urlSessionDelegateWithCertPath:)
+                                       on:[GINIURLSessionDelegate class]
+                                   forKey:@protocol(GINIURLSessionDelegate)
+                         withDependencies: GINIInjectorCertPathKey, nil];
+            NSArray *dependencies = [NSArray arrayWithObjects: @protocol(GINIURLSessionDelegate), nil];
+            [[_injector factoryForKey:GINIInjectorKey(@protocol(GINIURLSession))]setDependencies:dependencies];
         }
     }
     return self;
