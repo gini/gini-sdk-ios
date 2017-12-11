@@ -125,7 +125,6 @@ void GINIParseResponse(NSData *data, NSURLResponse *response, NSError *error, BF
 
 @implementation GINIURLSession {
     NSURLSession *_nsURLSession;
-    NSString *_nsCertPath;
 }
 
 + (instancetype)urlSessionWithNSURLSession:(NSURLSession *)urlSession {

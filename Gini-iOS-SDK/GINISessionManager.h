@@ -51,7 +51,7 @@ extern NSStringEncoding const GINIStringEncoding;
 * @see http://developer.gini.net/gini-api/html/guides/oauth2.html
 *
 */
-@interface GINISessionManager : NSObject <GINISessionManager, GINIIncomingURLDelegate, NSURLSessionDelegate> {
+@interface GINISessionManager : NSObject <GINISessionManager, GINIIncomingURLDelegate> {
 
     /// The client ID given by Gini.
     NSString* _clientID;

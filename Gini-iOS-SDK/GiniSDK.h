@@ -22,6 +22,7 @@
 #import "GINIUser.h"
 #import "GINIUserCenterManager.h"
 #import "GINIKeychainManager.h"
+#import "GINIURLSessionDelegate.h"
 
 
 // Keys used in the injector. See the discussion on keys at `GINIInjector` class.
