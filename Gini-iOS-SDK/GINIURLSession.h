@@ -73,19 +73,19 @@
  * @param urlSession    An instance of Apple's `NSURLSession` class that is used by the GINIURLSession to do the
  *                      HTTP requests.
  */
-+ (instancetype)urlSessionWithNSURLSession:(NSURLSession *)urlSession;
++ (instancetype)urlSessionWithNSURLSession:(NSURLSession *)urlSession certPath:(NSString *)certPath;
 
 /**
  * Factory to create a new GINIURLSession instance. The created instance uses an instance of Apple's `NSURLSession` with
  * Apple's default configuration to do the HTTP requests.
  */
-+ (instancetype)urlSession;
++ (instancetype)urlSession:(NSString *)certPath;
 
 /**
  * The designated initializer.
  *
  * @param urlSession An instance of Apple's `NSURLSession` class that is used to do the HTTP requests.
  */
-- (instancetype)initWithNSURLSession:(NSURLSession *)urlSession;
+- (instancetype)initWithNSURLSession:(NSURLSession *)urlSession certPath:(NSString *)certPath;
 
 @end
