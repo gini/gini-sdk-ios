@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "GiniSDK.h"
 
 @interface ViewController ()
 
