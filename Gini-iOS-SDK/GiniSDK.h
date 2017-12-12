@@ -22,6 +22,7 @@
 #import "GINIUser.h"
 #import "GINIUserCenterManager.h"
 #import "GINIKeychainManager.h"
+#import "GINIURLSessionDelegate.h"
 
 
 // Keys used in the injector. See the discussion on keys at `GINIInjector` class.
@@ -36,7 +37,8 @@ FOUNDATION_EXPORT NSString *const GINIInjectorURLSchemeKey;
 FOUNDATION_EXPORT NSString *const GINIInjectorClientIDKey;
 /// Use this key to identify the application's client secret in the injector.
 FOUNDATION_EXPORT NSString *const GINIInjectorClientSecretKey;
-
+/// Use this key to identify the application's cert path in the injector.
+FOUNDATION_EXPORT NSString *const GINIInjectorCertificatePathKey;
 
 /**
  * The Gini SDK.

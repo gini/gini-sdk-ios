@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * should use the `GINIDocumentTaskManager` which offers much more sophisticated methods for dealing with documents and
  * extractions and has advanced error handling and convenience methods.
  */
-@interface GINIAPIManager : NSObject
+@interface GINIAPIManager : NSObject <NSURLSessionDelegate>
 
 
 /**

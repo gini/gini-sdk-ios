@@ -79,7 +79,7 @@
  * Factory to create a new GINIURLSession instance. The created instance uses an instance of Apple's `NSURLSession` with
  * Apple's default configuration to do the HTTP requests.
  */
-+ (instancetype)urlSession;
++ (instancetype)urlSession:(id<NSURLSessionDelegate>)delegate;
 
 /**
  * The designated initializer.

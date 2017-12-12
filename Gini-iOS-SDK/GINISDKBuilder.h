@@ -24,7 +24,22 @@
  *
  * @param clientID          The application's client ID for the Gini API.
  */
-+ (instancetype)clientFlowWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme;
++ (instancetype)clientFlowWithClientID:(NSString *)clientID
+                             urlScheme:(NSString *)urlScheme;
+
+/**
+ * Creates an instance of the GINISDKBuilder where the client authorization flow is used.
+ *
+ * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
+ *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
+ *                          you registered with Gini.
+ *
+ * @param clientID          The application's client ID for the Gini API.
+ * @param certificatePath   Local certificate path for certificate pinning.
+ */
++ (instancetype)clientFlowWithClientID:(NSString *)clientID
+                             urlScheme:(NSString *)urlScheme
+                       certificatePath:(NSString *)certificatePath;
 
 /**
  * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
@@ -38,19 +53,56 @@
  * @param clientSecret      The client secret you received from Gini.
  */
 
-+ (instancetype)serverFlowWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret urlScheme:(NSString *)urlScheme;
++ (instancetype)serverFlowWithClientID:(NSString *)clientID
+                          clientSecret:(NSString *)clientSecret
+                             urlScheme:(NSString *)urlScheme;
+
+/**
+ * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
+ *
+ * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
+ *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
+ *                          you registered with Gini.
+ *
+ * @param clientID          The application's client ID for the Gini API.
+ *
+ * @param clientSecret      The client secret you received from Gini.
+ * @param certificatePath   Local certificate path for certificate pinning.
+ */
++ (instancetype)serverFlowWithClientID:(NSString *)clientID
+                          clientSecret:(NSString *)clientSecret
+                             urlScheme:(NSString *)urlScheme
+                       certificatePath:(NSString *)certificatePath;
 
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
  *
- * @param clientID          The application's clientID for the Gini API.
+ * @param clientId          The application's clientID for the Gini API.
  *
- * @param userEmailDomain:  The domain of the email address.
+ * @param emailDomain       The domain of the email address.
  *
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.
  */
-+ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain;
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId
+                             clientSecret:(NSString *)clientSecret
+                          userEmailDomain:(NSString *)emailDomain;
+
+/**
+ * Creates an instance of the GINISDKBuilder where anonymous users are used.
+ *
+ * @param clientId          The application's clientID for the Gini API.
+ *
+ * @param emailDomain       The domain of the email address.
+ * @param certificatePath   Local certificate path for certificate pinning.
+ *
+ * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
+ * clients only.
+ */
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId
+                             clientSecret:(NSString *)clientSecret
+                          userEmailDomain:(NSString *)emailDomain
+                          certificatePath:(NSString *)certificatePath;
 
 
 /**
