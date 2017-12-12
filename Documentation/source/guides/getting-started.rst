@@ -108,7 +108,6 @@ An example of a username created with this configuration would be ``550e8400-e29
         func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
             self.giniSDK = GINISDKBuilder.anonymousUserWithClientID("your_gini_client_id", clientSecret: "your_gini_client_secret", userEmailDomain: "example.com").build()
-            // It is possible to enable certificate pinning adding the 'certificatePath' in the `GINISDKBuilder` initializer.
 
             // The DocumentTaskManager provides the high-level API to work with documents.
             let documentManager = self.giniSDK?.documentTaskManager

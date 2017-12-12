@@ -26,7 +26,7 @@ GINIInjector* GINIDefaultInjector() {
     [injector setFactory:@selector(urlSession:)
                       on:[GINIURLSession class]
                   forKey:@protocol(GINIURLSession)
-        withDependencies: nil];
+        withDependencies:nil];
 
     // APIRequestFactory
     [injector setSingletonFactory:@selector(requestFactoryWithSessionManager:)
@@ -86,7 +86,7 @@ GINIInjector* GINIDefaultInjector() {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
     
-    return [[self alloc] initWithClientID:clientID urlScheme:urlScheme clientSecret:nil certificatePath: certificatePath];
+    return [[self alloc] initWithClientID:clientID urlScheme:urlScheme clientSecret:nil certificatePath:certificatePath];
 }
 
 + (instancetype)serverFlowWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret urlScheme:(NSString *)urlScheme {

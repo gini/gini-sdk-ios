@@ -39,7 +39,7 @@
  */
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
-                              certificatePath:(NSString *)certificatePath;
+                       certificatePath:(NSString *)certificatePath;
 
 /**
  * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
@@ -72,7 +72,7 @@
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
                           clientSecret:(NSString *)clientSecret
                              urlScheme:(NSString *)urlScheme
-                              certificatePath:(NSString *)certificatePath;
+                       certificatePath:(NSString *)certificatePath;
 
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
@@ -102,7 +102,7 @@
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId
                              clientSecret:(NSString *)clientSecret
                           userEmailDomain:(NSString *)emailDomain
-                                 certificatePath:(NSString *)certificatePath;
+                          certificatePath:(NSString *)certificatePath;
 
 
 /**
