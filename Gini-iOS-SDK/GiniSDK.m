@@ -10,7 +10,7 @@ NSString *const GINIInjectorUserBaseURLKey = @"UserBaseURL";
 NSString *const GINIInjectorURLSchemeKey = @"AppURLScheme";
 NSString *const GINIInjectorClientSecretKey = @"AppClientSecret";
 NSString *const GINIInjectorClientIDKey = @"AppClientId";
-NSString *const GINIInjectorCertPathKey = @"CertPath";
+NSString *const GINIInjectorCertificatePathKey = @"CertificatePath";
 
 
 @implementation GiniSDK{

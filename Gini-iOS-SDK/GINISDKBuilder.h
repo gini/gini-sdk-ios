@@ -35,11 +35,11 @@
  *                          you registered with Gini.
  *
  * @param clientID          The application's client ID for the Gini API.
- * @param certPath          Local certificate path for certificate pinning.
+ * @param certificatePath   Local certificate path for certificate pinning.
  */
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
-                              certPath:(NSString *)certPath;
+                              certificatePath:(NSString *)certificatePath;
 
 /**
  * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
@@ -67,12 +67,12 @@
  * @param clientID          The application's client ID for the Gini API.
  *
  * @param clientSecret      The client secret you received from Gini.
- * @param certPath          Local certificate path for certificate pinning.
+ * @param certificatePath   Local certificate path for certificate pinning.
  */
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
                           clientSecret:(NSString *)clientSecret
                              urlScheme:(NSString *)urlScheme
-                              certPath:(NSString *)certPath;
+                              certificatePath:(NSString *)certificatePath;
 
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
@@ -94,7 +94,7 @@
  * @param clientId          The application's clientID for the Gini API.
  *
  * @param emailDomain       The domain of the email address.
- * @param certPath          Local certificate path for certificate pinning.
+ * @param certificatePath   Local certificate path for certificate pinning.
  *
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.
@@ -102,7 +102,7 @@
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId
                              clientSecret:(NSString *)clientSecret
                           userEmailDomain:(NSString *)emailDomain
-                                 certPath:(NSString *)certPath;
+                                 certificatePath:(NSString *)certificatePath;
 
 
 /**

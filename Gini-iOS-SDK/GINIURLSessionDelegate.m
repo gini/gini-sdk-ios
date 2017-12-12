@@ -9,17 +9,17 @@
 #import "GINIURLSessionDelegate.h"
 
 @implementation GINIURLSessionDelegate {
-    NSString *_nsCertPath;
+    NSString *_nsCertificatePath;
 }
 
-+ (instancetype)urlSessionDelegateWithCertPath:(NSString *)certPath {
-    return [[self alloc] initWithNSURLSessionDelegate:certPath];
++ (instancetype)urlSessionDelegateWithCertificatePath:(NSString *)certificatePath {
+    return [[self alloc] initWithNSURLSessionDelegate:certificatePath];
 }
 
-- (instancetype)initWithNSURLSessionDelegate:(NSString *)certPath {
+- (instancetype)initWithNSURLSessionDelegate:(NSString *)certificatePath {
     self = [super init];
     if (self) {
-        _nsCertPath = certPath;
+        _nsCertificatePath = certificatePath;
     }
     return self;
 }
@@ -42,9 +42,9 @@ completionHandler {
     BOOL certificateIsValid = (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
     
     NSData *remoteCertificateData = CFBridgingRelease(SecCertificateCopyData(certificate));
-    NSData *localCertificate = [NSData dataWithContentsOfFile:_nsCertPath];
+    NSData *localCertificate = [NSData dataWithContentsOfFile:_nsCertificatePath];
     
-    if (([remoteCertificateData isEqualToData:localCertificate] && certificateIsValid) || _nsCertPath == nil ) {
+    if (([remoteCertificateData isEqualToData:localCertificate] && certificateIsValid) || _nsCertificatePath == nil ) {
         NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrust];
         completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     } else {
