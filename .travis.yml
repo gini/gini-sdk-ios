@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9.2
 cache:
   - cocoapods
 before_install:
@@ -9,8 +9,8 @@ env:
   global:
     - WORKSPACE="Gini-iOS-SDK.xcworkspace"
     - SCHEME="Gini-iOS-SDK"
-    - SDK=iphonesimulator10.3
-    - DESTINATION="OS=10.3,name=iPhone 6S"
+    - SDK=iphonesimulator11.2
+    - DESTINATION="OS=11.2,name=iPhone 7"
     - GH_REF=github.com/gini/gini-sdk-ios.git
     - secure: "mmTWT0WBaAMKNxnPD/Nyxj1sXPZxCMxEaGN4iTg/bxXokrFe4EOnuMGxN2nNWJJmyEKqmZ2VCMJJxqDbmz1xwsI5RgC0Ylywt/nD0oEiKyS0avigyzjG8tqsOY78yl6wJwbsOePKSJq2BniKjpCRN8mfwVoiczwtXjQAKMqAbRA="
     # The write GitHub token for pushing the docs
