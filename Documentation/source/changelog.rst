@@ -2,6 +2,14 @@
 Changelog
 =========
 
+0.5.1 (14-12-2017)
+==================
+
+Features
+--------
+
+- Added support for pinning with more than one certificate.
+
 0.5.0 (12-12-2017)
 ==================
 
