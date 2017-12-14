@@ -82,7 +82,7 @@ GINIInjector* GINIDefaultInjector() {
 }
 
 + (instancetype)clientFlowWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme
-                              certificatePaths:(NSArray<NSString *> *) certificatePaths {
+                              certificatePaths:(NSArray<NSString *> *)certificatePaths {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
     
@@ -94,7 +94,7 @@ GINIInjector* GINIDefaultInjector() {
 }
 
 + (instancetype)serverFlowWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret urlScheme:(NSString *)urlScheme
-                              certificatePaths:(NSArray<NSString *> *) certificatePaths {
+                              certificatePaths:(NSArray<NSString *> *)certificatePaths {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
@@ -109,7 +109,7 @@ GINIInjector* GINIDefaultInjector() {
 }
 
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain
-                                 certificatePaths:(NSArray<NSString *> *) certificatePaths {
+                                 certificatePaths:(NSArray<NSString *> *)certificatePaths {
     NSParameterAssert([clientId isKindOfClass:[NSString class]]);
     NSParameterAssert([emailDomain isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
@@ -127,7 +127,7 @@ GINIInjector* GINIDefaultInjector() {
 }
 
 - (instancetype)initWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme clientSecret:(NSString *)clientSecret
-                        certificatePaths:(NSArray<NSString *> *) certificatePaths {
+                        certificatePaths:(NSArray<NSString *> *)certificatePaths {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
 
     if (self = [super init]) {

@@ -12,11 +12,11 @@
     NSArray<NSString *> *_nsCertificatePaths;
 }
 
-+ (instancetype)urlSessionDelegateWithCertificatePaths:(NSArray<NSString *> *) certificatePaths {
++ (instancetype)urlSessionDelegateWithCertificatePaths:(NSArray<NSString *> *)certificatePaths {
     return [[self alloc] initWithNSURLSessionDelegate:certificatePaths];
 }
 
-- (instancetype)initWithNSURLSessionDelegate:(NSArray<NSString *> *) certificatePaths {
+- (instancetype)initWithNSURLSessionDelegate:(NSArray<NSString *> *)certificatePaths {
     self = [super init];
     if (self) {
         _nsCertificatePaths = certificatePaths;

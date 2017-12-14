@@ -12,6 +12,6 @@
 
 @interface GINIURLSessionDelegate : NSObject <NSURLSessionDelegate>
 
-+ (instancetype)urlSessionDelegateWithCertificatePaths:(NSArray<NSString *> *) certificatePaths;
++ (instancetype)urlSessionDelegateWithCertificatePaths:(NSArray<NSString *> *)certificatePaths;
 
 @end
