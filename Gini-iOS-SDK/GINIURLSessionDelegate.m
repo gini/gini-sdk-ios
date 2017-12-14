@@ -9,17 +9,17 @@
 #import "GINIURLSessionDelegate.h"
 
 @implementation GINIURLSessionDelegate {
-    NSString *_nsCertificatePath;
+    NSArray<NSString *> *_nsCertificatePaths;
 }
 
-+ (instancetype)urlSessionDelegateWithCertificatePath:(NSString *)certificatePath {
-    return [[self alloc] initWithNSURLSessionDelegate:certificatePath];
++ (instancetype)urlSessionDelegateWithCertificatePaths:(NSArray<NSString *> *) certificatePaths {
+    return [[self alloc] initWithNSURLSessionDelegate:certificatePaths];
 }
 
-- (instancetype)initWithNSURLSessionDelegate:(NSString *)certificatePath {
+- (instancetype)initWithNSURLSessionDelegate:(NSArray<NSString *> *) certificatePaths {
     self = [super init];
     if (self) {
-        _nsCertificatePath = certificatePath;
+        _nsCertificatePaths = certificatePaths;
     }
     return self;
 }
@@ -27,8 +27,7 @@
 -(void)URLSession:(NSURLSession *)session
 didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))
-completionHandler {
-    
+completionHandler {    
     SecTrustRef serverTrust = challenge.protectionSpace.serverTrust;
     SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrust, 0);
     
@@ -42,9 +41,9 @@ completionHandler {
     BOOL certificateIsValid = (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
     
     NSData *remoteCertificateData = CFBridgingRelease(SecCertificateCopyData(certificate));
-    NSData *localCertificate = [NSData dataWithContentsOfFile:_nsCertificatePath];
+    NSData *localCertificate = [NSData dataWithContentsOfFile:_nsCertificatePaths];
     
-    if (([remoteCertificateData isEqualToData:localCertificate] && certificateIsValid) || _nsCertificatePath == nil ) {
+    if (([remoteCertificateData isEqualToData:localCertificate] && certificateIsValid) || _nsCertificatePaths == nil ) {
         NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrust];
         completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     } else {
