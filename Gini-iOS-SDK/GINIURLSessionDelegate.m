@@ -29,21 +29,35 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))
 completionHandler {    
     SecTrustRef serverTrust = challenge.protectionSpace.serverTrust;
-    SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrust, 0);
+    BOOL remoteCertEqualToLocalCert = false;
+    BOOL remoteCertificateIsValid = false;
     
-    NSMutableArray *policies = [NSMutableArray array];
-    [policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)
-                                                                 challenge.protectionSpace.host)];
-    SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
+    for (int i = 0; i < SecTrustGetCertificateCount(serverTrust); i++) {
+        NSMutableArray *policies = [NSMutableArray array];
+        [policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)
+                                                                     challenge.protectionSpace.host)];
+        SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
+        
+        SecTrustResultType result;
+        SecTrustEvaluate(serverTrust, &result);
+        remoteCertificateIsValid = (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
+        
+        SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrust, i);
+        NSData *remoteCertificateData = (NSData *)CFBridgingRelease(SecCertificateCopyData(certificate));
+        
+        for (int j = 0; j < [_nsCertificatePaths count]; j++) {
+            NSData *localCertificate = [NSData dataWithContentsOfFile:[_nsCertificatePaths objectAtIndex:j]];
+            if(localCertificate != nil) {
+                remoteCertEqualToLocalCert = [remoteCertificateData isEqualToData:localCertificate];
+                if (remoteCertEqualToLocalCert) {
+                    goto outer_done;
+                }
+            }
+        }
+    }
+    outer_done:;
     
-    SecTrustResultType result;
-    SecTrustEvaluate(serverTrust, &result);
-    BOOL certificateIsValid = (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
-    
-    NSData *remoteCertificateData = CFBridgingRelease(SecCertificateCopyData(certificate));
-    NSData *localCertificate = [NSData dataWithContentsOfFile:_nsCertificatePaths];
-    
-    if (([remoteCertificateData isEqualToData:localCertificate] && certificateIsValid) || _nsCertificatePaths == nil ) {
+    if ((remoteCertEqualToLocalCert && remoteCertificateIsValid) || _nsCertificatePaths == nil ) {
         NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrust];
         completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
     } else {

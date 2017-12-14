@@ -140,11 +140,11 @@ GINIInjector* GINIDefaultInjector() {
             [_injector setObject:clientSecret forKey:GINIInjectorClientSecretKey];
         }
         if (certificatePaths != nil) {
-            [_injector setObject:certificatePaths forKey:GINIInjectorCertificatePathKey];
+            [_injector setObject:certificatePaths forKey:GINIInjectorCertificatePathsKey];
             [_injector setSingletonFactory:@selector(urlSessionDelegateWithCertificatePaths:)
                                        on:[GINIURLSessionDelegate class]
                                    forKey:@protocol(GINIURLSessionDelegate)
-                         withDependencies: GINIInjectorCertificatePathKey, nil];
+                         withDependencies: GINIInjectorCertificatePathsKey, nil];
             NSArray *dependencies = [NSArray arrayWithObjects: @protocol(GINIURLSessionDelegate), nil];
             [[_injector factoryForKey:GINIInjectorKey(@protocol(GINIURLSession))]setDependencies:dependencies];
         }
