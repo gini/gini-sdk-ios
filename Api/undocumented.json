@@ -1,1055 +1,1055 @@
 {
   "warnings": [
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINIKeychainManager.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIKeychainManager.h",
       "line": 12,
       "symbol": "GINIKeychainManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINISessionManager.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINISessionManager.h",
       "line": 12,
       "symbol": "GINIStringEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINISessionManager.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINISessionManager.h",
       "line": 65,
       "symbol": "GINISessionManager._URLSession",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.ivar",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINISessionParser.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINISessionParser.h",
       "line": 8,
       "symbol": "GINISessionParser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
       "line": 10,
       "symbol": "GINIURLSessionDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
       "line": 13,
       "symbol": "GINIURLSessionDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
       "line": 15,
       "symbol": "GINIURLSessionDelegate.+urlSessionDelegateWithCertificatePaths:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
       "line": 9,
       "symbol": "GINIUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
       "line": 11,
       "symbol": "GINIUser.userId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
       "line": 12,
       "symbol": "GINIUser.userEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLink.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLink.h",
       "line": 14,
       "symbol": "BFAppLinkVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLink.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLink.h",
       "line": 20,
       "symbol": "BFAppLink",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLink.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLink.h",
       "line": 33,
       "symbol": "BFAppLink.+appLinkWithSourceURL:targets:webURL:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLink.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLink.h",
       "line": 38,
       "symbol": "BFAppLink.sourceURL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLink.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLink.h",
       "line": 44,
       "symbol": "BFAppLink.targets",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLink.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLink.h",
       "line": 47,
       "symbol": "BFAppLink.webURL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 18,
       "symbol": "BFAppLinkNavigationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 18,
       "symbol": "BFAppLinkNavigationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 20,
       "symbol": "BFAppLinkNavigationType.BFAppLinkNavigationTypeFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 22,
       "symbol": "BFAppLinkNavigationType.BFAppLinkNavigationTypeBrowser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 24,
       "symbol": "BFAppLinkNavigationType.BFAppLinkNavigationTypeApp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 36,
       "symbol": "BFAppLinkNavigation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 43,
       "symbol": "BFAppLinkNavigation.extras",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 50,
       "symbol": "BFAppLinkNavigation.appLinkData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 53,
       "symbol": "BFAppLinkNavigation.appLink",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 56,
       "symbol": "BFAppLinkNavigation.+navigationWithAppLink:extras:appLinkData:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 61,
       "symbol": "BFAppLinkNavigation.-navigate:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 64,
       "symbol": "BFAppLinkNavigation.+resolveAppLinkInBackground:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 67,
       "symbol": "BFAppLinkNavigation.+resolveAppLinkInBackground:resolver:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 70,
       "symbol": "BFAppLinkNavigation.+navigateToAppLink:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 73,
       "symbol": "BFAppLinkNavigation.+navigateToURLInBackground:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 79,
       "symbol": "BFAppLinkNavigation.+navigateToURLInBackground:resolver:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 85,
       "symbol": "BFAppLinkNavigation.+defaultResolver",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkNavigation.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
       "line": 91,
       "symbol": "BFAppLinkNavigation.+setDefaultResolver:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkResolving.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkResolving.h",
       "line": 20,
       "symbol": "BFAppLinkResolving",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkResolving.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkResolving.h",
       "line": 28,
       "symbol": "BFAppLinkResolving.-appLinkFromURLInBackground:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 23,
       "symbol": "BFAppLinkReturnToRefererControllerDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 28,
       "symbol": "BFAppLinkReturnToRefererControllerDelegate.-returnToRefererController:willNavigateToAppLink:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 33,
       "symbol": "BFAppLinkReturnToRefererControllerDelegate.-returnToRefererController:didNavigateToAppLink:type:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 43,
       "symbol": "BFAppLinkReturnToRefererController",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 48,
       "symbol": "BFAppLinkReturnToRefererController.delegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 53,
       "symbol": "BFAppLinkReturnToRefererController.view",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 59,
       "symbol": "BFAppLinkReturnToRefererController.-init",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 65,
       "symbol": "BFAppLinkReturnToRefererController.-initForDisplayAboveNavController:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 70,
       "symbol": "BFAppLinkReturnToRefererController.-removeFromNavController",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 75,
       "symbol": "BFAppLinkReturnToRefererController.-showViewForRefererAppLink:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 80,
       "symbol": "BFAppLinkReturnToRefererController.-showViewForRefererURL:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererController.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
       "line": 85,
       "symbol": "BFAppLinkReturnToRefererController.-closeViewAnimated:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 19,
       "symbol": "BFIncludeStatusBarInSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 19,
       "symbol": "BFIncludeStatusBarInSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 20,
       "symbol": "BFIncludeStatusBarInSize.BFIncludeStatusBarInSizeNever",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 21,
       "symbol": "BFIncludeStatusBarInSize.BFIncludeStatusBarInSizeIOS7AndLater",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 22,
       "symbol": "BFIncludeStatusBarInSize.BFIncludeStatusBarInSizeAlways",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 29,
       "symbol": "BFAppLinkReturnToRefererViewDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 34,
       "symbol": "BFAppLinkReturnToRefererViewDelegate.-returnToRefererViewDidTapInsideCloseButton:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 39,
       "symbol": "BFAppLinkReturnToRefererViewDelegate.-returnToRefererViewDidTapInsideLink:link:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 51,
       "symbol": "BFAppLinkReturnToRefererView",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 56,
       "symbol": "BFAppLinkReturnToRefererView.delegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 61,
       "symbol": "BFAppLinkReturnToRefererView.textColor",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 63,
       "symbol": "BFAppLinkReturnToRefererView.refererAppLink",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 70,
       "symbol": "BFAppLinkReturnToRefererView.includeStatusBarInSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkReturnToRefererView.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
       "line": 75,
       "symbol": "BFAppLinkReturnToRefererView.closed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkTarget.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
       "line": 17,
       "symbol": "BFAppLinkTarget",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkTarget.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
       "line": 20,
       "symbol": "BFAppLinkTarget.+appLinkTargetWithURL:appStoreId:appName:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkTarget.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
       "line": 25,
       "symbol": "BFAppLinkTarget.URL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkTarget.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
       "line": 28,
       "symbol": "BFAppLinkTarget.appStoreId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFAppLinkTarget.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
       "line": 31,
       "symbol": "BFAppLinkTarget.appName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationToken.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationToken.h",
       "line": 18,
       "symbol": "BFCancellationBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationToken.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationToken.h",
       "line": 25,
       "symbol": "BFCancellationToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationToken.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationToken.h",
       "line": 30,
       "symbol": "BFCancellationToken.cancellationRequested",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationToken.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationToken.h",
       "line": 36,
       "symbol": "BFCancellationToken.-registerCancellationObserverWithBlock:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenRegistration.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenRegistration.h",
       "line": 17,
       "symbol": "BFCancellationTokenRegistration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenRegistration.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenRegistration.h",
       "line": 23,
       "symbol": "BFCancellationTokenRegistration.-dispose",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
       "line": 21,
       "symbol": "BFCancellationTokenSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
       "line": 26,
       "symbol": "BFCancellationTokenSource.+cancellationTokenSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
       "line": 31,
       "symbol": "BFCancellationTokenSource.token",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
       "line": 36,
       "symbol": "BFCancellationTokenSource.cancellationRequested",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
       "line": 41,
       "symbol": "BFCancellationTokenSource.-cancel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
       "line": 48,
       "symbol": "BFCancellationTokenSource.-cancelAfterDelay:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFCancellationTokenSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
       "line": 54,
       "symbol": "BFCancellationTokenSource.-dispose",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFExecutor.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFExecutor.h",
       "line": 16,
       "symbol": "BFExecutor",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFExecutor.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFExecutor.h",
       "line": 22,
       "symbol": "BFExecutor.+defaultExecutor",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFExecutor.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFExecutor.h",
       "line": 27,
       "symbol": "BFExecutor.+immediateExecutor",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFExecutor.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFExecutor.h",
       "line": 32,
       "symbol": "BFExecutor.+mainThreadExecutor",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFExecutor.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFExecutor.h",
       "line": 38,
       "symbol": "BFExecutor.+executorWithBlock:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFExecutor.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFExecutor.h",
       "line": 44,
       "symbol": "BFExecutor.+executorWithDispatchQueue:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFExecutor.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFExecutor.h",
       "line": 50,
       "symbol": "BFExecutor.+executorWithOperationQueue:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFExecutor.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFExecutor.h",
       "line": 56,
       "symbol": "BFExecutor.-execute:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFMeasurementEvent.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
       "line": 14,
       "symbol": "BFMeasurementEventNotificationName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFMeasurementEvent.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
       "line": 18,
       "symbol": "BFMeasurementEventNameKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFMeasurementEvent.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
       "line": 20,
       "symbol": "BFMeasurementEventArgsKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFMeasurementEvent.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
       "line": 26,
       "symbol": "BFAppLinkParseEventName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFMeasurementEvent.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
       "line": 32,
       "symbol": "BFAppLinkNavigateInEventName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFMeasurementEvent.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
       "line": 35,
       "symbol": "BFAppLinkNavigateOutEventName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFMeasurementEvent.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
       "line": 41,
       "symbol": "BFAppLinkNavigateBackToReferrerEventName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFMeasurementEvent.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
       "line": 43,
       "symbol": "BFMeasurementEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 19,
       "symbol": "BFTaskErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 24,
       "symbol": "BFTaskMultipleExceptionsException",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 34,
       "symbol": "BFTask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 39,
       "symbol": "BFContinuationBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 45,
       "symbol": "BFTask.+taskWithResult:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 51,
       "symbol": "BFTask.+taskWithError:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 57,
       "symbol": "BFTask.+taskWithException:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 62,
       "symbol": "BFTask.+cancelledTask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 69,
       "symbol": "BFTask.+taskForCompletionOfAllTasks:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 77,
       "symbol": "BFTask.+taskForCompletionOfAllTasksWithResults:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 84,
       "symbol": "BFTask.+taskWithDelay:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 92,
       "symbol": "BFTask.+taskWithDelay:cancellationToken:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 105,
       "symbol": "BFTask.+taskFromExecutor:withBlock:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 113,
       "symbol": "BFTask.result",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 118,
       "symbol": "BFTask.error",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 123,
       "symbol": "BFTask.exception",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 128,
       "symbol": "BFTask.cancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 133,
       "symbol": "BFTask.faulted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 138,
       "symbol": "BFTask.completed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 151,
       "symbol": "BFTask.-continueWithBlock:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 165,
       "symbol": "BFTask.-continueWithBlock:cancellationToken:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 177,
       "symbol": "BFTask.-continueWithExecutor:withBlock:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 189,
       "symbol": "BFTask.-continueWithExecutor:block:cancellationToken:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 203,
       "symbol": "BFTask.-continueWithSuccessBlock:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 216,
       "symbol": "BFTask.-continueWithSuccessBlock:cancellationToken:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 231,
       "symbol": "BFTask.-continueWithExecutor:withSuccessBlock:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 247,
       "symbol": "BFTask.-continueWithExecutor:successBlock:cancellationToken:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTask.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTask.h",
       "line": 257,
       "symbol": "BFTask.-waitUntilFinished",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 22,
       "symbol": "BFTaskCompletionSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 27,
       "symbol": "BFTaskCompletionSource.+taskCompletionSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 32,
       "symbol": "BFTaskCompletionSource.task",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 39,
       "symbol": "BFTaskCompletionSource.-setResult:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 46,
       "symbol": "BFTaskCompletionSource.-setError:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 53,
       "symbol": "BFTaskCompletionSource.-setException:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 59,
       "symbol": "BFTaskCompletionSource.-cancel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 65,
       "symbol": "BFTaskCompletionSource.-trySetResult:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 72,
       "symbol": "BFTaskCompletionSource.-trySetError:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 79,
       "symbol": "BFTaskCompletionSource.-trySetException:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFTaskCompletionSource.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
       "line": 85,
       "symbol": "BFTaskCompletionSource.-trySetCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 19,
       "symbol": "BFURL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 28,
       "symbol": "BFURL.+URLWithURL:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 36,
       "symbol": "BFURL.+URLWithInboundURL:sourceApplication:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 42,
       "symbol": "BFURL.targetURL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 47,
       "symbol": "BFURL.targetQueryParameters",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 53,
       "symbol": "BFURL.appLinkData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 58,
       "symbol": "BFURL.appLinkExtras",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 63,
       "symbol": "BFURL.appLinkReferer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 68,
       "symbol": "BFURL.inputURL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFURL.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFURL.h",
       "line": 73,
       "symbol": "BFURL.inputQueryParameters",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFWebViewAppLinkResolver.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFWebViewAppLinkResolver.h",
       "line": 19,
       "symbol": "BFWebViewAppLinkResolver",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/BFWebViewAppLinkResolver.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/BFWebViewAppLinkResolver.h",
       "line": 24,
       "symbol": "BFWebViewAppLinkResolver.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/Bolts.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/Bolts.h",
       "line": 33,
       "symbol": "kBFMultipleErrorsError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/Bolts.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/Bolts.h",
       "line": 35,
       "symbol": "Bolts",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Pods/Headers/Public/Bolts/Bolts.h",
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Pods/Headers/Private/Bolts/Bolts.h",
       "line": 41,
       "symbol": "Bolts.+version",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios"
+  "source_directory": "/Users/travis/build/gini/gini-sdk-ios"
 }
