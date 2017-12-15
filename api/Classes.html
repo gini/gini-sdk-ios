@@ -149,6 +149,9 @@
                 <a class="nav-group-task-link" href="Classes/GINIURLSession.html">GINIURLSession</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/GINIURLSessionDelegate.html">GINIURLSessionDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/GINIUser.html">GINIUser</a>
               </li>
               <li class="nav-group-task">
@@ -196,6 +199,9 @@
                 <a class="nav-group-task-link" href="Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Constants.html#/c:@GINIInjectorCertificatePathsKey">GINIInjectorCertificatePathsKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
               </li>
               <li class="nav-group-task">
@@ -237,7 +243,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/BFAppLinkNavigationType.html">BFAppLinkNavigationType</a>
@@ -285,6 +291,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/GINIURLSession.html">GINIURLSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a>
               </li>
             </ul>
           </li>
@@ -348,7 +357,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIAPIManager</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIAPIManager</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSURLSessionDelegate</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -458,7 +467,7 @@
 
 <p>Usage of promises/tasks</p>
 
-<p><hr></p>
+<hr>
 
 <p>This manager makes heavy use of the concept of tasks (also known as promises in other languages). The Gini SDK uses
  <a href="https://github.com/BoltsFramework/Bolts-iOS#tasks">Facebook&rsquo;s Bolts task implementation</a>. See the
@@ -579,7 +588,7 @@
 
 <p>Base concepts and design decisions</p>
 
-<p><hr></p>
+<hr>
 
 <p>The base concept of the injector is that all object instances must be created via factories.</p>
 
@@ -680,6 +689,48 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/GINIKeychainManager.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIKeychainManager</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="cm">/**
+ * Gets the item with the given identifier from the keychain.
+ *
+ * @param identifier    The keychain item identifier.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">GINIKeychainItem</span> <span class="o">*</span><span class="p">)</span><span class="nf">getItem</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Stores the given item in the keychain.
+ *
+ * @param item          The `GINIKeychainItem to store.
+ * @returns             Whether or not the item was stored successfully.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">storeItem</span><span class="p">:(</span><span class="n">GINIKeychainItem</span> <span class="o">*</span><span class="p">)</span><span class="nv">item</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Deletes the given item in the keychain.
+ *
+ * @param item          The `GINIKeychainItem` to delete.
+ * @returns             Whether or not the item was deleted successfully.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">deleteItem</span><span class="p">:(</span><span class="n">GINIKeychainItem</span> <span class="o">*</span><span class="p">)</span><span class="nv">item</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Deletes all previously stored items from the keychain. Handy for tests.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">deleteAllItems</span><span class="p">;</span>
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GINIKeychainManager</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -776,7 +827,6 @@ devices&rsquo; keychain.</p>
                       <div class="abstract">
                         <p>The session manager is responsible for the authorization against the GINI server whenever is needed.
  authorization is required to perform requests to the GiniAPI.</p>
-
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <a href="http://developer.gini.net/gini-api/html/guides/oauth2.html">http://developer.gini.net/gini-api/html/guides/oauth2.html</a>
@@ -799,6 +849,11 @@ devices&rsquo; keychain.</p>
   <span class="n"><a href="Classes/BFTaskCompletionSource.html">BFTaskCompletionSource</a></span> <span class="o">*</span><span class="n">_activeLogInTask</span><span class="p">;</span>
   <span class="n">NSString</span> <span class="o">*</span><span class="n">_activeLogInState</span><span class="p">;</span>
 <span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt"><a href="Protocols/GINISessionManager.html">GINISessionManager</a></span> <span class="p">:</span> <span class="kt">GINISessionManagerProtocol</span><span class="p">,</span> <span class="kt"><a href="Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a></span></code></pre>
 
                         </div>
                       </div>
@@ -825,6 +880,36 @@ devices&rsquo; keychain.</p>
                         <p>Undocumented</p>
 
                         <a href="Classes/GINISessionParser.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINISessionParser</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="cm">/**
+ * Parses a JSON dictionary into a `GINISession` given that the it matches the description on the API.
+ *
+ * The expected dictionary should look like the following:
+ *
+ * {
+ *    "access_token": "exampleToken", (Necessary)
+ *    "refresh_token": "exampleToken", (Optional)
+ *    "expires_in": 123 (Necessary)
+ * }
+ *
+ * If a necessary parameter is not found, nil is returned.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="n"><a href="Classes/GINISession.html">GINISession</a></span><span class="o">*</span><span class="p">)</span><span class="nf">sessionWithJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GINISessionParser</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -915,6 +1000,47 @@ devices&rsquo; keychain.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)GINIURLSessionDelegate"></a>
+                    <a name="//apple_ref/objc/Class/GINIURLSessionDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIURLSessionDelegate">GINIURLSessionDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/GINIURLSessionDelegate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc"><a href="Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a></span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSURLSessionDelegate</span><span class="o">&gt;</span>
+
+<span class="o">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">urlSessionDelegateWithCertificatePaths</span><span class="o">:</span><span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">certificatePaths</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt"><a href="Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a></span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">URLSessionDelegate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)GINIUser"></a>
                     <a name="//apple_ref/objc/Class/GINIUser" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)GINIUser">GINIUser</a>
@@ -928,6 +1054,52 @@ devices&rsquo; keychain.</p>
                         <p>Undocumented</p>
 
                         <a href="Classes/GINIUser.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIUser</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">userId</span><span class="p">;</span>
+<span class="k">@property</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">userEmail</span><span class="p">;</span>
+
+<span class="cm">/** @name Factories */</span>
+<span class="cm">/**
+ * Factory to create a new `GINIUser` instance.
+ *
+ * @param email         The user's email address.
+ * @param userId        The user's id.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">userWithEmail</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">email</span> <span class="nf">userId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userId</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Factory to create a new `GINIUser` instance from a dictionary that is the result of a call to the Gini User Center
+ * API. Returns nil if the data is incomplete or has a wrong structure, so you have to do nil-checks with the result of
+ * calls to this factory.
+ *
+ * @param response      The response from the Gini API.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">userFromAPIResponse</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">response</span><span class="p">;</span>
+
+
+<span class="cm">/** @name Initializer */</span>
+<span class="cm">/**
+ * The designated initializer to create a `GINIUser`.
+ *
+ * @param email         The user's email address.
+ * @param userId        The user's id.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithEmail</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">email</span> <span class="nf">userId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">userId</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GINIUser</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -952,7 +1124,6 @@ devices&rsquo; keychain.</p>
                         <p>The <code>GINIUserCenterManager</code> handles the communication with the Gini User Center via the Gini User Center API
  (see <a href="http://developer.gini.net/gini-api/html/user_center_api.html">http://developer.gini.net/gini-api/html/user_center_api.html</a> for details). It can be used to create new users,
  log in a user or to get information on a user.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     Access to the User Center API is restricted to selected clients only.
@@ -1035,6 +1206,19 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/BFAppLink.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFAppLink</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFAppLink</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1058,6 +1242,19 @@ devices&rsquo; keychain.</p>
                         <p>Undocumented</p>
 
                         <a href="Classes/BFAppLinkNavigation.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFAppLinkNavigation</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFAppLinkNavigation</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1083,6 +1280,20 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/BFAppLinkReturnToRefererController.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFAppLinkReturnToRefererController</span>
+    <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/BFAppLinkReturnToRefererViewDelegate.html">BFAppLinkReturnToRefererViewDelegate</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFAppLinkReturnToRefererController</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="Protocols/BFAppLinkReturnToRefererViewDelegate.html">BFAppLinkReturnToRefererViewDelegate</a></span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1106,6 +1317,19 @@ devices&rsquo; keychain.</p>
                         <p>Undocumented</p>
 
                         <a href="Classes/BFAppLinkReturnToRefererView.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFAppLinkReturnToRefererView</span> <span class="p">:</span> <span class="nc">UIView</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFAppLinkReturnToRefererView</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1131,6 +1355,19 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/BFAppLinkTarget.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFAppLinkTarget</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFAppLinkTarget</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1154,6 +1391,19 @@ devices&rsquo; keychain.</p>
                         <p>Undocumented</p>
 
                         <a href="Classes/BFCancellationToken.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFCancellationToken</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFCancellationToken</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1179,6 +1429,19 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/BFCancellationTokenRegistration.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFCancellationTokenRegistration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFCancellationTokenRegistration</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1202,6 +1465,19 @@ devices&rsquo; keychain.</p>
                         <p>Undocumented</p>
 
                         <a href="Classes/BFCancellationTokenSource.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFCancellationTokenSource</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFCancellationTokenSource</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1227,6 +1503,19 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/BFExecutor.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFExecutor</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFExecutor</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1249,6 +1538,21 @@ devices&rsquo; keychain.</p>
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFMeasurementEvent</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFMeasurementEvent</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1274,6 +1578,19 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/BFTask.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFTask</span> <span class="o">&lt;</span><span class="n">__covariant</span> <span class="n">BFGenericType</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFTask</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1297,6 +1614,19 @@ devices&rsquo; keychain.</p>
                         <p>Undocumented</p>
 
                         <a href="Classes/BFTaskCompletionSource.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFTaskCompletionSource</span> <span class="o">&lt;</span><span class="n">__covariant</span> <span class="n">BFGenericType</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFTaskCompletionSource</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1322,6 +1652,19 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/BFURL.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFURL</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFURL</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1345,6 +1688,19 @@ devices&rsquo; keychain.</p>
                         <p>Undocumented</p>
 
                         <a href="Classes/BFWebViewAppLinkResolver.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">BFWebViewAppLinkResolver</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/BFAppLinkResolving.html">BFAppLinkResolving</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">BFWebViewAppLinkResolver</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="Protocols/BFAppLinkResolving.html">BFAppLinkResolving</a></span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1370,6 +1726,27 @@ devices&rsquo; keychain.</p>
 
                         <a href="Classes/Bolts.html" class="slightly-smaller">See more</a>
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Bolts</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="cm">/*!
+ Returns the version of the Bolts Framework as an NSString.
+ @returns The NSString representation of the current version.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">version</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Bolts</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -1381,8 +1758,8 @@ devices&rsquo; keychain.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-04-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -150,6 +150,9 @@
                 <a class="nav-group-task-link" href="../Classes/GINIURLSession.html">GINIURLSession</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIURLSessionDelegate.html">GINIURLSessionDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/GINIUser.html">GINIUser</a>
               </li>
               <li class="nav-group-task">
@@ -197,6 +200,9 @@
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorCertificatePathsKey">GINIInjectorCertificatePathsKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
               </li>
               <li class="nav-group-task">
@@ -238,7 +244,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/BFAppLinkNavigationType.html">BFAppLinkNavigationType</a>
@@ -287,6 +293,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/GINIURLSession.html">GINIURLSession</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -317,7 +326,7 @@
             <h1>GINIAPIManager</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIAPIManager</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIAPIManager</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSURLSessionDelegate</span><span class="o">&gt;</span></code></pre>
 
                 </div>
               </div>
@@ -374,7 +383,6 @@
                               <td>
                                 <div>
                                   <p>The GINIURLSession used to do the HTTP requests.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -386,16 +394,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <pre class="highlight plaintext"><code>The GINIAPIManagerRequestFactory used to create the HTTP requests. See the documentation for
-                      the `
-</code></pre>
-
-<p>&lt;GINIAPIManagerRequestFactory</p>
-
-<blockquote>
-<p>protocol for details.</p>
-</blockquote>
-
+                                  <p>The GINIAPIManagerRequestFactory used to create the HTTP requests. See the documentation for
+                      the `<GINIAPIManagerRequestFactory> protocol for details.</p>
                                 </div>
                               </td>
                             </tr>
@@ -408,7 +408,6 @@
                               <td>
                                 <div>
                                   <p>A NSURL describing the base URL of the Gini API. Usually this URL is <a href="https://api.gini.net/">https://api.gini.net/</a>.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -462,7 +461,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s ID</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -513,8 +511,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The document&rsquo;s location.</p>
-
+                                  <p>The document&rsquo;s location.
+@returns                 A <code>BFTask*</code> that will resolve to a NSDictionary* containing the API&rsquo;s response.</p>
                                 </div>
                               </td>
                             </tr>
@@ -570,7 +568,6 @@
                               <td>
                                 <div>
                                   <p>The page number of the page of which the preview image is wanted (index starting with 1).</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -583,7 +580,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s unique identifier.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -596,9 +592,8 @@
                               <td>
                                 <div>
                                   <p>The size of the rendered preview image. Please notice that this is the maximum size,
-            meaning that the images dimensions will not exceeding this limit but the rendered image can
-            actually have a little smaller dimensions.</p>
-
+                      meaning that the images dimensions will not exceeding this limit but the rendered image can
+                      actually have a little smaller dimensions.</p>
                                 </div>
                               </td>
                             </tr>
@@ -652,7 +647,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s id.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -705,7 +699,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s id.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -718,7 +711,6 @@
                               <td>
                                 <div>
                                   <p>The desired response type.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -728,7 +720,6 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>A <code>BFTask*</code> that will resolve to a NSDictionary containing the document layout.</p>
-
                       </div>
                     </section>
                   </div>
@@ -780,9 +771,8 @@
                               <td>
                                 <div>
                                   <p>Data containing the document. This should be in a format that is supported by the Gini API, see
-                    <a href="http://developer.gini.net/gini-api/html/documents.html?highlight=put#supported-file-formats">the Gini API documentation</a>
-                    for details.</p>
-
+                      <a href="http://developer.gini.net/gini-api/html/documents.html?highlight=put#supported-file-formats">the Gini API documentation</a>
+                      for details.</p>
                                 </div>
                               </td>
                             </tr>
@@ -795,7 +785,6 @@
                               <td>
                                 <div>
                                   <p>The content type of the document (as a MIME string).</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -808,7 +797,6 @@
                               <td>
                                 <div>
                                   <p>The filename of the document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -821,9 +809,8 @@
                               <td>
                                 <div>
                                   <p>(Optional) A doctype hint. This optimizes the processing at the Gini API. See the
-               <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">Gini API documentation</a>
-               for a list of possibles doctypes.</p>
-
+                      <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">Gini API documentation</a>
+                      for a list of possibles doctypes.</p>
                                 </div>
                               </td>
                             </tr>
@@ -877,7 +864,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s id.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -931,7 +917,6 @@
                               <td>
                                 <div>
                                   <p>The maximum number of documents to return.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -944,7 +929,6 @@
                               <td>
                                 <div>
                                   <p>The start offset.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -998,7 +982,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s id.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1053,7 +1036,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s unique identifier.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1110,7 +1092,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s id.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1123,7 +1104,6 @@
                               <td>
                                 <div>
                                   <p>The extraction label to be updated.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1136,7 +1116,6 @@
                               <td>
                                 <div>
                                   <p>The new value for the extraction.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1149,7 +1128,6 @@
                               <td>
                                 <div>
                                   <p>The new bounding box for the updated extraction (optional).</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1204,7 +1182,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s id.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1217,9 +1194,8 @@
                               <td>
                                 <div>
                                   <p>The feedback dictionary containing the labels that correspond to the names of extraction types.
-                See the Gini API documentation on submitting feedback on multiple extractions
-                (<a href="http://developer.gini.net/gini-api/html/documents.html#submitting-feedback-on-multiple-extractions">http://developer.gini.net/gini-api/html/documents.html#submitting-feedback-on-multiple-extractions</a>).</p>
-
+                       See the Gini API documentation on submitting feedback on multiple extractions
+                       (<a href="http://developer.gini.net/gini-api/html/documents.html#submitting-feedback-on-multiple-extractions">http://developer.gini.net/gini-api/html/documents.html#submitting-feedback-on-multiple-extractions</a>).</p>
                                 </div>
                               </td>
                             </tr>
@@ -1274,7 +1250,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s id.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1287,7 +1262,6 @@
                               <td>
                                 <div>
                                   <p>The extraction label to be deleted.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1344,7 +1318,6 @@
                               <td>
                                 <div>
                                   <p>The search term(s) separated by space.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1357,7 +1330,6 @@
                               <td>
                                 <div>
                                   <p>The number of results per page.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1370,7 +1342,6 @@
                               <td>
                                 <div>
                                   <p>The start offset.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1383,7 +1354,6 @@
                               <td>
                                 <div>
                                   <p>Restrict the search to a specific doctype.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1410,7 +1380,6 @@
  extractions where empty or incorrect), you can create an error report for a document. This allows Gini to analyze and
  correct the problem that was found. The returned errorId can be used to refer to the reported error towards the Gini
  support.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>The owner of this document must agree that Gini can use this document for debugging and error analysis.</p>
@@ -1446,7 +1415,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s id.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1459,7 +1427,6 @@
                               <td>
                                 <div>
                                   <p>A summary for the error.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1472,7 +1439,6 @@
                               <td>
                                 <div>
                                   <p>A detailed description for the error.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1521,16 +1487,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <pre class="highlight plaintext"><code>    An object that implements the 
-</code></pre>
-
-<p>&lt;GINIURLSession</p>
-
-<blockquote>
-<p>protocol. Will be used to perform the HTTP
-                          communication.</p>
-</blockquote>
-
+                                  <p>An object that implements the <GINIURLSession> protocol. Will be used to perform the HTTP
+                      communication.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1542,16 +1500,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <pre class="highlight plaintext"><code>An object that implements the 
-</code></pre>
-
-<p>&lt;GINIAPIManagerRequestFactory</p>
-
-<blockquote>
-<p>. Will be used to create request
-                          objects with valid session credentials. </p>
-</blockquote>
-
+                                  <p>An object that implements the <GINIAPIManagerRequestFactory>. Will be used to create request
+                      objects with valid session credentials. - see: GINIAPIManagerRequestFactory for details.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1564,8 +1514,7 @@
                               <td>
                                 <div>
                                   <p>The baseURL. The requests to the Gini API are relative to that URL, so it usually should be
-               set to a <code>NSURL*</code> pointing to &lsquo;<a href="https://api.gini.net">https://api.gini.net</a>&rsquo;.</p>
-
+                      set to a <code>NSURL*</code> pointing to &lsquo;<a href="https://api.gini.net">https://api.gini.net</a>&rsquo;.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1583,8 +1532,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-04-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

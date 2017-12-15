@@ -150,6 +150,9 @@
                 <a class="nav-group-task-link" href="../Classes/GINIURLSession.html">GINIURLSession</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIURLSessionDelegate.html">GINIURLSessionDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/GINIUser.html">GINIUser</a>
               </li>
               <li class="nav-group-task">
@@ -197,6 +200,9 @@
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorCertificatePathsKey">GINIInjectorCertificatePathsKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
               </li>
               <li class="nav-group-task">
@@ -238,7 +244,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/BFAppLinkNavigationType.html">BFAppLinkNavigationType</a>
@@ -286,6 +292,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/GINIURLSession.html">GINIURLSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a>
               </li>
             </ul>
           </li>
@@ -373,9 +382,8 @@
                               <td>
                                 <div>
                                   <p>The custom URL scheme of the application that is used for the authorization flow. It is used
-                 when the browser redirects back to the app after a login. Must be the same as the custom URL
-                 you registered with Gini.</p>
-
+                      when the browser redirects back to the app after a login. Must be the same as the custom URL
+                      you registered with Gini.</p>
                                 </div>
                               </td>
                             </tr>
@@ -388,7 +396,85 @@
                               <td>
                                 <div>
                                   <p>The application&rsquo;s client ID for the Gini API.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)clientFlowWithClientID:urlScheme:certificatePaths:"></a>
+                    <a name="//apple_ref/objc/Method/+clientFlowWithClientID:urlScheme:certificatePaths:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)clientFlowWithClientID:urlScheme:certificatePaths:">+clientFlowWithClientID:urlScheme:certificatePaths:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of the GINISDKBuilder where the client authorization flow is used.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">clientFlowWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientID</span>
+                             <span class="nf">urlScheme</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">urlScheme</span>
+                      <span class="nf">certificatePaths</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePaths</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">clientFlow</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">urlScheme</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlScheme</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The custom URL scheme of the application that is used for the authorization flow. It is used
+                      when the browser redirects back to the app after a login. Must be the same as the custom URL
+                      you registered with Gini.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The application&rsquo;s client ID for the Gini API.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>certificatePaths</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Local certificate paths for certificate pinning.</p>
                                 </div>
                               </td>
                             </tr>
@@ -442,9 +528,8 @@
                               <td>
                                 <div>
                                   <p>The custom URL scheme of the application that is used for the authorization flow. It is used
-                 when the browser redirects back to the app after a login. Must be the same as the custom URL
-                 you registered with Gini.</p>
-
+                      when the browser redirects back to the app after a login. Must be the same as the custom URL
+                      you registered with Gini.</p>
                                 </div>
                               </td>
                             </tr>
@@ -457,7 +542,6 @@
                               <td>
                                 <div>
                                   <p>The application&rsquo;s client ID for the Gini API.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -470,7 +554,98 @@
                               <td>
                                 <div>
                                   <p>The client secret you received from Gini.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)serverFlowWithClientID:clientSecret:urlScheme:certificatePaths:"></a>
+                    <a name="//apple_ref/objc/Method/+serverFlowWithClientID:clientSecret:urlScheme:certificatePaths:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)serverFlowWithClientID:clientSecret:urlScheme:certificatePaths:">+serverFlowWithClientID:clientSecret:urlScheme:certificatePaths:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of the GINISDKBuilder where the server authorization flow is used.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">serverFlowWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientID</span>
+                          <span class="nf">clientSecret</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
+                             <span class="nf">urlScheme</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">urlScheme</span>
+                      <span class="nf">certificatePaths</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePaths</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">serverFlow</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">urlScheme</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>urlScheme</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The custom URL scheme of the application that is used for the authorization flow. It is used
+                      when the browser redirects back to the app after a login. Must be the same as the custom URL
+                      you registered with Gini.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The application&rsquo;s client ID for the Gini API.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientSecret</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The client secret you received from Gini.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>certificatePaths</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Local certificate paths for certificate pinning.</p>
                                 </div>
                               </td>
                             </tr>
@@ -521,26 +696,106 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>clientID</em>
+                                <em>clientId</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
                                   <p>The application&rsquo;s clientID for the Gini API.</p>
-
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>userEmailDomain:</em>
+                                <em>emailDomain</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
                                   <p>The domain of the email address.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePaths:"></a>
+                    <a name="//apple_ref/objc/Method/+anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePaths:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePaths:">+anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePaths:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of the GINISDKBuilder where anonymous users are used.</p>
 
+<p>@warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
+ clients only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">anonymousUserWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientId</span>
+                             <span class="nf">clientSecret</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
+                          <span class="nf">userEmailDomain</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">emailDomain</span>
+                         <span class="nf">certificatePaths</span><span class="p">:</span>
+                             <span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePaths</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">anonymousUser</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">userEmailDomain</span> <span class="nv">emailDomain</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The application&rsquo;s clientID for the Gini API.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>emailDomain</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The domain of the email address.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>certificatePaths</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Local certificate paths for certificate pinning.</p>
                                 </div>
                               </td>
                             </tr>
@@ -694,8 +949,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-04-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

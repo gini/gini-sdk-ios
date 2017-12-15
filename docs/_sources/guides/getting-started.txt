@@ -23,7 +23,7 @@ Then run
 .. code-block:: sh
 
     $ pod install
-    
+
 in your project directory and open the generated Xcode workspace.
 
 
@@ -56,7 +56,7 @@ help of the ``GINISDKBuilder`` class. In this example, the anonymous users are c
 An example of a username created with this configuration would be ``550e8400-e29b-11d4-a716-446655440000@example.com``
 
 .. code-block:: obj-c
-    
+
     //
     // AppDelegate.h
     //
@@ -71,7 +71,7 @@ An example of a username created with this configuration would be ``550e8400-e29
     @end
 
 .. code-block:: obj-c
-    
+
     //
     // AppDelegate.m
     //
@@ -81,6 +81,7 @@ An example of a username created with this configuration would be ``550e8400-e29
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     {
         _giniSDK = [[GINISDKBuilder anonymousUserWithClientID:@"your_gini_client_id" clientSecret:@"your_gini_client_secret" userEmailDomain:@"example.com"] build];
+        // It is possible to enable certificate pinning adding the 'certificatePath' in the `GINISDKBuilder` initializer.
 
         // The DocumentTaskManager provides the high-level API to work with documents.
         GINIDocumentTaskManager *documentManager = _giniSDK.documentTaskManager;
@@ -105,12 +106,12 @@ An example of a username created with this configuration would be ``550e8400-e29
         var giniSDK: GiniSDK?
 
         func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-            
+
             self.giniSDK = GINISDKBuilder.anonymousUserWithClientID("your_gini_client_id", clientSecret: "your_gini_client_secret", userEmailDomain: "example.com").build()
 
             // The DocumentTaskManager provides the high-level API to work with documents.
             let documentManager = self.giniSDK?.documentTaskManager
-            
+
             return true
         }
 
@@ -126,5 +127,4 @@ Whenever you need the Gini SDK, for example in a view controller, you can now ac
 
     let sdk = (UIApplication.sharedApplication().delegate as! AppDelegate).giniSDK
 
-Congratulations, you have now successfully integrated the Gini SDK. 
-
+Congratulations, you have now successfully integrated the Gini SDK.

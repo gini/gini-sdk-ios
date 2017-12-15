@@ -2,6 +2,30 @@
 Changelog
 =========
 
+0.5.1 (14-12-2017)
+==================
+
+Features
+--------
+
+- Added support for pinning with more than one certificate.
+
+0.5.0 (12-12-2017)
+==================
+
+Features
+--------
+
+- Added certificate pinning.
+
+0.4.1 (11-05-2017)
+==================
+
+Bugfixes
+--------
+
+- Added "paymentPurpose" as an acceptable feedback field in GINIDocumentTaskManager
+
 0.4.0 (19-04-2017)
 ==================
 

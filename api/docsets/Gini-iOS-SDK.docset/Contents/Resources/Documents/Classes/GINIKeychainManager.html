@@ -150,6 +150,9 @@
                 <a class="nav-group-task-link" href="../Classes/GINIURLSession.html">GINIURLSession</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIURLSessionDelegate.html">GINIURLSessionDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/GINIUser.html">GINIUser</a>
               </li>
               <li class="nav-group-task">
@@ -197,6 +200,9 @@
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorCertificatePathsKey">GINIInjectorCertificatePathsKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
               </li>
               <li class="nav-group-task">
@@ -238,7 +244,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/BFAppLinkNavigationType.html">BFAppLinkNavigationType</a>
@@ -287,6 +293,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/GINIURLSession.html">GINIURLSession</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -315,6 +324,41 @@
         <section class="section">
           <div class="section-content">
             <h1>GINIKeychainManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINIKeychainManager</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="cm">/**
+ * Gets the item with the given identifier from the keychain.
+ *
+ * @param identifier    The keychain item identifier.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">GINIKeychainItem</span> <span class="o">*</span><span class="p">)</span><span class="nf">getItem</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">identifier</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Stores the given item in the keychain.
+ *
+ * @param item          The `GINIKeychainItem to store.
+ * @returns             Whether or not the item was stored successfully.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">storeItem</span><span class="p">:(</span><span class="n">GINIKeychainItem</span> <span class="o">*</span><span class="p">)</span><span class="nv">item</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Deletes the given item in the keychain.
+ *
+ * @param item          The `GINIKeychainItem` to delete.
+ * @returns             Whether or not the item was deleted successfully.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">deleteItem</span><span class="p">:(</span><span class="n">GINIKeychainItem</span> <span class="o">*</span><span class="p">)</span><span class="nv">item</span><span class="p">;</span>
+
+<span class="cm">/**
+ * Deletes all previously stored items from the keychain. Handy for tests.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">deleteAllItems</span><span class="p">;</span>
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
             <p>Undocumented</p>
 
           </div>
@@ -366,7 +410,6 @@
                               <td>
                                 <div>
                                   <p>The keychain item identifier.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -417,8 +460,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The `GINIKeychainItem to store.</p>
-
+                                  <p>The `GINIKeychainItem to store.
+@returns             Whether or not the item was stored successfully.</p>
                                 </div>
                               </td>
                             </tr>
@@ -469,8 +512,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>GINIKeychainItem</code> to delete.</p>
-
+                                  <p>The <code>GINIKeychainItem</code> to delete.
+@returns             Whether or not the item was deleted successfully.</p>
                                 </div>
                               </td>
                             </tr>
@@ -520,8 +563,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-04-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

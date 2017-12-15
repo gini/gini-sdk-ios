@@ -29,6 +29,27 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
+      "line": 10,
+      "symbol": "GINIURLSessionDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
+      "line": 13,
+      "symbol": "GINIURLSessionDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
+      "line": 15,
+      "symbol": "GINIURLSessionDelegate.+urlSessionDelegateWithCertificatePaths:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/travis/build/gini/gini-sdk-ios/Gini-iOS-SDK/GINIUser.h",
       "line": 9,
       "symbol": "GINIUser",

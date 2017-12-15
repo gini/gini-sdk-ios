@@ -150,6 +150,9 @@
                 <a class="nav-group-task-link" href="../Classes/GINIURLSession.html">GINIURLSession</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIURLSessionDelegate.html">GINIURLSessionDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/GINIUser.html">GINIUser</a>
               </li>
               <li class="nav-group-task">
@@ -197,6 +200,9 @@
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorCertificatePathsKey">GINIInjectorCertificatePathsKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
               </li>
               <li class="nav-group-task">
@@ -238,7 +244,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/BFAppLinkNavigationType.html">BFAppLinkNavigationType</a>
@@ -287,6 +293,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/GINIURLSession.html">GINIURLSession</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -326,7 +335,7 @@
 
 <p>Usage of promises/tasks</p>
 
-<p><hr></p>
+<hr>
 
 <p>This manager makes heavy use of the concept of tasks (also known as promises in other languages). The Gini SDK uses
  <a href="https://github.com/BoltsFramework/Bolts-iOS#tasks">Facebook&rsquo;s Bolts task implementation</a>. See the
@@ -376,8 +385,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>An instance of <code>GINIAPIManager</code> which will be used to communicate with the Gini API.</p>
-
+                                  <p>An instance of <code><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></code> which will be used to communicate with the Gini API.</p>
                                 </div>
                               </td>
                             </tr>
@@ -428,8 +436,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>An instance of <code>GINIAPIManager</code> which will be used to communicate with the Gini API.</p>
-
+                                  <p>An instance of <code><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></code> which will be used to communicate with the Gini API.</p>
                                 </div>
                               </td>
                             </tr>
@@ -515,7 +522,6 @@
                               <td>
                                 <div>
                                   <p>The document&rsquo;s unique identifier.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -555,7 +561,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromImage</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">from</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -572,7 +578,6 @@
                               <td>
                                 <div>
                                   <p>The file name of the document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -585,7 +590,6 @@
                               <td>
                                 <div>
                                   <p>An image representing the document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -613,7 +617,6 @@
 
 <p>See the <a href="http://developer.gini.net/gini-api/html/documents.html#document-type-hints">Gini API documentation</a> for
  details and <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">a list of available doctypes</a>.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     Some incubating extractions are only available if you create the document with this method, so the Gini API
@@ -633,7 +636,7 @@ knows the doctype.
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">fromImage</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">from</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -693,7 +696,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The file name of the document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -706,7 +708,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>Data representing the document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -719,7 +720,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The doctype hint for the document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -773,7 +773,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -825,7 +824,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document that will be deleted.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -855,7 +853,6 @@ knows the doctype.
 
 <p>To avoid flooding the network, there is a pause of at least the number of seconds that is set in the
  <code><a href="../Classes/GINIDocumentTaskManager.html#/c:objc(cs)GINIDocumentTaskManager(py)pollingInterval">pollingInterval</a></code> property of this class.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>This method returns a <code>BFTask*</code> resolving to a <code><a href="../Classes/GINIDocument.html">GINIDocument</a></code> instance representing the
@@ -891,7 +888,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document that will be polled.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -949,7 +945,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The unique identifier of the document which will be polled.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1003,7 +998,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The page number of the document (starting from 1, not 0!).</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1016,7 +1010,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1029,9 +1022,8 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The size in which the document will be rendered. Please notice that this is the maximum size,
-            meaning that the images dimensions will not exceeding this limit but the rendered image can
-            actually have a little smaller dimensions.</p>
-
+                  meaning that the images dimensions will not exceeding this limit but the rendered image can
+                  actually have a little smaller dimensions.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1083,7 +1075,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1136,7 +1127,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1191,7 +1181,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The extraction.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1204,7 +1193,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1256,7 +1244,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1283,7 +1270,6 @@ knows the doctype.
  extractions where empty or incorrect), you can create an error report for a document. This allows Gini to analyze and
  correct the problem that was found. The returned errorId can be used to refer to the reported error towards the Gini
  support.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>The owner of this document must agree that Gini can use this document for debugging and error analysis.</p>
@@ -1319,7 +1305,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>The document for which the error is reported.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1332,7 +1317,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>A summary for the error (optional).</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1345,7 +1329,6 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>A detailed description for the error (optional).</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1363,8 +1346,8 @@ knows the doctype.
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-04-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

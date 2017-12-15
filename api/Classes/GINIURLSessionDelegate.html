@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GINISessionParser Class Reference</title>
+    <title>GINIURLSessionDelegate Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/objc/Class/GINISessionParser" class="dashAnchor"></a>
+    <a name="//apple_ref/objc/Class/GINIURLSessionDelegate" class="dashAnchor"></a>
 
-    <a title="GINISessionParser Class Reference"></a>
+    <a title="GINIURLSessionDelegate Class Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -50,7 +50,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">Gini-iOS-SDK Reference</a>
       <img class="carat" src="../img/carat.png" />
-      GINISessionParser Class Reference
+      GINIURLSessionDelegate Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -323,25 +323,12 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>GINISessionParser</h1>
+            <h1>GINIURLSessionDelegate</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GINISessionParser</span> <span class="p">:</span> <span class="nc">NSObject</span>
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc"><a href="../Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a></span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSURLSessionDelegate</span><span class="o">&gt;</span>
 
-<span class="cm">/**
- * Parses a JSON dictionary into a `GINISession` given that the it matches the description on the API.
- *
- * The expected dictionary should look like the following:
- *
- * {
- *    "access_token": "exampleToken", (Necessary)
- *    "refresh_token": "exampleToken", (Optional)
- *    "expires_in": 123 (Necessary)
- * }
- *
- * If a necessary parameter is not found, nil is returned.
- */</span>
-<span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/GINISession.html">GINISession</a></span><span class="o">*</span><span class="p">)</span><span class="nf">sessionWithJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span><span class="p">;</span>
+<span class="o">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">urlSessionDelegateWithCertificatePaths</span><span class="o">:</span><span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">certificatePaths</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -359,9 +346,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)GINISessionParser(cm)sessionWithJSONDictionary:"></a>
-                    <a name="//apple_ref/objc/Method/+sessionWithJSONDictionary:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINISessionParser(cm)sessionWithJSONDictionary:">+sessionWithJSONDictionary:</a>
+                    <a name="/c:objc(cs)GINIURLSessionDelegate(cm)urlSessionDelegateWithCertificatePaths:"></a>
+                    <a name="//apple_ref/objc/Method/+urlSessionDelegateWithCertificatePaths:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIURLSessionDelegate(cm)urlSessionDelegateWithCertificatePaths:">+urlSessionDelegateWithCertificatePaths:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -369,29 +356,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a JSON dictionary into a <code><a href="../Classes/GINISession.html">GINISession</a></code> given that the it matches the description on the API.</p>
-
-<p>The expected dictionary should look like the following:</p>
-
-<p>{
-    <q>access_token</q>: <q>exampleToken</q>, (Necessary)
-    <q>refresh_token</q>: <q>exampleToken</q>, (Optional)
-    <q>expires_in</q>: 123 (Necessary)
- }</p>
-
-<p>If a necessary parameter is not found, nil is returned.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/GINISession.html">GINISession</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">sessionWithJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">urlSessionDelegateWithCertificatePaths</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePaths</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">session</span><span class="p">(</span><span class="n">withJSONDictionary</span> <span class="nv">dictionary</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GINISession.html">GINISession</a></span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="n">convenience</span> <span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">certificatePaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

@@ -150,6 +150,9 @@
                 <a class="nav-group-task-link" href="../Classes/GINIURLSession.html">GINIURLSession</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIURLSessionDelegate.html">GINIURLSessionDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/GINIUser.html">GINIUser</a>
               </li>
               <li class="nav-group-task">
@@ -197,6 +200,9 @@
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorCertificatePathsKey">GINIInjectorCertificatePathsKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
               </li>
               <li class="nav-group-task">
@@ -238,7 +244,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/BFAppLinkNavigationType.html">BFAppLinkNavigationType</a>
@@ -287,6 +293,9 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/GINIURLSession.html">GINIURLSession</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols.html#/c:objc(pl)GINIURLSessionDelegate">GINIURLSessionDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -324,7 +333,6 @@
             <p>The <code>GINIUserCenterManager</code> handles the communication with the Gini User Center via the Gini User Center API
  (see <a href="http://developer.gini.net/gini-api/html/user_center_api.html">http://developer.gini.net/gini-api/html/user_center_api.html</a> for details). It can be used to create new users,
  log in a user or to get information on a user.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     Access to the User Center API is restricted to selected clients only.
@@ -386,8 +394,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>GINIURLSession</code> instance that will be used to do the HTTP requests to the Gini User Center.</p>
-
+                                  <p>The <code><a href="../Protocols/GINIURLSession.html">GINIURLSession</a></code> instance that will be used to do the HTTP requests to the Gini User Center.</p>
                                 </div>
                               </td>
                             </tr>
@@ -491,8 +498,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The user&rsquo;s unique ID.</p>
-
+                                  <p>The user&rsquo;s unique ID.
+@returns             A <code>BFTask *</code> which will resolve to a <code><a href="../Classes/GINIUser.html">GINIUser</a></code> model instance representing the user information.</p>
                                 </div>
                               </td>
                             </tr>
@@ -544,7 +551,6 @@
                               <td>
                                 <div>
                                   <p>The user&rsquo;s email address. Will also be used as the user&rsquo;s username.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -556,8 +562,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The user&rsquo;s password. Must be at least 6 characters long.</p>
-
+                                  <p>The user&rsquo;s password. Must be at least 6 characters long.
+@returns             A <code>BFTask *</code> which will resolve to the user&rsquo;s unique ID.</p>
                                 </div>
                               </td>
                             </tr>
@@ -609,7 +615,6 @@
                               <td>
                                 <div>
                                   <p>The user&rsquo;s username (usually the email address).</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -622,7 +627,6 @@
                               <td>
                                 <div>
                                   <p>The user&rsquo;s password.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -632,8 +636,7 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>A <code>BFTask *</code> which will resolve to a <code><a href="../Classes/GINISession.html">GINISession</a></code> instance in case of success or to a GINIError
-        if the credentials are wrong.</p>
-
+                  if the credentials are wrong.</p>
                       </div>
                     </section>
                   </div>
@@ -683,7 +686,6 @@
                               <td>
                                 <div>
                                   <p>A valid session for the Gini API.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -693,8 +695,7 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>A <code>BFTask *</code> which will resolve to an NSDictionary containing information
-        about the session.</p>
-
+                              about the session.</p>
                       </div>
                     </section>
                   </div>
@@ -741,8 +742,7 @@
                               <td>
                                 <div>
                                   <p>The session for the Gini API, which was returned when the
-                      user was logged in.</p>
-
+                              user was logged in.</p>
                                 </div>
                               </td>
                             </tr>
@@ -752,7 +752,6 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>A <code>BFTask *</code> which will resolve to a String containing the user id.</p>
-
                       </div>
                     </section>
                   </div>
@@ -801,7 +800,6 @@
                               <td>
                                 <div>
                                   <p>A new email address.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -814,7 +812,6 @@
                               <td>
                                 <div>
                                   <p>The previous email address of the user.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -827,8 +824,7 @@
                               <td>
                                 <div>
                                   <p>The session for the Gini API which was returned when
-                      the user was logged in.</p>
-
+                              the user was logged in.</p>
                                 </div>
                               </td>
                             </tr>
@@ -838,7 +834,6 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>A <code>BFTask *</code> with empty result as the response contains no data.</p>
-
                       </div>
                     </section>
                   </div>
@@ -851,8 +846,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-04-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-15)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
