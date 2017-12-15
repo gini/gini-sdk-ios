@@ -200,7 +200,7 @@
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorAPIBaseURLKey">GINIInjectorAPIBaseURLKey</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorCertificatePathKey">GINIInjectorCertificatePathKey</a>
+                <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorCertificatePathsKey">GINIInjectorCertificatePathsKey</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Constants.html#/c:@GINIInjectorClientIDKey">GINIInjectorClientIDKey</a>
@@ -408,9 +408,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)GINISDKBuilder(cm)clientFlowWithClientID:urlScheme:certificatePath:"></a>
-                    <a name="//apple_ref/objc/Method/+clientFlowWithClientID:urlScheme:certificatePath:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)clientFlowWithClientID:urlScheme:certificatePath:">+clientFlowWithClientID:urlScheme:certificatePath:</a>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)clientFlowWithClientID:urlScheme:certificatePaths:"></a>
+                    <a name="//apple_ref/objc/Method/+clientFlowWithClientID:urlScheme:certificatePaths:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)clientFlowWithClientID:urlScheme:certificatePaths:">+clientFlowWithClientID:urlScheme:certificatePaths:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -427,12 +427,12 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">clientFlowWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientID</span>
                              <span class="nf">urlScheme</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">urlScheme</span>
-                       <span class="nf">certificatePath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePath</span><span class="p">;</span></code></pre>
+                      <span class="nf">certificatePaths</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePaths</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">clientFlow</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">urlScheme</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePath</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">clientFlow</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">urlScheme</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -469,12 +469,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>certificatePath</em>
+                                <em>certificatePaths</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Local certificate path for certificate pinning.</p>
+                                  <p>Local certificate paths for certificate pinning.</p>
                                 </div>
                               </td>
                             </tr>
@@ -566,9 +566,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)GINISDKBuilder(cm)serverFlowWithClientID:clientSecret:urlScheme:certificatePath:"></a>
-                    <a name="//apple_ref/objc/Method/+serverFlowWithClientID:clientSecret:urlScheme:certificatePath:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)serverFlowWithClientID:clientSecret:urlScheme:certificatePath:">+serverFlowWithClientID:clientSecret:urlScheme:certificatePath:</a>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)serverFlowWithClientID:clientSecret:urlScheme:certificatePaths:"></a>
+                    <a name="//apple_ref/objc/Method/+serverFlowWithClientID:clientSecret:urlScheme:certificatePaths:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)serverFlowWithClientID:clientSecret:urlScheme:certificatePaths:">+serverFlowWithClientID:clientSecret:urlScheme:certificatePaths:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -586,12 +586,12 @@
                           <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">serverFlowWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientID</span>
                           <span class="nf">clientSecret</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
                              <span class="nf">urlScheme</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">urlScheme</span>
-                       <span class="nf">certificatePath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePath</span><span class="p">;</span></code></pre>
+                      <span class="nf">certificatePaths</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePaths</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">serverFlow</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">urlScheme</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePath</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">serverFlow</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientID</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">urlScheme</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -640,12 +640,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>certificatePath</em>
+                                <em>certificatePaths</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Local certificate path for certificate pinning.</p>
+                                  <p>Local certificate paths for certificate pinning.</p>
                                 </div>
                               </td>
                             </tr>
@@ -726,9 +726,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)GINISDKBuilder(cm)anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePath:"></a>
-                    <a name="//apple_ref/objc/Method/+anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePath:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePath:">+anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePath:</a>
+                    <a name="/c:objc(cs)GINISDKBuilder(cm)anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePaths:"></a>
+                    <a name="//apple_ref/objc/Method/+anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePaths:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINISDKBuilder(cm)anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePaths:">+anonymousUserWithClientID:clientSecret:userEmailDomain:certificatePaths:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -749,12 +749,13 @@
                           <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">anonymousUserWithClientID</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientId</span>
                              <span class="nf">clientSecret</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientSecret</span>
                           <span class="nf">userEmailDomain</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">emailDomain</span>
-                          <span class="nf">certificatePath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePath</span><span class="p">;</span></code></pre>
+                         <span class="nf">certificatePaths</span><span class="p">:</span>
+                             <span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">certificatePaths</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">anonymousUser</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">userEmailDomain</span> <span class="nv">emailDomain</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePath</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">anonymousUser</span><span class="p">(</span><span class="n">withClientID</span> <span class="nv">clientId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">userEmailDomain</span> <span class="nv">emailDomain</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">certificatePaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -789,12 +790,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>certificatePath</em>
+                                <em>certificatePaths</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Local certificate path for certificate pinning.</p>
+                                  <p>Local certificate paths for certificate pinning.</p>
                                 </div>
                               </td>
                             </tr>
@@ -948,7 +949,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-12)</p>
+      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-15)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

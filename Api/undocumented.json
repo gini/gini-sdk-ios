@@ -45,7 +45,7 @@
     {
       "file": "/Users/enriquedelpozogomez/Documents/gini-sdk-ios/Gini-iOS-SDK/GINIURLSessionDelegate.h",
       "line": 15,
-      "symbol": "GINIURLSessionDelegate.+urlSessionDelegateWithCertificatePath:",
+      "symbol": "GINIURLSessionDelegate.+urlSessionDelegateWithCertificatePaths:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
