@@ -45,17 +45,12 @@ completionHandler {
         SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrust, i);
         NSData *remoteCertificateData = (NSData *)CFBridgingRelease(SecCertificateCopyData(certificate));
         
-        for (int j = 0; j < [_nsCertificatePaths count]; j++) {
-            NSData *localCertificate = [NSData dataWithContentsOfFile:[_nsCertificatePaths objectAtIndex:j]];
-            if(localCertificate != nil) {
-                remoteCertEqualToLocalCert = [remoteCertificateData isEqualToData:localCertificate];
-                if (remoteCertEqualToLocalCert) {
-                    goto outer_done;
-                }
-            }
+        remoteCertEqualToLocalCert = [self isLocalCertEqualToRemoteCertData:remoteCertificateData];
+        
+        if (remoteCertEqualToLocalCert) {
+            break;
         }
     }
-    outer_done:;
     
     if ((remoteCertEqualToLocalCert && remoteCertificateIsValid) || _nsCertificatePaths == nil ) {
         NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrust];
@@ -63,6 +58,16 @@ completionHandler {
     } else {
         completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, NULL);
     }
+}
+
+- (BOOL)isLocalCertEqualToRemoteCertData:(NSData *)data {
+    for (int j = 0; j < [_nsCertificatePaths count]; j++) {
+        NSData *localCertificate = [NSData dataWithContentsOfFile:[_nsCertificatePaths objectAtIndex:j]];
+        if(localCertificate != nil && [data isEqualToData:localCertificate]) {
+            return true;
+        }
+    }
+    return false;
 }
 
 @end
