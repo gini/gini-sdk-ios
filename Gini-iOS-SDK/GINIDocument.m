@@ -46,6 +46,10 @@
         sourceClassification = GiniDocumentSourceClassificationScanned;
     } else if ([classification isEqualToString:@"NATIVE"]) {
         sourceClassification = GiniDocumentSourceClassificationNative;
+    } else if ([classification isEqualToString:@"TEXT"]) {
+        sourceClassification = GiniDocumentSourceClassificationText;
+    } else if ([classification isEqualToString:@"SANDWICH"]) {
+        sourceClassification = GiniDocumentSourceClassificationSandwich;
     } else {
         NSLog(@"Unknown document source classification: %@", classification);
         return nil;
