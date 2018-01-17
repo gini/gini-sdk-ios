@@ -29,7 +29,11 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
     /// A scanned document, usually the result of a photographed or scanned document.
     GiniDocumentSourceClassificationScanned,
     /// A "native" document, usually a PDF document.
-    GiniDocumentSourceClassificationNative
+    GiniDocumentSourceClassificationNative,
+    /// A text document.
+    GiniDocumentSourceClassificationText,
+    /// A scanned document with the ocr information on top.
+    GiniDocumentSourceClassificationSandwich
 };
 
 /**
