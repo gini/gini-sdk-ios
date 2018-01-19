@@ -1,7 +1,5 @@
 # Gini iOS SDK
 
-[![CI Status](https://travis-ci.org/gini/gini-sdk-ios.svg?branch=master)](https://travis-ci.org/gini/gini-sdk-ios)
-
 An SDK for integrating Gini technology into other apps. With this SDK you will be able to extract semantic information from various types of documents.
 
 The Gini iOS SDK works for both Objective-C and Swift apps.
@@ -12,7 +10,7 @@ See the [API Documentation](http://developer.gini.net/gini-api/html/guides/oauth
 
 ## Architecture
 
-The Gini iOS SDK provides several managers that are used to interact with the 
+The Gini iOS SDK provides several managers that are used to interact with the
 [Gini API](http://developer.gini.net/gini-api/html/index.html). Those are:
 
 - `GINIDocumentTaskManager`: A high-level manager for document-related tasks. Use this manager to integrate the Gini
