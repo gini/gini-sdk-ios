@@ -326,7 +326,7 @@
             <h1>GiniSDK</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GiniSDK</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">GiniSDK</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -366,12 +366,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithInjector</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIInjector.html">GINIInjector</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">injector</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithInjector</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIInjector.html">GINIInjector</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">injector</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">injector</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIInjector.html">GINIInjector</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">injector</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIInjector.html">GINIInjector</a></span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -437,12 +437,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span> <span class="o">*</span><span class="n">APIManager</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span> <span class="o">*</span><span class="n">APIManager</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">apiManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">apiManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIAPIManager.html">GINIAPIManager</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -469,13 +469,13 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/GINISessionManager.html">GINISessionManager</a></span><span class="p">,</span> <span class="n"><a href="../Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a></span><span class="o">&gt;</span>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/GINISessionManager.html">GINISessionManager</a></span><span class="p">,</span> <span class="n"><a href="../Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a></span><span class="o">&gt;</span>
     <span class="n">sessionManager</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">sessionManager</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a></span> <span class="o">&amp;</span> <span class="kt">GINISessionManagerProtocol</span><span class="p">)</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sessionManager</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Protocols/GINIIncomingURLDelegate.html">GINIIncomingURLDelegate</a></span> <span class="o">&amp;</span> <span class="kt">GINISessionManagerProtocol</span><span class="p">)</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -503,12 +503,12 @@ level API for the Gini API and it is recommended that you use this class in your
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a></span> <span class="o">*</span><span class="n">documentTaskManager</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a></span> <span class="o">*</span><span class="n">documentTaskManager</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">documentTaskManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">documentTaskManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -523,8 +523,8 @@ level API for the Gini API and it is recommended that you use this class in your
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2017-12-15)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2018 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2018-01-19)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
