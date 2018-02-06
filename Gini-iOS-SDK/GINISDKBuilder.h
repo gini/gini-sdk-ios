@@ -49,11 +49,11 @@
  *                          you registered with Gini.
  *
  * @param clientID          The application's client ID for the Gini API.
- * @param publicKeyPaths    Local public key paths for public key pinning.
+ * @param publicKeyHashes    Local public key paths for public key pinning.
  */
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
-                        publicKeyPaths:(NSArray<NSString *> *)publicKeyPaths;
+                        publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
 
 /**
  * Creates an instance of the GINISDKBuilder where the client authorization flow is used.
@@ -64,12 +64,12 @@
  *
  * @param clientID          The application's client ID for the Gini API.
  * @param certificatePaths  Local certificate paths for certificate pinning.
- * @param publicKeyPaths    Local public key paths for public key pinning.
+ * @param publicKeyHashes    Local public key paths for public key pinning.
  */
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
                       certificatePaths:(NSArray<NSString *> *)certificatePaths
-                        publicKeyPaths:(NSArray<NSString *> *)publicKeyPaths;
+                        publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
 
 /**
  * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
@@ -114,12 +114,12 @@
  * @param clientID          The application's client ID for the Gini API.
  *
  * @param clientSecret      The client secret you received from Gini.
- * @param publicKeyPaths    Local public key paths for public key pinning.
+ * @param publicKeyHashes    Local public key paths for public key pinning.
  */
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
                           clientSecret:(NSString *)clientSecret
                              urlScheme:(NSString *)urlScheme
-                        publicKeyPaths:(NSArray<NSString *> *)publicKeyPaths;
+                        publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
 
 /**
  * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
@@ -132,13 +132,13 @@
  *
  * @param clientSecret      The client secret you received from Gini.
  * @param certificatePaths  Local certificate paths for certificate pinning.
- * @param publicKeyPaths    Local public key paths for public key pinning.
+ * @param publicKeyHashes    Local public key paths for public key pinning.
  */
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
                           clientSecret:(NSString *)clientSecret
                              urlScheme:(NSString *)urlScheme
                       certificatePaths:(NSArray<NSString *> *)certificatePaths
-                        publicKeyPaths:(NSArray<NSString *> *)publicKeyPaths;
+                        publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
 
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
@@ -176,7 +176,7 @@
  * @param clientId          The application's clientID for the Gini API.
  *
  * @param emailDomain       The domain of the email address.
- * @param publicKeyPaths    Local public key paths for public key pinning.
+ * @param publicKeyHashes    Local public key paths for public key pinning.
  *
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.
@@ -184,7 +184,7 @@
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId
                              clientSecret:(NSString *)clientSecret
                           userEmailDomain:(NSString *)emailDomain
-                           publicKeyPaths:(NSArray<NSString *> *)publicKeyPaths;
+                           publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
 
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
@@ -193,7 +193,7 @@
  *
  * @param emailDomain       The domain of the email address.
  * @param certificatePaths  Local certificate paths for certificate pinning.
- * @param publicKeyPaths    Local public key paths for public key pinning.
+ * @param publicKeyHashes    Local public key paths for public key pinning.
  *
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.
@@ -202,7 +202,7 @@
                              clientSecret:(NSString *)clientSecret
                           userEmailDomain:(NSString *)emailDomain
                          certificatePaths:(NSArray<NSString *> *)certificatePaths
-                           publicKeyPaths:(NSArray<NSString *> *)publicKeyPaths;
+                           publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
 
 
 /**
