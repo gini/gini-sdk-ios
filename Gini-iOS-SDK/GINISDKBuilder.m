@@ -168,9 +168,6 @@ GINIInjector* GINIDefaultInjector() {
             [_injector setObject:clientSecret forKey:GINIInjectorClientSecretKey];
         }
         if (publicKeyPinningConfig != nil) {
-            Class configClass = [NSDictionary<NSString *, id> class];
-            NSParameterAssert([publicKeyPinningConfig isKindOfClass: configClass]);
-
             [TrustKit initSharedInstanceWithConfiguration:publicKeyPinningConfig];
             [_injector setSingletonFactory:@selector(urlSessionDelegate)
                                        on:[GINIURLSessionDelegate class]

@@ -24,6 +24,16 @@ SPEC_BEGIN(GINISDKBuilderSpec)
                 [[GINISDKBuilder alloc] init];
             }) should] raise];
         });
+        
+        it(@"should throw an exception when not being initialized via the designated initializer", ^{
+            [[theBlock(^{
+                [GINISDKBuilder new];
+            }) should] raise];
+            
+            [[theBlock(^{
+                [[GINISDKBuilder alloc] init];
+            }) should] raise];
+        });
 
         context(@"the clientFlowWithClientID:urlScheme: factory", ^{
             it(@"should raise an exception when the clientID is not a string", ^{
@@ -36,6 +46,12 @@ SPEC_BEGIN(GINISDKBuilderSpec)
                 [[theBlock(^{
                     [GINISDKBuilder clientFlowWithClientID:@"foobar" urlScheme:nil];
                 }) should] raise];
+            });
+            
+            it(@"should not raise an exception when public key config is nil", ^{
+                [[theBlock(^{
+                    [GINISDKBuilder clientFlowWithClientID:@"foobar" urlScheme:@"foobar" publicKeyPinningConfig:nil];
+                }) shouldNot] raise];
             });
 
             it(@"should use the correct session manager", ^{
@@ -68,6 +84,12 @@ SPEC_BEGIN(GINISDKBuilderSpec)
                     [GINISDKBuilder serverFlowWithClientID:@"foobar" clientSecret:@"1234" urlScheme:nil];
                 }) should] raise];
             });
+            
+            it(@"should not raise an exception when public key config is nil", ^{
+                [[theBlock(^{
+                    [GINISDKBuilder serverFlowWithClientID:@"foobar" clientSecret:@"1234" urlScheme:@"foobar" publicKeyPinningConfig:nil];
+                }) shouldNot] raise];
+            });
 
             it(@"should use the correct session manager", ^{
                 GiniSDK *sdk = [[GINISDKBuilder serverFlowWithClientID:@"foobar" clientSecret:@"1234" urlScheme:@"foobar"] build];
@@ -98,6 +120,12 @@ SPEC_BEGIN(GINISDKBuilderSpec)
                 [[theBlock(^{
                     [GINISDKBuilder anonymousUserWithClientID:@"foobar" clientSecret:nil userEmailDomain:@"example.com"];
                 }) should] raise];
+            });
+            
+            it(@"should not raise an exception when public key config is nil", ^{
+                [[theBlock(^{
+                    [GINISDKBuilder anonymousUserWithClientID:@"foobar" clientSecret:@"1234" userEmailDomain:@"example.com" publicKeyPinningConfig:nil];
+                }) shouldNot] raise];
             });
 
             it(@"should use the correct session manager", ^{
