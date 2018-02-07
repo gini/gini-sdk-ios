@@ -71,6 +71,8 @@ GiniSDK *sdk = [[GINISDKBuilder anonymousUserWithClientID:@"your_client_id"
                                    publicKeyPinningConfig:trustKitConfig] build];
 ```
 
+When using `TrustKit` some messages are shown in the console log, being possible to either specify a custom log for that messages or disable it (setting it as `nil`). To do so just use the `TrustKit.setLoggerBlock` method before initializing the `trustKitConfig`.
+
 ## Requirements
 - iOS 8.0+
 - Xcode 8.0+
