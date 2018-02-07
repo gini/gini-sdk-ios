@@ -27,9 +27,52 @@ described in the [integration guide](http://developer.gini.net/gini-sdk-ios/docs
 is provided at the instance's `injector` property) to create the manager instances and to manage the dependencies
 between the managers and makes those manager instances available as properties.
 
-## Requirements
+## Public Key pinning
+The Gini iOS SDK allows you to enable public key pinning with the Gini API through [TrustKit](https://github.com/datatheorem/TrustKit/) library. In case that you want to implement it, you just need to pass a dictionary with all the parameters required into one of the `GINISDKBuilder` initializers, as follows:
 
-- iOS 7.1+
+**Swift**
+```swift
+let trustKitConfig = [
+            kTSKSwizzleNetworkDelegates: false,
+            kTSKPinnedDomains: [
+                "example.com": [
+                    kTSKExpirationDate: "2017-12-01",
+                    kTSKPublicKeyAlgorithms: [kTSKAlgorithmRsa2048],
+                    kTSKPublicKeyHashes: [
+                        "public_key_hash",
+                        "backup_public_key_hash"
+                    ],]]] as [String : Any]
+
+let sdk = GINISDKBuilder.anonymousUser(withClientID: "your_client_id",
+                                       clientSecret: "your_client_secret",
+                                       userEmailDomain: "your_user_email_domain"
+                                       publicKeyPinningConfig: trustKitConfig).build()
+
+```
+
+**Objective-C**
+
+```objective-c
+NSDictionary *trustKitConfig = @{
+kTSKPinnedDomains: @{
+        @"example.com" : @{
+                kTSKIncludeSubdomains:@YES,
+                kTSKEnforcePinning:@YES,
+                kTSKPublicKeyAlgorithms : @[kTSKAlgorithmRsa2048],
+                kTSKPublicKeyHashes : @[
+                        @"public_key_hash",
+                        @"backup_public_key_hash"
+                        ],
+                }}};
+
+GiniSDK *sdk = [[GINISDKBuilder anonymousUserWithClientID:@"your_client_id"
+                                             clientSecret:@"your_client_secret"
+                                          userEmailDomain:@"your_user_email_domain"
+                                   publicKeyPinningConfig:trustKitConfig] build];
+```
+
+## Requirements
+- iOS 8.0+
 - Xcode 8.0+
 
 ## Documentation

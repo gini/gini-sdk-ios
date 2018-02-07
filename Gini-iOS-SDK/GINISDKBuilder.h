@@ -5,6 +5,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import <TrustKit/TrustKit.h>
 
 @class GiniSDK;
 @class GINIInjector;
@@ -34,43 +35,13 @@
  *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
  *                          you registered with Gini.
  *
- * @param clientID          The application's client ID for the Gini API.
- * @param certificatePaths  Local certificate paths for certificate pinning.
+ * @param clientID                The application's client ID for the Gini API.
+ * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here:
+ *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
  */
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
-                      certificatePaths:(NSArray<NSString *> *)certificatePaths;
-
-/**
- * Creates an instance of the GINISDKBuilder where the client authorization flow is used.
- *
- * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
- *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
- *                          you registered with Gini.
- *
- * @param clientID          The application's client ID for the Gini API.
- * @param publicKeyHashes    Local public key paths for public key pinning.
- */
-+ (instancetype)clientFlowWithClientID:(NSString *)clientID
-                             urlScheme:(NSString *)urlScheme
-                        publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
-
-/**
- * Creates an instance of the GINISDKBuilder where the client authorization flow is used.
- *
- * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
- *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
- *                          you registered with Gini.
- *
- * @param clientID          The application's client ID for the Gini API.
- * @param certificatePaths  Local certificate paths for certificate pinning.
- * @param publicKeyHashes    Local public key paths for public key pinning.
- */
-+ (instancetype)clientFlowWithClientID:(NSString *)clientID
-                             urlScheme:(NSString *)urlScheme
-                      certificatePaths:(NSArray<NSString *> *)certificatePaths
-                        publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
-
+                publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig;
 /**
  * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
  *
@@ -96,49 +67,14 @@
  *
  * @param clientID          The application's client ID for the Gini API.
  *
- * @param clientSecret      The client secret you received from Gini.
- * @param certificatePaths  Local certificate paths for certificate pinning.
+ * @param clientSecret            The client secret you received from Gini.
+ * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here:
+ *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
  */
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
                           clientSecret:(NSString *)clientSecret
                              urlScheme:(NSString *)urlScheme
-                      certificatePaths:(NSArray<NSString *> *)certificatePaths;
-
-/**
- * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
- *
- * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
- *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
- *                          you registered with Gini.
- *
- * @param clientID          The application's client ID for the Gini API.
- *
- * @param clientSecret      The client secret you received from Gini.
- * @param publicKeyHashes    Local public key paths for public key pinning.
- */
-+ (instancetype)serverFlowWithClientID:(NSString *)clientID
-                          clientSecret:(NSString *)clientSecret
-                             urlScheme:(NSString *)urlScheme
-                        publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
-
-/**
- * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
- *
- * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
- *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
- *                          you registered with Gini.
- *
- * @param clientID          The application's client ID for the Gini API.
- *
- * @param clientSecret      The client secret you received from Gini.
- * @param certificatePaths  Local certificate paths for certificate pinning.
- * @param publicKeyHashes    Local public key paths for public key pinning.
- */
-+ (instancetype)serverFlowWithClientID:(NSString *)clientID
-                          clientSecret:(NSString *)clientSecret
-                             urlScheme:(NSString *)urlScheme
-                      certificatePaths:(NSArray<NSString *> *)certificatePaths
-                        publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
+                publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig;
 
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
@@ -157,26 +93,11 @@
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
  *
- * @param clientId          The application's clientID for the Gini API.
+ * @param clientId                The application's clientID for the Gini API.
  *
- * @param emailDomain       The domain of the email address.
- * @param certificatePaths  Local certificate paths for certificate pinning.
- *
- * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
- * clients only.
- */
-+ (instancetype)anonymousUserWithClientID:(NSString *)clientId
-                             clientSecret:(NSString *)clientSecret
-                          userEmailDomain:(NSString *)emailDomain
-                         certificatePaths:(NSArray<NSString *> *)certificatePaths;
-
-/**
- * Creates an instance of the GINISDKBuilder where anonymous users are used.
- *
- * @param clientId          The application's clientID for the Gini API.
- *
- * @param emailDomain       The domain of the email address.
- * @param publicKeyHashes    Local public key paths for public key pinning.
+ * @param emailDomain             The domain of the email address.
+ * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here
+ *                                (https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator)
  *
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.
@@ -184,26 +105,7 @@
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId
                              clientSecret:(NSString *)clientSecret
                           userEmailDomain:(NSString *)emailDomain
-                           publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
-
-/**
- * Creates an instance of the GINISDKBuilder where anonymous users are used.
- *
- * @param clientId          The application's clientID for the Gini API.
- *
- * @param emailDomain       The domain of the email address.
- * @param certificatePaths  Local certificate paths for certificate pinning.
- * @param publicKeyHashes    Local public key paths for public key pinning.
- *
- * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
- * clients only.
- */
-+ (instancetype)anonymousUserWithClientID:(NSString *)clientId
-                             clientSecret:(NSString *)clientSecret
-                          userEmailDomain:(NSString *)emailDomain
-                         certificatePaths:(NSArray<NSString *> *)certificatePaths
-                           publicKeyHashes:(NSArray<NSString *> *)publicKeyHashes;
-
+                   publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig;
 
 /**
  * The GINIInjector instance which is used for the dependency injection.

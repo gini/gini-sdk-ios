@@ -350,9 +350,9 @@
 		23D53BEB1934BC85001A957E = {
 			isa = PBXGroup;
 			children = (
+				0A845B861DAE9AC300AD2D64 /* GiniSDK Example */,
 				23D53BF91934BC85001A957E /* Gini-iOS-SDK */,
 				23D53C0D1934BC85001A957E /* Gini-iOS-SDKTests */,
-				0A845B861DAE9AC300AD2D64 /* GiniSDK Example */,
 				23D53BF61934BC85001A957E /* Frameworks */,
 				23D53BF51934BC85001A957E /* Products */,
 				5B02C91D2083EEF2BB6B4FFE /* Pods */,
@@ -646,6 +646,7 @@
 						};
 					};
 					23D53C031934BC85001A957E = {
+						ProvisioningStyle = Automatic;
 						TestTargetID = 0A845B841DAE9AC300AD2D64;
 					};
 				};
@@ -1175,6 +1176,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51DA4017E455DD1C039426C3 /* Pods-Gini-iOS-SDKTests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1189,6 +1193,7 @@
 				INFOPLIST_FILE = "Gini-iOS-SDKTests/Gini-iOS-SDKTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.gini.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Gini-iOS-SDKTests";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniSDK Example.app/GiniSDK Example";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1198,6 +1203,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FE88EE2776A6F32BD57FB617 /* Pods-Gini-iOS-SDKTests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1209,6 +1217,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.gini.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Gini-iOS-SDKTests";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniSDK Example.app/GiniSDK Example";
 				WRAPPER_EXTENSION = xctest;
 			};
