@@ -35,12 +35,14 @@ The Gini iOS SDK allows you to enable public key pinning with the Gini API throu
 let trustKitConfig = [
             kTSKSwizzleNetworkDelegates: false,
             kTSKPinnedDomains: [
-                "example.com": [
-                    kTSKExpirationDate: "2017-12-01",
+                "gini.net": [
+                    kTSKIncludeSubdomains:true,
+                    kTSKEnforcePinning:true,
+                    kTSKDisableDefaultReportUri:true,
                     kTSKPublicKeyAlgorithms: [kTSKAlgorithmRsa2048],
                     kTSKPublicKeyHashes: [
-                        "public_key_hash",
-                        "backup_public_key_hash"
+                        "yGLLyvZLo2NNXeBNKJwx1PlCtm+YEVU6h2hxVpRa4l4=",
+                        "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
                     ],]]] as [String : Any]
 
 let sdk = GINISDKBuilder.anonymousUser(withClientID: "your_client_id",
@@ -55,13 +57,14 @@ let sdk = GINISDKBuilder.anonymousUser(withClientID: "your_client_id",
 ```objective-c
 NSDictionary *trustKitConfig = @{
 kTSKPinnedDomains: @{
-        @"example.com" : @{
+        @"gini.net" : @{
                 kTSKIncludeSubdomains:@YES,
                 kTSKEnforcePinning:@YES,
+                kTSKDisableDefaultReportUri:@YES
                 kTSKPublicKeyAlgorithms : @[kTSKAlgorithmRsa2048],
                 kTSKPublicKeyHashes : @[
-                        @"public_key_hash",
-                        @"backup_public_key_hash"
+                        @"yGLLyvZLo2NNXeBNKJwx1PlCtm+YEVU6h2hxVpRa4l4=",
+                        @"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
                         ],
                 }}};
 

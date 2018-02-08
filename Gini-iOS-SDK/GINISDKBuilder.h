@@ -97,7 +97,7 @@
  *
  * @param emailDomain             The domain of the email address.
  * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here
- *                                (https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator)
+ *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
  *
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.
