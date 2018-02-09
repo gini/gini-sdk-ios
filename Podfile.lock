@@ -1,16 +1,16 @@
 PODS:
-  - Bolts (1.2.2):
-    - Bolts/AppLinks (= 1.2.2)
-    - Bolts/Tasks (= 1.2.2)
-  - Bolts/AppLinks (1.2.2):
+  - Bolts (1.1.5):
+    - Bolts/AppLinks (= 1.1.5)
+    - Bolts/Tasks (= 1.1.5)
+  - Bolts/AppLinks (1.1.5):
     - Bolts/Tasks
-  - Bolts/Tasks (1.2.2)
-  - Gini-iOS-SDK (0.5.2):
-    - Gini-iOS-SDK/Core (= 0.5.2)
-  - Gini-iOS-SDK/Core (0.5.2):
-    - Bolts (~> 1.2.2)
-  - Gini-iOS-SDK/Pinning (0.5.2):
-    - Bolts (~> 1.2.2)
+  - Bolts/Tasks (1.1.5)
+  - Gini-iOS-SDK (0.6.0):
+    - Gini-iOS-SDK/Core (= 0.6.0)
+  - Gini-iOS-SDK/Core (0.6.0):
+    - Bolts (~> 1.1.5)
+  - Gini-iOS-SDK/Pinning (0.6.0):
+    - Bolts (~> 1.1.5)
     - TrustKit (~> 1.5.2)
   - Kiwi (2.4.0)
   - TrustKit (1.5.2)
@@ -25,8 +25,8 @@ EXTERNAL SOURCES:
     :path: ./
 
 SPEC CHECKSUMS:
-  Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
-  Gini-iOS-SDK: 1a29ce1dac4f126d0ac630223c6c70dfdbd7b1d6
+  Bolts: aac24961496d504aa56fc267cde95162a71bac39
+  Gini-iOS-SDK: cc7e89023a5e92718fc82f471bc22679c97340e2
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   TrustKit: fd852155aa95a02da40e2c2e0aa9060937a88abe
 

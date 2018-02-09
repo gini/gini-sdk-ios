@@ -3,11 +3,13 @@
 This document describes the release process for a new version of the Gini iOS SDK.
 Before the release check that all features have been merged into master, tests and documentation are up to date.
 
-1. Create a release commit on `master` with the version name in the commit message
-  * Optional: Make changes needed for the release
-  * Update changelog and put {{version_and_date}} as the header, it will be replaced with the release version and date in the release Jenkins build job
-2. Commit and push to `master`
-3. Wait for the Travis CI build job to succeed
-4. Run `gini-sdk-ios-release` job on Jenkins with the release version as a parameter
-5. Verify online documentation, changelog and podspec have been updated
-6. Update version on gini.net/developers
+1. Create a `release` branch.
+2. Update changelog with last version and date
+3. Update `podspec` with version used in 2.
+4. Create a tag with the same version used in 2 and 3.
+5. Merge `master` and `develop` into `release`.
+6. Remove `release` branch and push all the branches including tags.
+7. Wait for the Jenkins build job to succeed
+8. Update documentation manually and verify that it was update successfully.
+9. Push update to [Gini Podspec repo](https://github.com/gini/gini-podspecs) with `pod repo push gini-specs ./Gini-iOS-SDK.podspec`
+10. Update version on gini.net/developers

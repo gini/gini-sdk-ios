@@ -28,7 +28,7 @@ pipeline {
         }
       }
       steps {
-        sh 'echo Release documentation'
+        sh 'echo Release documentation TODO'
       }
     }
     stage('Pod lint') {
