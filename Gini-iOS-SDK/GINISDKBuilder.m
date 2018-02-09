@@ -77,44 +77,70 @@ GINIInjector* GINIDefaultInjector() {
 }
 
 #pragma mark - Factories
-+ (instancetype)clientFlowWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme {
-    return [self clientFlowWithClientID:clientID urlScheme:urlScheme certificatePaths:nil];
++ (instancetype)clientFlowWithClientID:(NSString *)clientID
+                             urlScheme:(NSString *)urlScheme {
+    return [self clientFlowWithClientID:clientID
+                              urlScheme:urlScheme
+                 publicKeyPinningConfig:nil];
 }
-
-+ (instancetype)clientFlowWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme
-                              certificatePaths:(NSArray<NSString *> *)certificatePaths {
++ (instancetype)clientFlowWithClientID:(NSString *)clientID
+                             urlScheme:(NSString *)urlScheme
+                publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
     
-    return [[self alloc] initWithClientID:clientID urlScheme:urlScheme clientSecret:nil certificatePaths:certificatePaths];
+    return [[self alloc] initWithClientID:clientID
+                                urlScheme:urlScheme
+                             clientSecret:nil
+                   publicKeyPinningConfig:publicKeyPinningConfig];
 }
 
-+ (instancetype)serverFlowWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret urlScheme:(NSString *)urlScheme {
-    return [self serverFlowWithClientID:clientID clientSecret:clientSecret urlScheme:urlScheme certificatePaths:nil];
++ (instancetype)serverFlowWithClientID:(NSString *)clientID
+                          clientSecret:(NSString *)clientSecret
+                             urlScheme:(NSString *)urlScheme {
+    return [self serverFlowWithClientID:clientID
+                           clientSecret:clientSecret
+                              urlScheme:urlScheme
+                 publicKeyPinningConfig:nil];
 }
 
-+ (instancetype)serverFlowWithClientID:(NSString *)clientID clientSecret:(NSString *)clientSecret urlScheme:(NSString *)urlScheme
-                              certificatePaths:(NSArray<NSString *> *)certificatePaths {
++ (instancetype)serverFlowWithClientID:(NSString *)clientID
+                          clientSecret:(NSString *)clientSecret
+                             urlScheme:(NSString *)urlScheme
+                publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
     
-    GINISDKBuilder *instance = [[self alloc] initWithClientID:clientID urlScheme:urlScheme clientSecret:clientSecret certificatePaths:certificatePaths];
+    GINISDKBuilder *instance = [[self alloc] initWithClientID:clientID
+                                                    urlScheme:urlScheme
+                                                 clientSecret:clientSecret
+                                       publicKeyPinningConfig:publicKeyPinningConfig];
     [instance useServerFlow];
     return instance;
 }
 
-+ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain {
-    return [self anonymousUserWithClientID:clientId clientSecret:clientSecret userEmailDomain:emailDomain certificatePaths:nil];
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId
+                             clientSecret:(NSString *)clientSecret
+                          userEmailDomain:(NSString *)emailDomain {
+    return [self anonymousUserWithClientID:clientId
+                              clientSecret:clientSecret
+                           userEmailDomain:emailDomain
+                    publicKeyPinningConfig:nil];
 }
 
-+ (instancetype)anonymousUserWithClientID:(NSString *)clientId clientSecret:(NSString *)clientSecret userEmailDomain:(NSString *)emailDomain
-                                 certificatePaths:(NSArray<NSString *> *)certificatePaths {
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId
+                             clientSecret:(NSString *)clientSecret
+                          userEmailDomain:(NSString *)emailDomain
+                   publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig {
     NSParameterAssert([clientId isKindOfClass:[NSString class]]);
     NSParameterAssert([emailDomain isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
-    
-    GINISDKBuilder *instance = [[self alloc] initWithClientID:clientId urlScheme:nil clientSecret:clientSecret certificatePaths:certificatePaths];
+
+    GINISDKBuilder *instance = [[self alloc] initWithClientID:clientId
+                                                    urlScheme:nil
+                                                 clientSecret:clientSecret
+                                       publicKeyPinningConfig:publicKeyPinningConfig];
     [instance useAnonymousUser:emailDomain];
     return instance;
 }
@@ -126,8 +152,10 @@ GINIInjector* GINIDefaultInjector() {
                                  userInfo:nil];
 }
 
-- (instancetype)initWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme clientSecret:(NSString *)clientSecret
-                        certificatePaths:(NSArray<NSString *> *)certificatePaths {
+- (instancetype)initWithClientID:(NSString *)clientID
+                       urlScheme:(NSString *)urlScheme
+                    clientSecret:(NSString *)clientSecret
+          publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
 
     if (self = [super init]) {
@@ -139,12 +167,16 @@ GINIInjector* GINIDefaultInjector() {
         if (clientSecret != nil) {
             [_injector setObject:clientSecret forKey:GINIInjectorClientSecretKey];
         }
-        if (certificatePaths != nil) {
-            [_injector setObject:certificatePaths forKey:GINIInjectorCertificatePathsKey];
-            [_injector setSingletonFactory:@selector(urlSessionDelegateWithCertificatePaths:)
+        if (publicKeyPinningConfig != nil) {
+            #ifdef PINNING_AVAILABLE
+            [TrustKit initSharedInstanceWithConfiguration:publicKeyPinningConfig];
+            #else
+            [NSException raise:@"TrustKit not imported" format:@"You are trying to use public key pinning but TrustKit was not imported"];
+            #endif
+            [_injector setSingletonFactory:@selector(urlSessionDelegate)
                                        on:[GINIURLSessionDelegate class]
                                    forKey:@protocol(GINIURLSessionDelegate)
-                         withDependencies: GINIInjectorCertificatePathsKey, nil];
+                         withDependencies: nil];
             NSArray *dependencies = [NSArray arrayWithObjects: @protocol(GINIURLSessionDelegate), nil];
             [[_injector factoryForKey:GINIInjectorKey(@protocol(GINIURLSession))]setDependencies:dependencies];
         }
