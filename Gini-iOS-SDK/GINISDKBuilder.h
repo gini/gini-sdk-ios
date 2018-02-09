@@ -5,7 +5,9 @@
 
 
 #import <Foundation/Foundation.h>
+#ifdef GINISDK_OFFER_TRUSTKIT
 #import <TrustKit/TrustKit.h>
+#endif
 
 @class GiniSDK;
 @class GINIInjector;

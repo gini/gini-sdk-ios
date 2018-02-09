@@ -7,7 +7,9 @@
 //
 
 #import "GINIURLSessionDelegate.h"
+#ifdef GINISDK_OFFER_TRUSTKIT
 #import <TrustKit/TrustKit.h>
+#endif
 
 @implementation GINIURLSessionDelegate {
 }
@@ -20,13 +22,17 @@
 didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))
 completionHandler {
-    TSKPinningValidator *pinningValidator = [[TrustKit sharedInstance] pinningValidator];
 
+#ifdef GINISDK_OFFER_TRUSTKIT
+    TSKPinningValidator *pinningValidator = [[TrustKit sharedInstance] pinningValidator];
+    
     if (![pinningValidator handleChallenge:challenge completionHandler:completionHandler]) {
         // TrustKit did not handle this challenge: perhaps it was not for server trust
         // or the domain was not pinned. Fall back to the default behavior
         completionHandler(NSURLSessionAuthChallengePerformDefaultHandling, nil);
     }
+#endif
+
 }
 
 @end

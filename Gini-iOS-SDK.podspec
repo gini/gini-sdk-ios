@@ -12,5 +12,15 @@ s.requires_arc = true
 s.platform     = :ios, "7.0"
 s.public_header_files = 'Gini-iOS-SDK/**/*.h'
 s.source_files = 'Gini-iOS-SDK'
-s.dependency "Bolts", "~> 1.2.2"
+s.default_subspec = 'Lite'
+
+s.subspec 'Lite' do |lite|
+lite.dependency "Bolts", "~> 1.2.2"
+end
+
+s.subspec 'TrustKit' do |trustkit|
+trustkit.xcconfig =
+{ 'OTHER_CFLAGS' => '$(inherited) -DGINISDK_OFFER_TRUSTKIT' }
+trustkit.dependency "TrustKit", "~> 1.5.2"
+end
 end

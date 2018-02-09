@@ -168,7 +168,11 @@ GINIInjector* GINIDefaultInjector() {
             [_injector setObject:clientSecret forKey:GINIInjectorClientSecretKey];
         }
         if (publicKeyPinningConfig != nil) {
+            #ifdef GINISDK_OFFER_TRUSTKIT
             [TrustKit initSharedInstanceWithConfiguration:publicKeyPinningConfig];
+            #else
+            [NSException raise:@"TrustKit not imported" format:@"You are trying to use public key pinning but TrustKit was not imported"];
+            #endif
             [_injector setSingletonFactory:@selector(urlSessionDelegate)
                                        on:[GINIURLSessionDelegate class]
                                    forKey:@protocol(GINIURLSessionDelegate)
