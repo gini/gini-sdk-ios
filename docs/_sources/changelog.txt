@@ -2,6 +2,16 @@
 Changelog
 =========
 
+0.6.0 (09-02-2018)
+==================
+
+Features
+--------
+
+- Added public key pinning with TrustKit.
+- Removed certificate pinning implementation.
+- Updated minimum iOS version from 7.0 to 8.0
+
 0.5.2 (18-01-2018)
 ==================
 
