@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Public Key pinning &mdash; Gini SDK for iOS 1.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|Source+Code+Pro|Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'1.1.0',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+    <script type="text/javascript">
+        jQuery(function () {
+            SphinxRtdTheme.StickyNav.enable();
+        });
+    </script>
+  
+
+  
+    <link rel="top" title="Gini SDK for iOS 1.1.0 documentation" href="../index.html"/>
+        <link rel="next" title="Working with Tasks" href="common-tasks.html"/>
+        <link rel="prev" title="Getting started" href="getting-started.html"/> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" id="gini-logo">gini API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#first-of-all-add-the-library-to-your-build">First of all: Add the Library to your Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#integrating-the-gini-sdk">Integrating the Gini SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#creating-the-gini-sdk-instance">Creating the Gini SDK instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Public Key pinning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-tasks.html">Working with Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#upload-a-document">Upload a document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#upload-a-document-without-meta-information">Upload a document without meta information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#getting-extractions">Getting extractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#sending-feedback">Sending feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#report-an-extraction-error-to-gini">Report an extraction error to Gini</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#handling-sdk-errors">Handling SDK errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swift.html">Swift Integration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swift.html#module-import">Module import</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.6.0 (09-02-2018)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.5.2 (18-01-2018)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id4">0.5.1 (14-12-2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id5">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id6">0.5.0 (12-12-2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id7">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id8">0.4.1 (11-05-2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id9">0.4.0 (19-04-2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id10">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id11">0.3.2 (15-12-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id13">0.3.1 (26-10-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id15">0.3.0 (24-02-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id16">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id17">0.2.10 (20-11-2015)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id18">Bugfixes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../license.html#using-cocoapods">Using CocoaPods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html#manually">Manually</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../see-also.html">See also</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Gini SDK for iOS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Public Key pinning</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="public-key-pinning">
+<span id="guide-getting-started"></span><h1>Public Key pinning<a class="headerlink" href="#public-key-pinning" title="Permalink to this headline">¶</a></h1>
+<p>The Gini iOS SDK allows you to enable public key pinning with the Gini API through the [TrustKit](<a class="reference external" href="https://github.com/datatheorem/TrustKit/">https://github.com/datatheorem/TrustKit/</a>) library. In case you want to implement it, first you have to add <cite>pod Gini-iOS-SDK/Pinning</cite> below <cite>pod Gini-iOS-SDK</cite> in your <cite>Podfile</cite>. Once you have imported it, you just need to pass a dictionary with all the parameters required into one of the <cite>GINISDKBuilder</cite> initializers, as follows:</p>
+<div class="highlight-swift"><div class="highlight"><pre><span class="kd">let</span> <span class="nv">trustKitConfig</span> <span class="p">=</span> <span class="p">[</span>
+            <span class="n">kTSKSwizzleNetworkDelegates</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="n">kTSKPinnedDomains</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s">&quot;gini.net&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="n">kTSKIncludeSubdomains</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+                    <span class="n">kTSKEnforcePinning</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+                    <span class="n">kTSKDisableDefaultReportUri</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+                    <span class="n">kTSKPublicKeyAlgorithms</span><span class="p">:</span> <span class="p">[</span><span class="n">kTSKAlgorithmRsa2048</span><span class="p">],</span>
+                    <span class="n">kTSKPublicKeyHashes</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="s">&quot;yGLLyvZLo2NNXeBNKJwx1PlCtm+YEVU6h2hxVpRa4l4=&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=&quot;</span>
+                    <span class="p">],]]]</span> <span class="kc">as</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">]</span>
+
+<span class="kd">let</span> <span class="nv">sdk</span> <span class="p">=</span> <span class="n">GINISDKBuilder</span><span class="p">.</span><span class="n">anonymousUser</span><span class="p">(</span><span class="n">withClientID</span><span class="p">:</span> <span class="s">&quot;your_client_id&quot;</span><span class="p">,</span>
+                                       <span class="n">clientSecret</span><span class="p">:</span> <span class="s">&quot;your_client_secret&quot;</span><span class="p">,</span>
+                                       <span class="n">userEmailDomain</span><span class="p">:</span> <span class="s">&quot;your_user_email_domain&quot;</span>
+                                       <span class="n">publicKeyPinningConfig</span><span class="p">:</span> <span class="n">trustKitConfig</span><span class="p">).</span><span class="n">build</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-obj-c"><div class="highlight"><pre><span class="bp">NSDictionary</span> <span class="o">*</span><span class="n">trustKitConfig</span> <span class="o">=</span> <span class="l">@{</span>
+<span class="nl">kTSKPinnedDomains</span><span class="p">:</span> <span class="l">@{</span>
+        <span class="s">@&quot;gini.net&quot;</span> <span class="o">:</span> <span class="l">@{</span>
+                <span class="nl">kTSKIncludeSubdomains</span><span class="p">:</span><span class="m">@YES</span><span class="p">,</span>
+                <span class="nl">kTSKEnforcePinning</span><span class="p">:</span><span class="m">@YES</span><span class="p">,</span>
+                <span class="nl">kTSKDisableDefaultReportUri</span><span class="p">:</span><span class="m">@YES</span>
+                <span class="nl">kTSKPublicKeyAlgorithms</span> <span class="p">:</span> <span class="l">@[</span><span class="n">kTSKAlgorithmRsa2048</span><span class="l">]</span><span class="p">,</span>
+                <span class="nl">kTSKPublicKeyHashes</span> <span class="p">:</span> <span class="l">@[</span>
+                        <span class="s">@&quot;yGLLyvZLo2NNXeBNKJwx1PlCtm+YEVU6h2hxVpRa4l4=&quot;</span><span class="p">,</span>
+                        <span class="s">@&quot;47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=&quot;</span>
+                        <span class="l">]</span><span class="p">,</span>
+                <span class="l">}}}</span><span class="p">;</span>
+
+<span class="n">GiniSDK</span> <span class="o">*</span><span class="n">sdk</span> <span class="o">=</span> <span class="p">[[</span><span class="n">GINISDKBuilder</span> <span class="nl">anonymousUserWithClientID</span><span class="p">:</span><span class="s">@&quot;your_client_id&quot;</span>
+                                             <span class="nl">clientSecret</span><span class="p">:</span><span class="s">@&quot;your_client_secret&quot;</span>
+                                          <span class="nl">userEmailDomain</span><span class="p">:</span><span class="s">@&quot;your_user_email_domain&quot;</span>
+                                   <span class="nl">publicKeyPinningConfig</span><span class="p">:</span><span class="n">trustKitConfig</span><span class="p">]</span> <span class="n">build</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>If <cite>kTSKEnforcePinning</cite> is set to <cite>false</cite>, any SSL connection will be block even if the pinning fails. When it is enabled, it requires at least two hashes (the second one is a backup hash).
+When using <cite>TrustKit</cite> some messages are shown in the console log. It is possible to either specify a custom log for messages or disable it altogether (setting it as nil). To do so just use the <cite>TrustKit.setLoggerBlock</cite> method before initializing the <cite>trustKitConfig</cite>.</p>
+<p>The Gini API public key SHA256 hash in Base64 encoding can be extracted with the following <cite>openssl</cite> commands:</p>
+<div class="highlight-bash"><div class="highlight"><pre>openssl s_client -servername gini.net -connect gini.net:443 <span class="p">|</span> openssl x509 -pubkey -noout <span class="p">|</span> openssl pkey -pubin -outform der <span class="p">|</span> openssl dgst -sha256 -binary <span class="p">|</span> openssl enc -base64
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="common-tasks.html" class="btn btn-neutral float-right" title="Working with Tasks">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral" title="Getting started"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+</body>
+</html>
