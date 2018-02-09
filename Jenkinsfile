@@ -28,7 +28,11 @@ pipeline {
         }
       }
       steps {
-        sh 'echo Release documentation TODO'
+        withEnv(["PATH+=/usr/local/bin"]) {
+            sh 'scripts/build-documentation-sphinx.sh'
+            sh 'scripts/build-documentation-api.sh'
+        }
+        sh 'scripts/push-documentation.sh $GIT_USR $GIT_PSW'
       }
     }
     stage('Pod lint') {

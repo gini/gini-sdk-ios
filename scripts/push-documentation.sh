@@ -1,27 +1,27 @@
 #!/bin/bash
-set -e # Exit with nonzero exit code if anything fails
 
-# Pull requests and non-tagged commits shouldn't try to deploy
-if [ "$TRAVIS_PULL_REQUEST" != "false" -o -z "$TRAVIS_TAG" ]; then
-	echo "branch:$TRAVIS_BRANCH;tag:$TRAVIS_TAG;pullRequest:$TRAVIS_PULL_REQUEST"
-    echo "Skipping documentation deploy."
-    exit 0
-fi
+github_user=$1
+github_password=$2
 
-# Clean up
-rm -rf docs
-git clone -b docs https://${DOC_PUSH_TOKEN}@${GH_REF} docs
-rm -rf docs/*
+cd Documentation
 
-# Copy integration guide source files
-cp -a Documentation/. docs/Documentation/
+cd build
+rm -rf gh-pages
+git clone -b gh-pages https://"$github_user":"$github_password"@github.com/gini/gini-sdk-ios.git gh-pages
 
-# Create api documentation
-sh scripts/build-documentation-api.sh
+rm -rf gh-pages/*
+mkdir gh-pages/docs
+cp -a html/. gh-pages/docs/
 
-# Push to docs
-cd docs
+mkdir gh-pages/api
+cp -a ../Api/. gh-pages/api/
+
+cd gh-pages
+touch .nojekyll
+
+git config user.name "Geonosis CI"
+git config user.email "hello@gini.net" # Use Schorschis Account
 git add -u
 git add .
-git diff --quiet --exit-code --cached || git commit -a -m 'Deploy Gini SDK iOS documentation to docs branch'
-git push origin docs
+git diff --quiet --exit-code --cached || git commit -a -m 'Deploy Gini SDK iOS documentation to Github Pages'
+git push
