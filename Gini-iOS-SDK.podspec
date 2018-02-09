@@ -9,18 +9,19 @@ s.authors  = { 'Gini GmbH' => 'info@gini.net' }
 s.source   = { :git => 'https://github.com/gini/gini-sdk-ios.git', :tag => s.version.to_s }
 s.documentation_url = 'http://developer.gini.net/gini-sdk-ios/docs/'
 s.requires_arc = true
-s.platform     = :ios, "7.0"
+s.platform     = :ios, "8.0"
 s.public_header_files = 'Gini-iOS-SDK/**/*.h'
 s.source_files = 'Gini-iOS-SDK'
-s.default_subspec = 'Lite'
+s.default_subspec = 'Core'
 
-s.subspec 'Lite' do |lite|
-lite.dependency "Bolts", "~> 1.2.2"
+s.subspec 'Core' do |core|
+core.dependency "Bolts", "~> 1.2.2"
 end
 
-s.subspec 'TrustKit' do |trustkit|
-trustkit.xcconfig =
-{ 'OTHER_CFLAGS' => '$(inherited) -DGINISDK_OFFER_TRUSTKIT' }
-trustkit.dependency "TrustKit", "~> 1.5.2"
+s.subspec 'Pinning' do |pinning|
+pinning.xcconfig =
+{ 'OTHER_CFLAGS' => '$(inherited) -DPINNING_AVAILABLE' }
+pinning.dependency "TrustKit", "~> 1.5.2"
+pinning.dependency "Bolts", "~> 1.2.2"
 end
 end

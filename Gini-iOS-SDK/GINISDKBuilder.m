@@ -168,7 +168,7 @@ GINIInjector* GINIDefaultInjector() {
             [_injector setObject:clientSecret forKey:GINIInjectorClientSecretKey];
         }
         if (publicKeyPinningConfig != nil) {
-            #ifdef GINISDK_OFFER_TRUSTKIT
+            #ifdef PINNING_AVAILABLE
             [TrustKit initSharedInstanceWithConfiguration:publicKeyPinningConfig];
             #else
             [NSException raise:@"TrustKit not imported" format:@"You are trying to use public key pinning but TrustKit was not imported"];

@@ -7,7 +7,7 @@
 //
 
 #import "GINIURLSessionDelegate.h"
-#ifdef GINISDK_OFFER_TRUSTKIT
+#ifdef PINNING_AVAILABLE
 #import <TrustKit/TrustKit.h>
 #endif
 
@@ -23,7 +23,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))
 completionHandler {
 
-#ifdef GINISDK_OFFER_TRUSTKIT
+#ifdef PINNING_AVAILABLE
     TSKPinningValidator *pinningValidator = [[TrustKit sharedInstance] pinningValidator];
     
     if (![pinningValidator handleChallenge:challenge completionHandler:completionHandler]) {

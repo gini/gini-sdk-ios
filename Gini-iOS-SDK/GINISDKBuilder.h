@@ -5,7 +5,7 @@
 
 
 #import <Foundation/Foundation.h>
-#ifdef GINISDK_OFFER_TRUSTKIT
+#ifdef PINNING_AVAILABLE
 #import <TrustKit/TrustKit.h>
 #endif
 

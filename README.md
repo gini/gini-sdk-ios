@@ -28,7 +28,7 @@ is provided at the instance's `injector` property) to create the manager instanc
 between the managers and makes those manager instances available as properties.
 
 ## Public Key pinning
-The Gini iOS SDK allows you to enable public key pinning with the Gini API through the [TrustKit](https://github.com/datatheorem/TrustKit/) library. In case you want to implement it, you just need to pass a dictionary with all the parameters required into one of the `GINISDKBuilder` initializers, as follows:
+The Gini iOS SDK allows you to enable public key pinning with the Gini API through the [TrustKit](https://github.com/datatheorem/TrustKit/) library. In case you want to implement it, first you have to add `pod Gini-iOS-SDK/Pinning` below `pod Gini-iOS-SDK` in your `Podfile`. Once you have imported it, you just need to pass a dictionary with all the parameters required into one of the `GINISDKBuilder` initializers, as follows:
 
 **Swift**
 ```swift
