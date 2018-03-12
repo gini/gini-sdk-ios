@@ -63,7 +63,7 @@ typedef NS_ENUM(NSInteger, GINIErrorCode) {
  *
  * @param code      The error code for the error.
  * @param cause     The underlying (low-level) error which caused the error.
- * @param userInfo  The userInfo for the error.
+ * @param dict      The userInfo for the error.
  */
 + (instancetype)errorWithCode:(NSInteger)code cause:(NSError *)cause userInfo:(NSDictionary *)dict;
 
@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger, GINIErrorCode) {
  *
  * @param code      The error code for the error.
  * @param cause     The underlying (low-level) error which caused the error.
- * @param userInfo  The userInfo for the error.
+ * @param dict      The userInfo for the error.
  */
 - (instancetype)initWithCode:(NSInteger)code cause:(NSError *)cause userInfo:(NSDictionary *)dict;
 

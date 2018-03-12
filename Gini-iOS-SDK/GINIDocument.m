@@ -94,7 +94,7 @@
     if (!_extractions) {
         // Ensure that the extractions are really available:
         _extractions = [[_documentTaskManager pollDocument:self] continueWithBlock:^id(BFTask *task) {
-            return [_documentTaskManager getExtractionsForDocument:self];
+            return [self->_documentTaskManager getExtractionsForDocument:self];
         }];
     }
     return _extractions;
@@ -117,7 +117,7 @@
 - (BFTask *)layout {
     if (!_layout) {
         _layout = [[_documentTaskManager pollDocument:self] continueWithBlock:^id(BFTask *task) {
-            return [_documentTaskManager getLayoutForDocument:self];
+            return [self->_documentTaskManager getLayoutForDocument:self];
         }];
     }
     return _layout;

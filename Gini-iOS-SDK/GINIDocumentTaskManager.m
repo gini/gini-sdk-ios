@@ -104,7 +104,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
             }
         }
         
-        return [_apiManager submitBatchFeedbackForDocument:document.documentId feedback:updateExtractions];
+        return [self->_apiManager submitBatchFeedbackForDocument:document.documentId feedback:updateExtractions];
     }];
     return GINIhandleHTTPerrors(updateTask);
 }
