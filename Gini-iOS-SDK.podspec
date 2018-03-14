@@ -15,13 +15,13 @@ s.source_files = 'Gini-iOS-SDK'
 s.default_subspec = 'Core'
 
 s.subspec 'Core' do |core|
-core.dependency "Bolts", "~> 1.1.5"
+core.dependency "Bolts", "~> 1.9"
 end
 
 s.subspec 'Pinning' do |pinning|
 pinning.xcconfig =
 { 'OTHER_CFLAGS' => '$(inherited) -DPINNING_AVAILABLE' }
-pinning.dependency "TrustKit", "~> 1.5.2"
-pinning.dependency "Bolts", "~> 1.1.5"
+pinning.dependency "TrustKit", "~> 1.5"
+pinning.dependency "Bolts", "~> 1.9"
 end
 end

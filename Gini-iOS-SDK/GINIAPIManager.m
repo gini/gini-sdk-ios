@@ -146,6 +146,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
         [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+        
         return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:documentData] continueWithSuccessBlock:^id(BFTask *uploadTask) {
             // The HTTP response has a Location header with the URL of the document.
             GINIURLResponse *response = uploadTask.result;
