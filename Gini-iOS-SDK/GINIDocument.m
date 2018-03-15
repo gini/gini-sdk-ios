@@ -82,45 +82,64 @@
 
 #pragma mark - Methods
 - (BFTask *)previewWithSize:(GiniApiPreviewSize)size forPage:(NSUInteger)page {
+    return [self previewWithSize:size forPage:page cancellationToken:nil];
+}
+
+- (BFTask *)previewWithSize:(GiniApiPreviewSize)size forPage:(NSUInteger)page
+          cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert(page > 0);
     NSParameterAssert(page <= self.pageCount);
+    
+    return [_documentTaskManager getPreviewForPage:page
+                                        ofDocument:self withSize:size
+                                 cancellationToken:cancellationToken];
+}
 
-    return [_documentTaskManager getPreviewForPage:page ofDocument:self withSize:size];
+- (BFTask *)getExtractionsWithCancellationToken:(BFCancellationToken *)cancellationToken {
+    return [[self extractionTaskWithCancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
+        NSMutableDictionary *results = task.result;
+        return [results valueForKey:@"extractions"];
+    }];
+}
+
+-(BFTask *)getCandidatesWithCancellationToken:(BFCancellationToken *)cancellationToken {
+    return [[self extractionTaskWithCancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
+        NSDictionary *results = task.result;
+        return [results valueForKey:@"candidates"];
+    }];
+}
+
+- (BFTask *)getLayoutWithCancellationToken:(BFCancellationToken *)cancellationToken {
+    if (!_layout) {
+        _layout = [[_documentTaskManager pollDocument:self cancellationToken:cancellationToken] continueWithBlock:^id(BFTask *task) {
+            return [self->_documentTaskManager getLayoutForDocument:self cancellationToken:cancellationToken];
+        }];
+    }
+    return _layout;
 }
 
 
 #pragma mark - Properties
-- (BFTask *)extractionTask {
+- (BFTask *)extractionTaskWithCancellationToken:(BFCancellationToken *)cancellationToken {
     if (!_extractions) {
         // Ensure that the extractions are really available:
-        _extractions = [[_documentTaskManager pollDocument:self] continueWithBlock:^id(BFTask *task) {
-            return [self->_documentTaskManager getExtractionsForDocument:self];
+        _extractions = [[_documentTaskManager pollDocument:self cancellationToken:cancellationToken] continueWithBlock:^id(BFTask *task) {
+            return [self->_documentTaskManager getExtractionsForDocument:self cancellationToken:cancellationToken];
         }];
     }
     return _extractions;
 }
 
 - (BFTask *)extractions {
-    return [self.extractionTask continueWithSuccessBlock:^id(BFTask *task) {
-        NSMutableDictionary *results = task.result;
-        return [results valueForKey:@"extractions"];
-    }];
+    return [self getExtractionsWithCancellationToken:nil];
 }
 
 - (BFTask *)candidates {
-    return [self.extractionTask continueWithSuccessBlock:^id(BFTask *task) {
-        NSDictionary *results = task.result;
-        return [results valueForKey:@"candidates"];
-    }];
+    return [self getCandidatesWithCancellationToken:nil];
 }
 
 - (BFTask *)layout {
-    if (!_layout) {
-        _layout = [[_documentTaskManager pollDocument:self] continueWithBlock:^id(BFTask *task) {
-            return [self->_documentTaskManager getLayoutForDocument:self];
-        }];
-    }
-    return _layout;
+    return [self getLayoutWithCancellationToken:nil];
 }
 
 - (NSString *)description {
