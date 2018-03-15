@@ -79,7 +79,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return [self createDocumentWithFilename:fileName fromImage:image cancellationToken:nil];
 }
 
--(BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image cancellationToken:(BFCancellationToken *)cancellationToken {
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image cancellationToken:(BFCancellationToken *)cancellationToken {
     return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:nil cancellationToken:cancellationToken];
 }
 
@@ -87,7 +87,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return [self createDocumentWithFilename:fileName fromImage:image docType:docType cancellationToken:nil];
 }
 
--(BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
     return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:docType cancellationToken:cancellationToken];
 }
 
@@ -95,7 +95,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return [self createDocumentWithFilename:fileName fromData:data docType:docType cancellationToken:nil];
 }
 
--(BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([data isKindOfClass:[NSData class]]);
     
@@ -113,7 +113,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return [self updateDocument:document cancellationToken:nil];
 }
 
--(BFTask *)updateDocument:(GINIDocument *)document cancellationToken:(BFCancellationToken *)cancellationToken {
+- (BFTask *)updateDocument:(GINIDocument *)document cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
     
     BFTask *updateTask = [[document getExtractionsWithCancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
