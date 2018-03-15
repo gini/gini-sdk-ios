@@ -112,6 +112,12 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 /**
  * Gets the extractions from the document.
  *
+ */
+- (BFTask *)getExtractions;
+
+/**
+ * Gets the extractions from the document.
+ *
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
  */
@@ -120,10 +126,22 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 /**
  * Gets the candidates from the document.
  *
+ */
+- (BFTask *)getCandidates;
+
+/**
+ * Gets the candidates from the document.
+ *
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
  */
 - (BFTask *)getCandidatesWithCancellationToken:(BFCancellationToken *)cancellationToken;
+
+/**
+ * Gets the layout from the document.
+ *
+ */
+- (BFTask *)getLayout;
 
 /**
  * Gets the layout from the document.

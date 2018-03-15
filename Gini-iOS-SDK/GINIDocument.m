@@ -95,6 +95,10 @@
                                  cancellationToken:cancellationToken];
 }
 
+- (BFTask *)getExtractions {
+    return [self getExtractionsWithCancellationToken:nil];
+}
+
 - (BFTask *)getExtractionsWithCancellationToken:(BFCancellationToken *)cancellationToken {
     return [[self extractionTaskWithCancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         NSMutableDictionary *results = task.result;
@@ -102,11 +106,19 @@
     }];
 }
 
+- (BFTask *)getCandidates {
+    return [self getCandidatesWithCancellationToken:nil];
+}
+
 -(BFTask *)getCandidatesWithCancellationToken:(BFCancellationToken *)cancellationToken {
     return [[self extractionTaskWithCancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *results = task.result;
         return [results valueForKey:@"candidates"];
     }];
+}
+
+- (BFTask *)getLayout {
+    return [self getLayoutWithCancellationToken:nil];
 }
 
 - (BFTask *)getLayoutWithCancellationToken:(BFCancellationToken *)cancellationToken {
@@ -131,15 +143,15 @@
 }
 
 - (BFTask *)extractions {
-    return [self getExtractionsWithCancellationToken:nil];
+    return [self getExtractions];
 }
 
 - (BFTask *)candidates {
-    return [self getCandidatesWithCancellationToken:nil];
+    return [self getCandidates];
 }
 
 - (BFTask *)layout {
-    return [self getLayoutWithCancellationToken:nil];
+    return [self getLayout];
 }
 
 - (NSString *)description {
