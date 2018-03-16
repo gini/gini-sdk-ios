@@ -30,15 +30,23 @@
 }
 
 - (BFTask *)getDocument:(NSString *)documentId{
-    _getDocumentCalled += 1;
-    return [BFTask taskWithResult:@{
-            @"id": @"1234",
-            @"progress": @"COMPLETED",
-            @"sourceClassification": @"SCANNED"
-    }];
+    return [self getDocument:documentId cancellationToken:nil];
 }
 
-- (BFTask *)uploadDocumentWithData:(NSData *)documentData contentType:(NSString *)contentType fileName:(NSString *)fileName docType:(NSString *)docType {
+- (BFTask *)getDocument:(NSString *)documentId cancellationToken:(BFCancellationToken *)cancellationToken {
+    _getDocumentCalled += 1;
+    return [BFTask taskWithResult:@{
+                                    @"id": @"1234",
+                                    @"progress": @"COMPLETED",
+                                    @"sourceClassification": @"SCANNED"
+                                    }];
+}
+
+- (BFTask *)uploadDocumentWithData:(NSData *)documentData
+                       contentType:(NSString *)contentType
+                          fileName:(NSString *)fileName
+                           docType:(NSString *)docType
+                 cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([documentData isKindOfClass:[NSData class]]);
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([contentType isKindOfClass:[NSString class]]);
