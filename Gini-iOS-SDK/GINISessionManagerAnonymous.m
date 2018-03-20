@@ -181,8 +181,6 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
     return [[_userCenterManager createUserWithEmail:email password:password] continueWithBlock:^id(BFTask *task) {
         if (task.error) {
             return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorUserCreationError cause:task.error userInfo:nil]];
-        } else if (task.exception) {
-            return task;
         }
         [self->_credentialsStore storeUserCredentials:email password:password];
         return nil;

@@ -135,10 +135,7 @@ NSString *const GINIServerFlowResponseType = @"code";
             if (code) {
                 [_activeLogInTask setResult:code];
             }
-            else {
-                // TODO: Add no code found error
-                [_activeLogInTask setError:nil];
-            }
+            
             _activeLogInTask = nil;
             _activeLogInState = nil;
             return YES;

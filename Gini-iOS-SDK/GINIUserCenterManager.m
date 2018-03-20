@@ -100,7 +100,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
             return serializationError;
         }
         return [[self->_urlSession BFDataTaskWithRequest:urlRequest] continueWithBlock:^id(BFTask *createTask) {
-            if (createTask.error || createTask.exception) {
+            if (createTask.error) {
                 [self->_notificationCenter postNotificationName:GINIUserCreationErrorNotification object:nil];
                 return createTask;
             }
@@ -141,7 +141,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
         }
 
         // Pass-through all other errors.
-        if (loginTask.error || loginTask.exception) {
+        if (loginTask.error) {
             // TODO (maybe discriminable notifications)
             [self->_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
             return loginTask;

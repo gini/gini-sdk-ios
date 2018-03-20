@@ -79,7 +79,11 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
  *                              and `layout` property.
  */
-- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state pageCount:(NSUInteger)pageCount sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:(GINIDocumentTaskManager *)documentManager;
+- (instancetype)initWithId:(NSString *)documentId
+                     state:(GiniDocumentState)state
+                 pageCount:(NSUInteger)pageCount
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+           documentManager:(GINIDocumentTaskManager *)documentManager;
 
 /**
  * Gets the preview image for the given page.
@@ -91,4 +95,59 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  *                          document are processed by the Gini API.
  */
 - (BFTask *)previewWithSize:(GiniApiPreviewSize)size forPage:(NSUInteger)page;
+
+/**
+ * Gets the preview image for the given page.
+ *
+ * @param size                  The size of the rendered preview. Please notice that those sizes are the maximum sizes of the
+ *                              renderings, the actual image can have smaller dimensions.
+ * @param page                  The page for which the preview is rendered. Please notice that only the first 10 pages of a
+ *                              document are processed by the Gini API.
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ */
+- (BFTask *)previewWithSize:(GiniApiPreviewSize)size forPage:(NSUInteger)page
+          cancellationToken:(BFCancellationToken *)cancellationToken;
+
+/**
+ * Gets the extractions from the document.
+ *
+ */
+- (BFTask *)getExtractions;
+
+/**
+ * Gets the extractions from the document.
+ *
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ */
+- (BFTask *)getExtractionsWithCancellationToken:(BFCancellationToken *)cancellationToken;
+
+/**
+ * Gets the candidates from the document.
+ *
+ */
+- (BFTask *)getCandidates;
+
+/**
+ * Gets the candidates from the document.
+ *
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ */
+- (BFTask *)getCandidatesWithCancellationToken:(BFCancellationToken *)cancellationToken;
+
+/**
+ * Gets the layout from the document.
+ *
+ */
+- (BFTask *)getLayout;
+
+/**
+ * Gets the layout from the document.
+ *
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ */
+- (BFTask *)getLayoutWithCancellationToken:(BFCancellationToken *)cancellationToken;
 @end

@@ -62,9 +62,13 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 
 #pragma mark - Document methods
 - (BFTask *)getDocumentWithId:(NSString *)documentId{
-    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    return [self getDocumentWithId:documentId cancellationToken:nil];
+}
 
-    BFTask *documentTask = [[_apiManager getDocument:documentId] continueWithSuccessBlock:^id(BFTask *task) {
+- (BFTask *)getDocumentWithId:(NSString *)documentId cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
+    BFTask *documentTask = [[_apiManager getDocument:documentId cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         GINIDocument *document = [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
         return document;
     }];
@@ -72,27 +76,47 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image {
-    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:nil];
+    return [self createDocumentWithFilename:fileName fromImage:image cancellationToken:nil];
+}
+
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:nil cancellationToken:cancellationToken];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType {
-    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:docType];
+    return [self createDocumentWithFilename:fileName fromImage:image docType:docType cancellationToken:nil];
+}
+
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:docType cancellationToken:cancellationToken];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType {
+    return [self createDocumentWithFilename:fileName fromData:data docType:docType cancellationToken:nil];
+}
+
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([data isKindOfClass:[NSData class]]);
     
-    BFTask *createTask = [[_apiManager uploadDocumentWithData:data contentType:@"image/jpeg" fileName:fileName docType:docType] continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *createTask = [[_apiManager uploadDocumentWithData:data
+                                                  contentType:@"image/jpeg"
+                                                     fileName:fileName
+                                                      docType:docType
+                                            cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
     return GINIhandleHTTPerrors(createTask);
 }
 
 - (BFTask *)updateDocument:(GINIDocument *)document {
+    return [self updateDocument:document cancellationToken:nil];
+}
+
+- (BFTask *)updateDocument:(GINIDocument *)document cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
     
-    BFTask *updateTask = [document.extractions continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *updateTask = [[document getExtractionsWithCancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *extractions = task.result;
         NSMutableDictionary *updateExtractions = [NSMutableDictionary new];
         
@@ -110,36 +134,54 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 }
 
 - (BFTask *)deleteDocument:(GINIDocument *)document {
-    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    return [self deleteDocument:document cancellationToken:nil];
+}
 
-    return GINIhandleHTTPerrors([_apiManager deleteDocument:document.documentId]);
+- (BFTask *)deleteDocument:(GINIDocument *)document
+         cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    
+    return GINIhandleHTTPerrors([_apiManager deleteDocument:document.documentId cancellationToken:cancellationToken]);
 }
 
 - (BFTask *)pollDocument:(GINIDocument *)document {
-    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    return [self pollDocument:document cancellationToken:nil];
+}
 
+- (BFTask *)pollDocument:(GINIDocument *)document
+       cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    
     // Immediately return already processed documents.
     if (document.state == GiniDocumentStateComplete) {
         return [BFTask taskWithResult:document];
     }
-
-    return [self pollDocumentWithId:document.documentId];
+    
+    return [self pollDocumentWithId:document.documentId
+                  cancellationToken:cancellationToken];
 }
 
 - (BFTask *)pollDocumentWithId:(NSString *)documentId{
-    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    return [self pollDocumentWithId:documentId cancellationToken:nil];
+}
 
-    BFTask *pollTask = [self privatePollDocumentWithId:documentId];
+- (BFTask *)pollDocumentWithId:(NSString *)documentId
+             cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
+    BFTask *pollTask = [self privatePollDocumentWithId:documentId cancellationToken:cancellationToken];
     return GINIhandleHTTPerrors(pollTask);
 }
 
-- (BFTask *)privatePollDocumentWithId:(NSString *)documentId {
-    return [[_apiManager getDocument:documentId] continueWithSuccessBlock:^id(BFTask *task) {
+
+- (BFTask *)privatePollDocumentWithId:(NSString *)documentId
+                    cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [[_apiManager getDocument:documentId cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *polledDocument = task.result;
         // If the document is not fully processed yet, wait a second and then poll again.
         if ([polledDocument[@"progress"] isEqualToString:@"PENDING"]) {
-            return [[BFTask taskWithDelay:(int)self.pollingInterval * 1000] continueWithSuccessBlock:^id(BFTask *waitTask) {
-                return [self privatePollDocumentWithId:documentId];
+            return [[BFTask taskWithDelay:(int)self.pollingInterval * 1000 cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *waitTask) {
+                return [self privatePollDocumentWithId:documentId cancellationToken:cancellationToken];
             }];
             // Otherwise return the document.
         } else {
@@ -148,26 +190,47 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     }];
 }
 
-- (BFTask *)getPreviewForPage:(NSUInteger)page ofDocument:(GINIDocument *)document withSize:(GiniApiPreviewSize)size {
+- (BFTask *)getPreviewForPage:(NSUInteger)page
+                   ofDocument:(GINIDocument *)document
+                     withSize:(GiniApiPreviewSize)size {
+    return [self getPreviewForPage:page ofDocument:document withSize:size cancellationToken:nil];
+}
+
+- (BFTask *)getPreviewForPage:(NSUInteger)page
+                   ofDocument:(GINIDocument *)document
+                     withSize:(GiniApiPreviewSize)size
+            cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert(page > 0);
     NSParameterAssert(page <= document.pageCount);
-
-    BFTask *pageTask = [_apiManager getPreviewForPage:page ofDocument:document.documentId withSize:size];
+    
+    BFTask *pageTask = [_apiManager getPreviewForPage:page ofDocument:document.documentId withSize:size cancellationToken:cancellationToken];
     return GINIhandleHTTPerrors(pageTask);
 }
 
 #pragma mark - Extraction methods
 - (BFTask *)getExtractionsForDocument:(GINIDocument *)document {
-    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    return [self getExtractionsForDocument:document cancellationToken:nil];
+}
 
-    BFTask *extractionsTask = [self createExtractionsForGetTask:[_apiManager getExtractionsForDocument:document.documentId]];
+- (BFTask *)getExtractionsForDocument:(GINIDocument *)document
+                    cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    
+    BFTask *extractionsTask = [self createExtractionsForGetTask:[_apiManager getExtractionsForDocument:document.documentId
+                                                                                     cancellationToken:cancellationToken]];
     return GINIhandleHTTPerrors(extractionsTask);
 }
 
 - (BFTask *)getIncubatorExtractionsForDocument:(GINIDocument *)document {
-    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    return [self getIncubatorExtractionsForDocument:document cancellationToken:nil];
+}
 
-    BFTask *extractionsTask = [self createExtractionsForGetTask:[_apiManager getIncubatorExtractionsForDocument:document.documentId]];
+- (BFTask *)getIncubatorExtractionsForDocument:(GINIDocument *)document
+                             cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    
+    BFTask *extractionsTask = [self createExtractionsForGetTask:[_apiManager getIncubatorExtractionsForDocument:document.documentId
+                                                                                              cancellationToken:cancellationToken]];
     return GINIhandleHTTPerrors(extractionsTask);
 }
 
@@ -238,13 +301,19 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 }
 
 - (BFTask *)getLayoutForDocument:(GINIDocument *)document {
-    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    return [self getLayoutForDocument:document cancellationToken:nil];
+}
 
+- (BFTask *)getLayoutForDocument:(GINIDocument *)document cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    
     BFTask *layoutTask = [_apiManager getLayoutForDocument:document.documentId responseType:(GiniAPIResponseTypeJSON)];
     return GINIhandleHTTPerrors(layoutTask);
 }
 
-- (BFTask *)errorReportForDocument:(GINIDocument *)document summary:(NSString *)summary description:(NSString *)description{
+- (BFTask *)errorReportForDocument:(GINIDocument *)document
+                           summary:(NSString *)summary
+                       description:(NSString *)description{
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
 
     BFTask *errorReportTask = [_apiManager reportErrorForDocument:document.documentId summary:summary description:description];

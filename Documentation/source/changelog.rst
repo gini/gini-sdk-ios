@@ -2,6 +2,17 @@
 Changelog
 =========
 
+1.0.0-alpha.1 (15-03-2018)
+==================
+
+Features
+--------
+
+- Updated Bolts to 1.9.0
+- Updated TrustKit to 1.5.3
+- Added cancellation token.
+
+
 0.6.0 (09-02-2018)
 ==================
 
