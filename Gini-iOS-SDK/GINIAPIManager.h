@@ -209,10 +209,23 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
                  cancellationToken:(BFCancellationToken *) cancellationToken;
 
 
-- (BFTask *)uploadMultipageDocumentWithSubDocumentURLs:(NSArray<NSURL*>*)subDocumentURLs
-                                             fileName:(NSString *)fileName
-                                              docType:(NSString *)docType
-                                    cancellationToken:(BFCancellationToken *) cancellationToken;
+/**
+ * Creates a new multi whatever document
+ *
+ * @param subDocumentsURLs  Array containing the URL for each sub document.
+ * @param fileName          The filename of the document.
+ * @param docType           (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+ *                          [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
+ *                          for a list of possibles doctypes.
+ * @param cancellationToken Cancellation token used to cancel the current task.
+ *
+ * @returns                 A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ */
+
+- (BFTask *)uploadMultipageDocumentWithSubDocumentsURLs:(NSArray<NSURL*>*)subDocumentsURLs
+                                               fileName:(NSString *)fileName
+                                                docType:(NSString *)docType
+                                      cancellationToken:(BFCancellationToken *) cancellationToken;
 
 
 /**

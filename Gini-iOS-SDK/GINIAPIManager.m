@@ -203,14 +203,14 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     } cancellationToken:cancellationToken];
 }
 
--(BFTask *)uploadMultipageDocumentWithSubDocumentURLs:(NSArray<NSURL *> *)subDocumentURLs
-                                            fileName:(NSString *)fileName
-                                             docType:(NSString *)docType
-                                   cancellationToken:(BFCancellationToken *)cancellationToken {
+-(BFTask *)uploadMultipageDocumentWithSubDocumentsURLs:(NSArray<NSURL *> *)subDocumentsURLs
+                                              fileName:(NSString *)fileName
+                                               docType:(NSString *)docType
+                                     cancellationToken:(BFCancellationToken *)cancellationToken {
     
     NSMutableArray<NSString*> *subDocumentsUrlStrings = [NSMutableArray array];
     
-    for (NSURL* currentURL in subDocumentURLs) {
+    for (NSURL* currentURL in subDocumentsURLs) {
         [subDocumentsUrlStrings addObject:currentURL.absoluteString];
     }
     NSDictionary* dict = @{@"subdocuments": subDocumentsUrlStrings};

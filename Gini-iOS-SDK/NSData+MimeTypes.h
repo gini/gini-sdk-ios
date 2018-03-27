@@ -2,7 +2,7 @@
 //  NSData+MimeTypes.h
 //  Gini-iOS-SDK
 //
-//  Created by Enrique del Pozo Gómez on 3/27/18.
+//  Created by Gini GmbH on 3/27/18.
 //
 
 #import <Foundation/Foundation.h>
