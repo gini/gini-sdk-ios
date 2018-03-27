@@ -78,6 +78,14 @@ describe(@"The GINIDocument", ^{
         instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
         [[theValue(instance.state) should] equal:theValue(GiniDocumentStateError)];
     });
+    
+    it(@"should has the correct links", ^{
+        GINIDocument *instance = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
+        [[instance.links.document should] equal:@"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000"];
+        [[instance.links.extractions should] equal:@"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000/extractions"];
+        [[instance.links.layout should] equal:@"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000/layout"];
+        [[instance.links.processed should] equal:@"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000/processed"];
+    });
 
     it(@"should have a nice description", ^{
         GINIDocument *document = [GINIDocument documentFromAPIResponse:jsonData withDocumentManager:documentTaskManager];
