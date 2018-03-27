@@ -80,15 +80,31 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:nil cancellationToken:cancellationToken];
+    return [self createDocumentWithFilename:fileName fromImage:image isPartialDocument:false cancellationToken:cancellationToken];
+}
+    
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image isPartialDocument:(BOOL)isPartialDocument {
+    return [self createDocumentWithFilename:fileName fromImage:image isPartialDocument:isPartialDocument cancellationToken:nil];
+}
+    
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image isPartialDocument:(BOOL)isPartialDocument cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createDocumentWithFilename:fileName fromImage:image docType:nil isPartialDocument:isPartialDocument cancellationToken:cancellationToken];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType {
     return [self createDocumentWithFilename:fileName fromImage:image docType:docType cancellationToken:nil];
 }
-
+    
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:docType cancellationToken:cancellationToken];
+    return [self createDocumentWithFilename:fileName fromImage:image docType:docType isPartialDocument:false cancellationToken:cancellationToken];
+}
+    
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType isPartialDocument:(BOOL)isPartialDocument {
+    return [self createDocumentWithFilename:fileName fromImage:image docType:docType isPartialDocument:isPartialDocument cancellationToken:nil];
+}
+    
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType isPartialDocument:(BOOL)isPartialDocument cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:@"image/jpeg" isPartialDocument:isPartialDocument cancellationToken:cancellationToken];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType {
@@ -96,11 +112,26 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createDocumentWithFilename:fileName fromData:data docType:docType isPartialDocument:false cancellationToken:cancellationToken];
+}
+    
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType isPartialDocument:(BOOL)isPartialDocument {
+    return [self createDocumentWithFilename:fileName fromData:data docType:docType isPartialDocument:isPartialDocument cancellationToken:nil];
+}
+    
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType isPartialDocument:(BOOL)isPartialDocument cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([data isKindOfClass:[NSData class]]);
     
+    NSString* contentType;
+    if (isPartialDocument) {
+        contentType = @"application/vnd.gini.v2.partial+jpeg";
+    } else {
+        contentType = @"image/jpeg";
+    }
+    
     BFTask *createTask = [[_apiManager uploadDocumentWithData:data
-                                                  contentType:@"image/jpeg"
+                                                  contentType:contentType
                                                      fileName:fileName
                                                       docType:docType
                                             cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
