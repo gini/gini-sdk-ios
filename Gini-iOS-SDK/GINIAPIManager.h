@@ -208,6 +208,13 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
                            docType:(NSString *)docType
                  cancellationToken:(BFCancellationToken *) cancellationToken;
 
+
+- (BFTask *)uploadMultipageDocumentWithSubDocumentURLs:(NSArray<NSURL*>*)subDocumentURLs
+                                             fileName:(NSString *)fileName
+                                              docType:(NSString *)docType
+                                    cancellationToken:(BFCancellationToken *) cancellationToken;
+
+
 /**
  * Deletes the document with the given ID.
  *

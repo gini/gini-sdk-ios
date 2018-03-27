@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GINIAPIManager.h"
+#import "GINIDocumentLinks.h"
 
 @class GINIDocumentTaskManager;
 
@@ -59,6 +60,8 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 @property (readonly) BFTask *candidates;
 /// A `BFTask*` resolving to a dictionary with the layout of the document.
 @property (readonly) BFTask *layout;
+/// Links to related resources, such as extractions, document, processed or layout.
+@property (readonly) GINIDocumentLinks *links;
 
 /**
  * Factory to create a new document.
@@ -84,6 +87,24 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
            documentManager:(GINIDocumentTaskManager *)documentManager;
+
+/**
+ * The designated initializer.
+ *
+ * @param documentId            The document's unique identifier.
+ * @param state                 The document's state.
+ * @param pageCount             The number of pages of the document.
+ * @param sourceClassification  The document's source classification.
+ * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
+ *                              and `layout` property.
+ * @param links                 The document list of related resources (extractions, document, processed or layout).
+ */
+- (instancetype)initWithId:(NSString *)documentId
+                     state:(GiniDocumentState)state
+                 pageCount:(NSUInteger)pageCount
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+           documentManager:(GINIDocumentTaskManager *)documentManager
+                     links:(GINIDocumentLinks *)links;
 
 /**
  * Gets the preview image for the given page.

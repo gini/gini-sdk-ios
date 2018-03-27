@@ -179,6 +179,11 @@
                                docType:(NSString *)docType
                      isPartialDocument:(BOOL)isPartialDocument
                      cancellationToken:(BFCancellationToken *)cancellationToken;
+
+- (BFTask *)createMultipageDocumentWithSubDocumentURLs:(NSArray<NSURL*>*)subDocumentURLs
+                                             fileName:(NSString *)fileName
+                                              docType:(NSString *)docType
+                                    cancellationToken:(BFCancellationToken *)cancellationToken;
     
     /**
      * Saves updates on the extractions.

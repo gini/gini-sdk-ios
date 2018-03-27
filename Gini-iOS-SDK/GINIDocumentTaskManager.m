@@ -137,6 +137,19 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return GINIhandleHTTPerrors(createTask);
 }
 
+- (BFTask *)createMultipageDocumentWithSubDocumentURLs:(NSArray<NSURL *> *)subDocumentURLs
+                                             fileName:(NSString *)fileName
+                                              docType:(NSString *)docType
+                                    cancellationToken:(BFCancellationToken *)cancellationToken {
+    BFTask *createTask = [[_apiManager uploadMultipageDocumentWithSubDocumentURLs:subDocumentURLs
+                                                                        fileName:fileName
+                                                                         docType:docType
+                                                               cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
+        return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
+    }];
+    return GINIhandleHTTPerrors(createTask);
+}
+
 - (BFTask *)updateDocument:(GINIDocument *)document {
     return [self updateDocument:document cancellationToken:nil];
 }

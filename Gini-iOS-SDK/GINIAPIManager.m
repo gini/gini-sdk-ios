@@ -203,6 +203,44 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     } cancellationToken:cancellationToken];
 }
 
+-(BFTask *)uploadMultipageDocumentWithSubDocumentURLs:(NSArray<NSURL *> *)subDocumentURLs
+                                            fileName:(NSString *)fileName
+                                             docType:(NSString *)docType
+                                   cancellationToken:(BFCancellationToken *)cancellationToken {
+    
+    NSMutableArray<NSString*> *subDocumentsUrlStrings = [NSMutableArray array];
+    
+    for (NSURL* currentURL in subDocumentURLs) {
+        [subDocumentsUrlStrings addObject:currentURL.absoluteString];
+    }
+    NSDictionary* dict = @{@"subdocuments": subDocumentsUrlStrings};
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *jsonStringFormatted = [jsonString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"];
+    NSData *jsonDataFormatted = [jsonStringFormatted dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *urlString = [NSString stringWithFormat:@"documents/?filename=%@", stringByEscapingString(fileName)];
+    if (docType) {
+        urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"&doctype=%@", stringByEscapingString(docType)]];
+    }
+    
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:@"application/vnd.gini.v2.document+json" forHTTPHeaderField:@"Content-Type"];
+        
+        return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:jsonDataFormatted] continueWithSuccessBlock:^id(BFTask *uploadTask) {
+            // The HTTP response has a Location header with the URL of the document.
+            GINIURLResponse *response = uploadTask.result;
+            NSString *location = [[response.response allHeaderFields] valueForKey:@"Location"];
+            // Get the document.
+            return [self getDocumentWithURL:[NSURL URLWithString:location] cancellationToken:cancellationToken];
+        }];
+    } cancellationToken:cancellationToken];
+}
 
 - (BFTask *)deleteDocument:(NSString *)documentId {
     return [self deleteDocument:documentId cancellationToken:nil];

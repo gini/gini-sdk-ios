@@ -56,8 +56,17 @@
     }
 
     NSUInteger pageCount = [apiResponse[@"pageCount"] unsignedIntValue];
-
-    GINIDocument *document = [[GINIDocument alloc] initWithId:documentId state:documentState pageCount:pageCount sourceClassification:(GiniDocumentSourceClassification) sourceClassification documentManager:documentManager];
+    NSDictionary *linksDict = [apiResponse valueForKey:@"_links"];
+    GINIDocumentLinks *links = [[GINIDocumentLinks alloc] initWithDocumentURL:linksDict[@"document"]
+                                                               extractionsURL:linksDict[@"extractions"]
+                                                                    layoutURL:linksDict[@"layout"] 
+                                                                 processedURL:linksDict[@"processed"]];
+    GINIDocument *document = [[GINIDocument alloc] initWithId:documentId
+                                                        state:documentState
+                                                    pageCount:pageCount
+                                         sourceClassification:(GiniDocumentSourceClassification) sourceClassification
+                                              documentManager:documentManager
+                                                        links:links];
     document.filename = [apiResponse valueForKey:@"name"];
     document.creationDate = [NSDate dateWithTimeIntervalSince1970:floor([[apiResponse valueForKey:@"creationDate"] doubleValue] / 1000)];
 
@@ -68,7 +77,12 @@
 
 - (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state pageCount:(NSUInteger)pageCount sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:(GINIDocumentTaskManager *)documentManager {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    return [self initWithId:documentId state:state pageCount:pageCount sourceClassification:sourceClassification documentManager:documentManager links:nil];
+}
 
+- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state pageCount:(NSUInteger)pageCount sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:(GINIDocumentTaskManager *)documentManager links:(GINIDocumentLinks *)links {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
     self = [super init];
     if (self) {
         _documentId = documentId;
@@ -76,7 +90,9 @@
         _documentTaskManager = documentManager;
         _sourceClassification = sourceClassification;
         _pageCount = pageCount;
+        _links = links;
     }
+    
     return self;
 }
 
