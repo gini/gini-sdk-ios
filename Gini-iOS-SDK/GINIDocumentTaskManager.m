@@ -8,7 +8,7 @@
 #import "GINIExtraction.h"
 #import "GINIError.h"
 #import <Bolts/Bolts.h>
-
+#import "NSData+MimeTypes.h"
 
 /**
  * Handles common HTTP errors and expected errors that occur during task execution.
@@ -17,18 +17,18 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return [originalTask continueWithBlock:^id(BFTask *task) {
         if (task.error && [task.error.domain isEqualToString:NSURLErrorDomain]) {
             switch(task.error.code) {
-                // HTTP #404
+                    // HTTP #404
                 case NSURLErrorFileDoesNotExist:
                     return [GINIError errorWithCode:GINIErrorResourceNotFound userInfo:task.error.userInfo];
-
-                // HTTP #401
+                    
+                    // HTTP #401
                 case NSURLErrorUserAuthenticationRequired:
                     return [GINIError errorWithCode:GINIErrorNotAuthorized userInfo:task.error.userInfo];
-
-                // HTTP #403
+                    
+                    // HTTP #403
                 case NSURLErrorNoPermissionsToReadFile:
                     return [GINIError errorWithCode:GINIErrorInsufficientRights userInfo:task.error.userInfo];
-
+                    
                 default:
                     break;
             }
@@ -46,7 +46,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 
 + (instancetype)documentTaskManagerWithAPIManager:(GINIAPIManager *)apiManager {
     NSParameterAssert([apiManager isKindOfClass:[GINIAPIManager class]]);
-
+    
     return [[self alloc] initWithAPIManager:apiManager];
 }
 
@@ -76,58 +76,55 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image {
-    return [self createDocumentWithFilename:fileName fromImage:image cancellationToken:nil];
-}
-
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self createDocumentWithFilename:fileName fromImage:image isPartialDocument:false cancellationToken:cancellationToken];
-}
-    
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image isPartialDocument:(BOOL)isPartialDocument {
-    return [self createDocumentWithFilename:fileName fromImage:image isPartialDocument:isPartialDocument cancellationToken:nil];
-}
-    
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image isPartialDocument:(BOOL)isPartialDocument cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self createDocumentWithFilename:fileName fromImage:image docType:nil isPartialDocument:isPartialDocument cancellationToken:cancellationToken];
+    return [self createDocumentWithFilename:fileName
+                                  fromImage:image
+                                    docType:nil];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType {
-    return [self createDocumentWithFilename:fileName fromImage:image docType:docType cancellationToken:nil];
-}
-    
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self createDocumentWithFilename:fileName fromImage:image docType:docType isPartialDocument:false cancellationToken:cancellationToken];
-}
-    
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType isPartialDocument:(BOOL)isPartialDocument {
-    return [self createDocumentWithFilename:fileName fromImage:image docType:docType isPartialDocument:isPartialDocument cancellationToken:nil];
-}
-    
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName fromImage:(UIImage *)image docType:(NSString *)docType isPartialDocument:(BOOL)isPartialDocument cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self createDocumentWithFilename:fileName fromData:UIImageJPEGRepresentation(image, 0.2) docType:@"image/jpeg" isPartialDocument:isPartialDocument cancellationToken:cancellationToken];
+    return [self createDocumentWithFilename:fileName
+                                   fromData:UIImageJPEGRepresentation(image, 0.2)
+                                    docType:@"image/jpeg"
+                          isPartialDocument:false
+                          cancellationToken:nil];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType {
-    return [self createDocumentWithFilename:fileName fromData:data docType:docType cancellationToken:nil];
+    return [self createDocumentWithFilename:fileName
+                                   fromData:data
+                                    docType:docType
+                          cancellationToken:nil];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self createDocumentWithFilename:fileName fromData:data docType:docType isPartialDocument:false cancellationToken:cancellationToken];
+    return [self createDocumentWithFilename:fileName
+                                   fromData:data
+                                    docType:docType
+                          isPartialDocument:false
+                          cancellationToken:cancellationToken];
 }
-    
+
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType isPartialDocument:(BOOL)isPartialDocument {
-    return [self createDocumentWithFilename:fileName fromData:data docType:docType isPartialDocument:isPartialDocument cancellationToken:nil];
+    return [self createDocumentWithFilename:fileName
+                                   fromData:data
+                                    docType:docType
+                          isPartialDocument:isPartialDocument
+                          cancellationToken:nil];
 }
-    
+
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName fromData:(NSData *)data docType:(NSString *)docType isPartialDocument:(BOOL)isPartialDocument cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([data isKindOfClass:[NSData class]]);
     
-    NSString* contentType;
+    NSString* contentType = [data mimeType]; // i.e: image/jpeg
+    
     if (isPartialDocument) {
-        contentType = @"application/vnd.gini.v2.partial+jpeg";
-    } else {
-        contentType = @"image/jpeg";
+        NSString* lastDocTypeComponent = [[contentType componentsSeparatedByString:@"/"] lastObject];
+        NSString* concreteType = @"";  // i.e: jpeg
+        if (lastDocTypeComponent != nil && [lastDocTypeComponent length] > 0) {
+            concreteType = lastDocTypeComponent;
+        }
+        contentType = [NSString stringWithFormat:@"application/vnd.gini.v2.partial+%@", concreteType];
     }
     
     BFTask *createTask = [[_apiManager uploadDocumentWithData:data
@@ -274,7 +271,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
         for (NSString *entity in candidatesMapping) {
             NSArray *candidates = candidatesMapping[entity];
             giniCandidates[entity] = [NSMutableArray new];
-
+            
             for (NSUInteger i=0; i < [candidates count]; i++) {
                 NSDictionary *candidate = candidates[i];
                 GINIExtraction *giniExtraction = [GINIExtraction extractionWithName:nil
@@ -283,9 +280,9 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                                                                                 box:[candidate valueForKey:@"box"]];
                 [giniCandidates[entity] addObject:giniExtraction];
             }
-
+            
         }
-
+        
         // And then create the extractions.
         NSMutableDictionary *extractions = [apiResponse valueForKey:@"extractions"];
         NSMutableDictionary *giniExtractions = [NSMutableDictionary new];
@@ -305,7 +302,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
             giniExtraction.candidates = candidatesForExtraction;
             giniExtractions[name] = giniExtraction;
         }
-
+        
         return [NSMutableDictionary dictionaryWithDictionary:@{@"extractions": giniExtractions, @"candidates": giniCandidates}];
     }];
 }
@@ -313,11 +310,11 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 - (BFTask *)updateExtraction:(GINIExtraction *)extraction forDocument:(GINIDocument *)document {
     NSParameterAssert([GINIExtraction isKindOfClass:[GINIExtraction class]]);
     NSParameterAssert([GINIDocument isKindOfClass:[GINIDocument class]]);
-
+    
     BFTask *updateTask = [[_apiManager submitFeedbackForDocument:document.documentId
-                                             label:extraction.name
-                                             value:extraction.value
-                                       boundingBox:extraction.box] continueWithSuccessBlock:^id(BFTask *task) {
+                                                           label:extraction.name
+                                                           value:extraction.value
+                                                     boundingBox:extraction.box] continueWithSuccessBlock:^id(BFTask *task) {
         [document.extractions continueWithSuccessBlock:^id(BFTask *extractionsTask) {
             NSMutableDictionary *extractions = extractionsTask.result;
             extractions[extraction.name] = [GINIExtraction extractionWithName:extraction.name
@@ -346,7 +343,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                            summary:(NSString *)summary
                        description:(NSString *)description{
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
-
+    
     BFTask *errorReportTask = [_apiManager reportErrorForDocument:document.documentId summary:summary description:description];
     return GINIhandleHTTPerrors(errorReportTask);
 }
