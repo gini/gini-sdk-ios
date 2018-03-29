@@ -133,70 +133,6 @@
                                docType:(NSString *)docType
                      cancellationToken:(BFCancellationToken *)cancellationToken;
 
-
-/**
- * Creates a new document with the given `doctype` from the given data.
- * Data can be in the format of a PDF, UTF-8 text or image representation.
- * By providing the doctype, Gini's document processing is optimized in many ways.
- *
- * See the [Gini API documentation](http://developer.gini.net/gini-api/html/documents.html#document-type-hints) for
- * details and [a list of available doctypes](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
- *
- * @param fileName                  The file name of the document.
- * @param data                      Data representing the document.
- * @param docType                   The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
- * @param isPartialDocument         The document is part of a multi document
- *
- * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
- *                      Please notice that it is very unlikely that the created document is already fully processed, so
- *                      the extractions may not yet exist.
- */
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName
-                              fromData:(NSData *)data
-                               docType:(NSString *)docType
-                     isPartialDocument:(BOOL)isPartialDocument;
-
-/**
- * Creates a new document with the given `doctype` from the given data.
- * Data can be in the format of a PDF, UTF-8 text or image representation.
- * By providing the doctype, Gini's document processing is optimized in many ways.
- *
- * See the [Gini API documentation](http://developer.gini.net/gini-api/html/documents.html#document-type-hints) for
- * details and [a list of available doctypes](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
- *
- * @param fileName                  The file name of the document.
- * @param data                      Data representing the document.
- * @param docType                   The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
- * @param isPartialDocument         The document is part of a multi document
- * @param cancellationToken         Cancellation token used to cancel the current task.
- *
- * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
- *                      Please notice that it is very unlikely that the created document is already fully processed, so
- *                      the extractions may not yet exist.
- */
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName
-                              fromData:(NSData *)data
-                               docType:(NSString *)docType
-                     isPartialDocument:(BOOL)isPartialDocument
-                     cancellationToken:(BFCancellationToken *)cancellationToken;
-/**
- * Creates a new multi whatever document with the given subdocuments urls.
- *
- * @param subDocumentsURLs          Array containing the URL for each sub document.
- * @param fileName                  The file name of the document.
- * @param docType                   The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
- * @param cancellationToken         Cancellation token used to cancel the current task.
- *
- * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created multi whatever document.
- *                      Please notice that it is very unlikely that the created document is already fully processed, so
- *                      the extractions may not yet exist.
- */
-
-- (BFTask *)createMultipageDocumentWithSubDocumentsURLs:(NSArray<NSURL*>*)subDocumentsURLs
-                                               fileName:(NSString *)fileName
-                                                docType:(NSString *)docType
-                                      cancellationToken:(BFCancellationToken *)cancellationToken;
-
 /**
  * Saves updates on the extractions.
  *
@@ -339,6 +275,22 @@
  * @param cancellationToken         Cancellation token used to cancel the current task.
  */
 - (BFTask *)getExtractionsForDocument:(GINIDocument *)document
+                    cancellationToken:(BFCancellationToken *)cancellationToken;
+
+/**
+ * Creates a new multi whatever document with the given subdocuments urls.
+ *
+ * @param subDocumentsURLs          Array containing the URL for each sub document.
+ * @param fileName                  The file name of the document.
+ * @param docType                   The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ * @param cancellationToken         Cancellation token used to cancel the current task.
+ *
+ * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created multi whatever document.
+ *                      Please notice that it is very unlikely that the created document is already fully processed, so
+ *                      the extractions may not yet exist.
+ */
+
+- (BFTask *)getExtractionsForDocuments:(NSArray<GINIDocument*>*)documents
                     cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**

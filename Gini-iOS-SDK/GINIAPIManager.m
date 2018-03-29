@@ -203,17 +203,11 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     } cancellationToken:cancellationToken];
 }
 
--(BFTask *)uploadMultipageDocumentWithSubDocumentsURLs:(NSArray<NSURL *> *)subDocumentsURLs
-                                              fileName:(NSString *)fileName
-                                               docType:(NSString *)docType
-                                     cancellationToken:(BFCancellationToken *)cancellationToken {
-    
-    NSMutableArray<NSString*> *subDocumentsUrlStrings = [NSMutableArray array];
-    
-    for (NSURL* currentURL in subDocumentsURLs) {
-        [subDocumentsUrlStrings addObject:currentURL.absoluteString];
-    }
-    NSDictionary* dict = @{@"subdocuments": subDocumentsUrlStrings};
+-(BFTask *)createCompositeDocumentWithPartialDocumentsURLs:(NSArray<NSString *> *)partialDocumentsURLs
+                                                  fileName:(NSString *)fileName
+                                                   docType:(NSString *)docType
+                                         cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSDictionary* dict = @{@"subdocuments": partialDocumentsURLs};
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
                                                        options:NSJSONWritingPrettyPrinted
