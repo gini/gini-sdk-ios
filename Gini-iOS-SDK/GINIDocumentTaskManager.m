@@ -146,7 +146,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 - (BFTask *)updateDocument:(GINIDocument *)document cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
     
-    BFTask *updateTask = [[document getExtractionsWithCancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *updateTask = [[self getExtractionsForDocument:document cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *extractions = task.result;
         NSMutableDictionary *updateExtractions = [NSMutableDictionary new];
         
@@ -335,7 +335,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                                                            label:extraction.name
                                                            value:extraction.value
                                                      boundingBox:extraction.box] continueWithSuccessBlock:^id(BFTask *task) {
-        [document.extractions continueWithSuccessBlock:^id(BFTask *extractionsTask) {
+        [[self getExtractionsForDocument:document] continueWithSuccessBlock:^id(BFTask *extractionsTask) {
             NSMutableDictionary *extractions = extractionsTask.result;
             extractions[extraction.name] = [GINIExtraction extractionWithName:extraction.name
                                                                         value:extraction.value
