@@ -134,6 +134,24 @@
                      cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**
+ * Creates a new composite document
+ *
+ * @param partialDocumentsURLs  Array containing the URL path for each partial document.
+ * @param fileName              The filename of the document.
+ * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+ *                              [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
+ *                              for a list of possibles doctypes.
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ */
+
+- (BFTask *)createCompositeDocumentWithPartialDocumentsURLs:(NSArray<NSString*>*)partialDocumentsURLs
+                                                   fileName:(NSString *)fileName
+                                                    docType:(NSString *)docType
+                                          cancellationToken:(BFCancellationToken *) cancellationToken;
+
+/**
  * Saves updates on the extractions.
  *
  * Updating extractions is called "Submitting feedback" in the Gini API documentation.
@@ -278,20 +296,13 @@
                     cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**
- * Creates a new multi whatever document with the given subdocuments urls.
+ * Gets the candidates for the given document.
  *
- * @param subDocumentsURLs          Array containing the URL for each sub document.
- * @param fileName                  The file name of the document.
- * @param docType                   The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ * @param document                  The document.
  * @param cancellationToken         Cancellation token used to cancel the current task.
- *
- * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created multi whatever document.
- *                      Please notice that it is very unlikely that the created document is already fully processed, so
- *                      the extractions may not yet exist.
  */
-
-- (BFTask *)getExtractionsForDocuments:(NSArray<GINIDocument*>*)documents
-                    cancellationToken:(BFCancellationToken *)cancellationToken;
+- (BFTask *)getCandidatesForDocument:(GINIDocument *)document
+                   cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**
  * Gets the extractions for the specific document, including the incubation extractions (see

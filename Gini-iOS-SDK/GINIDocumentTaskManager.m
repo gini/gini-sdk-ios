@@ -126,6 +126,19 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return GINIhandleHTTPerrors(createTask);
 }
 
+- (BFTask *)createCompositeDocumentWithPartialDocumentsURLs:(NSArray<NSString *> *)partialDocumentsURLs
+                                                   fileName:(NSString *)fileName
+                                                    docType:(NSString *)docType
+                                          cancellationToken:(BFCancellationToken *)cancellationToken {
+    BFTask* createTask = [[_apiManager createCompositeDocumentWithPartialDocumentsURLs:partialDocumentsURLs
+                                                                              fileName:fileName
+                                                                               docType:docType
+                                                                     cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
+        return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
+    }];
+    return GINIhandleHTTPerrors(createTask);
+}
+
 - (BFTask *)updateDocument:(GINIDocument *)document {
     return [self updateDocument:document cancellationToken:nil];
 }
@@ -233,34 +246,27 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                     cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
     
-    BFTask *extractionsTask = [self createExtractionsForGetTask:[_apiManager getExtractionsForDocument:document.documentId
-                                                                                     cancellationToken:cancellationToken]];
+    BFTask *extractionsTask = [[self pollDocument:document cancellationToken:cancellationToken] continueWithBlock:^id(BFTask *task) {
+        return [[self createExtractionsForGetTask:[self->_apiManager getExtractionsForDocument:document.documentId
+                                                                             cancellationToken:cancellationToken]] continueWithSuccessBlock:^id(BFTask *task) {
+            NSDictionary *results = task.result;
+            return [results valueForKey:@"extractions"];
+        }] ;
+    }];
     return GINIhandleHTTPerrors(extractionsTask);
 }
 
-- (BFTask *)getExtractionsForDocuments:(NSArray<GINIDocument *> *)documents cancellationToken:(BFCancellationToken *)cancellationToken {
-    NSMutableArray* urls = [NSMutableArray new];
-    
-    for (GINIDocument *document in documents) {
-        [urls addObject: document.links.document];
-    }
-    
-    return [[_apiManager createCompositeDocumentWithPartialDocumentsURLs:urls
-                                                                fileName:@""
-                                                                 docType:@""
-                                                       cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
-        GINIDocument *compositeDocument = task.result;
-        BFTask *extractionsTask = [[self pollDocument:compositeDocument cancellationToken:cancellationToken] continueWithBlock:^id(BFTask *task) {
-            return [self createExtractionsForGetTask:[self->_apiManager getExtractionsForDocument:compositeDocument.documentId
-                                                                                cancellationToken:cancellationToken]];
-        }];
-        
-        return [extractionsTask continueWithSuccessBlock:^id(BFTask *task) {
+- (BFTask *)getCandidatesForDocument:(GINIDocument *)document cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+
+    BFTask *extractionsTask = [[self pollDocument:document cancellationToken:cancellationToken] continueWithBlock:^id(BFTask *task) {
+        return [[self createExtractionsForGetTask:[self->_apiManager getExtractionsForDocument:document.documentId
+                                                                             cancellationToken:cancellationToken]] continueWithSuccessBlock:^id(BFTask *task) {
             NSDictionary *results = task.result;
-            return [results valueForKey:@"extractions"];
-        }];;
+            return [results valueForKey:@"candidates"];
+        }] ;
     }];
-    
+    return GINIhandleHTTPerrors(extractionsTask);
 }
 
 - (BFTask *)getIncubatorExtractionsForDocument:(GINIDocument *)document {
@@ -348,8 +354,9 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 
 - (BFTask *)getLayoutForDocument:(GINIDocument *)document cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
-    
-    BFTask *layoutTask = [_apiManager getLayoutForDocument:document.documentId responseType:(GiniAPIResponseTypeJSON)];
+    BFTask *layoutTask = [[self pollDocument:document cancellationToken:cancellationToken] continueWithBlock:^id(BFTask *task) {
+        return [self->_apiManager getLayoutForDocument:document.documentId responseType:(GiniAPIResponseTypeJSON)];;
+    }];
     return GINIhandleHTTPerrors(layoutTask);
 }
 
