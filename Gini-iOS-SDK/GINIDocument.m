@@ -17,7 +17,7 @@
 
 }
 
-+ (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse withDocumentManager:(GINIDocumentTaskManager *)documentManager{
++ (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse {
     NSString *documentId = apiResponse[@"id"];
     // Documents must have an ID.
     if (!documentId) {
@@ -63,7 +63,6 @@
                                                         state:documentState
                                                     pageCount:pageCount
                                          sourceClassification:(GiniDocumentSourceClassification) sourceClassification
-                                              documentManager:documentManager
                                                         links:links];
     document.filename = [apiResponse valueForKey:@"name"];
     document.creationDate = [NSDate dateWithTimeIntervalSince1970:floor([[apiResponse valueForKey:@"creationDate"] doubleValue] / 1000)];

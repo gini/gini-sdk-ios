@@ -156,19 +156,11 @@
  *
  * Updating extractions is called "Submitting feedback" in the Gini API documentation.
  *
- * @param document      The document.
- */
-- (BFTask *)updateDocument:(GINIDocument *)document;
-
-/**
- * Saves updates on the extractions.
- *
- * Updating extractions is called "Submitting feedback" in the Gini API documentation.
- *
  * @param document                  The document.
  * @param cancellationToken         Cancellation token used to cancel the current task.
  */
 - (BFTask *)updateDocument:(GINIDocument *)document
+        updatedExtractions:(NSDictionary *)updatedExtractions
          cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**

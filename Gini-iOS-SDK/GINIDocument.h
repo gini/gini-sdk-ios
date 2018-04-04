@@ -62,9 +62,8 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  *
  * @param apiResponse       A dictionary containing the document information. Usually the response of the Gini API.
  *
- * @param documentManager   The document manager instance that is used to communicate with the Gini API.
  */
-+ (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse withDocumentManager:(GINIDocumentTaskManager *)documentManager;
++ (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse;
 
 /**
  * The designated initializer.
@@ -73,14 +72,11 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param state                 The document's state.
  * @param pageCount             The number of pages of the document.
  * @param sourceClassification  The document's source classification.
- * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
- *                              and `layout` property.
  */
 - (instancetype)initWithId:(NSString *)documentId
                      state:(GiniDocumentState)state
                  pageCount:(NSUInteger)pageCount
-      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
-           documentManager:(GINIDocumentTaskManager *)documentManager;
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification;
 
 /**
  * The designated initializer.
@@ -89,15 +85,12 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param state                 The document's state.
  * @param pageCount             The number of pages of the document.
  * @param sourceClassification  The document's source classification.
- * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
- *                              and `layout` property.
  * @param links                 The document list of related resources (extractions, document, processed or layout).
  */
 - (instancetype)initWithId:(NSString *)documentId
                      state:(GiniDocumentState)state
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
-           documentManager:(GINIDocumentTaskManager *)documentManager
                      links:(GINIDocumentLinks *)links;
 
 @end
