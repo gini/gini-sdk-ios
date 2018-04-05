@@ -203,11 +203,11 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     } cancellationToken:cancellationToken];
 }
 
--(BFTask *)createCompositeDocumentWithPartialDocumentsURLs:(NSArray<NSString *> *)partialDocumentsURLs
-                                                  fileName:(NSString *)fileName
-                                                   docType:(NSString *)docType
-                                         cancellationToken:(BFCancellationToken *)cancellationToken {
-    NSDictionary* dict = @{@"subdocuments": partialDocumentsURLs};
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<NSDictionary<NSString *,id> *> *)partialDocumentsInfo
+                                                   fileName:(NSString *)fileName
+                                                    docType:(NSString *)docType
+                                          cancellationToken:(BFCancellationToken *)cancellationToken {   
+    NSDictionary* dict = @{@"subdocuments": partialDocumentsInfo};
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
                                                        options:NSJSONWritingPrettyPrinted

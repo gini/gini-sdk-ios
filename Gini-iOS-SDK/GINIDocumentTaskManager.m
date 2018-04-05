@@ -113,11 +113,11 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return GINIhandleHTTPerrors(createTask);
 }
 
-- (BFTask *)createCompositeDocumentWithPartialDocumentsURLs:(NSArray<NSString *> *)partialDocumentsURLs
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<NSDictionary<NSString *,id> *> *)partialDocumentsInfo
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *)cancellationToken {
-    BFTask* createTask = [[_apiManager createCompositeDocumentWithPartialDocumentsURLs:partialDocumentsURLs
+    BFTask* createTask = [[_apiManager createCompositeDocumentWithPartialDocumentsInfo:partialDocumentsInfo
                                                                               fileName:fileName
                                                                                docType:docType
                                                                      cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {

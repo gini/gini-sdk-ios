@@ -212,7 +212,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
 /**
  * Creates a new composite document
  *
- * @param partialDocumentsURLs  Array containing the URL path for each partial document.
+ * @param partialDocumentsInfo  Array containing the partial documents info (document url and additional parameters).
  * @param fileName              The filename of the document.
  * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
  *                              [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
@@ -222,7 +222,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
  */
 
-- (BFTask *)createCompositeDocumentWithPartialDocumentsURLs:(NSArray<NSString*>*)partialDocumentsURLs
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<NSDictionary<NSString*, id>*>*)partialDocumentsInfo
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *) cancellationToken;
