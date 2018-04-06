@@ -94,6 +94,24 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([data isKindOfClass:[NSData class]]);
     
+    BFTask *createTask = [[_apiManager uploadDocumentWithData:data
+                                                  contentType:@"image/jpeg"
+                                                     fileName:fileName
+                                                      docType:docType
+                                            cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
+        return [GINIDocument documentFromAPIResponse:task.result];
+    }];
+    return GINIhandleHTTPerrors(createTask);
+
+}
+
+- (BFTask *)createPartialDocumentWithFilename:(NSString *)fileName
+                                     fromData:(NSData *)data
+                                      docType:(NSString *)docType
+                            cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([fileName isKindOfClass:[NSString class]]);
+    NSParameterAssert([data isKindOfClass:[NSData class]]);
+    
     NSString* contentType = [data mimeType]; // i.e: image/jpeg
     
     NSString* lastContentTypeComponent = [[contentType componentsSeparatedByString:@"/"] lastObject];

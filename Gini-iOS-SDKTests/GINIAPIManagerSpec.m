@@ -46,7 +46,7 @@ describe(@"The GINIAPIManager", ^{
         // Check for the correct URL.
         NSURLRequest *request = urlSessionMock.lastRequest;
         // Check for the correct content type
-        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+json"];
+        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v2+json"];
     };
 
     /**
@@ -57,7 +57,7 @@ describe(@"The GINIAPIManager", ^{
         // Check for the correct URL.
         NSURLRequest *request = urlSessionMock.lastRequest;
         // Check for the correct content type
-        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+xml"];
+        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v2+xml"];
     };
 
     /**
@@ -242,7 +242,7 @@ describe(@"The GINIAPIManager", ^{
                                                                           HTTPVersion:@"1.1"
                                                                          headerFields:@{
                                                                              @"Location": createdDocumentsURL,
-                                                                             @"Content-Type": @"application/vnd.gini.v1+json"
+                                                                             @"Content-Type": @"application/vnd.gini.v2+json"
                                                                          }];
             GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:[NSData new]];
             [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:uploadURL];
@@ -258,7 +258,7 @@ describe(@"The GINIAPIManager", ^{
                                                                           HTTPVersion:@"1.1"
                                                                          headerFields:@{
                                                                                  @"Location": createdDocumentsURL,
-                                                                                 @"Content-Type": @"application/vnd.gini.v1+json"
+                                                                                 @"Content-Type": @"application/vnd.gini.v2+json"
                                                                          }];
             GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:[NSData new]];
             [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:uploadURL];

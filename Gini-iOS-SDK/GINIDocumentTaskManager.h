@@ -75,7 +75,7 @@
  *                      the extractions may not yet exist.
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
-                             fromImage:(UIImage *)image __attribute__((deprecated("use createdDocumentWithFilename:fromData: methods instead")));
+                             fromImage:(UIImage *)image __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: methods instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given image. By providing the doctype, Gini's document
@@ -89,7 +89,7 @@
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                              fromImage:(UIImage *)image
-                               docType:(NSString *)docType __attribute__((deprecated("use createdDocumentWithFilename:fromData: methods instead")));
+                               docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: methods instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given data.
@@ -109,7 +109,7 @@
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                               fromData:(NSData *)data
-                               docType:(NSString *)docType;
+                               docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: methods instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given data.
@@ -128,10 +128,10 @@
  *                                  Please notice that it is very unlikely that the created document is already fully processed, so
  *                                  the extractions may not yet exist.
  */
-- (BFTask *)createDocumentWithFilename:(NSString *)fileName
-                              fromData:(NSData *)data
-                               docType:(NSString *)docType
-                     cancellationToken:(BFCancellationToken *)cancellationToken;
+- (BFTask *)createPartialDocumentWithFilename:(NSString *)fileName
+                                     fromData:(NSData *)data
+                                      docType:(NSString *)docType
+                            cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**
  * Creates a new composite document
