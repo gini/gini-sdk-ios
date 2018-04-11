@@ -56,6 +56,11 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 @property GiniDocumentSourceClassification sourceClassification;
 /// Links to related resources, such as extractions, document, processed or layout.
 @property (readonly) GINIDocumentLinks *links;
+/// (Optional) Array containing the path of every parent
+@property (readonly) NSArray<NSString *> *parents;
+/// (Optional) Array containing the path of every partial document
+@property (readonly) NSArray<NSString *> *partialdocuments;
+
 
 /**
  * Factory to create a new document.
@@ -72,11 +77,13 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param state                 The document's state.
  * @param pageCount             The number of pages of the document.
  * @param sourceClassification  The document's source classification.
+ * @param links                 The document list of related resources (extractions, document, processed or layout).
  */
 - (instancetype)initWithId:(NSString *)documentId
                      state:(GiniDocumentState)state
                  pageCount:(NSUInteger)pageCount
-      sourceClassification:(GiniDocumentSourceClassification)sourceClassification;
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+                     links:(GINIDocumentLinks *)links;
 
 /**
  * The designated initializer.
@@ -86,11 +93,15 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param pageCount             The number of pages of the document.
  * @param sourceClassification  The document's source classification.
  * @param links                 The document list of related resources (extractions, document, processed or layout).
+ * @param parents               (Optional) Array containing the path of every parent
+ * @param partialDocuments      (Optional) Array containing the path of every partial document
  */
 - (instancetype)initWithId:(NSString *)documentId
                      state:(GiniDocumentState)state
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
-                     links:(GINIDocumentLinks *)links;
+                     links:(GINIDocumentLinks *)links
+                   parents:(NSArray<NSString *> *)parents
+          partialDocuments:(NSArray<NSString *> *)partialDocuments;
 
 @end

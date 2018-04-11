@@ -54,16 +54,23 @@
     }
 
     NSUInteger pageCount = [apiResponse[@"pageCount"] unsignedIntValue];
+    
     NSDictionary *linksDict = [apiResponse valueForKey:@"_links"];
     GINIDocumentLinks *links = [[GINIDocumentLinks alloc] initWithDocumentURL:linksDict[@"document"]
                                                                extractionsURL:linksDict[@"extractions"]
                                                                     layoutURL:linksDict[@"layout"] 
                                                                  processedURL:linksDict[@"processed"]];
+    
+    NSArray<NSString *> *parents = [apiResponse valueForKey:@"parents"];
+    NSArray<NSString *> *partialDocuments = [apiResponse valueForKey:@"partialdocuments"];
+    
     GINIDocument *document = [[GINIDocument alloc] initWithId:documentId
                                                         state:documentState
                                                     pageCount:pageCount
                                          sourceClassification:(GiniDocumentSourceClassification) sourceClassification
-                                                        links:links];
+                                                        links:links
+                                                      parents:parents
+                                             partialDocuments:partialDocuments];
     document.filename = [apiResponse valueForKey:@"name"];
     document.creationDate = [NSDate dateWithTimeIntervalSince1970:floor([[apiResponse valueForKey:@"creationDate"] doubleValue] / 1000)];
 
@@ -72,12 +79,28 @@
 
 #pragma mark - Initializer
 
-- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state pageCount:(NSUInteger)pageCount sourceClassification:(GiniDocumentSourceClassification)sourceClassification {
+- (instancetype)initWithId:(NSString *)documentId
+                     state:(GiniDocumentState)state
+                 pageCount:(NSUInteger)pageCount
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+                     links:(GINIDocumentLinks *)links {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
-    return [self initWithId:documentId state:state pageCount:pageCount sourceClassification:sourceClassification links:nil];
+    return [self initWithId:documentId
+                      state:state
+                  pageCount:pageCount
+       sourceClassification:sourceClassification
+                      links:links
+                    parents:nil
+           partialDocuments:nil];
 }
 
-- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state pageCount:(NSUInteger)pageCount sourceClassification:(GiniDocumentSourceClassification)sourceClassification links:(GINIDocumentLinks *)links {
+- (instancetype)initWithId:(NSString *)documentId
+                     state:(GiniDocumentState)state
+                 pageCount:(NSUInteger)pageCount
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+                     links:(GINIDocumentLinks *)links
+                   parents:(NSArray<NSString *> *)parents
+          partialDocuments:(NSArray<NSString *> *)partialDocuments {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
     
     self = [super init];
@@ -87,6 +110,8 @@
         _sourceClassification = sourceClassification;
         _pageCount = pageCount;
         _links = links;
+        _parents = parents;
+        _partialdocuments = partialDocuments;
     }
     
     return self;

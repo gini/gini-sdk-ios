@@ -20,6 +20,7 @@
 		0A845B941DAE9AC300AD2D64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A845B931DAE9AC300AD2D64 /* Assets.xcassets */; };
 		0A845B971DAE9AC300AD2D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A845B951DAE9AC300AD2D64 /* LaunchScreen.storyboard */; };
 		0ADEEE6D1BEA0549002BB08E /* GINIHTTPErrorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEEE6C1BEA0549002BB08E /* GINIHTTPErrorSpec.m */; };
+		1F384558207B4D4A0022B643 /* compositedocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F384557207B4D4A0022B643 /* compositedocument.json */; };
 		1F3C8C74202DB5FB0023E55F /* GININSNotificationCenterMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E51E0C870474ADACAC6A /* GININSNotificationCenterMock.m */; };
 		23D53C061934BC85001A957E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53C051934BC85001A957E /* XCTest.framework */; };
 		23D53C071934BC85001A957E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53BF71934BC85001A957E /* Foundation.framework */; };
@@ -90,6 +91,7 @@
 		0A845B9C1DAE9B3500AD2D64 /* GiniSDK Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GiniSDK Example.entitlements"; sourceTree = "<group>"; };
 		0ADEEE6C1BEA0549002BB08E /* GINIHTTPErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIHTTPErrorSpec.m; sourceTree = "<group>"; };
 		101F203A8C65DF93F5B03B04 /* libPods-Gini-iOS-SDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gini-iOS-SDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F384557207B4D4A0022B643 /* compositedocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = compositedocument.json; sourceTree = "<group>"; };
 		23D53BF71934BC85001A957E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23D53C041934BC85001A957E /* Gini-iOS-SDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gini-iOS-SDKTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23D53C051934BC85001A957E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -303,6 +305,7 @@
 				81EE468AFDEFC8942E20F31F /* yoda.jpg */,
 				81EE4FC272A3BC02720C26F5 /* document.json */,
 				81EE409560F238177896AAE6 /* session.json */,
+				1F384557207B4D4A0022B643 /* compositedocument.json */,
 				04A595B1195869DD00CB8E1B /* documents.json */,
 				04B75484195AAC5000CF6072 /* extractions.json */,
 				04A595C119598DD300CB8E1B /* pages.json */,
@@ -437,6 +440,7 @@
 				81EE4EA88FD761DB89CC3337 /* session.json in Resources */,
 				04A595B2195869DD00CB8E1B /* documents.json in Resources */,
 				59A96DC1EF05B7643FBD6471 /* errorreport.json in Resources */,
+				1F384558207B4D4A0022B643 /* compositedocument.json in Resources */,
 				59A9690C3E4F8E47848268A1 /* feedback.json in Resources */,
 				59A96D965DF351F797FD85E0 /* layout.xml in Resources */,
 			);

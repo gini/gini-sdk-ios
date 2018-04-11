@@ -180,6 +180,28 @@
          cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**
+ * Deletes document with the given ID.
+ *
+ * @param documentId               The document's id.
+ * @param cancellationToken        Cancellation token used to cancel the current task.
+ *
+ * @returns                        A `BFTask*` with `nil` as result when the document has been deleted.
+ */
+- (BFTask *)deleteDocumentWithId:(NSString *)documentId
+               cancellationToken:(BFCancellationToken *)cancellationToken;
+
+/**
+ * Deletes partial document with the given ID.
+ *
+ * @param documentId               The document's id.
+ * @param cancellationToken        Cancellation token used to cancel the current task.
+ *
+ * @returns                        A `BFTask*` with `nil` as result when the document has been deleted.
+ */
+- (BFTask *)deletePartialDocumentWithId:(NSString *)documentId
+                      cancellationToken:(BFCancellationToken *) cancellationToken;
+
+/**
  * Continually checks the document status until the document is fully processed.
  *
  * If the document is in the error state, this method also does not continue polling, but the extractions won't be

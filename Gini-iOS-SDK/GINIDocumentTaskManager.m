@@ -192,7 +192,37 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
          cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
     
-    return GINIhandleHTTPerrors([_apiManager deleteDocument:document.documentId cancellationToken:cancellationToken]);
+    return [self deleteDocumentWithId:document.documentId cancellationToken:cancellationToken];
+}
+
+- (BFTask *)deleteDocumentWithId:(NSString *)documentId
+         cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
+    return GINIhandleHTTPerrors([_apiManager deleteDocument:documentId cancellationToken:cancellationToken]);
+}
+
+- (BFTask *)deletePartialDocumentWithId:(NSString *)documentId cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+    
+    return [[self getDocumentWithId:documentId] continueWithSuccessBlock:^id(BFTask *task) {
+        
+        GINIDocument *document = (GINIDocument*) task.result;
+        return [[self deleteDocumentsWithUrls:document.parents cancellationToken:cancellationToken] continueWithSuccessBlock: ^id(BFTask *task) {
+            return [self deleteDocumentWithId:document.documentId cancellationToken:cancellationToken];
+        }];
+    }];
+}
+
+- (BFTask *)deleteDocumentsWithUrls:(NSArray<NSString*> *)urls cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSMutableArray<BFTask *>* deleteTasks = [NSMutableArray new];
+    
+    for (NSString* url in urls) {
+        NSString* documentId = [[url componentsSeparatedByString:@"/"] lastObject];
+        [deleteTasks addObject:[self deleteDocumentWithId:documentId cancellationToken:cancellationToken]];
+    }
+    
+    return [BFTask taskForCompletionOfAllTasks:deleteTasks];
 }
 
 - (BFTask *)pollDocument:(GINIDocument *)document {
