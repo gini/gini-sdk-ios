@@ -48,6 +48,8 @@
         sourceClassification = GiniDocumentSourceClassificationText;
     } else if ([classification isEqualToString:@"SANDWICH"]) {
         sourceClassification = GiniDocumentSourceClassificationSandwich;
+    } else if ([classification isEqualToString:@"COMPOSITE"]) {
+        sourceClassification = GiniDocumentSourceClassificationComposite;
     } else {
         NSLog(@"Unknown document source classification: %@", classification);
         return nil;
@@ -62,7 +64,7 @@
                                                                  processedURL:linksDict[@"processed"]];
     
     NSArray<NSString *> *parents = [apiResponse valueForKey:@"parents"];
-    NSArray<NSString *> *partialDocuments = [apiResponse valueForKey:@"partialdocuments"];
+    NSArray<NSString *> *partialDocuments = [apiResponse valueForKey:@"partialDocuments"];
     
     GINIDocument *document = [[GINIDocument alloc] initWithId:documentId
                                                         state:documentState
@@ -111,7 +113,7 @@
         _pageCount = pageCount;
         _links = links;
         _parents = parents;
-        _partialdocuments = partialDocuments;
+        _partialDocuments = partialDocuments;
     }
     
     return self;

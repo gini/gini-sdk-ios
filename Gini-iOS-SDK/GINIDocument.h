@@ -34,7 +34,9 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
     /// A text document.
     GiniDocumentSourceClassificationText,
     /// A scanned document with the ocr information on top.
-    GiniDocumentSourceClassificationSandwich
+    GiniDocumentSourceClassificationSandwich,
+    /// A composite document created by one or several partial documents
+    GiniDocumentSourceClassificationComposite
 };
 
 /**
@@ -59,7 +61,7 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 /// (Optional) Array containing the path of every parent
 @property (readonly) NSArray<NSString *> *parents;
 /// (Optional) Array containing the path of every partial document
-@property (readonly) NSArray<NSString *> *partialdocuments;
+@property (readonly) NSArray<NSString *> *partialDocuments;
 
 
 /**

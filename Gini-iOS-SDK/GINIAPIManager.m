@@ -207,7 +207,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *)cancellationToken {   
-    NSDictionary* dict = @{@"subdocuments": partialDocumentsInfo};
+    NSDictionary* dict = @{@"partialDocuments": partialDocumentsInfo};
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
                                                        options:NSJSONWritingPrettyPrinted
