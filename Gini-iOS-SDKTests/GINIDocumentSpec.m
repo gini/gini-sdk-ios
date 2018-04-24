@@ -78,7 +78,7 @@ describe(@"The GINIDocument", ^{
         [[theValue(instance.state) should] equal:theValue(GiniDocumentStateError)];
     });
     
-    it(@"should has the correct links", ^{
+    it(@"should have the correct links", ^{
         GINIDocument *instance = [GINIDocument documentFromAPIResponse:documentJsonData];
         [[instance.links.document should] equal:@"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000"];
         [[instance.links.extractions should] equal:@"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000/extractions"];

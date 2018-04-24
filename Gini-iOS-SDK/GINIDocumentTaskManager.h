@@ -75,7 +75,7 @@
  *                      the extractions may not yet exist.
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
-                             fromImage:(UIImage *)image __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: methods instead")));
+                             fromImage:(UIImage *)image __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given image. By providing the doctype, Gini's document
@@ -89,7 +89,7 @@
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                              fromImage:(UIImage *)image
-                               docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: methods instead")));
+                               docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given data.
@@ -109,15 +109,14 @@
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                               fromData:(NSData *)data
-                               docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: methods instead")));
+                               docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
 
 /**
- * Creates a new document with the given `doctype` from the given data.
+ * Creates a new partial document with the given `doctype` from the given data.
  * Data can be in the format of a PDF, UTF-8 text or image representation.
  * By providing the doctype, Gini's document processing is optimized in many ways.
  *
- * See the [Gini API documentation](http://developer.gini.net/gini-api/html/documents.html#document-type-hints) for
- * details and [a list of available doctypes](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ * See the [Gini API documentation](Add documentation link).
  *
  * @param fileName                  The file name of the document.
  * @param data                      Data representing the document.
@@ -136,10 +135,11 @@
 /**
  * Creates a new composite document
  *
+ * See the [Gini API documentation](Add documentation link).
+ *
  * @param partialDocumentsInfo  Array containing the partial documents info (document url and additional parameters).
  * @param fileName              The filename of the document.
- * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
- *                              [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
+ * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API.
  *                              for a list of possibles doctypes.
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
@@ -168,7 +168,7 @@
  *
  * @param document      The document that will be deleted.
  */
-- (BFTask *)deleteDocument:(GINIDocument *)document;
+- (BFTask *)deleteDocument:(GINIDocument *)document __attribute__((deprecated("use deleteCompositeDocumentWithId: method instead")));
 
 /**
  * Deletes the given document.
@@ -177,18 +177,18 @@
  * @param cancellationToken         Cancellation token used to cancel the current task.
  */
 - (BFTask *)deleteDocument:(GINIDocument *)document
-         cancellationToken:(BFCancellationToken *)cancellationToken;
+         cancellationToken:(BFCancellationToken *)cancellationToken __attribute__((deprecated("use deleteCompositeDocumentWithId: method instead")));
 
 /**
- * Deletes document with the given ID.
+ * Deletes composite document with the given ID.
  *
  * @param documentId               The document's id.
  * @param cancellationToken        Cancellation token used to cancel the current task.
  *
  * @returns                        A `BFTask*` with `nil` as result when the document has been deleted.
  */
-- (BFTask *)deleteDocumentWithId:(NSString *)documentId
-               cancellationToken:(BFCancellationToken *)cancellationToken;
+- (BFTask *)deleteCompositeDocumentWithId:(NSString *)documentId
+                        cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**
  * Deletes partial document with the given ID.

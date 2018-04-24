@@ -208,13 +208,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *)cancellationToken {   
     NSDictionary* dict = @{@"partialDocuments": partialDocumentsInfo};
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSString *jsonStringFormatted = [jsonString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"];
-    NSData *jsonDataFormatted = [jsonStringFormatted dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *jsonDataFormatted = [self jsonDataFormattedFromDictionary:dict];
     
     NSString *urlString = [NSString stringWithFormat:@"documents/?filename=%@", stringByEscapingString(fileName)];
     if (docType) {
@@ -422,6 +416,17 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
             return response.data;
         }];
     }];
+}
+
+- (NSData *)jsonDataFormattedFromDictionary:(NSDictionary *)dictionary {
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *jsonStringFormatted = [jsonString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"];
+    NSData *jsonDataFormatted = [jsonStringFormatted dataUsingEncoding:NSUTF8StringEncoding];
+    return jsonDataFormatted;
 }
 
 @end

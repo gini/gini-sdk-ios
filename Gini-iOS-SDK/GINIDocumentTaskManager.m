@@ -192,11 +192,12 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
          cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
     
-    return [self deleteDocumentWithId:document.documentId cancellationToken:cancellationToken];
+    return [self deleteCompositeDocumentWithId:document.documentId
+                             cancellationToken:cancellationToken];
 }
 
-- (BFTask *)deleteDocumentWithId:(NSString *)documentId
-         cancellationToken:(BFCancellationToken *)cancellationToken {
+- (BFTask *)deleteCompositeDocumentWithId:(NSString *)documentId
+                        cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
     
     return GINIhandleHTTPerrors([_apiManager deleteDocument:documentId cancellationToken:cancellationToken]);
@@ -209,7 +210,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
         
         GINIDocument *document = (GINIDocument*) task.result;
         return [[self deleteDocumentsWithUrls:document.parents cancellationToken:cancellationToken] continueWithSuccessBlock: ^id(BFTask *task) {
-            return [self deleteDocumentWithId:document.documentId cancellationToken:cancellationToken];
+            return [self deleteCompositeDocumentWithId:document.documentId cancellationToken:cancellationToken];
         }];
     }];
 }
@@ -219,7 +220,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     
     for (NSString* url in urls) {
         NSString* documentId = [[url componentsSeparatedByString:@"/"] lastObject];
-        [deleteTasks addObject:[self deleteDocumentWithId:documentId cancellationToken:cancellationToken]];
+        [deleteTasks addObject:[self deleteCompositeDocumentWithId:documentId cancellationToken:cancellationToken]];
     }
     
     return [BFTask taskForCompletionOfAllTasks:deleteTasks];

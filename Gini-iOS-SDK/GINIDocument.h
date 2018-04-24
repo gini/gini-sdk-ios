@@ -62,6 +62,12 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 @property (readonly) NSArray<NSString *> *parents;
 /// (Optional) Array containing the path of every partial document
 @property (readonly) NSArray<NSString *> *partialDocuments;
+/// A `BFTask*` resolving to a mapping with extractions (extraction name as key).
+@property (readonly) BFTask *extractions __attribute__((unavailable("use `GINIDocumentTaskManager.getExtractionsForDocument:` method instead")));
+/// A `BFTask*` resolving to a mapping with the candidates (extraction entity as key).
+@property (readonly) BFTask *candidates __attribute__((unavailable("use `GINIDocumentTaskManager.getCandidatesForDocument:` method instead")));
+/// A `BFTask*` resolving to a dictionary with the layout of the document.
+@property (readonly) BFTask *layout __attribute__((unavailable("use `GINIDocumentTaskManager.getLayoutForDocument:` method instead")));
 
 
 /**
@@ -105,5 +111,17 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
                      links:(GINIDocumentLinks *)links
                    parents:(NSArray<NSString *> *)parents
           partialDocuments:(NSArray<NSString *> *)partialDocuments;
+
+/**
+ * Gets the preview image for the given page.
+ *
+ * @param size              The size of the rendered preview. Please notice that those sizes are the maximum sizes of the
+ *                          renderings, the actual image can have smaller dimensions.
+ *
+ * @param page              The page for which the preview is rendered. Please notice that only the first 10 pages of a
+ *                          document are processed by the Gini API.
+ */
+- (BFTask *)previewWithSize:(GiniApiPreviewSize)size
+                    forPage:(NSUInteger)page __attribute__((unavailable("use `GINIDocumentTaskManager.getPreviewForPage:ofDocument:withSize:` method instead")));
 
 @end
