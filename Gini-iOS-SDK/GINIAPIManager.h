@@ -212,6 +212,8 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
 /**
  * Creates a new composite document
  *
+ * See the [Gini API Documentation](Add documentation link).
+ *
  * @param partialDocumentsInfo  Array containing the partial documents info. More info can be found [here](Add here documentation link)
  * @param fileName              The filename of the document.
  * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API. See the

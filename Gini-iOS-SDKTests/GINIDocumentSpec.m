@@ -120,7 +120,7 @@ describe(@"The composite GINIDocument", ^{
     
     it(@"should set the correct document state", ^{
         GINIDocument *instance = [GINIDocument documentFromAPIResponse:documentJsonData];
-        [[theValue([instance.partialdocuments count]) should] equal:theValue(2)];
+        [[theValue([instance.partialDocuments count]) should] equal:theValue(2)];
     });
     
 });
