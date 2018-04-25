@@ -9,6 +9,7 @@
 #import "GINIError.h"
 #import <Bolts/Bolts.h>
 #import "NSData+MimeTypes.h"
+#import "GINIConstants.h"
 
 /**
  * Handles common HTTP errors and expected errors that occur during task execution.
@@ -95,11 +96,11 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     NSParameterAssert([data isKindOfClass:[NSData class]]);
     
     BFTask *createTask = [[_apiManager uploadDocumentWithData:data
-                                                  contentType:@"image/jpeg"
+                                                  contentType:[data mimeType]
                                                      fileName:fileName
                                                       docType:docType
                                             cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
-        return [GINIDocument documentFromAPIResponse:task.result];
+        return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
     return GINIhandleHTTPerrors(createTask);
 
@@ -119,19 +120,19 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     if (lastContentTypeComponent != nil && [lastContentTypeComponent length] > 0) {
         concreteType = lastContentTypeComponent;
     }
-    contentType = [NSString stringWithFormat:@"application/vnd.gini.v2.partial+%@", concreteType];
+    contentType = [NSString stringWithFormat:GINIPartialTypeV2, concreteType];
     
     BFTask *createTask = [[_apiManager uploadDocumentWithData:data
                                                   contentType:contentType
                                                      fileName:fileName
                                                       docType:docType
                                             cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
-        return [GINIDocument documentFromAPIResponse:task.result];
+        return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
     return GINIhandleHTTPerrors(createTask);
 }
 
-- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<NSDictionary<NSString *,id> *> *)partialDocumentsInfo
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *)cancellationToken {
@@ -139,7 +140,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                                                                               fileName:fileName
                                                                                docType:docType
                                                                      cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
-        return [GINIDocument documentFromAPIResponse:task.result];
+        return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
     return GINIhandleHTTPerrors(createTask);
 }
@@ -161,7 +162,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
     
     BFTask *documentTask = [[_apiManager getDocument:documentId cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
-        GINIDocument *document = [GINIDocument documentFromAPIResponse:task.result];
+        GINIDocument *document = [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
         return document;
     }];
     return GINIhandleHTTPerrors(documentTask);
@@ -267,7 +268,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
             }];
             // Otherwise return the document.
         } else {
-            return [GINIDocument documentFromAPIResponse:polledDocument];
+            return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
         }
     }];
 }
@@ -279,7 +280,14 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     
     NSMutableDictionary *filteredUpdatedExtractions = [NSMutableDictionary new];
     
-    NSArray *keys = @[@"paymentReference", @"iban", @"bic", @"amountToPay", @"paymentRecipient", @"paymentPurpose"];
+    // When updating a document you are providing feedback to the API, that's why
+    // only the main parameters are sent.
+    NSArray *keys = @[ExtractionPaymentReferenceKey,
+                      ExtractionIbanKey,
+                      ExtractionBicKey,
+                      ExtractionAmountToPayKey,
+                      ExtractionPaymentRecipientKey,
+                      ExtractionPaymentPurposeKey];
     for (NSString *key in updatedExtractions) {
         if ([keys containsObject:key]) {
             GINIExtraction *extraction = updatedExtractions[key];

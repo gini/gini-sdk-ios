@@ -14,10 +14,12 @@
 
 
 @implementation GINIDocument {
-
+    GINIDocumentTaskManager *_documentTaskManager;
+    BFTask *_extractions;
+    BFTask *_layout;
 }
 
-+ (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse {
++ (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse withDocumentManager:(GINIDocumentTaskManager *)documentManager {
     NSString *documentId = apiResponse[@"id"];
     // Documents must have an ID.
     if (!documentId) {
@@ -72,7 +74,9 @@
                                          sourceClassification:(GiniDocumentSourceClassification) sourceClassification
                                                         links:links
                                                       parents:parents
-                                             partialDocuments:partialDocuments];
+                                             partialDocuments:partialDocuments
+                                              documentManager:documentManager];
+    
     document.filename = [apiResponse valueForKey:@"name"];
     document.creationDate = [NSDate dateWithTimeIntervalSince1970:floor([[apiResponse valueForKey:@"creationDate"] doubleValue] / 1000)];
 
@@ -81,19 +85,20 @@
 
 #pragma mark - Initializer
 
-- (instancetype)initWithId:(NSString *)documentId
-                     state:(GiniDocumentState)state
-                 pageCount:(NSUInteger)pageCount
-      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
-                     links:(GINIDocumentLinks *)links {
-    NSParameterAssert([documentId isKindOfClass:[NSString class]]);
+
+-(instancetype)initWithId:(NSString *)documentId
+                    state:(GiniDocumentState)state
+                pageCount:(NSUInteger)pageCount
+     sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+          documentManager:(GINIDocumentTaskManager *)documentManager {
     return [self initWithId:documentId
                       state:state
                   pageCount:pageCount
        sourceClassification:sourceClassification
-                      links:links
+                      links:nil
                     parents:nil
-           partialDocuments:nil];
+           partialDocuments:nil
+            documentManager:documentManager];
 }
 
 - (instancetype)initWithId:(NSString *)documentId
@@ -103,6 +108,24 @@
                      links:(GINIDocumentLinks *)links
                    parents:(NSArray<NSString *> *)parents
           partialDocuments:(NSArray<NSString *> *)partialDocuments {
+    return [self initWithId:documentId
+                      state:state
+                  pageCount:pageCount
+       sourceClassification:sourceClassification
+                      links:links
+                    parents:parents
+           partialDocuments:partialDocuments
+            documentManager:nil];
+}
+
+- (instancetype)initWithId:(NSString *)documentId
+                     state:(GiniDocumentState)state
+                 pageCount:(NSUInteger)pageCount
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+                     links:(GINIDocumentLinks *)links
+                   parents:(NSArray<NSString *> *)parents
+          partialDocuments:(NSArray<NSString *> *)partialDocuments
+           documentManager:(GINIDocumentTaskManager *)documentManager {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
     
     self = [super init];
@@ -114,13 +137,30 @@
         _links = links;
         _parents = parents;
         _partialDocuments = partialDocuments;
+        _documentTaskManager = documentManager;
     }
     
     return self;
 }
 
+- (BFTask *)extractions {
+    return [self->_documentTaskManager getExtractionsForDocument:self cancellationToken:nil];
+}
+
+- (BFTask *)candidates {
+    return [self->_documentTaskManager getCandidatesForDocument:self cancellationToken:nil];
+}
+
+- (BFTask *)layout {
+    return [self->_documentTaskManager getExtractionsForDocument:self cancellationToken:nil];
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"<GINIDocument id=%@>", _documentId];
+}
+
+-(BFTask *)previewWithSize:(GiniApiPreviewSize)size forPage:(NSUInteger)page {
+    return [self->_documentTaskManager getPreviewForPage:page ofDocument:self withSize:size cancellationToken:nil];
 }
 
 @end

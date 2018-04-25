@@ -8,6 +8,7 @@
 #import "GINIURLSession.h"
 #import "GINIURLResponse.h"
 #import "GINIHTTPError.h"
+#import "GINIConstants.h"
 
 
 #define GINI_DEFAULT_ENCODING NSUTF8StringEncoding
@@ -19,10 +20,10 @@
 BOOL GINIIsJSONContent(NSString *contentType) {
     static NSSet *knownContentTypes;
     if (!knownContentTypes) {
-        knownContentTypes = [NSSet setWithObjects:@"application/json",
-                             @"application/vnd.gini.v1+json",
-                             @"application/vnd.gini.v2+json",
-                             @"application/vnd.gini.incubator+json", nil];
+        knownContentTypes = [NSSet setWithObjects:GINIContentApplicationJson,
+                             GINIContentJsonV1,
+                             GINIContentJsonV2,
+                             GINIIncubatorJson, nil];
     }
     NSArray *contentTypeComponents = [contentType componentsSeparatedByString:@";"];
     return ([knownContentTypes containsObject:contentTypeComponents.firstObject]);
@@ -34,10 +35,10 @@ BOOL GINIIsJSONContent(NSString *contentType) {
 BOOL GINIIsXMLContent(NSString *contentType) {
     static NSSet *knownContentTypes;
     if (!knownContentTypes) {
-        knownContentTypes = [NSSet setWithObjects:@"application/xml",
-                             @"application/vnd.gini.v1+xml",
-                             @"application/vnd.gini.v2+xml",
-                             @"application/vnd.gini.incubator+xml", nil];
+        knownContentTypes = [NSSet setWithObjects:GINIContentApplicationXml,
+                             GINIContentXmlV1,
+                             GINIContentXmlV2,
+                             GINIIncubatorXml, nil];
     }
     NSArray *contentTypeComponents = [contentType componentsSeparatedByString:@";"];
     return ([knownContentTypes containsObject:contentTypeComponents.firstObject]);

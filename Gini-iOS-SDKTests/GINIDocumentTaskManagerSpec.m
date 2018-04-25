@@ -54,19 +54,37 @@ describe(@"The GINIDocumentTaskManager", ^{
         });
 
         it(@"should return a BFTask*", ^{
-            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234" state:GiniDocumentStateComplete pageCount:0 sourceClassification:GiniDocumentSourceClassificationNative links:nil];
+            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234"
+                                                                state:GiniDocumentStateComplete
+                                                            pageCount:0
+                                                 sourceClassification:GiniDocumentSourceClassificationNative
+                                                                links:nil
+                                                              parents:nil
+                                                     partialDocuments:nil];
             BFTask *task = [documentTaskManager pollDocument:document];
             [[task should] beKindOfClass:[BFTask class]];
         });
 
         it(@"should immediately return the document if it is in the processing state COMPLETED", ^{
-            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234" state:GiniDocumentStateComplete pageCount:0 sourceClassification:GiniDocumentSourceClassificationNative links:nil];
+            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234"
+                                                                state:GiniDocumentStateComplete
+                                                            pageCount:0
+                                                 sourceClassification:GiniDocumentSourceClassificationNative
+                                                                links:nil
+                                                              parents:nil
+                                                     partialDocuments:nil];
             [documentTaskManager pollDocument:document];
             [[theValue(apiManager.getDocumentCalled) should] equal:theValue(0)];
         });
 
         it(@"should poll if it is in the processing state pending", ^{
-            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234" state:GiniDocumentStatePending pageCount:0 sourceClassification:GiniDocumentSourceClassificationNative links:nil];
+            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234"
+                                                                state:GiniDocumentStatePending
+                                                            pageCount:0
+                                                 sourceClassification:GiniDocumentSourceClassificationNative
+                                                                links:nil
+                                                              parents:nil
+                                                     partialDocuments:nil];
             BFTask *task = [documentTaskManager pollDocument:document];
             [[theValue(apiManager.getDocumentCalled) should] equal:theValue(1)];
             GINIDocument *updatedDocument = task.result;

@@ -5,6 +5,7 @@
 
 @class BFTask;
 @class BFCancellationToken;
+@class GINIPartialDocumentInfo;
 @protocol GINIAPIManagerRequestFactory;
 @protocol GINIURLSession;
 
@@ -224,7 +225,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
  */
 
-- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<NSDictionary<NSString*, id>*>*)partialDocumentsInfo
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *) cancellationToken;

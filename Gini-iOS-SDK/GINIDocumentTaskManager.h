@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "GINIAPIManager.h"
+#import "GINIPartialDocumentInfo.h"
 
 @class BFTask;
 @class GINIDocument;
@@ -146,7 +147,7 @@
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
  */
 
-- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<NSDictionary<NSString *, id>*>*)partialDocumentsInfo
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *) cancellationToken;

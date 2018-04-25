@@ -63,35 +63,21 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 /// (Optional) Array containing the path of every partial document
 @property (readonly) NSArray<NSString *> *partialDocuments;
 /// A `BFTask*` resolving to a mapping with extractions (extraction name as key).
-@property (readonly) BFTask *extractions __attribute__((unavailable("use `GINIDocumentTaskManager.getExtractionsForDocument:` method instead")));
+@property (readonly) BFTask *extractions __attribute__((deprecated("use `GINIDocumentTaskManager.getExtractionsForDocument:` method instead")));
 /// A `BFTask*` resolving to a mapping with the candidates (extraction entity as key).
-@property (readonly) BFTask *candidates __attribute__((unavailable("use `GINIDocumentTaskManager.getCandidatesForDocument:` method instead")));
+@property (readonly) BFTask *candidates __attribute__((deprecated("use `GINIDocumentTaskManager.getCandidatesForDocument:` method instead")));
 /// A `BFTask*` resolving to a dictionary with the layout of the document.
-@property (readonly) BFTask *layout __attribute__((unavailable("use `GINIDocumentTaskManager.getLayoutForDocument:` method instead")));
+@property (readonly) BFTask *layout __attribute__((deprecated("use `GINIDocumentTaskManager.getLayoutForDocument:` method instead")));
 
 
 /**
  * Factory to create a new document.
  *
- * @param apiResponse       A dictionary containing the document information. Usually the response of the Gini API.
+ * @param apiResponse           A dictionary containing the document information. Usually the response of the Gini API.
+ * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
  *
  */
-+ (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse;
-
-/**
- * The designated initializer.
- *
- * @param documentId            The document's unique identifier.
- * @param state                 The document's state.
- * @param pageCount             The number of pages of the document.
- * @param sourceClassification  The document's source classification.
- * @param links                 The document list of related resources (extractions, document, processed or layout).
- */
-- (instancetype)initWithId:(NSString *)documentId
-                     state:(GiniDocumentState)state
-                 pageCount:(NSUInteger)pageCount
-      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
-                     links:(GINIDocumentLinks *)links;
++ (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse withDocumentManager:(GINIDocumentTaskManager *)documentManager;
 
 /**
  * The designated initializer.
@@ -113,6 +99,21 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
           partialDocuments:(NSArray<NSString *> *)partialDocuments;
 
 /**
+ * The designated initializer.
+ *
+ * @param documentId            The document's unique identifier.
+ * @param state                 The document's state.
+ * @param pageCount             The number of pages of the document.
+ * @param sourceClassification  The document's source classification.
+ * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
+ */
+- (instancetype)initWithId:(NSString *)documentId
+                     state:(GiniDocumentState)state
+                 pageCount:(NSUInteger)pageCount
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+           documentManager:(GINIDocumentTaskManager *)documentManager __attribute__((deprecated("use `initWithId:state:pageCount:sourceClassification:links:parents:partialDocuments:` initializer instead")));
+
+/**
  * Gets the preview image for the given page.
  *
  * @param size              The size of the rendered preview. Please notice that those sizes are the maximum sizes of the
@@ -122,6 +123,6 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  *                          document are processed by the Gini API.
  */
 - (BFTask *)previewWithSize:(GiniApiPreviewSize)size
-                    forPage:(NSUInteger)page __attribute__((unavailable("use `GINIDocumentTaskManager.getPreviewForPage:ofDocument:withSize:` method instead")));
+                    forPage:(NSUInteger)page __attribute__((deprecated("Use `GINIDocumentTaskManager.getPreviewForPage:ofDocument:withSize:` method instead")));
 
 @end

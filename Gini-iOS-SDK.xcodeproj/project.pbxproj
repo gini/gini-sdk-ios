@@ -20,6 +20,7 @@
 		0A845B941DAE9AC300AD2D64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A845B931DAE9AC300AD2D64 /* Assets.xcassets */; };
 		0A845B971DAE9AC300AD2D64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A845B951DAE9AC300AD2D64 /* LaunchScreen.storyboard */; };
 		0ADEEE6D1BEA0549002BB08E /* GINIHTTPErrorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADEEE6C1BEA0549002BB08E /* GINIHTTPErrorSpec.m */; };
+		1F12130720909F0D00945582 /* GINIPartialDocumentInfoSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F12130620909F0D00945582 /* GINIPartialDocumentInfoSpec.m */; };
 		1F384558207B4D4A0022B643 /* compositedocument.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F384557207B4D4A0022B643 /* compositedocument.json */; };
 		1F3C8C74202DB5FB0023E55F /* GININSNotificationCenterMock.m in Sources */ = {isa = PBXBuildFile; fileRef = C753E51E0C870474ADACAC6A /* GININSNotificationCenterMock.m */; };
 		23D53C061934BC85001A957E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D53C051934BC85001A957E /* XCTest.framework */; };
@@ -91,6 +92,7 @@
 		0A845B9C1DAE9B3500AD2D64 /* GiniSDK Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GiniSDK Example.entitlements"; sourceTree = "<group>"; };
 		0ADEEE6C1BEA0549002BB08E /* GINIHTTPErrorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GINIHTTPErrorSpec.m; sourceTree = "<group>"; };
 		101F203A8C65DF93F5B03B04 /* libPods-Gini-iOS-SDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gini-iOS-SDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F12130620909F0D00945582 /* GINIPartialDocumentInfoSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GINIPartialDocumentInfoSpec.m; sourceTree = "<group>"; };
 		1F384557207B4D4A0022B643 /* compositedocument.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = compositedocument.json; sourceTree = "<group>"; };
 		23D53BF71934BC85001A957E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23D53C041934BC85001A957E /* Gini-iOS-SDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Gini-iOS-SDKTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +250,7 @@
 				C753E14CEE34C4191333A19E /* GINIKeychainManagerSpec.m */,
 				C753ECA47058756178576D14 /* GINIKeychainCredentialsStoreSpec.m */,
 				59A9614FFB0DC06682809850 /* GINIUserSpec.m */,
+				1F12130620909F0D00945582 /* GINIPartialDocumentInfoSpec.m */,
 				C753E988D87DD1037B2E1418 /* GINIUserCenterManagerSpec.m */,
 				C753E1D596C35E25BD8B3CC4 /* GiniSessionManagerAnonymousSpec.m */,
 				C753EA522A6C49C6975D8067 /* GINISDKBuilderSpec.m */,
@@ -578,6 +581,7 @@
 			files = (
 				E2529A471947599A00FE8527 /* GINISessionManagerSpecs.m in Sources */,
 				81EE44133FBD4D2243E5D77D /* GINIURLSessionMock.m in Sources */,
+				1F12130720909F0D00945582 /* GINIPartialDocumentInfoSpec.m in Sources */,
 				81EE4016DD5977EA419AAB82 /* GINISessionManagerMock.m in Sources */,
 				E2529A451947599500FE8527 /* GINIURLResponseSpec.m in Sources */,
 				E2529A431947598E00FE8527 /* GINIAPIManagerSpec.m in Sources */,
