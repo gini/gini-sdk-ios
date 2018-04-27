@@ -12,6 +12,7 @@
 #import "BFTask.h"
 #import "GINIURLResponse.h"
 #import "NSString+GINIAdditions.h"
+#import "GINIPartialDocumentInfo.h"
 
 
 SPEC_BEGIN(GINIAPIManagerSpec)
@@ -46,7 +47,7 @@ describe(@"The GINIAPIManager", ^{
         // Check for the correct URL.
         NSURLRequest *request = urlSessionMock.lastRequest;
         // Check for the correct content type
-        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+json"];
+        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v2+json"];
     };
 
     /**
@@ -57,7 +58,7 @@ describe(@"The GINIAPIManager", ^{
         // Check for the correct URL.
         NSURLRequest *request = urlSessionMock.lastRequest;
         // Check for the correct content type
-        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v1+xml"];
+        [[[request valueForHTTPHeaderField:@"Accept"] should] equal:@"application/vnd.gini.v2+xml"];
     };
 
     /**
@@ -242,7 +243,7 @@ describe(@"The GINIAPIManager", ^{
                                                                           HTTPVersion:@"1.1"
                                                                          headerFields:@{
                                                                              @"Location": createdDocumentsURL,
-                                                                             @"Content-Type": @"application/vnd.gini.v1+json"
+                                                                             @"Content-Type": @"application/vnd.gini.v2+json"
                                                                          }];
             GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:[NSData new]];
             [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:uploadURL];
@@ -258,7 +259,7 @@ describe(@"The GINIAPIManager", ^{
                                                                           HTTPVersion:@"1.1"
                                                                          headerFields:@{
                                                                                  @"Location": createdDocumentsURL,
-                                                                                 @"Content-Type": @"application/vnd.gini.v1+json"
+                                                                                 @"Content-Type": @"application/vnd.gini.v2+json"
                                                                          }];
             GINIURLResponse *response = [GINIURLResponse urlResponseWithResponse:nsURLResponse data:[NSData new]];
             [urlSessionMock setResponse:[BFTask taskWithResult:response] forURL:uploadURL];
@@ -544,6 +545,38 @@ describe(@"The GINIAPIManager", ^{
             [[json[@"feedback"] should] equal:feedback];
         });
     });;
+    
+    context(@"The createCompositeDocumentWithPartialDocumentsInfo method", ^{
+        it(@"should return a BFTask*", ^{
+            [[[apiManager createCompositeDocumentWithPartialDocumentsInfo:[NSArray new]
+                                                                fileName:@"FileName"
+                                                                 docType:nil
+                                                       cancellationToken:nil] should] beKindOfClass:[BFTask class]];
+        });
+        
+        it(@"should do a POST request", ^{
+            [apiManager createCompositeDocumentWithPartialDocumentsInfo:[NSArray new]
+                                                               fileName:@"FileName"
+                                                                docType:nil
+                                                      cancellationToken:nil];
+            NSURLRequest *request = urlSessionMock.requests[0];
+            [[request.HTTPMethod should] equal:@"POST"];
+        });
+        
+        it(@"should create the correct body", ^{
+            NSArray<GINIPartialDocumentInfo *> *partialDocumentsInfo = [[NSArray alloc] initWithObjects:
+                                                                        [[GINIPartialDocumentInfo alloc] initWithDocumentId:@"1234" rotationDelta:0],
+                                                                        [[GINIPartialDocumentInfo alloc] initWithDocumentId:@"5678" rotationDelta:90],
+                                                                        nil];
+            [apiManager createCompositeDocumentWithPartialDocumentsInfo:partialDocumentsInfo
+                                                               fileName:@"FileName"
+                                                                docType:nil
+                                                      cancellationToken:nil];
+            NSURLRequest *request = urlSessionMock.requests[0];
+            NSString* originalJsonString = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
+            [[originalJsonString should] equal:@"{\"partialDocuments\": [{\"document\":\"1234\", \"rotationDelta\":0},{\"document\":\"5678\", \"rotationDelta\":90}]}"];
+        });
+    });
 });
 
 

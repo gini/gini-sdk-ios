@@ -10,6 +10,8 @@
 #import "GINIURLSession.h"
 #import "GINIURLResponse.h"
 #import "NSString+GINIAdditions.h"
+#import "GINIConstants.h"
+#import "GINIPartialDocumentInfo.h"
 
 /**
  * Returns the string that is part of the URL of an API request for the given image preview size.
@@ -87,7 +89,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
             cancellationToken:(BFCancellationToken *)cancellationToken {
     return [[_requestFactory asynchronousRequestUrl:location withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        [request setValue:GINIContentJsonV2 forHTTPHeaderField:@"Accept"];
         return [[self->_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *documentTask) {
             GINIURLResponse *response = documentTask.result;
             return response.data;
@@ -133,7 +135,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"documents/%@/pages", documentId] relativeToURL:_baseURL];
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        [request setValue:GINIContentJsonV2 forHTTPHeaderField:@"Accept"];
         return [[self->_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *pagesTask) {
             GINIURLResponse *response = pagesTask.result;
             return response.data;
@@ -155,9 +157,9 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
         if (responseType == GiniAPIResponseTypeJSON) {
-            [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+            [request setValue:GINIContentJsonV2 forHTTPHeaderField:@"Accept"];
         } else {
-            [request setValue:@"application/vnd.gini.v1+xml" forHTTPHeaderField:@"Accept"];
+            [request setValue:GINIContentXmlV2 forHTTPHeaderField:@"Accept"];
         }
         return [[self->_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *layoutTask) {
             GINIURLResponse *response = layoutTask.result;
@@ -203,6 +205,31 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     } cancellationToken:cancellationToken];
 }
 
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
+                                                   fileName:(NSString *)fileName
+                                                    docType:(NSString *)docType
+                                          cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSData *jsonDataFormatted = [self partialDocumentsJsonFormattedFromArray:partialDocumentsInfo];
+    
+    NSString *urlString = [NSString stringWithFormat:@"documents/?filename=%@", stringByEscapingString(fileName)];
+    if (docType) {
+        urlString = [urlString stringByAppendingString:[NSString stringWithFormat:@"&doctype=%@", stringByEscapingString(docType)]];
+    }
+    
+    NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
+    return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
+        NSMutableURLRequest *request = requestTask.result;
+        [request setValue:GINICompositeJsonV2 forHTTPHeaderField:@"Content-Type"];
+        
+        return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:jsonDataFormatted] continueWithSuccessBlock:^id(BFTask *uploadTask) {
+            // The HTTP response has a Location header with the URL of the document.
+            GINIURLResponse *response = uploadTask.result;
+            NSString *location = [[response.response allHeaderFields] valueForKey:@"Location"];
+            // Get the document.
+            return [self getDocumentWithURL:[NSURL URLWithString:location] cancellationToken:cancellationToken];
+        }];
+    } cancellationToken:cancellationToken];
+}
 
 - (BFTask *)deleteDocument:(NSString *)documentId {
     return [self deleteDocument:documentId cancellationToken:nil];
@@ -237,7 +264,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        [request setValue:GINIContentJsonV2 forHTTPHeaderField:@"Accept"];
         return [[self->_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *documentsTask) {
             GINIURLResponse *response = documentsTask.result;
             return response.data;
@@ -251,7 +278,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 - (BFTask *)getExtractionsForDocument:(NSString *)documentId
                     cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self getExtractionsForDocument:documentId withHeader:@"application/vnd.gini.v1+json" cancellationToken:cancellationToken];
+    return [self getExtractionsForDocument:documentId withHeader:GINIContentJsonV2 cancellationToken:cancellationToken];
 }
 
 - (BFTask *)getIncubatorExtractionsForDocument:(NSString *)documentId {
@@ -260,7 +287,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 -(BFTask *)getIncubatorExtractionsForDocument:(NSString *)documentId
                             cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self getExtractionsForDocument:documentId withHeader:@"application/vnd.gini.incubator+json" cancellationToken:cancellationToken];
+    return [self getExtractionsForDocument:documentId withHeader:GINIIncubatorJson cancellationToken:cancellationToken];
 }
 
 - (BFTask *)getExtractionsForDocument:(NSString *)documentId
@@ -293,7 +320,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"PUT"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:GINIContentJsonV2 forHTTPHeaderField:@"Content-Type"];
         NSDictionary *feedbackDict = @{@"box": boundingBox, @"value": value};
         NSData *feedbackData = [NSJSONSerialization dataWithJSONObject:feedbackDict
                                                                options:NSJSONWritingPrettyPrinted
@@ -315,7 +342,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"PUT"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:GINIContentJsonV2 forHTTPHeaderField:@"Content-Type"];
         NSData *feedbackData = [NSJSONSerialization dataWithJSONObject:@{@"feedback": feedback}
                                                                options:NSJSONWritingPrettyPrinted
                                                                  error:nil];
@@ -363,7 +390,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Accept"];
+        [request setValue:GINIContentJsonV2 forHTTPHeaderField:@"Accept"];
         return [[self->_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *searchTask) {
             GINIURLResponse *response = searchTask.result;
             return response.data;
@@ -384,12 +411,22 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:@"application/vnd.gini.v1+json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:GINIContentJsonV2 forHTTPHeaderField:@"Content-Type"];
         return [[self->_urlSession BFDataTaskWithRequest:request] continueWithSuccessBlock:^id(BFTask *reportErrorTask) {
             GINIURLResponse *response = reportErrorTask.result;
             return response.data;
         }];
     }];
+}
+
+- (NSData *)partialDocumentsJsonFormattedFromArray:(NSArray<GINIPartialDocumentInfo* >*)partialDocumentsInfo {
+    NSMutableArray *partialInfoFormattedJsonStrings = [NSMutableArray new];
+    for (GINIPartialDocumentInfo* partialDocumentInfo in partialDocumentsInfo) {
+        [partialInfoFormattedJsonStrings addObject:[partialDocumentInfo formattedJson]];
+    }
+    NSString* jsonDataFormattedString = [NSString stringWithFormat: @"{\"partialDocuments\": [%@]}", [partialInfoFormattedJsonStrings componentsJoinedByString:@","]];
+    NSData *jsonDataFormatted = [jsonDataFormattedString dataUsingEncoding:NSUTF8StringEncoding];
+    return jsonDataFormatted;
 }
 
 @end

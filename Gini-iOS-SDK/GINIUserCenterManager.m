@@ -13,7 +13,7 @@
 #import "GINIUser.h"
 #import "GINIError.h"
 #import "GINIHTTPError.h"
-
+#import "GINIConstants.h"
 
 NSString *const GINIUserCreationNotification = @"UserCreationNotification";
 NSString *const GINIUserCreationErrorNotification = @"UserCreationNotification";
@@ -73,7 +73,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
 
     return [[self createMutableURLRequest:[NSString stringWithFormat:@"/api/users/%@", userID] httpMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *urlRequest = requestTask.result;
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
         return [[self->_urlSession BFDataTaskWithRequest:urlRequest] continueWithSuccessBlock:^id(BFTask *task) {
             GINIURLResponse *urlResponse = task.result;
             return [GINIUser userFromAPIResponse:urlResponse.data];
@@ -88,8 +88,8 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     // This needs an active session with a bearer token.
     return [[self createMutableURLRequest:@"/api/users" httpMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *urlRequest = requestTask.result;
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Content-Type"];
+        [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
         NSDictionary *payload = @{
                 @"email" : email,
                 @"password" : password
@@ -122,7 +122,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     NSURL *URL = [NSURL URLWithString:@"/oauth/token?grant_type=password" relativeToURL:_baseURL];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:URL];
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
     [urlRequest setValue:[self createLoginHeader] forHTTPHeaderField:@"Authorization"];
     // Login data (x-www-urlencoded).
     NSData *loginData = [[NSString stringWithFormat:@"username=%@&password=%@", stringByEscapingString(userName), stringByEscapingString(password)] dataUsingEncoding:NSUTF8StringEncoding];
@@ -160,7 +160,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     NSURL *URL = [NSURL URLWithString:endpointPath relativeToURL:_baseURL];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:URL];
     [urlRequest setHTTPMethod:@"GET"];
-    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
 
     return [_urlSession BFDataTaskWithRequest:urlRequest];
 }
@@ -192,8 +192,8 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
         // This needs an active session with a bearer token.
         return [[self createMutableURLRequest:url httpMethod:@"PUT"] continueWithSuccessBlock:^id(BFTask *requestTask) {
             NSMutableURLRequest *urlRequest = requestTask.result;
-            [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+            [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Content-Type"];
+            [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
             NSDictionary *payload = @{
                                       @"oldEmail" : oldEmail,
                                       @"email" : newEmail
@@ -238,7 +238,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     NSURL *loginURL = [NSURL URLWithString:@"/oauth/token?grant_type=client_credentials" relativeToURL:_baseURL];
     NSMutableURLRequest *loginRequest = [NSMutableURLRequest requestWithURL:loginURL];
     [loginRequest setHTTPMethod:@"GET"];
-    [loginRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [loginRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
     [loginRequest setValue:[self createLoginHeader] forHTTPHeaderField:@"Authorization"];
     return [[_urlSession BFDataTaskWithRequest:loginRequest] continueWithSuccessBlock:^id(BFTask *task) {
         GINIURLResponse *response = task.result;
