@@ -10,10 +10,10 @@
 
 @implementation GINIPartialDocumentInfo
 
-- (instancetype)initWithDocumentId:(NSString *)documentId rotationDelta:(int)rotationDelta {
+- (instancetype)initWithDocumentUrl:(NSString *)documentUrl rotationDelta:(int)rotationDelta {
     self = [super init];
     if (self) {
-        _documentId = documentId;
+        _documentUrl = documentUrl;
         _rotationDelta = rotationDelta;
     }
     
@@ -21,7 +21,9 @@
 }
 
 - (NSString *)formattedJson {
-    NSString * formattedString = [NSString stringWithFormat:@"{\"document\":\"%@\", \"rotationDelta\":%d}", _documentId, _rotationDelta];
+    NSString * formattedString = [NSString stringWithFormat:@"{\"document\":\"%@\", \"rotationDelta\":%d}",
+                                  _documentUrl,
+                                  _rotationDelta];
     
     return formattedString;
 }
