@@ -152,6 +152,9 @@
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *) cancellationToken;
 
+
+- (BFTask *)updateDocument:(GINIDocument *)document __attribute__((deprecated("use updateDocument:updatedExtractions:cancellationToken method instead")));
+
 /**
  * Saves updates on the extractions.
  *

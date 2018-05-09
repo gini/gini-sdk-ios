@@ -273,6 +273,28 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     }];
 }
 
+- (BFTask *)updateDocument:(GINIDocument *)document {
+    NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
+    
+    BFTask *updateTask = [[document extractions] continueWithSuccessBlock:^id(BFTask *task) {
+        NSDictionary *extractions = task.result;
+        NSMutableDictionary *updateExtractions = [NSMutableDictionary new];
+        
+        NSArray *keys = @[@"paymentReference", @"iban", @"bic", @"amountToPay", @"paymentRecipient", @"paymentPurpose"];
+        for (NSString *key in extractions) {
+                if ([keys containsObject:key]) {
+                        GINIExtraction *extraction = extractions[key];
+                        updateExtractions[key] = @{@"value": extraction.value};
+                    }
+            }
+        
+        return [self->_apiManager submitBatchFeedbackForDocument:document.documentId feedback:updateExtractions];
+    }];
+
+    return GINIhandleHTTPerrors(updateTask);
+}
+                          
+
 - (BFTask *)updateDocument:(GINIDocument *)document
         updatedExtractions:(NSDictionary *)updatedExtractions
          cancellationToken:(BFCancellationToken *)cancellationToken {
