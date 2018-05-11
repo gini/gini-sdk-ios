@@ -22,7 +22,12 @@
         "processed": "https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000/processed"
     },
     "partialDocuments": [
-        "https://api.gini.net/documents/626626a0-749f-11e2-bfd2-000000000000",
-        "https://api.gini.net/documents/626626a0-749f-11e2-bfd3-000000000000"
+        {
+            "document": "https://api.gini.net/documents/626626a0-749f-11e2-bfd2-000000000000",
+            "rotationDelta": 90
+        },
+        {
+            "document": "https://api.gini.net/documents/626626a0-749f-11e2-bfd3-000000000000"
+        }
     ]
 }

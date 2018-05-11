@@ -60,8 +60,8 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 @property (readonly) GINIDocumentLinks *links;
 /// (Optional) Array containing the path of every composite document
 @property (readonly) NSArray<NSString *> *compositeDocuments;
-/// (Optional) Array containing the path of every partial document
-@property (readonly) NSArray<NSString *> *partialDocuments;
+/// (Optional) Array containing the path of every partial document info
+@property (readonly) NSArray<GINIPartialDocumentInfo *> *partialDocumentInfos;
 /// A `BFTask*` resolving to a mapping with extractions (extraction name as key).
 @property (readonly) BFTask *extractions __attribute__((deprecated("use `GINIDocumentTaskManager.getExtractionsForDocument:` method instead")));
 /// A `BFTask*` resolving to a mapping with the candidates (extraction entity as key).
@@ -88,7 +88,7 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param sourceClassification  The document's source classification.
  * @param links                 The document list of related resources (extractions, document, processed or layout).
  * @param compositeDocuments    (Optional) Array containing the path of every composite document
- * @param partialDocuments      (Optional) Array containing the path of every partial document
+ * @param partialDocumentInfos  (Optional) Array containing the path of every partial document info
  */
 - (instancetype)initWithId:(NSString *)documentId
                      state:(GiniDocumentState)state
@@ -96,7 +96,7 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
                      links:(GINIDocumentLinks *)links
         compositeDocuments:(NSArray<NSString *> *)compositeDocuments
-          partialDocuments:(NSArray<NSString *> *)partialDocuments;
+      partialDocumentInfos:(NSArray<GINIPartialDocumentInfo *> *)partialDocumentInfos;
 
 /**
  * The designated initializer.

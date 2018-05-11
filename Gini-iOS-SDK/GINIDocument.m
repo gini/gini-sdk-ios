@@ -65,8 +65,19 @@
                                                                     layoutURL:linksDict[@"layout"] 
                                                                  processedURL:linksDict[@"processed"]];
     
-    NSArray<NSString *> *compositeDocuments = [apiResponse valueForKey:@"compositeDocuments"];
-    NSArray<NSString *> *partialDocuments = [apiResponse valueForKey:@"partialDocuments"];
+    NSMutableArray<NSString *> *compositeDocuments = [NSMutableArray new];
+    for (NSDictionary *dict in [apiResponse valueForKey:@"compositeDocuments"]) {
+        [compositeDocuments addObject:dict[@"document"]];
+    }
+    
+    NSMutableArray<GINIPartialDocumentInfo *> *partialDocumentInfos = [NSMutableArray new];
+    for (NSDictionary *dict in [apiResponse valueForKey:@"partialDocuments"]) {
+        NSNumber *rotationDelta = dict[@"rotationDelta"];
+        GINIPartialDocumentInfo *partialDocumentInfo =
+        [[GINIPartialDocumentInfo alloc] initWithDocumentUrl:dict[@"document"]
+                                               rotationDelta:[rotationDelta intValue]];
+        [partialDocumentInfos addObject:partialDocumentInfo];
+    }
     
     GINIDocument *document = [[GINIDocument alloc] initWithId:documentId
                                                         state:documentState
@@ -74,7 +85,7 @@
                                          sourceClassification:(GiniDocumentSourceClassification) sourceClassification
                                                         links:links
                                            compositeDocuments:compositeDocuments
-                                             partialDocuments:partialDocuments
+                                         partialDocumentInfos:partialDocumentInfos
                                               documentManager:documentManager];
     
     document.filename = [apiResponse valueForKey:@"name"];
@@ -97,7 +108,7 @@
        sourceClassification:sourceClassification
                       links:nil
          compositeDocuments:nil
-           partialDocuments:nil
+       partialDocumentInfos:nil
             documentManager:documentManager];
 }
 
@@ -107,14 +118,14 @@
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
                      links:(GINIDocumentLinks *)links
         compositeDocuments:(NSArray<NSString *> *)compositeDocuments
-          partialDocuments:(NSArray<NSString *> *)partialDocuments {
+      partialDocumentInfos:(NSArray<GINIPartialDocumentInfo *> *)partialDocumentInfos {
     return [self initWithId:documentId
                       state:state
                   pageCount:pageCount
        sourceClassification:sourceClassification
                       links:links
          compositeDocuments:compositeDocuments
-           partialDocuments:partialDocuments
+       partialDocumentInfos:partialDocumentInfos
             documentManager:nil];
 }
 
@@ -124,7 +135,7 @@
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
                      links:(GINIDocumentLinks *)links
         compositeDocuments:(NSArray<NSString *> *)compositeDocuments
-          partialDocuments:(NSArray<NSString *> *)partialDocuments
+      partialDocumentInfos:(NSArray<GINIPartialDocumentInfo *> *)partialDocumentInfos
            documentManager:(GINIDocumentTaskManager *)documentManager {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
     
@@ -136,7 +147,7 @@
         _pageCount = pageCount;
         _links = links;
         _compositeDocuments = compositeDocuments;
-        _partialDocuments = partialDocuments;
+        _partialDocumentInfos = partialDocumentInfos;
         _documentTaskManager = documentManager;
     }
     

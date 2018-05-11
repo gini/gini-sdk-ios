@@ -59,8 +59,8 @@ describe(@"The GINIDocumentTaskManager", ^{
                                                             pageCount:0
                                                  sourceClassification:GiniDocumentSourceClassificationNative
                                                                 links:nil
-                                                              parents:nil
-                                                     partialDocuments:nil];
+                                                   compositeDocuments:nil
+                                                 partialDocumentInfos:nil];
             BFTask *task = [documentTaskManager pollDocument:document];
             [[task should] beKindOfClass:[BFTask class]];
         });
@@ -71,8 +71,8 @@ describe(@"The GINIDocumentTaskManager", ^{
                                                             pageCount:0
                                                  sourceClassification:GiniDocumentSourceClassificationNative
                                                                 links:nil
-                                                              parents:nil
-                                                     partialDocuments:nil];
+                                                   compositeDocuments:nil
+                                                 partialDocumentInfos:nil];
             [documentTaskManager pollDocument:document];
             [[theValue(apiManager.getDocumentCalled) should] equal:theValue(0)];
         });
@@ -83,8 +83,8 @@ describe(@"The GINIDocumentTaskManager", ^{
                                                             pageCount:0
                                                  sourceClassification:GiniDocumentSourceClassificationNative
                                                                 links:nil
-                                                              parents:nil
-                                                     partialDocuments:nil];
+                                                   compositeDocuments:nil
+                                                 partialDocumentInfos:nil];
             BFTask *task = [documentTaskManager pollDocument:document];
             [[theValue(apiManager.getDocumentCalled) should] equal:theValue(1)];
             GINIDocument *updatedDocument = task.result;
