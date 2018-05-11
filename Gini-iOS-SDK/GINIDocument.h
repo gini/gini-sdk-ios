@@ -58,8 +58,8 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 @property GiniDocumentSourceClassification sourceClassification;
 /// Links to related resources, such as extractions, document, processed or layout.
 @property (readonly) GINIDocumentLinks *links;
-/// (Optional) Array containing the path of every parent
-@property (readonly) NSArray<NSString *> *parents;
+/// (Optional) Array containing the path of every composite document
+@property (readonly) NSArray<NSString *> *compositeDocuments;
 /// (Optional) Array containing the path of every partial document
 @property (readonly) NSArray<NSString *> *partialDocuments;
 /// A `BFTask*` resolving to a mapping with extractions (extraction name as key).
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param pageCount             The number of pages of the document.
  * @param sourceClassification  The document's source classification.
  * @param links                 The document list of related resources (extractions, document, processed or layout).
- * @param parents               (Optional) Array containing the path of every parent
+ * @param compositeDocuments    (Optional) Array containing the path of every composite document
  * @param partialDocuments      (Optional) Array containing the path of every partial document
  */
 - (instancetype)initWithId:(NSString *)documentId
@@ -95,7 +95,7 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
                      links:(GINIDocumentLinks *)links
-                   parents:(NSArray<NSString *> *)parents
+        compositeDocuments:(NSArray<NSString *> *)compositeDocuments
           partialDocuments:(NSArray<NSString *> *)partialDocuments;
 
 /**
@@ -111,7 +111,7 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
                      state:(GiniDocumentState)state
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
-           documentManager:(GINIDocumentTaskManager *)documentManager __attribute__((deprecated("use `initWithId:state:pageCount:sourceClassification:links:parents:partialDocuments:` initializer instead")));
+           documentManager:(GINIDocumentTaskManager *)documentManager __attribute__((deprecated("use `initWithId:state:pageCount:sourceClassification:links:compositeDocuments:partialDocuments:` initializer instead")));
 
 /**
  * Gets the preview image for the given page.

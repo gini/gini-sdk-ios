@@ -28,4 +28,10 @@
     return formattedString;
 }
 
+- (NSString *)documentId {
+    NSArray<NSString*>* urlComponents = [_documentUrl componentsSeparatedByString:@"/"];
+    
+    return [urlComponents lastObject];
+}
+
 @end

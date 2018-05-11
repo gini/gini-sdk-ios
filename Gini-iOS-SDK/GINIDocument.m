@@ -65,7 +65,7 @@
                                                                     layoutURL:linksDict[@"layout"] 
                                                                  processedURL:linksDict[@"processed"]];
     
-    NSArray<NSString *> *parents = [apiResponse valueForKey:@"parents"];
+    NSArray<NSString *> *compositeDocuments = [apiResponse valueForKey:@"compositeDocuments"];
     NSArray<NSString *> *partialDocuments = [apiResponse valueForKey:@"partialDocuments"];
     
     GINIDocument *document = [[GINIDocument alloc] initWithId:documentId
@@ -73,7 +73,7 @@
                                                     pageCount:pageCount
                                          sourceClassification:(GiniDocumentSourceClassification) sourceClassification
                                                         links:links
-                                                      parents:parents
+                                           compositeDocuments:compositeDocuments
                                              partialDocuments:partialDocuments
                                               documentManager:documentManager];
     
@@ -96,7 +96,7 @@
                   pageCount:pageCount
        sourceClassification:sourceClassification
                       links:nil
-                    parents:nil
+         compositeDocuments:nil
            partialDocuments:nil
             documentManager:documentManager];
 }
@@ -106,14 +106,14 @@
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
                      links:(GINIDocumentLinks *)links
-                   parents:(NSArray<NSString *> *)parents
+        compositeDocuments:(NSArray<NSString *> *)compositeDocuments
           partialDocuments:(NSArray<NSString *> *)partialDocuments {
     return [self initWithId:documentId
                       state:state
                   pageCount:pageCount
        sourceClassification:sourceClassification
                       links:links
-                    parents:parents
+         compositeDocuments:compositeDocuments
            partialDocuments:partialDocuments
             documentManager:nil];
 }
@@ -123,7 +123,7 @@
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
                      links:(GINIDocumentLinks *)links
-                   parents:(NSArray<NSString *> *)parents
+        compositeDocuments:(NSArray<NSString *> *)compositeDocuments
           partialDocuments:(NSArray<NSString *> *)partialDocuments
            documentManager:(GINIDocumentTaskManager *)documentManager {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
@@ -135,7 +135,7 @@
         _sourceClassification = sourceClassification;
         _pageCount = pageCount;
         _links = links;
-        _parents = parents;
+        _compositeDocuments = compositeDocuments;
         _partialDocuments = partialDocuments;
         _documentTaskManager = documentManager;
     }
