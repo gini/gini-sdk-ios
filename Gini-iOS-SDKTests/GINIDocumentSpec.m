@@ -91,9 +91,9 @@ describe(@"The GINIDocument", ^{
         [[[document description] should] equal:@"<GINIDocument id=626626a0-749f-11e2-bfd6-000000000000>"];
     });
     
-    it(@"should set the correct document state", ^{
+    it(@"should have the correct amount of composite documents", ^{
         GINIDocument *instance = [GINIDocument documentFromAPIResponse:documentJsonData withDocumentManager:documentTaskManager];
-        [[theValue([instance.parents count]) should] equal:theValue(2)];
+        [[theValue([instance.compositeDocuments count]) should] equal:theValue(2)];
     });
     
 });
@@ -118,9 +118,9 @@ describe(@"The composite GINIDocument", ^{
         [[instance should] beKindOfClass:[GINIDocument class]];
     });
     
-    it(@"should set the correct document state", ^{
+    it(@"should have the correct amount of partial documents", ^{
         GINIDocument *instance = [GINIDocument documentFromAPIResponse:documentJsonData withDocumentManager:documentTaskManager];
-        [[theValue([instance.partialDocuments count]) should] equal:theValue(2)];
+        [[theValue([instance.partialDocumentInfos count]) should] equal:theValue(2)];
     });
     
     it(@"should set the correct source classification", ^{

@@ -565,8 +565,8 @@ describe(@"The GINIAPIManager", ^{
         
         it(@"should create the correct body", ^{
             NSArray<GINIPartialDocumentInfo *> *partialDocumentsInfo = [[NSArray alloc] initWithObjects:
-                                                                        [[GINIPartialDocumentInfo alloc] initWithDocumentId:@"1234" rotationDelta:0],
-                                                                        [[GINIPartialDocumentInfo alloc] initWithDocumentId:@"5678" rotationDelta:90],
+                                                                        [[GINIPartialDocumentInfo alloc] initWithDocumentUrl:@"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-1234" rotationDelta:0],
+                                                                        [[GINIPartialDocumentInfo alloc] initWithDocumentUrl:@"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-5678" rotationDelta:90],
                                                                         nil];
             [apiManager createCompositeDocumentWithPartialDocumentsInfo:partialDocumentsInfo
                                                                fileName:@"FileName"
@@ -574,7 +574,7 @@ describe(@"The GINIAPIManager", ^{
                                                       cancellationToken:nil];
             NSURLRequest *request = urlSessionMock.requests[0];
             NSString* originalJsonString = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
-            [[originalJsonString should] equal:@"{\"partialDocuments\": [{\"document\":\"1234\", \"rotationDelta\":0},{\"document\":\"5678\", \"rotationDelta\":90}]}"];
+            [[originalJsonString should] equal:@"{\"partialDocuments\": [{\"document\":\"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-1234\", \"rotationDelta\":0},{\"document\":\"https://api.gini.net/documents/626626a0-749f-11e2-bfd6-5678\", \"rotationDelta\":90}]}"];
         });
     });
 });

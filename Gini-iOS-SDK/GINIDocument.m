@@ -65,16 +65,27 @@
                                                                     layoutURL:linksDict[@"layout"] 
                                                                  processedURL:linksDict[@"processed"]];
     
-    NSArray<NSString *> *parents = [apiResponse valueForKey:@"parents"];
-    NSArray<NSString *> *partialDocuments = [apiResponse valueForKey:@"partialDocuments"];
+    NSMutableArray<NSString *> *compositeDocuments = [NSMutableArray new];
+    for (NSDictionary *dict in [apiResponse valueForKey:@"compositeDocuments"]) {
+        [compositeDocuments addObject:dict[@"document"]];
+    }
+    
+    NSMutableArray<GINIPartialDocumentInfo *> *partialDocumentInfos = [NSMutableArray new];
+    for (NSDictionary *dict in [apiResponse valueForKey:@"partialDocuments"]) {
+        NSNumber *rotationDelta = dict[@"rotationDelta"];
+        GINIPartialDocumentInfo *partialDocumentInfo =
+        [[GINIPartialDocumentInfo alloc] initWithDocumentUrl:dict[@"document"]
+                                               rotationDelta:[rotationDelta intValue]];
+        [partialDocumentInfos addObject:partialDocumentInfo];
+    }
     
     GINIDocument *document = [[GINIDocument alloc] initWithId:documentId
                                                         state:documentState
                                                     pageCount:pageCount
                                          sourceClassification:(GiniDocumentSourceClassification) sourceClassification
                                                         links:links
-                                                      parents:parents
-                                             partialDocuments:partialDocuments
+                                           compositeDocuments:compositeDocuments
+                                         partialDocumentInfos:partialDocumentInfos
                                               documentManager:documentManager];
     
     document.filename = [apiResponse valueForKey:@"name"];
@@ -96,8 +107,8 @@
                   pageCount:pageCount
        sourceClassification:sourceClassification
                       links:nil
-                    parents:nil
-           partialDocuments:nil
+         compositeDocuments:nil
+       partialDocumentInfos:nil
             documentManager:documentManager];
 }
 
@@ -106,15 +117,15 @@
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
                      links:(GINIDocumentLinks *)links
-                   parents:(NSArray<NSString *> *)parents
-          partialDocuments:(NSArray<NSString *> *)partialDocuments {
+        compositeDocuments:(NSArray<NSString *> *)compositeDocuments
+      partialDocumentInfos:(NSArray<GINIPartialDocumentInfo *> *)partialDocumentInfos {
     return [self initWithId:documentId
                       state:state
                   pageCount:pageCount
        sourceClassification:sourceClassification
                       links:links
-                    parents:parents
-           partialDocuments:partialDocuments
+         compositeDocuments:compositeDocuments
+       partialDocumentInfos:partialDocumentInfos
             documentManager:nil];
 }
 
@@ -123,8 +134,8 @@
                  pageCount:(NSUInteger)pageCount
       sourceClassification:(GiniDocumentSourceClassification)sourceClassification
                      links:(GINIDocumentLinks *)links
-                   parents:(NSArray<NSString *> *)parents
-          partialDocuments:(NSArray<NSString *> *)partialDocuments
+        compositeDocuments:(NSArray<NSString *> *)compositeDocuments
+      partialDocumentInfos:(NSArray<GINIPartialDocumentInfo *> *)partialDocumentInfos
            documentManager:(GINIDocumentTaskManager *)documentManager {
     NSParameterAssert([documentId isKindOfClass:[NSString class]]);
     
@@ -135,8 +146,8 @@
         _sourceClassification = sourceClassification;
         _pageCount = pageCount;
         _links = links;
-        _parents = parents;
-        _partialDocuments = partialDocuments;
+        _compositeDocuments = compositeDocuments;
+        _partialDocumentInfos = partialDocumentInfos;
         _documentTaskManager = documentManager;
     }
     

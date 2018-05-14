@@ -9,6 +9,7 @@
 
 @property NSString *documentUrl;
 @property int rotationDelta;
+@property (nonatomic, retain) NSString *documentId;
 
 
 /**
