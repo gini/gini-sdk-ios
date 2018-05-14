@@ -2,6 +2,15 @@
 Changelog
 =========
 
+1.0.0-beta.1 (14-05-2018)
+==================
+
+Features
+--------
+
+- Added multipage support
+- Deprecated legacy methods for extractions
+
 1.0.0-alpha.1 (15-03-2018)
 ==================
 
