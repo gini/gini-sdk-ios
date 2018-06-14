@@ -17,6 +17,7 @@ Table of contents
    :maxdepth: 2
 
    guides/getting-started
+   guides/updating-to-1.0
    guides/public-key-pinning
    guides/common-tasks
    guides/swift
