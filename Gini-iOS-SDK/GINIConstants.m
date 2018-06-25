@@ -26,7 +26,7 @@ NSString* const GINIIncubatorXml = @"application/vnd.gini.incubator+xml";
 
 NSString* const ExtractionAmountToPayKey = @"amountToPay";
 NSString* const ExtractionPaymentReferenceKey = @"paymentReference";
-NSString* const ExtractionPaymentRecipientKey = @"paymentRecepient";
+NSString* const ExtractionPaymentRecipientKey = @"paymentRecipient";
 NSString* const ExtractionIbanKey = @"iban";
 NSString* const ExtractionBicKey = @"bic";
 NSString* const ExtractionPaymentPurposeKey = @"paymentPurpose";
