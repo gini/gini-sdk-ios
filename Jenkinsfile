@@ -6,7 +6,9 @@ pipeline {
   stages {
     stage('Prerequisites') {
       steps {
-        sh '/usr/local/bin/pod install --repo-update'
+        lock('refs/remotes/origin/master') {
+           sh '/usr/local/bin/pod install --repo-update'
+	}
       }
     }
     stage('Build') {
