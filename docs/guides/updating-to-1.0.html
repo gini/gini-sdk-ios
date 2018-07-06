@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Updating to 1.0 &mdash; Gini SDK for iOS 1.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic|Source+Code+Pro|Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+
+  
+  
+
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:'../',
+        VERSION:'1.1.0',
+        COLLAPSE_INDEX:false,
+        FILE_SUFFIX:'.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+    <script type="text/javascript">
+        jQuery(function () {
+            SphinxRtdTheme.StickyNav.enable();
+        });
+    </script>
+  
+
+  
+    <link rel="top" title="Gini SDK for iOS 1.1.0 documentation" href="../index.html"/>
+        <link rel="next" title="Public Key pinning" href="public-key-pinning.html"/>
+        <link rel="prev" title="Getting started" href="getting-started.html"/> 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" id="gini-logo">gini API</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#first-of-all-add-the-library-to-your-build">First of all: Add the Library to your Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#integrating-the-gini-sdk">Integrating the Gini SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting-started.html#creating-the-gini-sdk-instance">Creating the Gini SDK instance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Updating to 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="public-key-pinning.html">Public Key pinning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-tasks.html">Working with Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#upload-a-document">Upload a document</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#upload-a-document-without-meta-information">Upload a document without meta information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#getting-extractions">Getting extractions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#sending-feedback">Sending feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#report-an-extraction-error-to-gini">Report an extraction error to Gini</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-tasks.html#handling-sdk-errors">Handling SDK errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="swift.html">Swift Integration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="swift.html#module-import">Module import</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">1.0.0 (06-07-2018)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.6.0 (09-02-2018)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id4">0.5.2 (18-01-2018)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id5">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id6">0.5.1 (14-12-2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id7">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id8">0.5.0 (12-12-2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id10">0.4.1 (11-05-2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#bugfixes">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id11">0.4.0 (19-04-2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id12">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id13">0.3.2 (15-12-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id14">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id15">0.3.1 (26-10-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id16">Bugfixes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id17">0.3.0 (24-02-2016)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id18">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id19">0.2.10 (20-11-2015)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id20">Bugfixes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../license.html#using-cocoapods">Using CocoaPods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html#manually">Manually</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../see-also.html">See also</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Gini SDK for iOS</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Updating to 1.0</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="updating-to-1-0">
+<span id="guide-updating-to-1-0"></span><h1>Updating to 1.0<a class="headerlink" href="#updating-to-1-0" title="Permalink to this headline">¶</a></h1>
+<p>## What&#8217;s new?
+* Added <strong>Multipage</strong> support, which introduces a new way to analyze documents (see [Partial and Composite documents](##partial-and-composite-documents) section below).
+* Updated <strong>Bolts</strong> to 1.9 (see more details [here](<a class="reference external" href="https://github.com/BoltsFramework/Bolts-ObjC/blob/master/CHANGELOG.md">https://github.com/BoltsFramework/Bolts-ObjC/blob/master/CHANGELOG.md</a>))
+* Now it is possible to provide a cancellation token for every task</p>
+<p>## Partial and Composite documents</p>
+<p>Now - for every page - a <strong>Partial</strong> document has to be created using the
+<cite>createPartialDocumentWithFilename:fromData:docType:cancellationToken:</cite> method, even if only one page is going to be analyzed.
+Once you have created one or several partial documents, you have to create a <strong>Composite</strong> document. To do so, you just need to pass an array of <cite>GINIPartialDocumentInfo</cite> (in the correct order) to the <cite>createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:cancellationToken:`</cite> method.</p>
+<p>Finally, you can get the extractions for that <strong>Composite</strong> document using the <cite>getExtractionsForDocument:</cite> method in the <cite>GINIDocumentTaskManager</cite>.</p>
+<p>## Breaking changes
+The new <strong>Bolts</strong> version introduces a lot of improvements and bug fixes, but also some breaking changes in the syntaxis for _Swift_ projects.
+* <cite>continue()</cite> is now <cite>continueWith(block:)</cite>.
+* <cite>continue(successBlock:)</cite> is now <cite>continueOnSuccessWith(block:)</cite>.
+* And now every <cite>BFTask</cite> has a specific type for the result, <cite>BFTask&lt;ResultType&gt;</cite>. i.e: <cite>BFTask&lt;GINIDocument&gt;</cite>.</p>
+<p>## Deprecated
+* In the <cite>GINIDocument</cite>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>extractions</cite> &amp;#8594; <cite>GINIDocumentTaskManager.getExtractionsForDocument</cite>.</li>
+<li><cite>candidates</cite> &amp;#8594; <cite>GINIDocumentTaskManager.getCandidatesForDocument</cite>.</li>
+<li><cite>layout</cite> &amp;#8594; <cite>GINIDocumentTaskManager.getExtractionsForDocument</cite>.</li>
+<li><cite>previewWithSize:forPage</cite> &amp;#8594; <cite>GINIDocumentTaskManager.gerPreviewForPage:ofDocument:withSize:</cite>.</li>
+<li><cite>initWithId:state:pageCount:sourceClassification:documentManager:</cite> deprecated since the <cite>GINIDocumentTaskManager</cite> won&#8217;t be part of the <cite>GINIDocument</cite> in the future.</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>In the <cite>GINIDocumentTaskManager</cite>:
+- <cite>createDocumentWithFilename:fromImage:docType:</cite> and <cite>createDocumentWithFilename:fromData:docType:</cite>. Both have been replaced with the methods mentioned above.
+- <cite>updateDocument:</cite>. Since the extractions task is deprecated in the <cite>GINIDocument</cite>, now they have to be specified  in the <cite>updateDocument:updatedExtractions:cancellationToken:</cite> method.
+- <cite>deleteDocument:</cite>. Now there is an specific method for both partial and composite documents, <cite>deleteCompositeDocumentWithId:cancellationToken:</cite> and <cite>deletePartialDocumentWithId:cancellationToken</cite>.</li>
+</ul>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="public-key-pinning.html" class="btn btn-neutral float-right" title="Public Key pinning">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting-started.html" class="btn btn-neutral" title="Getting started"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  
+</body>
+</html>

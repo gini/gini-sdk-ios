@@ -1,17 +1,52 @@
 {
   "warnings": [
     {
-      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIAPIManager.h",
-      "line": 19,
-      "symbol": "",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentLinks.h",
+      "line": 8,
+      "symbol": "GINIDocumentLinks",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIAPIManager.h",
-      "line": 29,
-      "symbol": "",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.unexposed",
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentLinks.h",
+      "line": 9,
+      "symbol": "GINIDocumentLinks.document",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentLinks.h",
+      "line": 10,
+      "symbol": "GINIDocumentLinks.extractions",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentLinks.h",
+      "line": 11,
+      "symbol": "GINIDocumentLinks.layout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentLinks.h",
+      "line": 12,
+      "symbol": "GINIDocumentLinks.processed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentLinks.h",
+      "line": 14,
+      "symbol": "GINIDocumentLinks.-initWithDocumentURL:extractionsURL:layoutURL:processedURL:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentTaskManager.h",
+      "line": 156,
+      "symbol": "GINIDocumentTaskManager.-updateDocument:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
@@ -19,6 +54,34 @@
       "line": 12,
       "symbol": "GINIKeychainManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIPartialDocumentInfo.h",
+      "line": 8,
+      "symbol": "GINIPartialDocumentInfo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIPartialDocumentInfo.h",
+      "line": 10,
+      "symbol": "GINIPartialDocumentInfo.documentUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIPartialDocumentInfo.h",
+      "line": 11,
+      "symbol": "GINIPartialDocumentInfo.rotationDelta",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIPartialDocumentInfo.h",
+      "line": 12,
+      "symbol": "GINIPartialDocumentInfo.documentId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
@@ -82,6 +145,979 @@
       "line": 12,
       "symbol": "GINIUser.userEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLink.h",
+      "line": 14,
+      "symbol": "BFAppLinkVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLink.h",
+      "line": 20,
+      "symbol": "BFAppLink",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLink.h",
+      "line": 33,
+      "symbol": "BFAppLink.+appLinkWithSourceURL:targets:webURL:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLink.h",
+      "line": 38,
+      "symbol": "BFAppLink.sourceURL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLink.h",
+      "line": 44,
+      "symbol": "BFAppLink.targets",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLink.h",
+      "line": 47,
+      "symbol": "BFAppLink.webURL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 18,
+      "symbol": "BFAppLinkNavigationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 18,
+      "symbol": "BFAppLinkNavigationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 20,
+      "symbol": "BFAppLinkNavigationType.BFAppLinkNavigationTypeFailure",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 22,
+      "symbol": "BFAppLinkNavigationType.BFAppLinkNavigationTypeBrowser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 24,
+      "symbol": "BFAppLinkNavigationType.BFAppLinkNavigationTypeApp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 37,
+      "symbol": "BFAppLinkNavigation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 44,
+      "symbol": "BFAppLinkNavigation.extras",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 51,
+      "symbol": "BFAppLinkNavigation.appLinkData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 54,
+      "symbol": "BFAppLinkNavigation.appLink",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 57,
+      "symbol": "BFAppLinkNavigation.+navigationWithAppLink:extras:appLinkData:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 65,
+      "symbol": "BFAppLinkNavigation.+callbackAppLinkDataForAppWithName:url:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 68,
+      "symbol": "BFAppLinkNavigation.-navigate:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 71,
+      "symbol": "BFAppLinkNavigation.+resolveAppLinkInBackground:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 74,
+      "symbol": "BFAppLinkNavigation.+resolveAppLinkInBackground:resolver:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 77,
+      "symbol": "BFAppLinkNavigation.+navigateToAppLink:error:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 85,
+      "symbol": "BFAppLinkNavigation.+navigationTypeForLink:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 91,
+      "symbol": "BFAppLinkNavigation.-navigationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 94,
+      "symbol": "BFAppLinkNavigation.+navigateToURLInBackground:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 100,
+      "symbol": "BFAppLinkNavigation.+navigateToURLInBackground:resolver:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 106,
+      "symbol": "BFAppLinkNavigation.+defaultResolver",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkNavigation.h",
+      "line": 112,
+      "symbol": "BFAppLinkNavigation.+setDefaultResolver:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkResolving.h",
+      "line": 20,
+      "symbol": "BFAppLinkResolving",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkResolving.h",
+      "line": 28,
+      "symbol": "BFAppLinkResolving.-appLinkFromURLInBackground:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 23,
+      "symbol": "BFAppLinkReturnToRefererControllerDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 28,
+      "symbol": "BFAppLinkReturnToRefererControllerDelegate.-returnToRefererController:willNavigateToAppLink:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 33,
+      "symbol": "BFAppLinkReturnToRefererControllerDelegate.-returnToRefererController:didNavigateToAppLink:type:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 44,
+      "symbol": "BFAppLinkReturnToRefererController",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 49,
+      "symbol": "BFAppLinkReturnToRefererController.delegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 54,
+      "symbol": "BFAppLinkReturnToRefererController.view",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 60,
+      "symbol": "BFAppLinkReturnToRefererController.-init",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 66,
+      "symbol": "BFAppLinkReturnToRefererController.-initForDisplayAboveNavController:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 71,
+      "symbol": "BFAppLinkReturnToRefererController.-removeFromNavController",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 76,
+      "symbol": "BFAppLinkReturnToRefererController.-showViewForRefererAppLink:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 81,
+      "symbol": "BFAppLinkReturnToRefererController.-showViewForRefererURL:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererController.h",
+      "line": 86,
+      "symbol": "BFAppLinkReturnToRefererController.-closeViewAnimated:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 19,
+      "symbol": "BFIncludeStatusBarInSize",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 19,
+      "symbol": "BFIncludeStatusBarInSize",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 20,
+      "symbol": "BFIncludeStatusBarInSize.BFIncludeStatusBarInSizeNever",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 21,
+      "symbol": "BFIncludeStatusBarInSize.BFIncludeStatusBarInSizeIOS7AndLater",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 22,
+      "symbol": "BFIncludeStatusBarInSize.BFIncludeStatusBarInSizeAlways",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 29,
+      "symbol": "BFAppLinkReturnToRefererViewDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 34,
+      "symbol": "BFAppLinkReturnToRefererViewDelegate.-returnToRefererViewDidTapInsideCloseButton:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 39,
+      "symbol": "BFAppLinkReturnToRefererViewDelegate.-returnToRefererViewDidTapInsideLink:link:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 52,
+      "symbol": "BFAppLinkReturnToRefererView",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 57,
+      "symbol": "BFAppLinkReturnToRefererView.delegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 62,
+      "symbol": "BFAppLinkReturnToRefererView.textColor",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 64,
+      "symbol": "BFAppLinkReturnToRefererView.refererAppLink",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 71,
+      "symbol": "BFAppLinkReturnToRefererView.includeStatusBarInSize",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkReturnToRefererView.h",
+      "line": 76,
+      "symbol": "BFAppLinkReturnToRefererView.closed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
+      "line": 17,
+      "symbol": "BFAppLinkTarget",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
+      "line": 20,
+      "symbol": "BFAppLinkTarget.+appLinkTargetWithURL:appStoreId:appName:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
+      "line": 25,
+      "symbol": "BFAppLinkTarget.URL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
+      "line": 28,
+      "symbol": "BFAppLinkTarget.appStoreId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFAppLinkTarget.h",
+      "line": 31,
+      "symbol": "BFAppLinkTarget.appName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationToken.h",
+      "line": 20,
+      "symbol": "BFCancellationBlock",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationToken.h",
+      "line": 27,
+      "symbol": "BFCancellationToken",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationToken.h",
+      "line": 32,
+      "symbol": "BFCancellationToken.cancellationRequested",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationToken.h",
+      "line": 38,
+      "symbol": "BFCancellationToken.-registerCancellationObserverWithBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenRegistration.h",
+      "line": 19,
+      "symbol": "BFCancellationTokenRegistration",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenRegistration.h",
+      "line": 25,
+      "symbol": "BFCancellationTokenRegistration.-dispose",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
+      "line": 23,
+      "symbol": "BFCancellationTokenSource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
+      "line": 28,
+      "symbol": "BFCancellationTokenSource.+cancellationTokenSource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
+      "line": 33,
+      "symbol": "BFCancellationTokenSource.token",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
+      "line": 38,
+      "symbol": "BFCancellationTokenSource.cancellationRequested",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
+      "line": 43,
+      "symbol": "BFCancellationTokenSource.-cancel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
+      "line": 50,
+      "symbol": "BFCancellationTokenSource.-cancelAfterDelay:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFCancellationTokenSource.h",
+      "line": 56,
+      "symbol": "BFCancellationTokenSource.-dispose",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFExecutor.h",
+      "line": 18,
+      "symbol": "BFExecutor",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFExecutor.h",
+      "line": 24,
+      "symbol": "BFExecutor.+defaultExecutor",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFExecutor.h",
+      "line": 29,
+      "symbol": "BFExecutor.+immediateExecutor",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFExecutor.h",
+      "line": 34,
+      "symbol": "BFExecutor.+mainThreadExecutor",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFExecutor.h",
+      "line": 40,
+      "symbol": "BFExecutor.+executorWithBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFExecutor.h",
+      "line": 46,
+      "symbol": "BFExecutor.+executorWithDispatchQueue:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFExecutor.h",
+      "line": 52,
+      "symbol": "BFExecutor.+executorWithOperationQueue:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFExecutor.h",
+      "line": 58,
+      "symbol": "BFExecutor.-execute:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFGeneric.h",
+      "line": 25,
+      "symbol": "BFVoid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
+      "line": 14,
+      "symbol": "BFMeasurementEventNotificationName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
+      "line": 18,
+      "symbol": "BFMeasurementEventNameKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
+      "line": 20,
+      "symbol": "BFMeasurementEventArgsKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
+      "line": 26,
+      "symbol": "BFAppLinkParseEventName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
+      "line": 32,
+      "symbol": "BFAppLinkNavigateInEventName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
+      "line": 35,
+      "symbol": "BFAppLinkNavigateOutEventName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
+      "line": 41,
+      "symbol": "BFAppLinkNavigateBackToReferrerEventName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFMeasurementEvent.h",
+      "line": 43,
+      "symbol": "BFMeasurementEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 21,
+      "symbol": "BFTaskErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 26,
+      "symbol": "kBFMultipleErrorsError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 32,
+      "symbol": "BFTaskMultipleErrorsUserInfoKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 42,
+      "symbol": "BFTask",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 47,
+      "symbol": "BFContinuationBlock",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 53,
+      "symbol": "BFTask.+taskWithResult:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 59,
+      "symbol": "BFTask.+taskWithError:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 64,
+      "symbol": "BFTask.+cancelledTask",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 71,
+      "symbol": "BFTask.+taskForCompletionOfAllTasks:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 79,
+      "symbol": "BFTask.+taskForCompletionOfAllTasksWithResults:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 87,
+      "symbol": "BFTask.+taskForCompletionOfAnyTask:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 94,
+      "symbol": "BFTask.+taskWithDelay:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 102,
+      "symbol": "BFTask.+taskWithDelay:cancellationToken:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 114,
+      "symbol": "BFTask.+taskFromExecutor:withBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 121,
+      "symbol": "BFTask.result",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 126,
+      "symbol": "BFTask.error",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 131,
+      "symbol": "BFTask.cancelled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 136,
+      "symbol": "BFTask.faulted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 141,
+      "symbol": "BFTask.completed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 154,
+      "symbol": "BFTask.-continueWithBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 168,
+      "symbol": "BFTask.-continueWithBlock:cancellationToken:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 180,
+      "symbol": "BFTask.-continueWithExecutor:withBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 193,
+      "symbol": "BFTask.-continueWithExecutor:block:cancellationToken:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 208,
+      "symbol": "BFTask.-continueWithSuccessBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 221,
+      "symbol": "BFTask.-continueWithSuccessBlock:cancellationToken:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 236,
+      "symbol": "BFTask.-continueWithExecutor:withSuccessBlock:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 251,
+      "symbol": "BFTask.-continueWithExecutor:successBlock:cancellationToken:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTask.h",
+      "line": 262,
+      "symbol": "BFTask.-waitUntilFinished",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 22,
+      "symbol": "BFTaskCompletionSource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 27,
+      "symbol": "BFTaskCompletionSource.+taskCompletionSource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 32,
+      "symbol": "BFTaskCompletionSource.task",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 39,
+      "symbol": "BFTaskCompletionSource.-setResult:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 46,
+      "symbol": "BFTaskCompletionSource.-setError:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 52,
+      "symbol": "BFTaskCompletionSource.-cancel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 58,
+      "symbol": "BFTaskCompletionSource.-trySetResult:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 65,
+      "symbol": "BFTaskCompletionSource.-trySetError:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFTaskCompletionSource.h",
+      "line": 71,
+      "symbol": "BFTaskCompletionSource.-trySetCancelled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 19,
+      "symbol": "BFURL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 28,
+      "symbol": "BFURL.+URLWithURL:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 36,
+      "symbol": "BFURL.+URLWithInboundURL:sourceApplication:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 42,
+      "symbol": "BFURL.targetURL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 47,
+      "symbol": "BFURL.targetQueryParameters",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 53,
+      "symbol": "BFURL.appLinkData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 58,
+      "symbol": "BFURL.appLinkExtras",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 63,
+      "symbol": "BFURL.appLinkReferer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 68,
+      "symbol": "BFURL.inputURL",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFURL.h",
+      "line": 73,
+      "symbol": "BFURL.inputQueryParameters",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFWebViewAppLinkResolver.h",
+      "line": 19,
+      "symbol": "BFWebViewAppLinkResolver",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Pods/Headers/Private/Bolts/BFWebViewAppLinkResolver.h",
+      "line": 24,
+      "symbol": "BFWebViewAppLinkResolver.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     }
   ],
