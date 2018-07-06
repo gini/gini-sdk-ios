@@ -2,6 +2,19 @@
 Changelog
 =========
 
+1.0.0 (06-07-2018)
+==================
+
+Features
+--------
+
+- Added multipage support
+- Deprecated legacy methods for extractions
+- Updated Bolts to 1.9.0
+- Updated TrustKit to 1.5.3
+- Added cancellation token.
+
+
 0.6.0 (09-02-2018)
 ==================
 

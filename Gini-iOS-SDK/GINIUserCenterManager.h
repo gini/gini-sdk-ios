@@ -70,8 +70,8 @@ extern NSString *const GINILoginErrorNotification;
 /**
  * Logs in the user with the given username and password.
  *
- * @param email         The user's username (usually the email address).
- * @param password      The user's password.
+ * @param userName         The user's username (usually the email address).
+ * @param password         The user's password.
  * @return              A `BFTask *` which will resolve to a `GINISession` instance in case of success or to a GINIError
  *                      if the credentials are wrong.
  */

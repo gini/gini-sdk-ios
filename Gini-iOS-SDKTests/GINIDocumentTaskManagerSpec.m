@@ -54,19 +54,37 @@ describe(@"The GINIDocumentTaskManager", ^{
         });
 
         it(@"should return a BFTask*", ^{
-            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234" state:GiniDocumentStateComplete pageCount:0 sourceClassification:GiniDocumentSourceClassificationNative documentManager:nil];
+            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234"
+                                                                state:GiniDocumentStateComplete
+                                                            pageCount:0
+                                                 sourceClassification:GiniDocumentSourceClassificationNative
+                                                                links:nil
+                                                   compositeDocuments:nil
+                                                 partialDocumentInfos:nil];
             BFTask *task = [documentTaskManager pollDocument:document];
             [[task should] beKindOfClass:[BFTask class]];
         });
 
         it(@"should immediately return the document if it is in the processing state COMPLETED", ^{
-            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234" state:GiniDocumentStateComplete pageCount:0 sourceClassification:GiniDocumentSourceClassificationNative documentManager:nil];
+            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234"
+                                                                state:GiniDocumentStateComplete
+                                                            pageCount:0
+                                                 sourceClassification:GiniDocumentSourceClassificationNative
+                                                                links:nil
+                                                   compositeDocuments:nil
+                                                 partialDocumentInfos:nil];
             [documentTaskManager pollDocument:document];
             [[theValue(apiManager.getDocumentCalled) should] equal:theValue(0)];
         });
 
         it(@"should poll if it is in the processing state pending", ^{
-            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234" state:GiniDocumentStatePending pageCount:0 sourceClassification:GiniDocumentSourceClassificationNative documentManager:nil];
+            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234"
+                                                                state:GiniDocumentStatePending
+                                                            pageCount:0
+                                                 sourceClassification:GiniDocumentSourceClassificationNative
+                                                                links:nil
+                                                   compositeDocuments:nil
+                                                 partialDocumentInfos:nil];
             BFTask *task = [documentTaskManager pollDocument:document];
             [[theValue(apiManager.getDocumentCalled) should] equal:theValue(1)];
             GINIDocument *updatedDocument = task.result;
@@ -74,15 +92,6 @@ describe(@"The GINIDocumentTaskManager", ^{
             [[theValue(updatedDocument.state) should] equal:theValue(GiniDocumentStateComplete)];
 
         });
-    });
-
-    context(@"The updateDocument method", ^{
-        it(@"should return a BFTask*", ^{
-            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234" state:GiniDocumentStateComplete pageCount:0 sourceClassification:GiniDocumentSourceClassificationNative documentManager:documentTaskManager];
-            BFTask *task = [documentTaskManager updateDocument:document];
-            [[task should] beKindOfClass:[BFTask class]];
-        });
-        // TODO: more tests
     });
 
     context(@"The createDocumentWithFilename:fromImage: method", ^{
@@ -141,24 +150,6 @@ describe(@"The GINIDocumentTaskManager", ^{
             NSData *data = [NSData dataWithContentsOfURL:dataPath];
             
             [[[documentTaskManager createDocumentWithFilename:@"foobar.jpg" fromData:data docType:@"Invoice"] should] beKindOfClass:[BFTask class]];
-        });
-    });
-
-    context(@"The errorReportForDocument:summary:description: method", ^{
-        it(@"should raise an exception when having the wrong arguments", ^{
-            [[theBlock(^{
-                [documentTaskManager errorReportForDocument:nil summary:nil description:nil];
-            }) should] raise];
-        });
-
-        it(@"should return a BFTask*", ^{
-            GINIDocument *document = [[GINIDocument alloc] initWithId:@"1234"
-                                                                state:GiniDocumentStatePending
-                                                            pageCount:1
-                                                 sourceClassification:GiniDocumentSourceClassificationNative
-                                                      documentManager:documentTaskManager];
-            BFTask *errorReportTask = [documentTaskManager errorReportForDocument:document summary:@"foo error" description:@"Short description."];
-            [[errorReportTask should] beKindOfClass:[BFTask class]];
         });
     });
 });

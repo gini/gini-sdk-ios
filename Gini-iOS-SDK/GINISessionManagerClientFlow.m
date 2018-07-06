@@ -52,8 +52,8 @@ NSString *const GINIClientFlowResponseType = @"token";
 
     return [[self openAuthorizationPageWithState:state redirectURL:redirectURL responseType:GINIClientFlowResponseType] continueWithSuccessBlock:^id(BFTask *task) {
         BFTaskCompletionSource *logInTask = [BFTaskCompletionSource taskCompletionSource];
-        _activeLogInTask = logInTask;
-        _activeLogInState = state;
+        self->_activeLogInTask = logInTask;
+        self->_activeLogInState = state;
         return logInTask.task;
     }];
 }

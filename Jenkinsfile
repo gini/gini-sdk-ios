@@ -6,17 +6,19 @@ pipeline {
   stages {
     stage('Prerequisites') {
       steps {
-        sh '/usr/local/bin/pod install --repo-update'
+        lock('refs/remotes/origin/master') {
+           sh '/usr/local/bin/pod install --repo-update'
+	}
       }
     }
     stage('Build') {
       steps {
-        sh 'xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme "GiniSDK Example" -destination \'platform=iOS Simulator,name=iPhone 6\' | /usr/local/bin/xcpretty -c'
+        sh 'xcodebuild -workspace Gini-iOS-SDK.xcworkspace -scheme "GiniSDK Example" -destination \'platform=iOS Simulator,name=iPhone 6\''
       }
     }
     stage('Unit tests') {
       steps {
-        sh 'xcodebuild test -workspace Gini-iOS-SDK.xcworkspace -scheme "Gini-iOS-SDKTests" -destination \'platform=iOS Simulator,name=iPhone 6\' | /usr/local/bin/xcpretty -c'
+        sh 'xcodebuild test -workspace Gini-iOS-SDK.xcworkspace -scheme "Gini-iOS-SDKTests" -destination \'platform=iOS Simulator,name=iPhone 6\''
       }
     }
     stage('Documentation') {

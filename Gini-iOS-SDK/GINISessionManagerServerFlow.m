@@ -108,8 +108,8 @@ NSString *const GINIServerFlowResponseType = @"code";
 
     return [[[[self openAuthorizationPageWithState:state redirectURL:redirectURL responseType:GINIServerFlowResponseType] continueWithSuccessBlock:^id(BFTask *task) {
         BFTaskCompletionSource *getCodeTask = [BFTaskCompletionSource taskCompletionSource];
-        _activeLogInTask = getCodeTask;
-        _activeLogInState = state;
+        self->_activeLogInTask = getCodeTask;
+        self->_activeLogInState = state;
         return getCodeTask.task;
     }] continueWithSuccessBlock:^id(BFTask *task) {
         NSString *code = task.result;
@@ -135,10 +135,7 @@ NSString *const GINIServerFlowResponseType = @"code";
             if (code) {
                 [_activeLogInTask setResult:code];
             }
-            else {
-                // TODO: Add no code found error
-                [_activeLogInTask setError:nil];
-            }
+            
             _activeLogInTask = nil;
             _activeLogInState = nil;
             return YES;

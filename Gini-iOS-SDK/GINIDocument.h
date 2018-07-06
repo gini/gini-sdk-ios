@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GINIAPIManager.h"
+#import "GINIDocumentLinks.h"
 
 @class GINIDocumentTaskManager;
 
@@ -33,7 +34,9 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
     /// A text document.
     GiniDocumentSourceClassificationText,
     /// A scanned document with the ocr information on top.
-    GiniDocumentSourceClassificationSandwich
+    GiniDocumentSourceClassificationSandwich,
+    /// A composite document created by one or several partial documents
+    GiniDocumentSourceClassificationComposite
 };
 
 /**
@@ -53,19 +56,26 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
 @property NSDate *creationDate;
 /// The document's source classification.
 @property GiniDocumentSourceClassification sourceClassification;
+/// Links to related resources, such as extractions, document, processed or layout.
+@property (readonly) GINIDocumentLinks *links;
+/// (Optional) Array containing the path of every composite document
+@property (readonly) NSArray<NSString *> *compositeDocuments;
+/// (Optional) Array containing the path of every partial document info
+@property (readonly) NSArray<GINIPartialDocumentInfo *> *partialDocumentInfos;
 /// A `BFTask*` resolving to a mapping with extractions (extraction name as key).
-@property (readonly) BFTask *extractions;
+@property (readonly) BFTask *extractions __attribute__((deprecated("use `GINIDocumentTaskManager.getExtractionsForDocument:` method instead")));
 /// A `BFTask*` resolving to a mapping with the candidates (extraction entity as key).
-@property (readonly) BFTask *candidates;
+@property (readonly) BFTask *candidates __attribute__((deprecated("use `GINIDocumentTaskManager.getCandidatesForDocument:` method instead")));
 /// A `BFTask*` resolving to a dictionary with the layout of the document.
-@property (readonly) BFTask *layout;
+@property (readonly) BFTask *layout __attribute__((deprecated("use `GINIDocumentTaskManager.getLayoutForDocument:` method instead")));
+
 
 /**
  * Factory to create a new document.
  *
- * @param apiResponse       A dictionary containing the document information. Usually the response of the Gini API.
+ * @param apiResponse           A dictionary containing the document information. Usually the response of the Gini API.
+ * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
  *
- * @param documentManager   The document manager instance that is used to communicate with the Gini API.
  */
 + (instancetype)documentFromAPIResponse:(NSDictionary *)apiResponse withDocumentManager:(GINIDocumentTaskManager *)documentManager;
 
@@ -76,10 +86,32 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param state                 The document's state.
  * @param pageCount             The number of pages of the document.
  * @param sourceClassification  The document's source classification.
- * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
- *                              and `layout` property.
+ * @param links                 The document list of related resources (extractions, document, processed or layout).
+ * @param compositeDocuments    (Optional) Array containing the path of every composite document
+ * @param partialDocumentInfos  (Optional) Array containing the path of every partial document info
  */
-- (instancetype)initWithId:(NSString *)documentId state:(GiniDocumentState)state pageCount:(NSUInteger)pageCount sourceClassification:(GiniDocumentSourceClassification)sourceClassification documentManager:(GINIDocumentTaskManager *)documentManager;
+- (instancetype)initWithId:(NSString *)documentId
+                     state:(GiniDocumentState)state
+                 pageCount:(NSUInteger)pageCount
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+                     links:(GINIDocumentLinks *)links
+        compositeDocuments:(NSArray<NSString *> *)compositeDocuments
+      partialDocumentInfos:(NSArray<GINIPartialDocumentInfo *> *)partialDocumentInfos;
+
+/**
+ * The designated initializer.
+ *
+ * @param documentId            The document's unique identifier.
+ * @param state                 The document's state.
+ * @param pageCount             The number of pages of the document.
+ * @param sourceClassification  The document's source classification.
+ * @param documentManager       The document manager that is used to get the additional data, e.g. for the `extractions`
+ */
+- (instancetype)initWithId:(NSString *)documentId
+                     state:(GiniDocumentState)state
+                 pageCount:(NSUInteger)pageCount
+      sourceClassification:(GiniDocumentSourceClassification)sourceClassification
+           documentManager:(GINIDocumentTaskManager *)documentManager __attribute__((deprecated("use `initWithId:state:pageCount:sourceClassification:links:compositeDocuments:partialDocuments:` initializer instead")));
 
 /**
  * Gets the preview image for the given page.
@@ -90,5 +122,7 @@ typedef NS_ENUM(NSUInteger, GiniDocumentSourceClassification) {
  * @param page              The page for which the preview is rendered. Please notice that only the first 10 pages of a
  *                          document are processed by the Gini API.
  */
-- (BFTask *)previewWithSize:(GiniApiPreviewSize)size forPage:(NSUInteger)page;
+- (BFTask *)previewWithSize:(GiniApiPreviewSize)size
+                    forPage:(NSUInteger)page __attribute__((deprecated("Use `GINIDocumentTaskManager.getPreviewForPage:ofDocument:withSize:` method instead")));
+
 @end

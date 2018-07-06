@@ -13,7 +13,7 @@
 #import "GINIUser.h"
 #import "GINIError.h"
 #import "GINIHTTPError.h"
-
+#import "GINIConstants.h"
 
 NSString *const GINIUserCreationNotification = @"UserCreationNotification";
 NSString *const GINIUserCreationErrorNotification = @"UserCreationNotification";
@@ -73,8 +73,8 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
 
     return [[self createMutableURLRequest:[NSString stringWithFormat:@"/api/users/%@", userID] httpMethod:@"GET"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *urlRequest = requestTask.result;
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithSuccessBlock:^id(BFTask *task) {
+        [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
+        return [[self->_urlSession BFDataTaskWithRequest:urlRequest] continueWithSuccessBlock:^id(BFTask *task) {
             GINIURLResponse *urlResponse = task.result;
             return [GINIUser userFromAPIResponse:urlResponse.data];
         }];
@@ -88,8 +88,8 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     // This needs an active session with a bearer token.
     return [[self createMutableURLRequest:@"/api/users" httpMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *urlRequest = requestTask.result;
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Content-Type"];
+        [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
         NSDictionary *payload = @{
                 @"email" : email,
                 @"password" : password
@@ -99,16 +99,16 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
         if (serializationError) {
             return serializationError;
         }
-        return [[_urlSession BFDataTaskWithRequest:urlRequest] continueWithBlock:^id(BFTask *createTask) {
-            if (createTask.error || createTask.exception) {
-                [_notificationCenter postNotificationName:GINIUserCreationErrorNotification object:nil];
+        return [[self->_urlSession BFDataTaskWithRequest:urlRequest] continueWithBlock:^id(BFTask *createTask) {
+            if (createTask.error) {
+                [self->_notificationCenter postNotificationName:GINIUserCreationErrorNotification object:nil];
                 return createTask;
             }
             GINIURLResponse *urlResponse = createTask.result;
             NSString *location = [urlResponse.response.allHeaderFields valueForKey:@"Location"];
             NSString *userId = [[location componentsSeparatedByString:@"/"] lastObject];
             GINIUser *user = [GINIUser userWithEmail:email userId:userId];
-            [_notificationCenter postNotificationName:GINIUserCreationNotification object:user];
+            [self->_notificationCenter postNotificationName:GINIUserCreationNotification object:user];
             return user;
         }];
     }];
@@ -122,7 +122,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     NSURL *URL = [NSURL URLWithString:@"/oauth/token?grant_type=password" relativeToURL:_baseURL];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:URL];
     [urlRequest setHTTPMethod:@"POST"];
-    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
     [urlRequest setValue:[self createLoginHeader] forHTTPHeaderField:@"Authorization"];
     // Login data (x-www-urlencoded).
     NSData *loginData = [[NSString stringWithFormat:@"username=%@&password=%@", stringByEscapingString(userName), stringByEscapingString(password)] dataUsingEncoding:NSUTF8StringEncoding];
@@ -135,19 +135,19 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
         if (loginTask.error && [loginTask.error isKindOfClass:[GINIHTTPError class]]) {
             GINIHTTPError *error = (GINIHTTPError *) loginTask.error;
             if ([error.response.data[@"error"] isEqualToString:@"invalid_grant"]) {
-                [_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
+                [self->_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
                 return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorInvalidCredentials userInfo:nil]];
             }
         }
 
         // Pass-through all other errors.
-        if (loginTask.error || loginTask.exception) {
+        if (loginTask.error) {
             // TODO (maybe discriminable notifications)
-            [_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
+            [self->_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
             return loginTask;
         }
 
-        [_notificationCenter postNotificationName:GINILoginNotification object:nil];
+        [self->_notificationCenter postNotificationName:GINILoginNotification object:nil];
 
         return [GINISessionParser sessionWithJSONDictionary:((GINIURLResponse *)loginTask.result).data];
     }];
@@ -160,7 +160,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     NSURL *URL = [NSURL URLWithString:endpointPath relativeToURL:_baseURL];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:URL];
     [urlRequest setHTTPMethod:@"GET"];
-    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
 
     return [_urlSession BFDataTaskWithRequest:urlRequest];
 }
@@ -192,8 +192,8 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
         // This needs an active session with a bearer token.
         return [[self createMutableURLRequest:url httpMethod:@"PUT"] continueWithSuccessBlock:^id(BFTask *requestTask) {
             NSMutableURLRequest *urlRequest = requestTask.result;
-            [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+            [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Content-Type"];
+            [urlRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
             NSDictionary *payload = @{
                                       @"oldEmail" : oldEmail,
                                       @"email" : newEmail
@@ -203,7 +203,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
             if (serializationError) {
                 return serializationError;
             }
-            return [_urlSession BFDataTaskWithRequest:urlRequest];
+            return [self->_urlSession BFDataTaskWithRequest:urlRequest];
         }];
     }];
 }
@@ -238,14 +238,14 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     NSURL *loginURL = [NSURL URLWithString:@"/oauth/token?grant_type=client_credentials" relativeToURL:_baseURL];
     NSMutableURLRequest *loginRequest = [NSMutableURLRequest requestWithURL:loginURL];
     [loginRequest setHTTPMethod:@"GET"];
-    [loginRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [loginRequest setValue:GINIContentApplicationJson forHTTPHeaderField:@"Accept"];
     [loginRequest setValue:[self createLoginHeader] forHTTPHeaderField:@"Authorization"];
     return [[_urlSession BFDataTaskWithRequest:loginRequest] continueWithSuccessBlock:^id(BFTask *task) {
         GINIURLResponse *response = task.result;
         NSDictionary *sessionData = response.data;
 
         GINISession *activeSession =  [GINISessionParser sessionWithJSONDictionary:sessionData];
-        _activeSession = activeSession;
+        self->_activeSession = activeSession;
         return activeSession;
     }];
 }
@@ -269,7 +269,7 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
 - (BFTask *)createMutableURLRequest:(NSString *)URL httpMethod:(NSString *)httpMethod {
     return [[self getSession] continueWithSuccessBlock:^id(BFTask *task) {
         GINISession *session = task.result;
-        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL relativeToURL:_baseURL]];
+        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL relativeToURL:self->_baseURL]];
         [urlRequest setValue:[NSString stringWithFormat:@"BEARER %@", session.accessToken] forHTTPHeaderField:@"Authorization"];
         [urlRequest setHTTPMethod:httpMethod];
         return urlRequest;

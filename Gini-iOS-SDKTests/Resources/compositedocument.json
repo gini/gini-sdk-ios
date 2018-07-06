@@ -4,7 +4,7 @@
     "name": "scanned.jpg",
     "progress": "COMPLETED",
     "origin": "UPLOAD",
-    "sourceClassification": "SCANNED",
+    "sourceClassification": "COMPOSITE",
     "pageCount": 1,
     "pages" : [
         {
@@ -21,12 +21,13 @@
         "document": "https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000",
         "processed": "https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000000/processed"
     },
-    "compositeDocuments": [
+    "partialDocuments": [
         {
-            "document": "https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000001"
+            "document": "https://api.gini.net/documents/626626a0-749f-11e2-bfd2-000000000000",
+            "rotationDelta": 90
         },
         {
-            "document": "https://api.gini.net/documents/626626a0-749f-11e2-bfd6-000000000002"
+            "document": "https://api.gini.net/documents/626626a0-749f-11e2-bfd3-000000000000"
         }
     ]
 }
