@@ -7,8 +7,8 @@ Updating to 1.0
 What's new?
 =================
 
-* Added **Multipage** support, which introduces a new way to analyze documents (see [Partial and Composite documents](##partial-and-composite-documents) section below).
-* Updated **Bolts** to 1.9 (see more details [here](https://github.com/BoltsFramework/Bolts-ObjC/blob/master/CHANGELOG.md))
+* Added **Multipage** support, which introduces a new way to analyze documents (see `Partial and Composite documents`_ section below).
+* Updated **Bolts** to 1.9 (see more details `here <https://github.com/BoltsFramework/Bolts-ObjC/blob/master/CHANGELOG.md>`_)
 * Now it is possible to provide a cancellation token for every task
 
 Partial and Composite documents
