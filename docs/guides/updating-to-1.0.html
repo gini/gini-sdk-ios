@@ -89,7 +89,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Updating to 1.0</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Updating to 1.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-new">What&#8217;s new?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#partial-and-composite-documents">Partial and Composite documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#breaking-changes">Breaking changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deprecated">Deprecated</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="public-key-pinning.html">Public Key pinning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common-tasks.html">Working with Tasks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="common-tasks.html#upload-a-document">Upload a document</a></li>
@@ -191,37 +197,43 @@
             
   <div class="section" id="updating-to-1-0">
 <span id="guide-updating-to-1-0"></span><h1>Updating to 1.0<a class="headerlink" href="#updating-to-1-0" title="Permalink to this headline">¶</a></h1>
-<p>## What&#8217;s new?
-* Added <strong>Multipage</strong> support, which introduces a new way to analyze documents (see [Partial and Composite documents](##partial-and-composite-documents) section below).
-* Updated <strong>Bolts</strong> to 1.9 (see more details [here](<a class="reference external" href="https://github.com/BoltsFramework/Bolts-ObjC/blob/master/CHANGELOG.md">https://github.com/BoltsFramework/Bolts-ObjC/blob/master/CHANGELOG.md</a>))
-* Now it is possible to provide a cancellation token for every task</p>
-<p>## Partial and Composite documents</p>
+<div class="section" id="what-s-new">
+<h2>What&#8217;s new?<a class="headerlink" href="#what-s-new" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added <strong>Multipage</strong> support, which introduces a new way to analyze documents (see [Partial and Composite documents](##partial-and-composite-documents) section below).</li>
+<li>Updated <strong>Bolts</strong> to 1.9 (see more details [here](<a class="reference external" href="https://github.com/BoltsFramework/Bolts-ObjC/blob/master/CHANGELOG.md">https://github.com/BoltsFramework/Bolts-ObjC/blob/master/CHANGELOG.md</a>))</li>
+<li>Now it is possible to provide a cancellation token for every task</li>
+</ul>
+</div>
+<div class="section" id="partial-and-composite-documents">
+<h2>Partial and Composite documents<a class="headerlink" href="#partial-and-composite-documents" title="Permalink to this headline">¶</a></h2>
 <p>Now - for every page - a <strong>Partial</strong> document has to be created using the
 <cite>createPartialDocumentWithFilename:fromData:docType:cancellationToken:</cite> method, even if only one page is going to be analyzed.
 Once you have created one or several partial documents, you have to create a <strong>Composite</strong> document. To do so, you just need to pass an array of <cite>GINIPartialDocumentInfo</cite> (in the correct order) to the <cite>createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:cancellationToken:`</cite> method.</p>
 <p>Finally, you can get the extractions for that <strong>Composite</strong> document using the <cite>getExtractionsForDocument:</cite> method in the <cite>GINIDocumentTaskManager</cite>.</p>
-<p>## Breaking changes
-The new <strong>Bolts</strong> version introduces a lot of improvements and bug fixes, but also some breaking changes in the syntaxis for _Swift_ projects.
+</div>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<p>The new <strong>Bolts</strong> version introduces a lot of improvements and bug fixes, but also some breaking changes in the syntaxis for _Swift_ projects.
 * <cite>continue()</cite> is now <cite>continueWith(block:)</cite>.
 * <cite>continue(successBlock:)</cite> is now <cite>continueOnSuccessWith(block:)</cite>.
 * And now every <cite>BFTask</cite> has a specific type for the result, <cite>BFTask&lt;ResultType&gt;</cite>. i.e: <cite>BFTask&lt;GINIDocument&gt;</cite>.</p>
-<p>## Deprecated
-* In the <cite>GINIDocument</cite>:</p>
-<blockquote>
-<div><ul class="simple">
-<li><cite>extractions</cite> &amp;#8594; <cite>GINIDocumentTaskManager.getExtractionsForDocument</cite>.</li>
-<li><cite>candidates</cite> &amp;#8594; <cite>GINIDocumentTaskManager.getCandidatesForDocument</cite>.</li>
-<li><cite>layout</cite> &amp;#8594; <cite>GINIDocumentTaskManager.getExtractionsForDocument</cite>.</li>
-<li><cite>previewWithSize:forPage</cite> &amp;#8594; <cite>GINIDocumentTaskManager.gerPreviewForPage:ofDocument:withSize:</cite>.</li>
-<li><cite>initWithId:state:pageCount:sourceClassification:documentManager:</cite> deprecated since the <cite>GINIDocumentTaskManager</cite> won&#8217;t be part of the <cite>GINIDocument</cite> in the future.</li>
-</ul>
-</div></blockquote>
+</div>
+<div class="section" id="deprecated">
+<h2>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>In the <cite>GINIDocument</cite>:
+- <cite>extractions</cite> -&gt; <cite>GINIDocumentTaskManager.getExtractionsForDocument</cite>.
+- <cite>candidates</cite> -&gt; <cite>GINIDocumentTaskManager.getCandidatesForDocument</cite>.
+- <cite>layout</cite> -&gt; <cite>GINIDocumentTaskManager.getExtractionsForDocument</cite>.
+- <cite>previewWithSize:forPage</cite> -&gt; <cite>GINIDocumentTaskManager.gerPreviewForPage:ofDocument:withSize:</cite>.
+- <cite>initWithId:state:pageCount:sourceClassification:documentManager:</cite> deprecated since the <cite>GINIDocumentTaskManager</cite> won&#8217;t be part of the <cite>GINIDocument</cite> in the future.</li>
 <li>In the <cite>GINIDocumentTaskManager</cite>:
 - <cite>createDocumentWithFilename:fromImage:docType:</cite> and <cite>createDocumentWithFilename:fromData:docType:</cite>. Both have been replaced with the methods mentioned above.
 - <cite>updateDocument:</cite>. Since the extractions task is deprecated in the <cite>GINIDocument</cite>, now they have to be specified  in the <cite>updateDocument:updatedExtractions:cancellationToken:</cite> method.
 - <cite>deleteDocument:</cite>. Now there is an specific method for both partial and composite documents, <cite>deleteCompositeDocumentWithId:cancellationToken:</cite> and <cite>deletePartialDocumentWithId:cancellationToken</cite>.</li>
 </ul>
+</div>
 </div>
 
 
