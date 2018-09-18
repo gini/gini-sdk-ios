@@ -63,8 +63,22 @@ When using `TrustKit` some messages are shown in the console log. It is possible
     from the public key (see below). Failing to validate a digest may lead
     to security vulnerabilities.
 
-The Gini API public key SHA256 hash in Base64 encoding can be extracted with the following `openssl` commands:
+Extract Hash From gini.net
+--------------------------
+
+The current Gini API public key SHA256 hash digest in Base64 encoding can be extracted with the
+following openssl commands:
 
 .. code-block:: bash
 
-    openssl s_client -servername gini.net -connect gini.net:443 | openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
+    $ openssl s_client -servername gini.net -connect gini.net:443 | openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
+
+Extract Hash From Public Key
+----------------------------
+
+You can also extract the hash from a public key. The following example shows how to extract it from
+a public key named ``gini.pub``:
+
+.. code-block:: bash
+
+    $ cat gini.pub | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
