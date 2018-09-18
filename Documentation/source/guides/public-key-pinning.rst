@@ -18,8 +18,10 @@ The Gini iOS SDK allows you to enable public key pinning with the Gini API throu
                         kTSKDisableDefaultReportUri:true,
                         kTSKPublicKeyAlgorithms: [kTSKAlgorithmRsa2048],
                         kTSKPublicKeyHashes: [
+                            // OLD *.gini.net public key
                             "yGLLyvZLo2NNXeBNKJwx1PlCtm+YEVU6h2hxVpRa4l4=",
-                            "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+                            // NEW *.gini.net public key
+                            "cNzbGowA+LNeQ681yMm8ulHxXiGojHE8qAjI+M7bIxU="
                         ],]]] as [String : Any]
 
     let sdk = GINISDKBuilder.anonymousUser(withClientID: "your_client_id",
@@ -38,8 +40,10 @@ The Gini iOS SDK allows you to enable public key pinning with the Gini API throu
                     kTSKDisableDefaultReportUri:@YES
                     kTSKPublicKeyAlgorithms : @[kTSKAlgorithmRsa2048],
                     kTSKPublicKeyHashes : @[
+                            // OLD *.gini.net public key
                             @"yGLLyvZLo2NNXeBNKJwx1PlCtm+YEVU6h2hxVpRa4l4=",
-                            @"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+                            // NEW *.gini.net public key
+                            @"cNzbGowA+LNeQ681yMm8ulHxXiGojHE8qAjI+M7bIxU="
                             ],
                     }}};
 
@@ -50,6 +54,14 @@ The Gini iOS SDK allows you to enable public key pinning with the Gini API throu
 
 If `kTSKEnforcePinning` is set to `false`, any SSL connection will be block even if the pinning fails. When it is enabled, it requires at least two hashes (the second one is a backup hash).
 When using `TrustKit` some messages are shown in the console log. It is possible to either specify a custom log for messages or disable it altogether (setting it as nil). To do so just use the `TrustKit.setLoggerBlock` method before initializing the `trustKitConfig`.
+
+.. warning::
+
+    The above digests serve as an example only. You should **always** create the digest yourself
+    from the Gini API's public key and use that one (see below). If you
+    received a digest from us then **always** validate it by comparing it to the digest you created
+    from the public key (see below). Failing to validate a digest may lead
+    to security vulnerabilities.
 
 The Gini API public key SHA256 hash in Base64 encoding can be extracted with the following `openssl` commands:
 
