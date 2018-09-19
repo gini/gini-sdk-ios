@@ -96,7 +96,11 @@
 <li class="toctree-l2"><a class="reference internal" href="updating-to-1.0.html#deprecated">Deprecated</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Public Key pinning</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Public Key pinning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extract-hash-from-gini-net">Extract Hash From gini.net</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extract-hash-from-public-key">Extract Hash From Public Key</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="common-tasks.html">Working with Tasks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="common-tasks.html#upload-a-document">Upload a document</a></li>
 <li class="toctree-l2"><a class="reference internal" href="common-tasks.html#upload-a-document-without-meta-information">Upload a document without meta information</a></li>
@@ -207,8 +211,10 @@
                     <span class="n">kTSKDisableDefaultReportUri</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
                     <span class="n">kTSKPublicKeyAlgorithms</span><span class="p">:</span> <span class="p">[</span><span class="n">kTSKAlgorithmRsa2048</span><span class="p">],</span>
                     <span class="n">kTSKPublicKeyHashes</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="c1">// OLD *.gini.net public key</span>
                         <span class="s">&quot;yGLLyvZLo2NNXeBNKJwx1PlCtm+YEVU6h2hxVpRa4l4=&quot;</span><span class="p">,</span>
-                        <span class="s">&quot;47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=&quot;</span>
+                        <span class="c1">// NEW *.gini.net public key</span>
+                        <span class="s">&quot;cNzbGowA+LNeQ681yMm8ulHxXiGojHE8qAjI+M7bIxU=&quot;</span>
                     <span class="p">],]]]</span> <span class="kc">as</span> <span class="p">[</span><span class="nb">String</span> <span class="p">:</span> <span class="nb">Any</span><span class="p">]</span>
 
 <span class="kd">let</span> <span class="nv">sdk</span> <span class="p">=</span> <span class="n">GINISDKBuilder</span><span class="p">.</span><span class="n">anonymousUser</span><span class="p">(</span><span class="n">withClientID</span><span class="p">:</span> <span class="s">&quot;your_client_id&quot;</span><span class="p">,</span>
@@ -225,8 +231,10 @@
                 <span class="nl">kTSKDisableDefaultReportUri</span><span class="p">:</span><span class="m">@YES</span>
                 <span class="nl">kTSKPublicKeyAlgorithms</span> <span class="p">:</span> <span class="l">@[</span><span class="n">kTSKAlgorithmRsa2048</span><span class="l">]</span><span class="p">,</span>
                 <span class="nl">kTSKPublicKeyHashes</span> <span class="p">:</span> <span class="l">@[</span>
+                        <span class="c1">// OLD *.gini.net public key</span>
                         <span class="s">@&quot;yGLLyvZLo2NNXeBNKJwx1PlCtm+YEVU6h2hxVpRa4l4=&quot;</span><span class="p">,</span>
-                        <span class="s">@&quot;47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=&quot;</span>
+                        <span class="c1">// NEW *.gini.net public key</span>
+                        <span class="s">@&quot;cNzbGowA+LNeQ681yMm8ulHxXiGojHE8qAjI+M7bIxU=&quot;</span>
                         <span class="l">]</span><span class="p">,</span>
                 <span class="l">}}}</span><span class="p">;</span>
 
@@ -238,9 +246,29 @@
 </div>
 <p>If <cite>kTSKEnforcePinning</cite> is set to <cite>false</cite>, any SSL connection will be block even if the pinning fails. When it is enabled, it requires at least two hashes (the second one is a backup hash).
 When using <cite>TrustKit</cite> some messages are shown in the console log. It is possible to either specify a custom log for messages or disable it altogether (setting it as nil). To do so just use the <cite>TrustKit.setLoggerBlock</cite> method before initializing the <cite>trustKitConfig</cite>.</p>
-<p>The Gini API public key SHA256 hash in Base64 encoding can be extracted with the following <cite>openssl</cite> commands:</p>
-<div class="highlight-bash"><div class="highlight"><pre>openssl s_client -servername gini.net -connect gini.net:443 <span class="p">|</span> openssl x509 -pubkey -noout <span class="p">|</span> openssl pkey -pubin -outform der <span class="p">|</span> openssl dgst -sha256 -binary <span class="p">|</span> openssl enc -base64
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The above digests serve as an example only. You should <strong>always</strong> create the digest yourself
+from the Gini API&#8217;s public key and use that one (see below). If you
+received a digest from us then <strong>always</strong> validate it by comparing it to the digest you created
+from the public key (see below). Failing to validate a digest may lead
+to security vulnerabilities.</p>
+</div>
+<div class="section" id="extract-hash-from-gini-net">
+<h2>Extract Hash From gini.net<a class="headerlink" href="#extract-hash-from-gini-net" title="Permalink to this headline">¶</a></h2>
+<p>The current Gini API public key SHA256 hash digest in Base64 encoding can be extracted with the
+following openssl commands:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>openssl s_client -servername gini.net -connect gini.net:443 <span class="p">|</span> openssl x509 -pubkey -noout <span class="p">|</span> openssl pkey -pubin -outform der <span class="p">|</span> openssl dgst -sha256 -binary <span class="p">|</span> openssl enc -base64
 </pre></div>
+</div>
+</div>
+<div class="section" id="extract-hash-from-public-key">
+<h2>Extract Hash From Public Key<a class="headerlink" href="#extract-hash-from-public-key" title="Permalink to this headline">¶</a></h2>
+<p>You can also extract the hash from a public key. The following example shows how to extract it from
+a public key named <tt class="docutils literal"><span class="pre">gini.pub</span></tt>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cat gini.pub <span class="p">|</span> openssl pkey -pubin -outform der <span class="p">|</span> openssl dgst -sha256 -binary <span class="p">|</span> openssl enc -base64
+</pre></div>
+</div>
 </div>
 </div>
 

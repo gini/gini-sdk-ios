@@ -826,7 +826,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueWith</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">ResultType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueWith</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -860,7 +860,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueWith</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">ResultType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueWith</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a></span><span class="p">,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -893,7 +893,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueWith</span><span class="p">(</span><span class="nv">executor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFExecutor.html">BFExecutor</a></span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">ResultType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueWith</span><span class="p">(</span><span class="nv">executor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFExecutor.html">BFExecutor</a></span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -928,7 +928,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueWith</span><span class="p">(</span><span class="nv">executor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFExecutor.html">BFExecutor</a></span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">ResultType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueWith</span><span class="p">(</span><span class="nv">executor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFExecutor.html">BFExecutor</a></span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a></span><span class="p">,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -960,7 +960,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueOnSuccessWith</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">ResultType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueOnSuccessWith</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -994,7 +994,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueOnSuccessWith</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">ResultType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueOnSuccessWith</span><span class="p">(</span><span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a></span><span class="p">,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1027,7 +1027,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueOnSuccessWith</span><span class="p">(</span><span class="nv">executor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFExecutor.html">BFExecutor</a></span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">ResultType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueOnSuccessWith</span><span class="p">(</span><span class="nv">executor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFExecutor.html">BFExecutor</a></span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1062,7 +1062,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueOnSuccessWith</span><span class="p">(</span><span class="nv">executor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFExecutor.html">BFExecutor</a></span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">ResultType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">continueOnSuccessWith</span><span class="p">(</span><span class="nv">executor</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFExecutor.html">BFExecutor</a></span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type Definitions.html#/c:BFTask.h@T@BFContinuationBlock">BFContinuationBlock</a></span><span class="p">,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">BFTask</span><span class="o">&lt;</span><span class="kt">AnyObject</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1109,7 +1109,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2018-07-06)</p>
+      <p>&copy; 2018 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2018-09-19)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
