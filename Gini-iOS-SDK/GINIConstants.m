@@ -30,3 +30,7 @@ NSString* const ExtractionPaymentRecipientKey = @"paymentRecipient";
 NSString* const ExtractionIbanKey = @"iban";
 NSString* const ExtractionBicKey = @"bic";
 NSString* const ExtractionPaymentPurposeKey = @"paymentPurpose";
+
+// Metadata headers
+
+NSString* const BranchIdHeaderKey = @"X-Document-Metadata-BranchId";

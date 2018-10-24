@@ -22,3 +22,5 @@ extern NSString* const ExtractionPaymentRecipientKey;
 extern NSString* const ExtractionIbanKey;
 extern NSString* const ExtractionBicKey;
 extern NSString* const ExtractionPaymentPurposeKey;
+
+extern NSString* const BranchIdHeaderKey;
