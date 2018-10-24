@@ -7,6 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "GINIAPIManager.h"
 #import "GINIPartialDocumentInfo.h"
+#import "GINIDocumentMetadata.h"
 
 @class BFTask;
 @class GINIDocument;
@@ -79,6 +80,20 @@
                              fromImage:(UIImage *)image __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
 
 /**
+ * Creates a new document from the given image.
+ *
+ * @param fileName      The file name of the document.
+ * @param image         An image representing the document.
+ *
+ * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
+ *                      Please notice that it is very unlikely that the created document is already fully processed, so
+ *                      the extractions may not yet exist.
+ */
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName
+                             fromImage:(UIImage *)image
+                              metadata:(GINIDocumentMetadata *)metadata __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+
+/**
  * Creates a new document with the given `doctype` from the given image. By providing the doctype, Gini's document
  * processing is optimized in many ways.
  *
@@ -91,6 +106,21 @@
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                              fromImage:(UIImage *)image
                                docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+
+/**
+ * Creates a new document with the given `doctype` from the given image. By providing the doctype, Gini's document
+ * processing is optimized in many ways.
+ *
+ * See the [Gini API documentation](http://developer.gini.net/gini-api/html/documents.html#document-type-hints) for
+ * details and [a list of available doctypes](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ *
+ * @warning Some incubating extractions are only available if you create the document with this method, so the Gini API
+ * knows the doctype.
+ */
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName
+                             fromImage:(UIImage *)image
+                               docType:(NSString *)docType
+                              metadata:(GINIDocumentMetadata *)metadata  __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given data.
@@ -111,6 +141,27 @@
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                               fromData:(NSData *)data
                                docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+
+/**
+ * Creates a new document with the given `doctype` from the given data.
+ * Data can be in the format of a PDF, UTF-8 text or image representation.
+ * By providing the doctype, Gini's document processing is optimized in many ways.
+ *
+ * See the [Gini API documentation](http://developer.gini.net/gini-api/html/documents.html#document-type-hints) for
+ * details and [a list of available doctypes](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ *
+ * @param fileName      The file name of the document.
+ * @param data          Data representing the document.
+ * @param docType       The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ *
+ * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
+ *                      Please notice that it is very unlikely that the created document is already fully processed, so
+ *                      the extractions may not yet exist.
+ */
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName
+                              fromData:(NSData *)data
+                               docType:(NSString *)docType
+                              metadata:(GINIDocumentMetadata *)metadata  __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
 
 /**
  * Creates a new partial document with the given `doctype` from the given data.
@@ -134,6 +185,28 @@
                             cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**
+ * Creates a new partial document with the given `doctype` from the given data.
+ * Data can be in the format of a PDF, UTF-8 text or image representation.
+ * By providing the doctype, Gini's document processing is optimized in many ways.
+ *
+ * See the [Gini API documentation](Add documentation link).
+ *
+ * @param fileName                  The file name of the document.
+ * @param data                      Data representing the document.
+ * @param docType                   The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ * @param cancellationToken         Cancellation token used to cancel the current task.
+ *
+ * @returns                         A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
+ *                                  Please notice that it is very unlikely that the created document is already fully processed, so
+ *                                  the extractions may not yet exist.
+ */
+- (BFTask *)createPartialDocumentWithFilename:(NSString *)fileName
+                                     fromData:(NSData *)data
+                                      docType:(NSString *)docType
+                                     metadata:(GINIDocumentMetadata *)metadata
+                            cancellationToken:(BFCancellationToken *)cancellationToken;
+
+/**
  * Creates a new composite document
  *
  * See the [Gini API documentation](Add documentation link).
@@ -150,6 +223,26 @@
 - (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
+                                          cancellationToken:(BFCancellationToken *) cancellationToken;
+
+/**
+ * Creates a new composite document
+ *
+ * See the [Gini API documentation](Add documentation link).
+ *
+ * @param partialDocumentsInfo  Array containing the partial documents info (document url and additional parameters).
+ * @param fileName              The filename of the document.
+ * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API.
+ *                              for a list of possibles doctypes.
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ */
+
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
+                                                   fileName:(NSString *)fileName
+                                                    docType:(NSString *)docType
+                                                   metadata:(GINIDocumentMetadata *)metadata
                                           cancellationToken:(BFCancellationToken *) cancellationToken;
 
 

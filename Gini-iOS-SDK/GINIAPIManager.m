@@ -12,6 +12,7 @@
 #import "NSString+GINIAdditions.h"
 #import "GINIConstants.h"
 #import "GINIPartialDocumentInfo.h"
+#import "GINIDocumentMetadata.h"
 
 /**
  * Returns the string that is part of the URL of an API request for the given image preview size.
@@ -181,6 +182,20 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
                           fileName:(NSString *)fileName
                            docType:(NSString *)docType
                  cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self uploadDocumentWithData:documentData
+                            contentType:contentType
+                               fileName:fileName
+                                docType:docType
+                               metadata:nil
+                      cancellationToken:cancellationToken];
+}
+
+- (BFTask *)uploadDocumentWithData:(NSData *)documentData
+                       contentType:(NSString *)contentType
+                          fileName:(NSString *)fileName
+                           docType:(NSString *)docType
+                          metadata:(GINIDocumentMetadata *)metadata
+                 cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([documentData isKindOfClass:[NSData class]]);
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([contentType isKindOfClass:[NSString class]]);
@@ -194,6 +209,12 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
         [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+        
+        if (metadata != nil) {
+            for (NSString* key in metadata.headers) {
+                [request setValue:metadata.headers[key] forHTTPHeaderField:key];
+            }
+        }
         
         return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:documentData] continueWithSuccessBlock:^id(BFTask *uploadTask) {
             // The HTTP response has a Location header with the URL of the document.
@@ -209,6 +230,18 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createCompositeDocumentWithPartialDocumentsInfo:partialDocumentsInfo
+                                                        fileName:fileName
+                                                         docType:docType
+                                                        metadata:nil
+                                               cancellationToken:cancellationToken];
+}
+
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *> *)partialDocumentsInfo
+                                                   fileName:(NSString *)fileName
+                                                    docType:(NSString *)docType
+                                                   metadata:(GINIDocumentMetadata *)metadata
+                                          cancellationToken:(BFCancellationToken *)cancellationToken {
     NSData *jsonDataFormatted = [self partialDocumentsJsonFormattedFromArray:partialDocumentsInfo];
     
     NSString *urlString = [NSString stringWithFormat:@"documents/?filename=%@", stringByEscapingString(fileName)];
@@ -220,6 +253,12 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
         [request setValue:GINICompositeJsonV2 forHTTPHeaderField:@"Content-Type"];
+        
+        if (metadata != nil) {
+            for (NSString* key in metadata.headers) {
+                [request setValue:metadata.headers[key] forHTTPHeaderField:key];
+            }
+        }
         
         return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:jsonDataFormatted] continueWithSuccessBlock:^id(BFTask *uploadTask) {
             // The HTTP response has a Location header with the URL of the document.
