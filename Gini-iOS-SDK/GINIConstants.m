@@ -33,4 +33,6 @@ NSString* const ExtractionPaymentPurposeKey = @"paymentPurpose";
 
 // Metadata headers
 
-NSString* const BranchIdHeaderKey = @"X-Document-Metadata-BranchId";
+NSString* const MetadataHeaderKeyPrefix = @"X-Document-Metadata-";
+NSString* const MetadataBranchIdHeaderKey = @"BranchId";
+

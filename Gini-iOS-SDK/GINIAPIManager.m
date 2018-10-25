@@ -211,9 +211,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
         [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
         
         if (metadata != nil) {
-            for (NSString* key in metadata.headers) {
-                [request setValue:metadata.headers[key] forHTTPHeaderField:key];
-            }
+            [self addMetadata:metadata toRequest:request];
         }
         
         return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:documentData] continueWithSuccessBlock:^id(BFTask *uploadTask) {
@@ -255,9 +253,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
         [request setValue:GINICompositeJsonV2 forHTTPHeaderField:@"Content-Type"];
         
         if (metadata != nil) {
-            for (NSString* key in metadata.headers) {
-                [request setValue:metadata.headers[key] forHTTPHeaderField:key];
-            }
+            [self addMetadata:metadata toRequest:request];
         }
         
         return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:jsonDataFormatted] continueWithSuccessBlock:^id(BFTask *uploadTask) {
@@ -466,6 +462,12 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     NSString* jsonDataFormattedString = [NSString stringWithFormat: @"{\"partialDocuments\": [%@]}", [partialInfoFormattedJsonStrings componentsJoinedByString:@","]];
     NSData *jsonDataFormatted = [jsonDataFormattedString dataUsingEncoding:NSUTF8StringEncoding];
     return jsonDataFormatted;
+}
+
+- (void)addMetadata:(GINIDocumentMetadata *)metadata toRequest:(NSMutableURLRequest *)request {
+    for (NSString* key in metadata.headers) {
+        [request setValue:metadata.headers[key] forHTTPHeaderField:key];
+    }
 }
 
 @end

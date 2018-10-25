@@ -12,10 +12,25 @@
 
 - (instancetype)initWithBranchId:(NSString *)branchId
                additionalHeaders:(NSDictionary<NSString *,NSString *> *)additionalHeaders {
-    _headers = [[NSMutableDictionary alloc] initWithDictionary:additionalHeaders];
-    [_headers setValue:branchId forKey:BranchIdHeaderKey];
+    
+    _headers = [[NSMutableDictionary alloc] initWithCapacity:additionalHeaders.count + 1];
+    
+    NSString *branchIdKey = [self formattedKey:MetadataBranchIdHeaderKey];
+    [_headers setValue:branchId forKey:branchIdKey];
+    
+    for (NSString* key in additionalHeaders) {
+        NSParameterAssert(![key containsString:MetadataHeaderKeyPrefix]);
+        
+        [_headers setValue:additionalHeaders[key] forKey:[self formattedKey:key]];
+    }
     
     return self;
+}
+
+- (NSString *)formattedKey:(NSString *) key {
+    return [[NSString alloc] initWithFormat:@"%@%@",
+            MetadataHeaderKeyPrefix,
+            key];
 }
 
 @end

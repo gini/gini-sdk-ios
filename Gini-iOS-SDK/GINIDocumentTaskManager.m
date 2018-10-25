@@ -171,7 +171,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                                                   contentType:contentType
                                                      fileName:fileName
                                                       docType:docType
-                                                     metadata: metadata
+                                                     metadata:metadata
                                             cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
