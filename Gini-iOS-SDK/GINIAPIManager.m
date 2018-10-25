@@ -210,9 +210,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
         NSMutableURLRequest *request = requestTask.result;
         [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
         
-        if (metadata != nil) {
-            [self addMetadata:metadata toRequest:request];
-        }
+        [self addMetadata:metadata toRequest:request];
         
         return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:documentData] continueWithSuccessBlock:^id(BFTask *uploadTask) {
             // The HTTP response has a Location header with the URL of the document.
@@ -252,10 +250,8 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
         NSMutableURLRequest *request = requestTask.result;
         [request setValue:GINICompositeJsonV2 forHTTPHeaderField:@"Content-Type"];
         
-        if (metadata != nil) {
-            [self addMetadata:metadata toRequest:request];
-        }
-        
+        [self addMetadata:metadata toRequest:request];
+
         return [[self->_urlSession BFUploadTaskWithRequest:requestTask.result fromData:jsonDataFormatted] continueWithSuccessBlock:^id(BFTask *uploadTask) {
             // The HTTP response has a Location header with the URL of the document.
             GINIURLResponse *response = uploadTask.result;
