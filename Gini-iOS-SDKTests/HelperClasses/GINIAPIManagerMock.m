@@ -46,6 +46,7 @@
                        contentType:(NSString *)contentType
                           fileName:(NSString *)fileName
                            docType:(NSString *)docType
+                          metadata:(GINIDocumentMetadata *)metadata
                  cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([documentData isKindOfClass:[NSData class]]);
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
