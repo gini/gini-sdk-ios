@@ -84,6 +84,7 @@
  *
  * @param fileName      The file name of the document.
  * @param image         An image representing the document.
+ * @param metadata      (Optional) The document metadata.
  *
  * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
  *                      Please notice that it is very unlikely that the created document is already fully processed, so
@@ -153,6 +154,7 @@
  * @param fileName      The file name of the document.
  * @param data          Data representing the document.
  * @param docType       The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ * @param metadata      (Optional) The document metadata.
  *
  * @returns             A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
  *                      Please notice that it is very unlikely that the created document is already fully processed, so
@@ -194,6 +196,7 @@
  * @param fileName                  The file name of the document.
  * @param data                      Data representing the document.
  * @param docType                   The doctype hint for the document [Possible values](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype).
+ * @param metadata                  (Optional) The document metadata.
  * @param cancellationToken         Cancellation token used to cancel the current task.
  *
  * @returns                         A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
@@ -234,6 +237,7 @@
  * @param fileName              The filename of the document.
  * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API.
  *                              for a list of possibles doctypes.
+ * @param metadata              (Optional) The document metadata.
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.

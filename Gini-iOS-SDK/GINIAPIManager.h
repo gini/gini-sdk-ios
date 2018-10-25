@@ -221,6 +221,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @param docType           (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
  *                          [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
  *                          for a list of possibles doctypes.
+ * @param metadata          (Optional) The document metadata
  * @param cancellationToken Cancellation token used to cancel the current task.
  *
  * @returns                 A`BFTask*` that will resolve to a NSString containing the created document's ID.
@@ -263,6 +264,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
  *                              [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
  *                              for a list of possibles doctypes.
+ * @param metadata              (Optional) The document metadata.
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.

@@ -10,6 +10,10 @@
 
 @implementation GINIDocumentMetadata
 
+- (instancetype)initWithBranchId:(NSString *)branchId {
+    return [self initWithBranchId:branchId additionalHeaders:nil];
+}
+
 - (instancetype)initWithBranchId:(NSString *)branchId
                additionalHeaders:(NSDictionary<NSString *,NSString *> *)additionalHeaders {
     
@@ -18,10 +22,12 @@
     NSString *branchIdKey = [self formattedKey:MetadataBranchIdHeaderKey];
     [_headers setValue:branchId forKey:branchIdKey];
     
-    for (NSString* key in additionalHeaders) {
-        NSParameterAssert(![key containsString:MetadataHeaderKeyPrefix]);
-        
-        [_headers setValue:additionalHeaders[key] forKey:[self formattedKey:key]];
+    if(additionalHeaders != nil) {
+        for (NSString* key in additionalHeaders) {
+            NSParameterAssert(![key containsString:MetadataHeaderKeyPrefix]);
+            
+            [_headers setValue:additionalHeaders[key] forKey:[self formattedKey:key]];
+        }
     }
     
     return self;
