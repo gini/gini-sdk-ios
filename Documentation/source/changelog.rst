@@ -2,6 +2,15 @@
 Changelog
 =========
 
+1.1.0 (31-10-2018)
+==================
+
+Features
+--------
+
+- Added the possibility to add metadata information in document
+  uploads
+
 1.0.0 (06-07-2018)
 ==================
 

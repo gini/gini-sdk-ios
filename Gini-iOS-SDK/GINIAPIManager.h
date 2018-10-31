@@ -6,6 +6,7 @@
 @class BFTask;
 @class BFCancellationToken;
 @class GINIPartialDocumentInfo;
+@class GINIDocumentMetadata;
 @protocol GINIAPIManagerRequestFactory;
 @protocol GINIURLSession;
 
@@ -209,6 +210,29 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
                            docType:(NSString *)docType
                  cancellationToken:(BFCancellationToken *) cancellationToken;
 
+/**
+ * Creates a new document from the given NSData*.
+ *
+ * @param documentData      Data containing the document. This should be in a format that is supported by the Gini API, see
+ *                          [the Gini API documentation](http://developer.gini.net/gini-api/html/documents.html?highlight=put#supported-file-formats)
+ *                          for details.
+ * @param contentType       The content type of the document (as a MIME string).
+ * @param fileName          The filename of the document.
+ * @param docType           (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+ *                          [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
+ *                          for a list of possibles doctypes.
+ * @param metadata          (Optional) The document metadata containing any custom information regarding the upload (used later for reporting)
+ * @param cancellationToken Cancellation token used to cancel the current task.
+ *
+ * @returns                 A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ */
+- (BFTask *)uploadDocumentWithData:(NSData *)documentData
+                       contentType:(NSString *)contentType
+                          fileName:(NSString *)fileName
+                           docType:(NSString *)docType
+                          metadata:(GINIDocumentMetadata *)metadata
+                 cancellationToken:(BFCancellationToken *) cancellationToken;
+
 
 /**
  * Creates a new composite document
@@ -228,6 +252,28 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
 - (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
+                                          cancellationToken:(BFCancellationToken *) cancellationToken;
+
+/**
+ * Creates a new composite document
+ *
+ * See the [Gini API Documentation](Add documentation link).
+ *
+ * @param partialDocumentsInfo  Array containing the partial documents info. More info can be found [here](Add here documentation link)
+ * @param fileName              The filename of the document.
+ * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+ *                              [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
+ *                              for a list of possibles doctypes.
+ * @param metadata              (Optional) The document metadata containing any custom information regarding the upload (used later for reporting).
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ */
+
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
+                                                   fileName:(NSString *)fileName
+                                                    docType:(NSString *)docType
+                                                   metadata:(GINIDocumentMetadata *)metadata
                                           cancellationToken:(BFCancellationToken *) cancellationToken;
 
 

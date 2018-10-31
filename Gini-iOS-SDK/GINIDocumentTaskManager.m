@@ -67,16 +67,35 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                              fromImage:(UIImage *)image {
     return [self createDocumentWithFilename:fileName
                                   fromImage:image
-                                    docType:nil];
+                                   metadata:nil];
+}
+
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName
+                             fromImage:(UIImage *)image
+                              metadata:(GINIDocumentMetadata *)metadata {
+    return [self createDocumentWithFilename:fileName
+                                   fromImage:image
+                                    docType:@"image/jpeg"
+                                   metadata:metadata];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                              fromImage:(UIImage *)image
                                docType:(NSString *)docType {
     return [self createDocumentWithFilename:fileName
+                                   fromImage:image
+                                    docType:docType
+                                   metadata:nil];
+}
+
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName
+                             fromImage:(UIImage *)image
+                               docType:(NSString *)docType
+                              metadata:(GINIDocumentMetadata *)metadata {
+    return [self createDocumentWithFilename:fileName
                                    fromData:UIImageJPEGRepresentation(image, 0.2)
-                                    docType:@"image/jpeg"
-                          cancellationToken:nil];
+                                    docType:docType
+                                   metadata:metadata];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
@@ -85,12 +104,25 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     return [self createDocumentWithFilename:fileName
                                    fromData:data
                                     docType:docType
-                          cancellationToken:nil];
+                                   metadata:nil];
 }
 
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                               fromData:(NSData *)data
                                docType:(NSString *)docType
+                              metadata:(GINIDocumentMetadata *)metadata {
+    return [self createDocumentWithFilename:fileName
+                                   fromData:data
+                                    docType:docType
+                                   metadata:metadata
+                          cancellationToken:nil];
+}
+
+
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName
+                              fromData:(NSData *)data
+                               docType:(NSString *)docType
+                              metadata:metadata
                      cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([data isKindOfClass:[NSData class]]);
@@ -99,6 +131,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                                                   contentType:[data mimeType]
                                                      fileName:fileName
                                                       docType:docType
+                                                     metadata: metadata
                                             cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
@@ -109,6 +142,18 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 - (BFTask *)createPartialDocumentWithFilename:(NSString *)fileName
                                      fromData:(NSData *)data
                                       docType:(NSString *)docType
+                            cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createPartialDocumentWithFilename:fileName
+                                          fromData:data
+                                           docType:docType
+                                          metadata:nil
+                                 cancellationToken:cancellationToken];
+}
+
+- (BFTask *)createPartialDocumentWithFilename:(NSString *)fileName
+                                     fromData:(NSData *)data
+                                      docType:(NSString *)docType
+                                     metadata:(GINIDocumentMetadata *)metadata
                             cancellationToken:(BFCancellationToken *)cancellationToken {
     NSParameterAssert([fileName isKindOfClass:[NSString class]]);
     NSParameterAssert([data isKindOfClass:[NSData class]]);
@@ -126,6 +171,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                                                   contentType:contentType
                                                      fileName:fileName
                                                       docType:docType
+                                                     metadata:metadata
                                             cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
@@ -136,9 +182,21 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
                                           cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createCompositeDocumentWithPartialDocumentsInfo:partialDocumentsInfo
+                                                        fileName:fileName
+                                                         docType:docType
+                                                        metadata:nil
+                                               cancellationToken:cancellationToken];
+}
+
+- (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *> *)partialDocumentsInfo
+                                                   fileName:(NSString *)fileName docType:(NSString *)docType
+                                                   metadata:(GINIDocumentMetadata *)metadata
+                                          cancellationToken:(BFCancellationToken *)cancellationToken {
     BFTask* createTask = [[_apiManager createCompositeDocumentWithPartialDocumentsInfo:partialDocumentsInfo
                                                                               fileName:fileName
                                                                                docType:docType
+                                                                              metadata:metadata
                                                                      cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
