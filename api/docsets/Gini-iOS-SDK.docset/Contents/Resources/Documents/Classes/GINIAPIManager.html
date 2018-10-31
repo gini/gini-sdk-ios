@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gini-iOS-SDK Docs
         </a>
-         (58% documented)
+         (59% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -112,6 +112,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/GINIDocumentLinks.html">GINIDocumentLinks</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/GINIDocumentTaskManager.html">GINIDocumentTaskManager</a>
@@ -1314,6 +1317,128 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)GINIAPIManager(im)uploadDocumentWithData:contentType:fileName:docType:metadata:cancellationToken:"></a>
+                    <a name="//apple_ref/objc/Method/-uploadDocumentWithData:contentType:fileName:docType:metadata:cancellationToken:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIAPIManager(im)uploadDocumentWithData:contentType:fileName:docType:metadata:cancellationToken:">-uploadDocumentWithData:contentType:fileName:docType:metadata:cancellationToken:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new document from the given NSData*.</p>
+
+<p>@returns                 A<code>BFTask*</code> that will resolve to a NSString containing the created document&rsquo;s ID.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">uploadDocumentWithData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">documentData</span>
+                       <span class="nf">contentType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">contentType</span>
+                          <span class="nf">fileName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
+                           <span class="nf">docType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">docType</span>
+                          <span class="nf">metadata</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">metadata</span>
+                 <span class="nf">cancellationToken</span><span class="p">:(</span><span class="n"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cancellationToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">uploadDocument</span><span class="p">(</span><span class="n">withData</span> <span class="nv">documentData</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">metadata</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>documentData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Data containing the document. This should be in a format that is supported by the Gini API, see
+                      <a href="http://developer.gini.net/gini-api/html/documents.html?highlight=put#supported-file-formats">the Gini API documentation</a>
+                      for details.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>contentType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The content type of the document (as a MIME string).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The filename of the document.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>docType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>(Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+                      <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">Gini API documentation</a>
+                      for a list of possibles doctypes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>metadata</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>(Optional) The document metadata containing any custom information regarding the upload (used later for reporting)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cancellationToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Cancellation token used to cancel the current task.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)GINIAPIManager(im)createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:cancellationToken:"></a>
                     <a name="//apple_ref/objc/Method/-createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:cancellationToken:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)GINIAPIManager(im)createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:cancellationToken:">-createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:cancellationToken:</a>
@@ -1389,6 +1514,118 @@
                                   <p>(Optional) A doctype hint. This optimizes the processing at the Gini API. See the
                           <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">Gini API documentation</a>
                           for a list of possibles doctypes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cancellationToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Cancellation token used to cancel the current task.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIAPIManager(im)createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:metadata:cancellationToken:"></a>
+                    <a name="//apple_ref/objc/Method/-createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:metadata:cancellationToken:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIAPIManager(im)createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:metadata:cancellationToken:">-createCompositeDocumentWithPartialDocumentsInfo:fileName:docType:metadata:cancellationToken:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new composite document</p>
+
+<p>See the <a href="Add%20documentation%20link">Gini API Documentation</a>.</p>
+
+<p>@returns                     A<code>BFTask*</code> that will resolve to a NSString containing the created document&rsquo;s ID.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span>
+<span class="nf">createCompositeDocumentWithPartialDocumentsInfo</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/GINIPartialDocumentInfo.html">GINIPartialDocumentInfo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">partialDocumentsInfo</span>
+                                       <span class="nf">fileName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
+                                        <span class="nf">docType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">docType</span>
+                                       <span class="nf">metadata</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">metadata</span>
+                              <span class="nf">cancellationToken</span><span class="p">:</span>
+                                  <span class="p">(</span><span class="n"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cancellationToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createCompositeDocument</span><span class="p">(</span><span class="n">withPartialDocumentsInfo</span> <span class="nv">partialDocumentsInfo</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">metadata</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>partialDocumentsInfo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Array containing the partial documents info. More info can be found <a href="Add%20here%20documentation%20link">here</a></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The filename of the document.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>docType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>(Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+                          <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">Gini API documentation</a>
+                          for a list of possibles doctypes.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>metadata</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>(Optional) The document metadata containing any custom information regarding the upload (used later for reporting).</p>
                                 </div>
                               </td>
                             </tr>
@@ -2506,7 +2743,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2018 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2018-09-19)</p>
+      <p>&copy; 2018 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2018-10-31)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -43,8 +43,15 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentMetadata.h",
+      "line": 14,
+      "symbol": "GINIDocumentMetadata.headers",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentTaskManager.h",
-      "line": 156,
+      "line": 253,
       "symbol": "GINIDocumentTaskManager.-updateDocument:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
