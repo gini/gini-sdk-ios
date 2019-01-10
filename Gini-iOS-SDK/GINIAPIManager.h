@@ -49,7 +49,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @param requestFactory    The GINIAPIManagerRequestFactory used to create the HTTP requests. See the documentation for
  *                          the `<GINIAPIManagerRequestFactory> protocol for details.
  *
- * @param baseURL           A NSURL describing the base URL of the Gini API. Usually this URL is https://api.gini.net/.
+ * @param baseURL           A NSURL describing the base URL of the Gini API.
  *
  */
 + (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory baseURL:(NSURL *)baseURL;
@@ -61,7 +61,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @param requestFactory    The GINIAPIManagerRequestFactory used to create the HTTP requests. See the documentation for
  *                          the `<GINIAPIManagerRequestFactory> protocol for details.
  *
- * @param baseURL           A NSURL describing the base URL of the Gini API. Usually this URL is https://api.gini.net/.
+ * @param api               A GINIAPI instance containing the target api required information.
  *
  */
 + (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory api:(GINIAPI *)api;
@@ -483,11 +483,11 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  *                          communication.
  * @param requestFactory    An object that implements the <GINIAPIManagerRequestFactory>. Will be used to create request
  *                          objects with valid session credentials. @see GINIAPIManagerRequestFactory for details.
- * @param baseURL           The baseURL. The requests to the Gini API are relative to that URL, so it usually should be
- *                          set to a `NSURL*` pointing to 'https://api.gini.net'.
+ * @param api               A GINIAPI instance containing the target api required information.
+ *
  */
 - (instancetype)initWithURLSession:(id<GINIURLSession>)urlSession
                     requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory
-                           api:(GINIAPI *)api;
+                               api:(GINIAPI *)api;
 
 @end

@@ -39,6 +39,7 @@
  *                          you registered with Gini.
  *
  * @param clientID          The application's client ID for the Gini API.
+ * @param apiType           The `GINIAPIType` where the SDK will communicate to.
  */
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
@@ -69,6 +70,7 @@
  * @param clientID                The application's client ID for the Gini API.
  * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here:
  *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
+ * @param apiType                 The `GINIAPIType` where the SDK will communicate to.
  */
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
@@ -101,6 +103,7 @@
  * @param clientID          The application's client ID for the Gini API.
  *
  * @param clientSecret      The client secret you received from Gini.
+ * @param apiType           The `GINIAPIType` where the SDK will communicate to.
  */
 
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
@@ -138,6 +141,7 @@
  * @param clientSecret            The client secret you received from Gini.
  * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here:
  *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
+ * @param apiType           The `GINIAPIType` where the SDK will communicate to.
  */
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
                           clientSecret:(NSString *)clientSecret
@@ -163,8 +167,8 @@
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
  *
  * @param clientId          The application's clientID for the Gini API.
- *
  * @param emailDomain       The domain of the email address.
+ * @param apiType           The `GINIAPIType` where the SDK will communicate to.
  *
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.
@@ -199,6 +203,7 @@
  * @param emailDomain             The domain of the email address.
  * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here
  *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
+ * @param apiType                 The `GINIAPIType` where the SDK will communicate to.
  *
  * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
  * clients only.

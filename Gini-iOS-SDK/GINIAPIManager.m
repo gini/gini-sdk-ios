@@ -69,7 +69,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 - (instancetype)initWithURLSession:(id<GINIURLSession>)urlSession
                     requestFactory:(id<GINIAPIManagerRequestFactory>)requestFactory
-                           api:(GINIAPI *)api {
+                               api:(GINIAPI *)api {
     NSParameterAssert([requestFactory conformsToProtocol:@protocol(GINIAPIManagerRequestFactory)]);
     NSParameterAssert([api isKindOfClass:[GINIAPI class]]);
     NSParameterAssert([urlSession conformsToProtocol:@protocol(GINIURLSession)]);
@@ -95,8 +95,10 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 + (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession
                           requestFactory:(id<GINIAPIManagerRequestFactory>)requestFactory
-                                 api:(GINIAPI *)api {
-    return [[self alloc] initWithURLSession:urlSession requestFactory:requestFactory api:api];
+                                     api:(GINIAPI *)api {
+    return [[self alloc] initWithURLSession:urlSession
+                             requestFactory:requestFactory
+                                        api:api];
 }
 
 - (BFTask *)getDocument:(NSString *)documentId{
@@ -268,6 +270,8 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
                                                     docType:(NSString *)docType
                                                    metadata:(GINIDocumentMetadata *)metadata
                                           cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([_api.contentTypes valueForKey:GINIContentTypeCompositeJsonKey]);
+
     NSData *jsonDataFormatted = [self partialDocumentsJsonFormattedFromArray:partialDocumentsInfo];
     
     NSString *urlString = [NSString stringWithFormat:@"documents/?filename=%@", stringByEscapingString(fileName)];
@@ -348,7 +352,9 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 -(BFTask *)getIncubatorExtractionsForDocument:(NSString *)documentId
                             cancellationToken:(BFCancellationToken *)cancellationToken {
-    return [self getExtractionsForDocument:documentId withHeader:GINIIncubatorJson cancellationToken:cancellationToken];
+    return [self getExtractionsForDocument:documentId
+                                withHeader:[_api.contentTypes valueForKey:GINIContentTypeIncubatorJsonKey]
+                         cancellationToken:cancellationToken];
 }
 
 - (BFTask *)getExtractionsForDocument:(NSString *)documentId

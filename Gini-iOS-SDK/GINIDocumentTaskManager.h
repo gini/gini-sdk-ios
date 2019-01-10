@@ -77,7 +77,7 @@
  *                      the extractions may not yet exist.
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
-                             fromImage:(UIImage *)image __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+                             fromImage:(UIImage *)image __attribute__((deprecated("use createDocumentWithFilename:fromData:docType: method instead")));
 
 /**
  * Creates a new document from the given image.
@@ -92,7 +92,7 @@
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                              fromImage:(UIImage *)image
-                              metadata:(GINIDocumentMetadata *)metadata __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+                              metadata:(GINIDocumentMetadata *)metadata __attribute__((deprecated("use createDocumentWithFilename:fromData:docType: method instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given image. By providing the doctype, Gini's document
@@ -106,7 +106,7 @@
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                              fromImage:(UIImage *)image
-                               docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+                               docType:(NSString *)docType __attribute__((deprecated("use createDocumentWithFilename:fromData:docType: method instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given image. By providing the doctype, Gini's document
@@ -121,7 +121,7 @@
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                              fromImage:(UIImage *)image
                                docType:(NSString *)docType
-                              metadata:(GINIDocumentMetadata *)metadata  __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+                              metadata:(GINIDocumentMetadata *)metadata  __attribute__((deprecated("use createDocumentWithFilename:fromData:docType: method instead")));
 
 /**
  * Creates a new document with the given `doctype` from the given data.
@@ -141,7 +141,7 @@
  */
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                               fromData:(NSData *)data
-                               docType:(NSString *)docType __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+                               docType:(NSString *)docType;
 
 /**
  * Creates a new document with the given `doctype` from the given data.
@@ -163,7 +163,7 @@
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                               fromData:(NSData *)data
                                docType:(NSString *)docType
-                              metadata:(GINIDocumentMetadata *)metadata  __attribute__((deprecated("use createPartialDocumentWithFilename:fromData:docType:cancellationToken: method instead")));
+                              metadata:(GINIDocumentMetadata *)metadata;
 
 /**
  * Creates a new partial document with the given `doctype` from the given data.
@@ -250,7 +250,7 @@
                                           cancellationToken:(BFCancellationToken *) cancellationToken;
 
 
-- (BFTask *)updateDocument:(GINIDocument *)document __attribute__((deprecated("use updateDocument:updatedExtractions:cancellationToken method instead")));
+- (BFTask *)updateDocument:(GINIDocument *)document;
 
 /**
  * Saves updates on the extractions.
@@ -269,7 +269,7 @@
  *
  * @param document      The document that will be deleted.
  */
-- (BFTask *)deleteDocument:(GINIDocument *)document __attribute__((deprecated("use deleteCompositeDocumentWithId: method instead")));
+- (BFTask *)deleteDocument:(GINIDocument *)document;
 
 /**
  * Deletes the given document.
@@ -278,7 +278,7 @@
  * @param cancellationToken         Cancellation token used to cancel the current task.
  */
 - (BFTask *)deleteDocument:(GINIDocument *)document
-         cancellationToken:(BFCancellationToken *)cancellationToken __attribute__((deprecated("use deleteCompositeDocumentWithId: method instead")));
+         cancellationToken:(BFCancellationToken *)cancellationToken;
 
 /**
  * Deletes composite document with the given ID.
