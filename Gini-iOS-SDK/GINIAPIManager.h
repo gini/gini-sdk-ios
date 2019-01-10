@@ -9,6 +9,7 @@
 @class GINIDocumentMetadata;
 @protocol GINIAPIManagerRequestFactory;
 @protocol GINIURLSession;
+#import "GINIAPIType.h"
 
 
 /**
@@ -53,6 +54,17 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  */
 + (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory baseURL:(NSURL *)baseURL;
 
+/**
+ * Factory to create a new `GINIAPIManager` instance.
+ *
+ * @param urlSession        The GINIURLSession used to do the HTTP requests.
+ * @param requestFactory    The GINIAPIManagerRequestFactory used to create the HTTP requests. See the documentation for
+ *                          the `<GINIAPIManagerRequestFactory> protocol for details.
+ *
+ * @param baseURL           A NSURL describing the base URL of the Gini API. Usually this URL is https://api.gini.net/.
+ *
+ */
++ (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory baseURL:(NSURL *)baseURL apiType:(GINIAPIType)apiType;
 
 /**
  * Gets the document with the given ID.
@@ -463,5 +475,20 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
 - (instancetype)initWithURLSession:(id<GINIURLSession>)urlSession
                     requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory
                            baseURL:(NSURL *)baseURL;
+
+/**
+ * The designated initializer.
+ *
+ * @param urlSession        An object that implements the <GINIURLSession> protocol. Will be used to perform the HTTP
+ *                          communication.
+ * @param requestFactory    An object that implements the <GINIAPIManagerRequestFactory>. Will be used to create request
+ *                          objects with valid session credentials. @see GINIAPIManagerRequestFactory for details.
+ * @param baseURL           The baseURL. The requests to the Gini API are relative to that URL, so it usually should be
+ *                          set to a `NSURL*` pointing to 'https://api.gini.net'.
+ */
+- (instancetype)initWithURLSession:(id<GINIURLSession>)urlSession
+                    requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory
+                           baseURL:(NSURL *)baseURL
+                           apiType:(GINIAPIType)apiType;
 
 @end

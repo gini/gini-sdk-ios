@@ -21,7 +21,6 @@ NSString* const GINIPartialTypeV2 = @"application/vnd.gini.v2.partial+%@";
 NSString* const GINIIncubatorJson = @"application/vnd.gini.incubator+json";
 NSString* const GINIIncubatorXml = @"application/vnd.gini.incubator+xml";
 
-
 // Extraction keys
 
 NSString* const ExtractionAmountToPayKey = @"amountToPay";
