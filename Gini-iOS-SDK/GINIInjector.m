@@ -83,7 +83,6 @@ id GINIInjectorKey(id key) {
     _factories[GINIInjectorKey(key)] = value;
 }
 
-
 #pragma mark - Getting instances related methods
 - (id)getInstanceOf:(id)key {
     return [self getInstanceOf:key provideDependencies:nil];

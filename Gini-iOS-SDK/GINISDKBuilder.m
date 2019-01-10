@@ -7,6 +7,7 @@
 #import "GINISDKBuilder.h"
 #import "GiniSDK.h"
 #import "GINISessionManagerAnonymous.h"
+#import "GINIAPIFactory.h"
 
 
 NSString *const GINIEmailDomainKey = @"emailDomain";
@@ -16,11 +17,10 @@ GINIInjector* GINIDefaultInjector() {
     GINIInjector *injector = [GINIInjector new];
 
     // API Manager
-    [injector setObject:[NSURL URLWithString:@"https://api.gini.net/"] forKey:GINIInjectorAPIBaseURLKey];
-    [injector setSingletonFactory:@selector(apiManagerWithURLSession:requestFactory:baseURL:)
+    [injector setSingletonFactory:@selector(apiManagerWithURLSession:requestFactory:api:)
                                on:[GINIAPIManager class]
                            forKey:[GINIAPIManager class]
-                 withDependencies:@protocol(GINIURLSession), @protocol(GINIAPIManagerRequestFactory), GINIInjectorAPIBaseURLKey, nil];
+                 withDependencies:@protocol(GINIURLSession), @protocol(GINIAPIManagerRequestFactory), GINIInjectorAPIKey, nil];
     
     // URLSession
     [injector setFactory:@selector(urlSession:)
@@ -83,16 +83,35 @@ GINIInjector* GINIDefaultInjector() {
                               urlScheme:urlScheme
                  publicKeyPinningConfig:nil];
 }
+
++ (instancetype)clientFlowWithClientID:(NSString *)clientID urlScheme:(NSString *)urlScheme api:(GINIAPIType)apiType {
+    return [self clientFlowWithClientID:clientID
+                              urlScheme:urlScheme
+                 publicKeyPinningConfig:nil
+                                    api:apiType];
+}
+
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
                 publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig {
+    return [self clientFlowWithClientID:clientID
+                              urlScheme:urlScheme
+                 publicKeyPinningConfig:publicKeyPinningConfig
+                                    api:GINIAPITypeDefault];
+}
+
++ (instancetype)clientFlowWithClientID:(NSString *)clientID
+                             urlScheme:(NSString *)urlScheme
+                publicKeyPinningConfig:(NSDictionary<NSString *,id> *)publicKeyPinningConfig
+                                   api:(GINIAPIType)apiType {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
     
     return [[self alloc] initWithClientID:clientID
                                 urlScheme:urlScheme
                              clientSecret:nil
-                   publicKeyPinningConfig:publicKeyPinningConfig];
+                   publicKeyPinningConfig:publicKeyPinningConfig
+                                      api:apiType];
 }
 
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
@@ -107,7 +126,30 @@ GINIInjector* GINIDefaultInjector() {
 + (instancetype)serverFlowWithClientID:(NSString *)clientID
                           clientSecret:(NSString *)clientSecret
                              urlScheme:(NSString *)urlScheme
+                                   api:(GINIAPIType)apiType {
+    return [self serverFlowWithClientID:clientID
+                           clientSecret:clientSecret
+                              urlScheme:urlScheme
+                 publicKeyPinningConfig:nil
+                                    api:apiType];
+}
+
++ (instancetype)serverFlowWithClientID:(NSString *)clientID
+                          clientSecret:(NSString *)clientSecret
+                             urlScheme:(NSString *)urlScheme
                 publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig {
+    return [self serverFlowWithClientID:clientID
+                           clientSecret:clientSecret
+                              urlScheme:urlScheme
+                 publicKeyPinningConfig:publicKeyPinningConfig
+                                    api:GINIAPITypeDefault];
+}
+
++ (instancetype)serverFlowWithClientID:(NSString *)clientID
+                          clientSecret:(NSString *)clientSecret
+                             urlScheme:(NSString *)urlScheme
+                publicKeyPinningConfig:(NSDictionary<NSString *,id> *)publicKeyPinningConfig
+                                   api:(GINIAPIType)apiType {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
     NSParameterAssert([urlScheme isKindOfClass:[NSString class]]);
@@ -115,7 +157,8 @@ GINIInjector* GINIDefaultInjector() {
     GINISDKBuilder *instance = [[self alloc] initWithClientID:clientID
                                                     urlScheme:urlScheme
                                                  clientSecret:clientSecret
-                                       publicKeyPinningConfig:publicKeyPinningConfig];
+                                       publicKeyPinningConfig:publicKeyPinningConfig
+                                                          api:apiType];
     [instance useServerFlow];
     return instance;
 }
@@ -132,15 +175,39 @@ GINIInjector* GINIDefaultInjector() {
 + (instancetype)anonymousUserWithClientID:(NSString *)clientId
                              clientSecret:(NSString *)clientSecret
                           userEmailDomain:(NSString *)emailDomain
+                                      api:(GINIAPIType)apiType {
+    return [self anonymousUserWithClientID:clientId
+                              clientSecret:clientSecret
+                           userEmailDomain:emailDomain
+                    publicKeyPinningConfig:nil
+                                       api:apiType];
+}
+
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId
+                             clientSecret:(NSString *)clientSecret
+                          userEmailDomain:(NSString *)emailDomain
                    publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig {
+    return [self anonymousUserWithClientID:clientId
+                              clientSecret:clientSecret
+                           userEmailDomain:emailDomain
+                    publicKeyPinningConfig:publicKeyPinningConfig
+                                       api:GINIAPITypeDefault];
+}
+
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId
+                             clientSecret:(NSString *)clientSecret
+                          userEmailDomain:(NSString *)emailDomain
+                   publicKeyPinningConfig:(NSDictionary<NSString *,id> *)publicKeyPinningConfig
+                                      api:(GINIAPIType)apiType {
     NSParameterAssert([clientId isKindOfClass:[NSString class]]);
     NSParameterAssert([emailDomain isKindOfClass:[NSString class]]);
     NSParameterAssert([clientSecret isKindOfClass:[NSString class]]);
-
+    
     GINISDKBuilder *instance = [[self alloc] initWithClientID:clientId
                                                     urlScheme:nil
                                                  clientSecret:clientSecret
-                                       publicKeyPinningConfig:publicKeyPinningConfig];
+                                       publicKeyPinningConfig:publicKeyPinningConfig
+                                                          api:apiType];
     [instance useAnonymousUser:emailDomain];
     return instance;
 }
@@ -155,12 +222,18 @@ GINIInjector* GINIDefaultInjector() {
 - (instancetype)initWithClientID:(NSString *)clientID
                        urlScheme:(NSString *)urlScheme
                     clientSecret:(NSString *)clientSecret
-          publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig {
+          publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig
+                             api:(GINIAPIType)apiType {
     NSParameterAssert([clientID isKindOfClass:[NSString class]]);
 
     if (self = [super init]) {
         _injector = GINIDefaultInjector();
         [_injector setObject:clientID forKey:GINIInjectorClientIDKey];
+        
+        GINIAPI *api = [GINIAPIFactory apiWith:apiType];
+        [_injector setObject:api.baseUrl forKey:GINIInjectorAPIBaseURLKey];
+        [_injector setObject:api forKey:GINIInjectorAPIKey];
+
         if (urlScheme != nil) {
             [_injector setObject:urlScheme forKey:GINIInjectorURLSchemeKey];
         }
@@ -183,7 +256,6 @@ GINIInjector* GINIDefaultInjector() {
     }
     return self;
 }
-
 
 #pragma mark - Public Methods
 - (instancetype)useSandbox {

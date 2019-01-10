@@ -35,3 +35,13 @@ NSString* const ExtractionPaymentPurposeKey = @"paymentPurpose";
 NSString* const MetadataHeaderKeyPrefix = @"X-Document-Metadata-";
 NSString* const MetadataBranchIdHeaderKey = @"BranchId";
 
+// Content-Type keys
+
+NSString* const GINIContentTypeApplicationJsonKey = @"GINIContentTypeApplicationJsonKey";
+NSString* const GINIContentTypeApplicationXmlKey = @"GINIContentTypeApplicationXmlKey";
+NSString* const GINIContentTypeJsonKey = @"GINIContentTypeJsonKey";
+NSString* const GINIContentTypeXmlKey = @"GINIContentTypeXmlKey";
+NSString* const GINIContentTypeCompositeJsonKey = @"GINIContentTypeCompositeJsonKey";
+NSString* const GINIContentTypePartialTypeKey = @"GINIContentTypePartialTypeKey";
+NSString* const GINIContentTypeIncubatorJsonKey = @"GINIContentTypeIncubatorJsonKey";
+NSString* const GINIContentTypeIncubatorXmlKey = @"GINIContentTypeIncubatorXmlKey";

@@ -9,7 +9,7 @@
 @class GINIDocumentMetadata;
 @protocol GINIAPIManagerRequestFactory;
 @protocol GINIURLSession;
-#import "GINIAPIType.h"
+#import "GINIAPI.h"
 
 
 /**
@@ -64,7 +64,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @param baseURL           A NSURL describing the base URL of the Gini API. Usually this URL is https://api.gini.net/.
  *
  */
-+ (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory baseURL:(NSURL *)baseURL apiType:(GINIAPIType)apiType;
++ (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory api:(GINIAPI *)api;
 
 /**
  * Gets the document with the given ID.
@@ -488,7 +488,6 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  */
 - (instancetype)initWithURLSession:(id<GINIURLSession>)urlSession
                     requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory
-                           baseURL:(NSURL *)baseURL
-                           apiType:(GINIAPIType)apiType;
+                           api:(GINIAPI *)api;
 
 @end

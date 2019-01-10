@@ -39,7 +39,7 @@ FOUNDATION_EXPORT NSString *const GINIInjectorClientIDKey;
 FOUNDATION_EXPORT NSString *const GINIInjectorClientSecretKey;
 /// Use this key to identify the application's certificate paths in the injector.
 FOUNDATION_EXPORT NSString *const GINIInjectorCertificatePathsKey;
-
+FOUNDATION_EXPORT NSString *const GINIInjectorAPIKey;
 /**
  * The Gini SDK.
  */
