@@ -245,6 +245,29 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
                           metadata:(GINIDocumentMetadata *)metadata
                  cancellationToken:(BFCancellationToken *) cancellationToken;
 
+/**
+ * Creates a new partial document from the given NSData*.
+ *
+ * @param documentData          Data containing the document. This should be in a format that is supported by the Gini API, see
+ *                              [the Gini API documentation](http://developer.gini.net/gini-api/html/documents.html?highlight=put#supported-file-formats)
+ *                              for details.
+ * @param partialDocumentType   The content type of the document (as a MIME string).
+ * @param fileName              The filename of the document.
+ * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+ *                              [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
+ *                              for a list of possibles doctypes.
+ * @param metadata              (Optional) The document metadata containing any custom information regarding the upload (used later for reporting)
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ */
+- (BFTask *)createPartialDocumentWithData:(NSData *)documentData
+                              partialDocumentType:(NSString *)partialDocumentType
+                                 fileName:(NSString *)fileName
+                                  docType:(NSString *)docType
+                                 metadata:(GINIDocumentMetadata *)metadata
+                        cancellationToken:(BFCancellationToken *) cancellationToken;
+
 
 /**
  * Creates a new composite document

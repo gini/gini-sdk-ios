@@ -254,6 +254,25 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     } cancellationToken:cancellationToken];
 }
 
+- (BFTask *)createPartialDocumentWithData:(NSData *)documentData
+                      partialDocumentType:(NSString *)partialDocumentType
+                                 fileName:(NSString *)fileName
+                                  docType:(NSString *)docType
+                                 metadata:(GINIDocumentMetadata *)metadata
+                        cancellationToken:(BFCancellationToken *)cancellationToken {
+    NSParameterAssert([_api.contentTypes valueForKey:GINIContentTypePartialTypeKey]);
+    
+    NSString * contentType = [NSString stringWithFormat:[_api.contentTypes valueForKey:GINIContentTypePartialTypeKey],
+                              partialDocumentType];
+    
+    return [self uploadDocumentWithData:documentData
+                            contentType:contentType
+                               fileName:fileName
+                                docType:docType
+                               metadata:metadata
+                      cancellationToken:cancellationToken];
+}
+
 - (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
                                                    fileName:(NSString *)fileName
                                                     docType:(NSString *)docType
@@ -282,7 +301,8 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     NSURL *url = [NSURL URLWithString:urlString relativeToURL:_baseURL];
     return [[_requestFactory asynchronousRequestUrl:url withMethod:@"POST"] continueWithSuccessBlock:^id(BFTask *requestTask) {
         NSMutableURLRequest *request = requestTask.result;
-        [request setValue:GINICompositeJsonV2 forHTTPHeaderField:@"Content-Type"];
+        [request setValue:[self->_api.contentTypes
+                           valueForKey:GINIContentTypeCompositeJsonKey] forHTTPHeaderField:@"Content-Type"];
         
         [self addMetadata:metadata toRequest:request];
 
