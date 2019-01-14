@@ -180,6 +180,7 @@
  * @returns                         A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
  *                                  Please notice that it is very unlikely that the created document is already fully processed, so
  *                                  the extractions may not yet exist.
+ * @note                            Only available in default API.
  */
 - (BFTask *)createPartialDocumentWithFilename:(NSString *)fileName
                                      fromData:(NSData *)data
@@ -202,6 +203,7 @@
  * @returns                         A `BFTask*` that will resolve to a `GINIDocument` instance representing the created document.
  *                                  Please notice that it is very unlikely that the created document is already fully processed, so
  *                                  the extractions may not yet exist.
+ * @note                            Only available in default API.
  */
 - (BFTask *)createPartialDocumentWithFilename:(NSString *)fileName
                                      fromData:(NSData *)data
@@ -221,6 +223,7 @@
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ * @note                        Only available in default API.
  */
 
 - (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
@@ -241,6 +244,7 @@
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ * @note                        Only available in default API.
  */
 
 - (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo

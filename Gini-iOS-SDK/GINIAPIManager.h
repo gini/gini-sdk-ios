@@ -259,6 +259,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ * @note                        Only available in default API.
  */
 
 - (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo

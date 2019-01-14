@@ -9,7 +9,6 @@
 
 @interface GINIAPIFactory : NSObject
 
-
 + (GINIAPI *)apiWith:(GINIAPIType)apiType;
 
 @end
