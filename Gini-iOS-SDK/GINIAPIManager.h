@@ -9,6 +9,7 @@
 @class GINIDocumentMetadata;
 @protocol GINIAPIManagerRequestFactory;
 @protocol GINIURLSession;
+#import "GINIAPI.h"
 
 
 /**
@@ -48,11 +49,22 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @param requestFactory    The GINIAPIManagerRequestFactory used to create the HTTP requests. See the documentation for
  *                          the `<GINIAPIManagerRequestFactory> protocol for details.
  *
- * @param baseURL           A NSURL describing the base URL of the Gini API. Usually this URL is https://api.gini.net/.
+ * @param baseURL           A NSURL describing the base URL of the Gini API.
  *
  */
 + (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory baseURL:(NSURL *)baseURL;
 
+/**
+ * Factory to create a new `GINIAPIManager` instance.
+ *
+ * @param urlSession        The GINIURLSession used to do the HTTP requests.
+ * @param requestFactory    The GINIAPIManagerRequestFactory used to create the HTTP requests. See the documentation for
+ *                          the `<GINIAPIManagerRequestFactory> protocol for details.
+ *
+ * @param api               A GINIAPI instance containing the target api required information.
+ *
+ */
++ (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory api:(GINIAPI *)api;
 
 /**
  * Gets the document with the given ID.
@@ -233,6 +245,29 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
                           metadata:(GINIDocumentMetadata *)metadata
                  cancellationToken:(BFCancellationToken *) cancellationToken;
 
+/**
+ * Creates a new partial document from the given NSData*.
+ *
+ * @param documentData          Data containing the document. This should be in a format that is supported by the Gini API, see
+ *                              [the Gini API documentation](http://developer.gini.net/gini-api/html/documents.html?highlight=put#supported-file-formats)
+ *                              for details.
+ * @param partialDocumentType   The content type of the document (as a MIME string).
+ * @param fileName              The filename of the document.
+ * @param docType               (Optional) A doctype hint. This optimizes the processing at the Gini API. See the
+ *                              [Gini API documentation](http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype)
+ *                              for a list of possibles doctypes.
+ * @param metadata              (Optional) The document metadata containing any custom information regarding the upload (used later for reporting)
+ * @param cancellationToken     Cancellation token used to cancel the current task.
+ *
+ * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ */
+- (BFTask *)createPartialDocumentWithData:(NSData *)documentData
+                              partialDocumentType:(NSString *)partialDocumentType
+                                 fileName:(NSString *)fileName
+                                  docType:(NSString *)docType
+                                 metadata:(GINIDocumentMetadata *)metadata
+                        cancellationToken:(BFCancellationToken *) cancellationToken;
+
 
 /**
  * Creates a new composite document
@@ -247,6 +282,7 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
  * @param cancellationToken     Cancellation token used to cancel the current task.
  *
  * @returns                     A`BFTask*` that will resolve to a NSString containing the created document's ID.
+ * @note                        Only available in default API.
  */
 
 - (BFTask *)createCompositeDocumentWithPartialDocumentsInfo:(NSArray<GINIPartialDocumentInfo *>*)partialDocumentsInfo
@@ -463,5 +499,19 @@ typedef NS_ENUM(NSUInteger, GiniAPIResponseType){
 - (instancetype)initWithURLSession:(id<GINIURLSession>)urlSession
                     requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory
                            baseURL:(NSURL *)baseURL;
+
+/**
+ * The designated initializer.
+ *
+ * @param urlSession        An object that implements the <GINIURLSession> protocol. Will be used to perform the HTTP
+ *                          communication.
+ * @param requestFactory    An object that implements the <GINIAPIManagerRequestFactory>. Will be used to create request
+ *                          objects with valid session credentials. @see GINIAPIManagerRequestFactory for details.
+ * @param api               A GINIAPI instance containing the target api required information.
+ *
+ */
+- (instancetype)initWithURLSession:(id<GINIURLSession>)urlSession
+                    requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory
+                               api:(GINIAPI *)api;
 
 @end

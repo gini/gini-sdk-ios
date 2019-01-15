@@ -159,20 +159,19 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
     NSParameterAssert([data isKindOfClass:[NSData class]]);
     
     NSString* contentType = [data mimeType]; // i.e: image/jpeg
-    
     NSString* lastContentTypeComponent = [[contentType componentsSeparatedByString:@"/"] lastObject];
     NSString* concreteType = @"";  // i.e: jpeg
     if (lastContentTypeComponent != nil && [lastContentTypeComponent length] > 0) {
         concreteType = lastContentTypeComponent;
     }
-    contentType = [NSString stringWithFormat:GINIPartialTypeV2, concreteType];
     
-    BFTask *createTask = [[_apiManager uploadDocumentWithData:data
-                                                  contentType:contentType
-                                                     fileName:fileName
-                                                      docType:docType
-                                                     metadata:metadata
-                                            cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *createTask = [[_apiManager createPartialDocumentWithData:data
+                                                 partialDocumentType:concreteType
+                                                            fileName:fileName
+                                                             docType:docType
+                                                            metadata:metadata
+                                                   cancellationToken:cancellationToken]
+                          continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
     return GINIhandleHTTPerrors(createTask);
