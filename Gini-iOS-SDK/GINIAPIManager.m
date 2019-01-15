@@ -88,7 +88,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 + (instancetype)apiManagerWithURLSession:(id <GINIURLSession>)urlSession
                           requestFactory:(id <GINIAPIManagerRequestFactory>)requestFactory
                                  baseURL:(NSURL *)baseURL {
-    return [self apiManagerWithURLSession:urlSession
+    return [[self alloc] initWithURLSession:urlSession
                            requestFactory:requestFactory
                                   baseURL:baseURL];
 }
