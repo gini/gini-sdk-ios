@@ -11,6 +11,7 @@
 
 @class GiniSDK;
 @class GINIInjector;
+#import "GINIAPI.h"
 
 
 /**
@@ -37,6 +38,20 @@
  *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
  *                          you registered with Gini.
  *
+ * @param clientID          The application's client ID for the Gini API.
+ * @param apiType           The `GINIAPIType` the SDK connects to.
+ */
++ (instancetype)clientFlowWithClientID:(NSString *)clientID
+                             urlScheme:(NSString *)urlScheme
+                                   api:(GINIAPIType)apiType;
+
+/**
+ * Creates an instance of the GINISDKBuilder where the client authorization flow is used.
+ *
+ * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
+ *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
+ *                          you registered with Gini.
+ *
  * @param clientID                The application's client ID for the Gini API.
  * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here:
  *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
@@ -44,6 +59,24 @@
 + (instancetype)clientFlowWithClientID:(NSString *)clientID
                              urlScheme:(NSString *)urlScheme
                 publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig;
+
+/**
+ * Creates an instance of the GINISDKBuilder where the client authorization flow is used.
+ *
+ * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
+ *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
+ *                          you registered with Gini.
+ *
+ * @param clientID                The application's client ID for the Gini API.
+ * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here:
+ *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
+ * @param apiType                 The `GINIAPIType` the SDK connects to.
+ */
++ (instancetype)clientFlowWithClientID:(NSString *)clientID
+                             urlScheme:(NSString *)urlScheme
+                publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig
+                                   api:(GINIAPIType)apiType;
+
 /**
  * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
  *
@@ -69,6 +102,24 @@
  *
  * @param clientID          The application's client ID for the Gini API.
  *
+ * @param clientSecret      The client secret you received from Gini.
+ * @param apiType           The `GINIAPIType` the SDK connects to.
+ */
+
++ (instancetype)serverFlowWithClientID:(NSString *)clientID
+                          clientSecret:(NSString *)clientSecret
+                             urlScheme:(NSString *)urlScheme
+                                   api:(GINIAPIType)apiType;
+
+/**
+ * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
+ *
+ * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
+ *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
+ *                          you registered with Gini.
+ *
+ * @param clientID          The application's client ID for the Gini API.
+ *
  * @param clientSecret            The client secret you received from Gini.
  * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here:
  *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
@@ -77,6 +128,26 @@
                           clientSecret:(NSString *)clientSecret
                              urlScheme:(NSString *)urlScheme
                 publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig;
+
+/**
+ * Creates an instance of the GINISDKBuilder where the server authorization flow is used.
+ *
+ * @param urlScheme         The custom URL scheme of the application that is used for the authorization flow. It is used
+ *                          when the browser redirects back to the app after a login. Must be the same as the custom URL
+ *                          you registered with Gini.
+ *
+ * @param clientID          The application's client ID for the Gini API.
+ *
+ * @param clientSecret            The client secret you received from Gini.
+ * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here:
+ *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
+ * @param apiType           The `GINIAPIType` the SDK connects to.
+ */
++ (instancetype)serverFlowWithClientID:(NSString *)clientID
+                          clientSecret:(NSString *)clientSecret
+                             urlScheme:(NSString *)urlScheme
+                publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig
+                                   api:(GINIAPIType)apiType;
 
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
@@ -95,6 +166,21 @@
 /**
  * Creates an instance of the GINISDKBuilder where anonymous users are used.
  *
+ * @param clientId          The application's clientID for the Gini API.
+ * @param emailDomain       The domain of the email address.
+ * @param apiType           The `GINIAPIType` the SDK connects to.
+ *
+ * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
+ * clients only.
+ */
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId
+                             clientSecret:(NSString *)clientSecret
+                          userEmailDomain:(NSString *)emailDomain
+                                      api:(GINIAPIType)apiType;
+
+/**
+ * Creates an instance of the GINISDKBuilder where anonymous users are used.
+ *
  * @param clientId                The application's clientID for the Gini API.
  *
  * @param emailDomain             The domain of the email address.
@@ -108,6 +194,25 @@
                              clientSecret:(NSString *)clientSecret
                           userEmailDomain:(NSString *)emailDomain
                    publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig;
+
+/**
+ * Creates an instance of the GINISDKBuilder where anonymous users are used.
+ *
+ * @param clientId                The application's clientID for the Gini API.
+ *
+ * @param emailDomain             The domain of the email address.
+ * @param publicKeyPinningConfig  Public key pinning configuration. More information about available parameters can be found here
+ *                                https://datatheorem.github.io/TrustKit/documentation/Classes/TrustKit.html#/c:objc(cs)TrustKit(py)pinningValidator
+ * @param apiType                 The `GINIAPIType` the SDK connects to.
+ *
+ * @warning: This requires access to the Gini User Center API. Access to the User Center API is restricted to selected
+ * clients only.
+ */
++ (instancetype)anonymousUserWithClientID:(NSString *)clientId
+                             clientSecret:(NSString *)clientSecret
+                          userEmailDomain:(NSString *)emailDomain
+                   publicKeyPinningConfig:(NSDictionary<NSString *, id>  *)publicKeyPinningConfig
+                                      api:(GINIAPIType)apiType;
 
 /**
  * The GINIInjector instance which is used for the dependency injection.

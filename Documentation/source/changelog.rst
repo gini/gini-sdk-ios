@@ -2,6 +2,14 @@
 Changelog
 =========
 
+1.2.0 (16-01-2019)
+==================
+
+Features
+--------
+
+- Added support for the accounting API.
+
 1.1.0 (31-10-2018)
 ==================
 

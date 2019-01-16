@@ -25,3 +25,10 @@ extern NSString* const ExtractionPaymentPurposeKey;
 
 extern NSString* const MetadataHeaderKeyPrefix;
 extern NSString* const MetadataBranchIdHeaderKey;
+
+extern NSString* const GINIContentTypeJsonKey;
+extern NSString* const GINIContentTypeXmlKey;
+extern NSString* const GINIContentTypeCompositeJsonKey;
+extern NSString* const GINIContentTypePartialTypeKey;
+extern NSString* const GINIContentTypeIncubatorJsonKey;
+extern NSString* const GINIContentTypeIncubatorXmlKey;
