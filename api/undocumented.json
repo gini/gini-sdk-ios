@@ -1,6 +1,34 @@
 {
   "warnings": [
     {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIAPI.h",
+      "line": 18,
+      "symbol": "GINIAPI",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIAPI.h",
+      "line": 20,
+      "symbol": "GINIAPI.baseUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIAPI.h",
+      "line": 21,
+      "symbol": "GINIAPI.contentTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIAPI.h",
+      "line": 23,
+      "symbol": "GINIAPI.-initWithBaseURL:contentTypes:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentLinks.h",
       "line": 8,
       "symbol": "GINIDocumentLinks",
@@ -51,7 +79,7 @@
     },
     {
       "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentTaskManager.h",
-      "line": 253,
+      "line": 257,
       "symbol": "GINIDocumentTaskManager.-updateDocument:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
@@ -152,6 +180,13 @@
       "line": 12,
       "symbol": "GINIUser.userEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GiniSDK.h",
+      "line": 42,
+      "symbol": "GINIInjectorAPIKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
