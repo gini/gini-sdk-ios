@@ -8,7 +8,7 @@ Changelog
 Features
 --------
 
-- Added support with the accounting API.
+- Added support for the accounting API.
 
 1.1.0 (31-10-2018)
 ==================
