@@ -110,6 +110,17 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 - (BFTask *)createDocumentWithFilename:(NSString *)fileName
                               fromData:(NSData *)data
                                docType:(NSString *)docType
+                     cancellationToken:(BFCancellationToken *)cancellationToken {
+    return [self createDocumentWithFilename:fileName
+                                   fromData:data
+                                    docType:docType
+                                   metadata:nil
+                          cancellationToken:cancellationToken];
+}
+
+- (BFTask *)createDocumentWithFilename:(NSString *)fileName
+                              fromData:(NSData *)data
+                               docType:(NSString *)docType
                               metadata:(GINIDocumentMetadata *)metadata {
     return [self createDocumentWithFilename:fileName
                                    fromData:data
@@ -131,7 +142,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
                                                   contentType:[data mimeType]
                                                      fileName:fileName
                                                       docType:docType
-                                                     metadata: metadata
+                                                     metadata:metadata
                                             cancellationToken:cancellationToken] continueWithSuccessBlock:^id(BFTask *task) {
         return [GINIDocument documentFromAPIResponse:task.result withDocumentManager:self];
     }];
