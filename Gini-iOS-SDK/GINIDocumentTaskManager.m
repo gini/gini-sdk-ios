@@ -338,7 +338,7 @@ BFTask*GINIhandleHTTPerrors(BFTask *originalTask){
 - (BFTask *)updateDocument:(GINIDocument *)document {
     NSParameterAssert([document isKindOfClass:[GINIDocument class]]);
     
-    BFTask *updateTask = [[document extractions] continueWithSuccessBlock:^id(BFTask *task) {
+    BFTask *updateTask = [[self getExtractionsForDocument: document] continueWithSuccessBlock:^id(BFTask *task) {
         NSDictionary *extractions = task.result;
         NSMutableDictionary *updateExtractions = [NSMutableDictionary new];
         
