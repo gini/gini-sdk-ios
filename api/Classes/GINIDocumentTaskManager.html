@@ -945,6 +945,105 @@ knows the doctype.
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromData:docType:cancellationToken:"></a>
+                    <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromData:docType:cancellationToken:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromData:docType:cancellationToken:">-createDocumentWithFilename:fromData:docType:cancellationToken:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new document with the given <code>doctype</code> from the given data.
+ Data can be in the format of a PDF, UTF-8 text or image representation.
+ By providing the doctype, Gini&rsquo;s document processing is optimized in many ways.</p>
+
+<p>See the <a href="http://developer.gini.net/gini-api/html/documents.html#document-type-hints">Gini API documentation</a> for
+ details and <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">a list of available doctypes</a>.</p>
+
+<p>@returns                         A <code>BFTask*</code> that will resolve to a <code><a href="../Classes/GINIDocument.html">GINIDocument</a></code> instance representing the created document.
+                                  Please notice that it is very unlikely that the created document is already fully processed, so
+                                  the extractions may not yet exist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">createDocumentWithFilename</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
+                              <span class="nf">fromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+                               <span class="nf">docType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">docType</span>
+                     <span class="nf">cancellationToken</span><span class="p">:(</span><span class="n"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cancellationToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">from</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The file name of the document.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Data representing the document.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>docType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The doctype hint for the document <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">Possible values</a>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cancellationToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Cancellation token used to cancel the current task.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromData:docType:metadata:"></a>
                     <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromData:docType:metadata:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromData:docType:metadata:">-createDocumentWithFilename:fromData:docType:metadata:</a>
@@ -1032,6 +1131,118 @@ knows the doctype.
                               <td>
                                 <div>
                                   <p>(Optional) The document metadata containing any custom information regarding the upload (used later for reporting).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromData:docType:metadata:cancellationToken:"></a>
+                    <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromData:docType:metadata:cancellationToken:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromData:docType:metadata:cancellationToken:">-createDocumentWithFilename:fromData:docType:metadata:cancellationToken:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new document with the given <code>doctype</code> from the given data.
+ Data can be in the format of a PDF, UTF-8 text or image representation.
+ By providing the doctype, Gini&rsquo;s document processing is optimized in many ways.</p>
+
+<p>See the <a href="http://developer.gini.net/gini-api/html/documents.html#document-type-hints">Gini API documentation</a> for
+ details and <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">a list of available doctypes</a>.</p>
+
+<p>@returns                         A <code>BFTask*</code> that will resolve to a <code><a href="../Classes/GINIDocument.html">GINIDocument</a></code> instance representing the created document.
+                                  Please notice that it is very unlikely that the created document is already fully processed, so
+                                  the extractions may not yet exist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">createDocumentWithFilename</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
+                              <span class="nf">fromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+                               <span class="nf">docType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">docType</span>
+                              <span class="nf">metadata</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">metadata</span>
+                     <span class="nf">cancellationToken</span><span class="p">:(</span><span class="n"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cancellationToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createDocument</span><span class="p">(</span><span class="n">withFilename</span> <span class="nv">fileName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">from</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="o">!</span><span class="p">,</span> <span class="nv">docType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">metadata</span><span class="p">:</span> <span class="kt"><a href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">cancellationToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/BFTask.html">BFTask</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The file name of the document.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Data representing the document.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>docType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The doctype hint for the document <a href="http://developer.gini.net/gini-api/html/entity_reference.html#extraction-entity-doctype">Possible values</a>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>metadata</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>(Optional) The document metadata containing any custom information regarding the upload (used later for reporting).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cancellationToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Cancellation token used to cancel the current task.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2839,7 +3050,7 @@ knows the doctype.
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2019-01-16)</p>
+      <p>&copy; 2019 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2019-01-17)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

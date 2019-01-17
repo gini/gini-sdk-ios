@@ -79,7 +79,7 @@
     },
     {
       "file": "/Users/mobilecd/.jenkins/workspace/gini_gini-sdk-ios_master-S7TSYUTBTI6SPMXK5FYXEBFMPKPV2XOQ3VMLNPUIMS4REND52PAA/Gini-iOS-SDK/GINIDocumentTaskManager.h",
-      "line": 257,
+      "line": 305,
       "symbol": "GINIDocumentTaskManager.-updateDocument:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
