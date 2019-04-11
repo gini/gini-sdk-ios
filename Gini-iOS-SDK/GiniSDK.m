@@ -57,5 +57,10 @@ NSString *const GINIInjectorAPIKey = @"API";
     return _documentTaskManager;
 }
 
+- (void)removeStoredCredentials {
+    GINIKeychainCredentialsStore *store = [_injector getInstanceOf:@protocol(GINICredentialsStore)];
+    [store removeCredentials];
+}
+
 
 @end
