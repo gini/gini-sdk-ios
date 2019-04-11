@@ -80,4 +80,7 @@ FOUNDATION_EXPORT NSString *const GINIInjectorAPIKey;
  */
 @property (readonly) GINIDocumentTaskManager *documentTaskManager;
 
+/// Removes the user stored credentials. Recommended when logging a different user in your app.
+- (void)removeStoredCredentials;
+
 @end
