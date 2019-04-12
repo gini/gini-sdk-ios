@@ -655,13 +655,18 @@
                     <code>
                     <a name="/c:objc(cs)GINIDocument(py)extractions"></a>
                     <a name="//apple_ref/objc/Property/extractions" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocument(py)extractions">extractions</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocument(py)extractions">extractions</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>use <code>GINIDocumentTaskManager.getExtractionsForDocument:</code> method instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>A <code>BFTask*</code> resolving to a mapping with extractions (extraction name as key).</p>
 
@@ -687,13 +692,18 @@
                     <code>
                     <a name="/c:objc(cs)GINIDocument(py)candidates"></a>
                     <a name="//apple_ref/objc/Property/candidates" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocument(py)candidates">candidates</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocument(py)candidates">candidates</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>use <code>GINIDocumentTaskManager.getCandidatesForDocument:</code> method instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>A <code>BFTask*</code> resolving to a mapping with the candidates (extraction entity as key).</p>
 
@@ -719,13 +729,18 @@
                     <code>
                     <a name="/c:objc(cs)GINIDocument(py)layout"></a>
                     <a name="//apple_ref/objc/Property/layout" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocument(py)layout">layout</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocument(py)layout">layout</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>use <code>GINIDocumentTaskManager.getLayoutForDocument:</code> method instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>A <code>BFTask*</code> resolving to a dictionary with the layout of the document.</p>
 
@@ -831,14 +846,15 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span>
-          <span class="nf">initWithId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">documentId</span>
-               <span class="nf">state</span><span class="p">:(</span><span class="n"><a href="../Enums/GiniDocumentState.html">GiniDocumentState</a></span><span class="p">)</span><span class="nv">state</span>
-           <span class="nf">pageCount</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">pageCount</span>
-<span class="nf">sourceClassification</span><span class="p">:(</span><span class="n"><a href="../Enums/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a></span><span class="p">)</span><span class="nv">sourceClassification</span>
-               <span class="nf">links</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocumentLinks.html">GINIDocumentLinks</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">links</span>
-  <span class="nf">compositeDocuments</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">compositeDocuments</span>
-<span class="nf">partialDocumentInfos</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/GINIPartialDocumentInfo.html">GINIPartialDocumentInfo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">partialDocumentInfos</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">documentId</span>
+                     <span class="nf">state</span><span class="p">:(</span><span class="n"><a href="../Enums/GiniDocumentState.html">GiniDocumentState</a></span><span class="p">)</span><span class="nv">state</span>
+                 <span class="nf">pageCount</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">pageCount</span>
+      <span class="nf">sourceClassification</span><span class="p">:</span>
+          <span class="p">(</span><span class="n"><a href="../Enums/GiniDocumentSourceClassification.html">GiniDocumentSourceClassification</a></span><span class="p">)</span><span class="nv">sourceClassification</span>
+                     <span class="nf">links</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocumentLinks.html">GINIDocumentLinks</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">links</span>
+        <span class="nf">compositeDocuments</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">compositeDocuments</span>
+      <span class="nf">partialDocumentInfos</span><span class="p">:</span>
+          <span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/GINIPartialDocumentInfo.html">GINIPartialDocumentInfo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">partialDocumentInfos</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -946,13 +962,18 @@
                     <code>
                     <a name="/c:objc(cs)GINIDocument(im)initWithId:state:pageCount:sourceClassification:documentManager:"></a>
                     <a name="//apple_ref/objc/Method/-initWithId:state:pageCount:sourceClassification:documentManager:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocument(im)initWithId:state:pageCount:sourceClassification:documentManager:">-initWithId:state:pageCount:sourceClassification:documentManager:</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocument(im)initWithId:state:pageCount:sourceClassification:documentManager:">-initWithId:state:pageCount:sourceClassification:documentManager:</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>use <code>initWithId:state:pageCount:sourceClassification:links:compositeDocuments:partialDocuments:</code> initializer instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>The designated initializer.</p>
 
@@ -1050,13 +1071,18 @@
                     <code>
                     <a name="/c:objc(cs)GINIDocument(im)previewWithSize:forPage:"></a>
                     <a name="//apple_ref/objc/Method/-previewWithSize:forPage:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocument(im)previewWithSize:forPage:">-previewWithSize:forPage:</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocument(im)previewWithSize:forPage:">-previewWithSize:forPage:</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Use <code>GINIDocumentTaskManager.getPreviewForPage:ofDocument:withSize:</code> method instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Gets the preview image for the given page.</p>
 
@@ -1118,8 +1144,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2019-01-18)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2019-04-12)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -2,6 +2,14 @@
 Changelog
 =========
 
+1.3.0 (11-04-2019)
+==================
+
+Features
+--------
+
+- Added method to remove stored credentials in `GiniSDK`.
+
 1.2.0 (16-01-2019)
 ==================
 

@@ -623,13 +623,18 @@
                     <code>
                     <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:"></a>
                     <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromImage:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:">-createDocumentWithFilename:fromImage:</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:">-createDocumentWithFilename:fromImage:</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>use createDocumentWithFilename:fromData:docType: method instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Creates a new document from the given image.</p>
 
@@ -691,13 +696,18 @@
                     <code>
                     <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:metadata:"></a>
                     <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromImage:metadata:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:metadata:">-createDocumentWithFilename:fromImage:metadata:</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:metadata:">-createDocumentWithFilename:fromImage:metadata:</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>use createDocumentWithFilename:fromData:docType: method instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Creates a new document from the given image.</p>
 
@@ -772,13 +782,18 @@
                     <code>
                     <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:docType:"></a>
                     <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromImage:docType:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:docType:">-createDocumentWithFilename:fromImage:docType:</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:docType:">-createDocumentWithFilename:fromImage:docType:</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>use createDocumentWithFilename:fromData:docType: method instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Creates a new document with the given <code>doctype</code> from the given image. By providing the doctype, Gini&rsquo;s document
  processing is optimized in many ways.</p>
@@ -816,13 +831,18 @@ knows the doctype.
                     <code>
                     <a name="/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:docType:metadata:"></a>
                     <a name="//apple_ref/objc/Method/-createDocumentWithFilename:fromImage:docType:metadata:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:docType:metadata:">-createDocumentWithFilename:fromImage:docType:metadata:</a>
+                    <a class="token discouraged" href="#/c:objc(cs)GINIDocumentTaskManager(im)createDocumentWithFilename:fromImage:docType:metadata:">-createDocumentWithFilename:fromImage:docType:metadata:</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>use createDocumentWithFilename:fromData:docType: method instead</p>
+
+                      </div>
                       <div class="abstract">
                         <p>Creates a new document with the given <code>doctype</code> from the given image. By providing the doctype, Gini&rsquo;s document
  processing is optimized in many ways.</p>
@@ -1606,13 +1626,14 @@ knows the doctype.
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/BFTask.html">BFTask</a></span> <span class="o">*</span><span class="p">)</span>
-<span class="nf">createCompositeDocumentWithPartialDocumentsInfo</span><span class="p">:</span>
-    <span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/GINIPartialDocumentInfo.html">GINIPartialDocumentInfo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">partialDocumentsInfo</span>
-                                       <span class="nf">fileName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
-                                        <span class="nf">docType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">docType</span>
-                                       <span class="nf">metadata</span><span class="p">:(</span><span class="n"><a href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">metadata</span>
-                              <span class="nf">cancellationToken</span><span class="p">:</span>
-                                  <span class="p">(</span><span class="n"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cancellationToken</span><span class="p">;</span></code></pre>
+    <span class="nf">createCompositeDocumentWithPartialDocumentsInfo</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/GINIPartialDocumentInfo.html">GINIPartialDocumentInfo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">partialDocumentsInfo</span>
+                                           <span class="nf">fileName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">fileName</span>
+                                            <span class="nf">docType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">docType</span>
+                                           <span class="nf">metadata</span><span class="p">:</span>
+                                               <span class="p">(</span><span class="n"><a href="../Classes/GINIDocumentMetadata.html">GINIDocumentMetadata</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">metadata</span>
+                                  <span class="nf">cancellationToken</span><span class="p">:</span>
+                                      <span class="p">(</span><span class="n"><a href="../Classes/BFCancellationToken.html">BFCancellationToken</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">cancellationToken</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -3050,8 +3071,8 @@ knows the doctype.
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2019-01-18)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2019 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini</a>. All rights reserved. (Last updated: 2019-04-12)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
