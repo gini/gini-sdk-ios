@@ -5,11 +5,11 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - Gini-iOS-SDK (1.2.0):
-    - Gini-iOS-SDK/Core (= 1.2.0)
-  - Gini-iOS-SDK/Core (1.2.0):
+  - Gini-iOS-SDK (1.3.1):
+    - Gini-iOS-SDK/Core (= 1.3.1)
+  - Gini-iOS-SDK/Core (1.3.1):
     - Bolts (~> 1.9)
-  - Gini-iOS-SDK/Pinning (1.2.0):
+  - Gini-iOS-SDK/Pinning (1.3.1):
     - Bolts (~> 1.9)
     - TrustKit (~> 1.5)
   - Kiwi (2.4.0)
@@ -21,7 +21,7 @@ DEPENDENCIES:
   - Kiwi (~> 2.4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Bolts
     - Kiwi
     - TrustKit
@@ -32,10 +32,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Gini-iOS-SDK: 6dd0d7e15c42fb3db4ee8d3a4e78a017e460296c
+  Gini-iOS-SDK: 3b2b1d223dc655c57bcad488d2b2f60ee0df816d
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   TrustKit: b2bd5cb6a69cb17a95af87af327ecaa93c8da4bd
 
 PODFILE CHECKSUM: 0dbabbd31fc2a03f4c7c928185f82a5ee842dc13
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.3

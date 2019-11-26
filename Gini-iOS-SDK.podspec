@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name     = 'Gini-iOS-SDK'
-s.version  = '1.3.0'
+s.version  = '1.3.1'
 s.license  = 'MIT'
 s.summary  = 'An SDK for integrating the Gini technology into other apps.'
 s.homepage = 'https://github.com/gini/gini-sdk-ios'
