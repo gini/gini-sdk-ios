@@ -134,9 +134,14 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
         // Incorrect user credentials.
         if (loginTask.error && [loginTask.error isKindOfClass:[GINIHTTPError class]]) {
             GINIHTTPError *error = (GINIHTTPError *) loginTask.error;
-            if ([error.response.data[@"error"] isEqualToString:@"invalid_grant"]) {
-                [self->_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
-                return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorInvalidCredentials userInfo:nil]];
+            
+            if ([error.response.data isKindOfClass:[NSDictionary class]] &&
+                [error.response.data[@"error"] isKindOfClass:[NSString class]]) {
+                
+                if ([error.response.data[@"error"] isEqualToString:@"invalid_grant"]) {
+                    [self->_notificationCenter postNotificationName:GINILoginErrorNotification object:nil];
+                    return [BFTask taskWithError:[GINIError errorWithCode:GINIErrorInvalidCredentials userInfo:nil]];
+                }
             }
         }
 
