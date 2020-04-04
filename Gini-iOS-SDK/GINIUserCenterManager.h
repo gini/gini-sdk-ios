@@ -49,6 +49,9 @@ extern NSString *const GINILoginErrorNotification;
  */
 - (instancetype)initWithURLSession:(id <GINIURLSession>)urlSession clientID:(NSString *)clientID clientSecret:(NSString *)clientSecret baseURL:(NSURL *)baseURL notificationCenter:(NSNotificationCenter *)notificationCenter;
 
+/// The base URL of the Gini OAuth server
+@property (readonly) NSURL *baseURL;
+
 /** @name Methods */
 /**
  * Gets the information on the user with the given unique ID.

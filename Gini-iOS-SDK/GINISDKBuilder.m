@@ -17,10 +17,10 @@ GINIInjector* GINIDefaultInjector() {
     GINIInjector *injector = [GINIInjector new];
 
     // API Manager
-    [injector setSingletonFactory:@selector(apiManagerWithURLSession:requestFactory:api:)
+    [injector setSingletonFactory:@selector(apiManagerWithURLSession:requestFactory:baseURL:api:)
                                on:[GINIAPIManager class]
                            forKey:[GINIAPIManager class]
-                 withDependencies:@protocol(GINIURLSession), @protocol(GINIAPIManagerRequestFactory), GINIInjectorAPIKey, nil];
+                 withDependencies:@protocol(GINIURLSession), @protocol(GINIAPIManagerRequestFactory), GINIInjectorAPIBaseURLKey ,GINIInjectorAPIKey, nil];
     
     // URLSession
     [injector setFactory:@selector(urlSession:)
@@ -269,6 +269,15 @@ GINIInjector* GINIDefaultInjector() {
     return self;
 }
 
+- (instancetype)useApiBaseUrl:(NSURL *)baseUrl {
+    [_injector setObject:baseUrl forKey:GINIInjectorAPIBaseURLKey];
+    return self;
+}
+
+- (instancetype)useUserCenterApiBaseUrl:(NSURL *)baseUrl {
+    [_injector setObject:baseUrl forKey:GINIInjectorUserBaseURLKey];
+    return self;
+}
 
 - (GiniSDK *)build {
     return [[GiniSDK alloc] initWithInjector:_injector];

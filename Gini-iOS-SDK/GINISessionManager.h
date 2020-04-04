@@ -56,9 +56,6 @@ extern NSStringEncoding const GINIStringEncoding;
     /// The client ID given by Gini.
     NSString* _clientID;
 
-    /// The base URL of the Gini OAuth server
-    NSURL *_baseURL;
-
     /// The application scheme used for the redirection to the app once the on-browser authorization finishes.
     NSString *_appScheme;
 
@@ -75,6 +72,9 @@ extern NSStringEncoding const GINIStringEncoding;
     /// The logIn state. A unique string to identify which login task was used on the redirection to the OAuth server.
     NSString *_activeLogInState;
 }
+
+/// The base URL of the Gini OAuth server
+@property (readonly) NSURL *baseURL;
 
 /**
 *  Creates a manager that uses client-side authorization flow.
