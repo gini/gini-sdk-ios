@@ -25,7 +25,6 @@ NSString *const GINILoginErrorNotification = @"LoginErrorNotification";
     id<GINIURLSession> _urlSession;
     NSString *_clientID;
     NSString *_clientSecret;
-    NSURL *_baseURL;
     NSNotificationCenter *_notificationCenter;
 
     /**

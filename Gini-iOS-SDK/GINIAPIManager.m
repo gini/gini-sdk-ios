@@ -29,12 +29,6 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 
 @implementation GINIAPIManager {
-    /**
-     * The base url to which the requests are made, e.g. https://api-sandbox.gini.net/ or https://api.gini.net. All
-     * methods request the data from the API server with the given URL.
-     */
-    NSURL *_baseURL;
-    
     GINIAPI *_api;
 
     /**
@@ -69,6 +63,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 - (instancetype)initWithURLSession:(id<GINIURLSession>)urlSession
                     requestFactory:(id<GINIAPIManagerRequestFactory>)requestFactory
+                           baseURL:(NSURL *)baseURL
                                api:(GINIAPI *)api {
     NSParameterAssert([requestFactory conformsToProtocol:@protocol(GINIAPIManagerRequestFactory)]);
     NSParameterAssert([api isKindOfClass:[GINIAPI class]]);
@@ -76,7 +71,7 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
     
     self = [super init];
     if (self) {
-        _baseURL = api.baseUrl;
+        _baseURL = baseURL;
         _requestFactory = requestFactory;
         _urlSession = urlSession;
         _api = api;
@@ -95,9 +90,11 @@ NSString *GINIPreviewSizeString(GiniApiPreviewSize previewSize) {
 
 + (instancetype)apiManagerWithURLSession:(id<GINIURLSession>)urlSession
                           requestFactory:(id<GINIAPIManagerRequestFactory>)requestFactory
+                                 baseURL:(NSURL *)baseURL
                                      api:(GINIAPI *)api {
     return [[self alloc] initWithURLSession:urlSession
                              requestFactory:requestFactory
+                                    baseURL:baseURL
                                         api:api];
 }
 

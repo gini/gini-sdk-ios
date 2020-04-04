@@ -66,4 +66,7 @@ extern NSString *const GINIUsingExistingUserNotification;
  */
 @property id<GINICredentialsStore> credentialsStore;
 
+/// The user center manager which is used to manage the user accounts.
+@property (readonly) GINIUserCenterManager *userCenterManager;
+
 @end

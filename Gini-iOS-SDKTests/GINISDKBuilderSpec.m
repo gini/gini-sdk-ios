@@ -4,6 +4,7 @@
 #import "GINISessionManagerClientFlow.h"
 #import "GINISessionManagerServerFlow.h"
 #import "GINISessionManagerAnonymous.h"
+#import "GINIURLSessionMock.h"
 
 
 SPEC_BEGIN(GINISDKBuilderSpec)
@@ -191,6 +192,53 @@ SPEC_BEGIN(GINISDKBuilderSpec)
                 [[[[sessionManager valueForKey:@"_userCenterManager"] valueForKey:@"_notificationCenter"] should] equal:notificationCenter];
             });
         });
+    
+       context(@"The useApiBaseUrl: method", ^{
+           it(@"should set a custom base url", ^{
+
+               GINISDKBuilder *builder = [GINISDKBuilder anonymousUserWithClientID:@"foobar"
+                                                                      clientSecret:@"1234"
+                                                                   userEmailDomain:@"@example.com"
+                                                                               api:GINIAPITypeDefault];
+               
+               [builder useApiBaseUrl:[NSURL URLWithString:@"https://custom.domain.com"]];
+
+               GiniSDK *sdk = [builder build];
+               
+               [[[sdk.APIManager.baseURL absoluteString] should] equal:@"https://custom.domain.com"];
+           });
+       });
+             
+       context(@"The useUserCenterApiBaseUrl: method", ^{
+           it(@"should set a custom base url for the anonymous user authorization flow", ^{
+  
+               GINISDKBuilder *builder = [GINISDKBuilder anonymousUserWithClientID:@"foobar"
+                                                                      clientSecret:@"1234"
+                                                                   userEmailDomain:@"@example.com"
+                                                                               api:GINIAPITypeDefault];
+             
+               [builder useUserCenterApiBaseUrl:[NSURL URLWithString:@"https://custom.domain.com"]];
+
+               GiniSDK *sdk = [builder build];
+             
+               GINISessionManagerAnonymous *sessionManager = (id) sdk.sessionManager;
+               [[[sessionManager.userCenterManager.baseURL absoluteString] should] equal:@"https://custom.domain.com"];
+           });
+        
+           it(@"should set a custom base url for the client authorization flow", ^{
+        
+               GINISDKBuilder *builder = [GINISDKBuilder clientFlowWithClientID:@"foobar"
+                                                                      urlScheme:@"foobar"
+                                                                            api:GINIAPITypeDefault];
+           
+               [builder useUserCenterApiBaseUrl:[NSURL URLWithString:@"https://custom.domain.com"]];
+
+               GiniSDK *sdk = [builder build];
+           
+               GINISessionManagerClientFlow *sessionManager = (id) sdk.sessionManager;
+               [[[sessionManager.baseURL absoluteString] should] equal:@"https://custom.domain.com"];
+            });
+       });
 
     });
 

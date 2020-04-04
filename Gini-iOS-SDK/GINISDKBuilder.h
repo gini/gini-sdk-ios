@@ -237,6 +237,16 @@
 - (instancetype)useNotificationCenter:(NSNotificationCenter *)notificationCenter;
 
 /**
+ * Set a custom Gini API base url.
+ */
+- (instancetype)useApiBaseUrl:(NSURL *)baseUrl;
+
+/**
+ * Set a custom Gini User Center API base url. Used by the anonymous user authorization flow and the client authorization flow.
+ */
+- (instancetype)useUserCenterApiBaseUrl:(NSURL *)baseUrl;
+
+/**
  * Creates and returns the GiniSDK instance.
  */
 - (GiniSDK *)build;

@@ -19,9 +19,6 @@ NSString *const GINIUsingExistingUserNotification = @"UsingExistingUserNotificat
     /// The credentials store which is used to store the user accounts.
     id<GINICredentialsStore> _credentialsStore;
 
-    /// The user center manager which is used to manage the user accounts.
-    GINIUserCenterManager *_userCenterManager;
-
     /// The domain of the email address of new users.
     NSString *_emailDomain;
 
